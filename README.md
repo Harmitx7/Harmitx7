@@ -1,16 +1,16 @@
 <div align="center">
 
 <!-- Animated Header with Gradient Text -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Harmit%20Kalal&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Harmit%20Kalal&fontSize=42&fontColor=fff&animation=twinkling"/>
 
 <!-- Animated Typing Bio -->
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=28&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&multiline=true&repeat=false&width=800&height=100&lines=Computer+Engineering+Student+%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8E%93;Passionate+Coder+%26+Innovator+%F0%9F%9A%80" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=28&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&multiline=true&repeat=false&width=800&height=120&lines=Hi+there+👋;I+am+Harmit+Kalal;Welcome+to+my+GitHub+Profile!"/>
 </div>
 
 <!-- Dynamic Tagline -->
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=400&size=22&duration=4000&pause=2000&color=FF6B6B&center=true&vCenter=true&width=600&lines=Building+the+Future+with+Code;Learning+%26+Growing+Every+Day;Open+to+Collaborate+%26+Connect!" alt="Dynamic Tagline" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=400&size=22&duration=4000&pause=2000&color=FF6B6B&center=true&vCenter=true&width=600&lines=Building+the+Future+with+Code;Coding+Innovations+Daily;Open+Source+Enthusiast"/>
 </div>
 
 <br/>
@@ -91,7 +91,7 @@ const harmit = {
 <div align="center">
   
 <!-- GitHub Stats -->
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=Harmitx7&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=FFFFFF"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=Harmitx7&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=FF6B6B&icon_color=FF6B6B"/>
 
 <!-- GitHub Streak -->
 <img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=Harmitx7&theme=tokyonight&hide_border=true&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakLabel=00D9FF"/>
@@ -100,7 +100,7 @@ const harmit = {
 
 <!-- Top Languages -->
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Harmitx7&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Harmitx7&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=FF6B6B"/>
 </div>
 
 <!-- Activity Graph -->
@@ -111,19 +111,13 @@ const harmit = {
 <!-- Animated Divider -->
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-## 🏆 GitHub Trophies
-
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Harmitx7&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4&row=2&column=3"/>
-</div>
-
-<!-- Animated Divider -->
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-
 ## 📈 Contribution Graph
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Harmitx7/Harmitx7/output/snake.svg" alt="Snake animation" />
+  <!-- Light mode -->
+  <img src="https://github.com/Harmitx7/Harmitx7/blob/output/dist/snake.svg" alt="Snake animation" />
+  <!-- Dark mode -->
+  <img src="https://github.com/Harmitx7/Harmitx7/blob/output/dist/snake-dark.svg?palette=github-dark" alt="Snake animation (dark)" />
 </div>
 
 <!-- Animated Divider -->
