@@ -1,56 +1,186 @@
-<!-- SVG Typing name -->
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Operator+Mono&weight=900&size=30&duration=1&pause=1&center=true&vCenter=true&repeat=false&width=1000&lines=Harmit+Kalal)](https://git.io/typing-svg)
+<div align="center">
 
-<!-- SVG Typing description -->
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Operator+Mono&weight=900&size=26&pause=1000&center=true&vCenter=true&width=1000&lines=Computer+Engineering+Student++%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8E%93;Learning+New+Things++%F0%9F%92%BC;Passionate+coder+and+learner+%F0%9F%A4%93%F0%9F%92%BB)](https://git.io/typing-svg)
-<!-- Socials -->
-## 🌍 Socials:
+<!-- Animated Header with Gradient Text -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Harmit%20Kalal&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32"/>
 
-
-<p align="left">
-  
-  <a href="https://github.com/Harmitx7?tab=followers">
-    <img
-      alt="followers"
-      title="Follow me on Github"
-      src="https://custom-icon-badges.demolab.com/github/followers/Harmitx7?color=236ad3&labelColor=1155ba&style=for-the-badge&logo=person-add&label=Follow&logoColor=white"
-  /></a>
-  <a href="https://github.com/Harmitx7?tab=repositories&sort=stargazers">
-    <img
-      alt="total stars"
-      title="Total stars on GitHub"
-      src="https://custom-icon-badges.demolab.com/github/stars/Harmitx7?color=55960c&style=for-the-badge&labelColor=488207&logo=star"
-  /></a>
-</p>
-
-<br />
-
-
-# 🧰 Languages and Tools:
-
-<div>
-  <img align="left" alt="HTML" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" />
-  <img align="left" alt="CSS" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" />
-  <img align="left" alt="Java" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"/>
-  <img align="left" alt="Bootstrap" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" />
-  <img align="left" alt="C" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" />
-  <img align="left" alt="javascript" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" />
-  <img align="left" alt="MySQL" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" />
-  <img align="left" alt="Node.js" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" />
-  <img align="left" alt="Oracle" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" />
-  <img align="left" alt="Photoshop" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" />
-  <img align="left" alt="PHP" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" />
-  <img align="left" alt="Python" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" />
-  <img align="left" alt="React.js" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" />
-  <img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain.svg" />
-  <img align="left" alt="GitHub" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" />
-  <img align="left" alt="Linux" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" />
+<!-- Animated Typing Bio -->
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=28&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&multiline=true&repeat=false&width=800&height=100&lines=Computer+Engineering+Student+%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8E%93;Passionate+Coder+%26+Innovator+%F0%9F%9A%80" alt="Typing SVG" />
 </div>
 
-<br />
+<!-- Dynamic Tagline -->
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=400&size=22&duration=4000&pause=2000&color=FF6B6B&center=true&vCenter=true&width=600&lines=Building+the+Future+with+Code;Learning+%26+Growing+Every+Day;Open+to+Collaborate+%26+Connect!" alt="Dynamic Tagline" />
+</div>
 
-# 📊 GitHub Stats:
+<br/>
 
-![](https://github-readme-stats.vercel.app/api?username=Harmitx7&theme=radical&hide_border=false&include_all_commits=true&count_private=true)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=Harmitx7&theme=radical&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Harmitx7&theme=radical&hide_border=false&include_all_commits=true&count_private=false&layout=compact)
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+## 🚀 About Me
+
+<img align="right" alt="Coding GIF" width="300" src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/master/code.gif">
+
+```javascript
+const harmit = {
+    pronouns: "He/Him",
+    location: "India 🇮🇳",
+    education: "Computer Engineering Student",
+    currentFocus: ["Full Stack Development", "Problem Solving"],
+    learning: ["React.js", "Node.js", "Data Structures"],
+    askMeAbout: ["Web Dev", "Programming", "Tech"],
+    funFact: "I debug with console.log() and I'm not ashamed! 😄"
+};
+```
+
+<br clear="right"/>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+## 🌐 Connect With Me
+
+<div align="center">
+  
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&labelColor=000000)](https://github.com/Harmitx7)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/harmitkalal)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/harmitkalal)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/harmitkalal)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:harmitkalal@gmail.com)
+
+</div>
+
+<!-- GitHub Stats Cards -->
+<div align="center">
+  
+[![Followers](https://img.shields.io/github/followers/Harmitx7?style=social&label=Follow&maxAge=2592000)](https://github.com/Harmitx7?tab=followers)
+[![Stars](https://img.shields.io/github/stars/Harmitx7?style=social&label=Stars&maxAge=2592000)](https://github.com/Harmitx7?tab=repositories&sort=stargazers)
+
+</div>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+## 🛠️ Tech Stack & Tools
+
+<div align="center">
+
+### 💻 Programming Languages
+<img src="https://skillicons.dev/icons?i=java,python,c,cpp,javascript,php&theme=dark" />
+
+### 🌐 Frontend Development  
+<img src="https://skillicons.dev/icons?i=html,css,bootstrap,react,tailwind,sass&theme=dark" />
+
+### ⚡ Backend Development
+<img src="https://skillicons.dev/icons?i=nodejs,express,php,mysql,mongodb,firebase&theme=dark" />
+
+### 🔧 Tools & Technologies
+<img src="https://skillicons.dev/icons?i=git,github,vscode,figma,photoshop,linux&theme=dark" />
+
+### ☁️ Cloud & Deployment
+<img src="https://skillicons.dev/icons?i=vercel,netlify,heroku,aws,docker&theme=dark" />
+
+</div>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+## 📊 GitHub Analytics
+
+<div align="center">
+  
+<!-- GitHub Stats -->
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=Harmitx7&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=FFFFFF"/>
+
+<!-- GitHub Streak -->
+<img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=Harmitx7&theme=tokyonight&hide_border=true&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakLabel=00D9FF"/>
+
+</div>
+
+<!-- Top Languages -->
+<div align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Harmitx7&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF"/>
+</div>
+
+<!-- Activity Graph -->
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Harmitx7&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=00D9FF&line=FF6B6B&point=FFFFFF"/>
+</div>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+## 🏆 GitHub Trophies
+
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=Harmitx7&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4&row=2&column=3"/>
+</div>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+## 📈 Contribution Graph
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Harmitx7/Harmitx7/output/snake.svg" alt="Snake animation" />
+</div>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+## 💡 Random Dev Quote
+
+<div align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight&border=true"/>
+</div>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+## 🎯 Current Goals
+
+- 🔭 Working on **Full Stack Web Development Projects**
+- 🌱 Learning **Advanced React.js & Node.js**
+- 👯 Looking to collaborate on **Open Source Projects**
+- 🤔 Seeking help with **System Design & Architecture**
+- 💬 Ask me about **Web Development, Programming, Tech**
+- 📫 Reach me at **harmitkalal@gmail.com**
+- ⚡ Fun fact: **I think debugging is like being a detective in a crime movie where you're also the murderer! 🕵️‍♂️**
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+## 📊 Weekly Development Breakdown
+
+<!--START_SECTION:waka-->
+```text
+JavaScript   12 hrs 30 mins  ████████████░░░░░░░░░░░░░   48.2%
+Python       6 hrs 15 mins   ██████░░░░░░░░░░░░░░░░░░░   24.1%
+Java         4 hrs 20 mins   ████░░░░░░░░░░░░░░░░░░░░░   16.7%
+HTML/CSS     2 hrs 45 mins   ██░░░░░░░░░░░░░░░░░░░░░░░   10.6%
+Other        8 mins          ░░░░░░░░░░░░░░░░░░░░░░░░░    0.4%
+```
+<!--END_SECTION:waka-->
+
+<!-- Profile Views Counter -->
+<div align="center">
+  
+![Profile Views](https://komarev.com/ghpvc/?username=Harmitx7&style=for-the-badge&color=brightgreen)
+
+</div>
+
+<!-- Animated Footer -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer&animation=twinkling"/>
+
+---
+
+<div align="center">
+  
+### 💫 "Code is like humor. When you have to explain it, it's bad." - Cory House
+
+**Made with ❤️ by Harmit Kalal**
+
+</div>
+
+</div>
