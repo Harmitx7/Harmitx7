@@ -84,7 +84,7 @@
   <!-- The Wyrm's Trail -->
   <h2>🐍 The Wyrm's Trail 🐍</h2>
   <div align="center">
-    <img src="https://github.com/Harmitx7/Harmitx7/blob/output/dist/snake-dark.svg?palette=github-dark" alt="Snake animation (dark)" />
+    <img src="https://raw.githubusercontent.com/Harmitx7/Harmitx7/output/dist/snake-dark.svg" alt="Snake animation (dark)" />
   </div>
 
   <!-- Divider -->
