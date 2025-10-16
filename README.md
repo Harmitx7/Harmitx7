@@ -8,7 +8,7 @@
   <p>I am Harmit Kalal, a Full-Stack Sorcerer from the lands of India. I weave magic into code, building enchanted artifacts for the digital realm.</p>
 
   <!-- Divider -->
-  <img src="https://i.imgur.com/8v6R3h2.gif" alt="A sword divider" width="50%"/>
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="A sword divider" width="50%"/>
 
   <!-- Character Sheet -->
   <h2>📜 Character Sheet 📜</h2>
@@ -31,7 +31,7 @@
   </div>
 
   <!-- Divider -->
-  <img src="https://i.imgur.com/8v6R3h2.gif" alt="A sword divider" width="50%"/>
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="A sword divider" width="50%"/>
 
   <!-- The Guild Hall -->
   <h2>🏰 The Guild Hall 🏰</h2>
@@ -45,7 +45,7 @@
   </div>
 
   <!-- Divider -->
-  <img src="https://i.imgur.com/8v6R3h2.gif" alt="A sword divider" width="50%"/>
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="A sword divider" width="50%"/>
 
   <!-- Skills & Arsenal -->
   <h2>⚔️ Skills & Arsenal ⚔️</h2>
@@ -63,13 +63,13 @@
   </div>
 
   <!-- Divider -->
-  <img src="https://i.imgur.com/8v6R3h2.gif" alt="A sword divider" width="50%"/>
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="A sword divider" width="50%"/>
 
   <!-- Adventurer's Log -->
   <h2>📊 Adventurer's Log 📊</h2>
   <div align="center">
     <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Harmitx7&show_icons=true&theme=dracula&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117&title_color=DA70D6&text_color=87CEEB&icon_color=F0E68C"/>
-    <img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=Harmitx7&theme=dracula&hide_border=true&background=0D1117&stroke=DA70D6&ring=DA70D6&fire=FF6347&currStreakLabel=DA70D6"/>
+    <img height="180em" src="https://streak-stats.demolab.com/?user=Harmitx7&theme=dracula&hide_border=true&background=0D1117&stroke=DA70D6&ring=DA70D6&fire=FF6347&currStreakLabel=DA70D6"/>
   </div>
   <div align="center">
     <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Harmitx7&layout=compact&theme=dracula&hide_border=true&bg_color=0D1117&title_color=DA70D6&text_color=87CEEB"/>
@@ -79,7 +79,7 @@
   </div>
 
   <!-- Divider -->
-  <img src="https://i.imgur.com/8v6R3h2.gif" alt="A sword divider" width="50%"/>
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="A sword divider" width="50%"/>
 
   <!-- The Wyrm's Trail -->
   <h2>🐍 The Wyrm's Trail 🐍</h2>
@@ -88,7 +88,7 @@
   </div>
 
   <!-- Divider -->
-  <img src="https://i.imgur.com/8v6R3h2.gif" alt="A sword divider" width="50%"/>
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="A sword divider" width="50%"/>
 
   <!-- A Bard's Wisdom -->
   <h2>📜 A Bard's Wisdom 📜</h2>
@@ -97,7 +97,7 @@
   </div>
 
   <!-- Divider -->
-  <img src="https://i.imgur.com/8v6R3h2.gif" alt="A sword divider" width="50%"/>
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="A sword divider" width="50%"/>
 
   <!-- Current Quests -->
   <h2>🎯 Current Quests 🎯</h2>
@@ -112,7 +112,7 @@
   </ul>
 
   <!-- Divider -->
-  <img src="https://i.imgur.com/8v6R3h2.gif" alt="A sword divider" width="50%"/>
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="A sword divider" width="50%"/>
 
   <!-- Scribe's Log -->
   <h2>📊 Scribe's Log 📊</h2>
