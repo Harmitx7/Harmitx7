@@ -41,7 +41,7 @@
     <a href="https://linkedin.com/in/harmitkalal" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=4A2E2E&color=A0522D" alt="LinkedIn"/></a>
     <a href="https://twitter.com/harmitkalal" target="_blank"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white&labelColor=4A2E2E&color=A0522D" alt="Twitter"/></a>
     <a href="https://instagram.com/harmitkalal" target="_blank"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=4A2E2E&color=A0522D" alt="Instagram"/></a>
-    <a href="mailto:harmitkalal@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=4A2E2E&color=A0522D" alt="Email"/></a>
+    <a href="mailto:harmitkalal@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=4A2E2E&color=A0522D" alt="Email"/></a>
   </div>
 
   <!-- Divider -->
@@ -108,7 +108,7 @@
     <li>🤔 Seeking guidance in System Design & Architecture</li>
     <li>💬 Ask me about Web Development, Programming, & Tech</li>
     <li>📫 Send a raven to harmitkalal@gmail.com</li>
-    <li>⚡ Fun fact: I think debugging is like being a detective in a crime movie where you're also the murderer! 🕵️‍♂️</li>
+    <!-- Removed duplicate fun fact -->
   </ul>
 
   <!-- Divider -->
@@ -116,19 +116,19 @@
 
   <!-- Scribe's Log -->
   <h2>📊 Scribe's Log 📊</h2>
-  <!--START_SECTION:waka-->
-  ```text
-  JavaScript   12 hrs 30 mins  ████████████░░░░░░░░░░░░░   48.2%
-  Python       6 hrs 15 mins   ██████░░░░░░░░░░░░░░░░░░░   24.1%
-  Java         4 hrs 20 mins   ████░░░░░░░░░░░░░░░░░░░░░   16.7%
-  HTML/CSS     2 hrs 45 mins   ██░░░░░░░░░░░░░░░░░░░░░░░   10.6%
-  Other        8 mins          ░░░░░░░░░░░░░░░░░░░░░░░░░    0.4%
-  ```
-  <!--END_SECTION:waka-->
+  <!-- START_SECTION:waka -->
+  <pre>
+JavaScript   12 hrs 30 mins  ████████████░░░░░░░░░░░░░   48.2%
+Python       6 hrs 15 mins   ██████░░░░░░░░░░░░░░░░░░░   24.1%
+Java         4 hrs 20 mins   ████░░░░░░░░░░░░░░░░░░░░░   16.7%
+HTML/CSS     2 hrs 45 mins   ██░░░░░░░░░░░░░░░░░░░░░░░   10.6%
+Other        8 mins          ░░░░░░░░░░░░░░░░░░░░░░░░░    0.4%
+  </pre>
+  <!-- END_SECTION:waka -->
 
   <!-- Profile Views Counter -->
   <div align="center">
-    ![Profile Views](https://komarev.com/ghpvc/?username=Harmitx7&style=for-the-badge&color=A0522D)
+    <img src="https://profile-counter.glitch.me/Harmitx7/count.svg" alt="Profile views" />
   </div>
 
   <!-- Footer -->
