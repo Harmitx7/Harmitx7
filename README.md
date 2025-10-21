@@ -14,7 +14,7 @@
   <h2>📜 Character Sheet 📜</h2>
   <div align="left" style="display: inline-block; text-align: left; border: 2px solid #8B4513; padding: 15px; border-radius: 10px; background-color: #FDF5E6; color: #654321; max-width: 600px;">
     <pre>
-<b>Name:</b>         Harmit the Coder
+<b>Name:</b>         Harmit
 <b>Class:</b>        Full-Stack Sorcerer
 <b>Race:</b>         Human (Indian Subrace)
 <b>Alignment:</b>    Chaotic Good (I use console.log())
