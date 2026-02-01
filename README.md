@@ -163,7 +163,7 @@ const harmit = {
 <div align="center">
 
 <!-- Project Cards -->
-<a href="[https://github.com/Harmitx7/project-1](https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD)">
+<a href="https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD.git">
   <img align="center" src="https://github-readme-stats-sigma-five.vercel.app/api/pin/?username=Harmitx7&repo=project-1&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6C63FF&icon_color=F75C7E&text_color=FFFFFF&border_radius=10" />
 </a>
 <a href="https://github.com/Harmitx7/project-2">
