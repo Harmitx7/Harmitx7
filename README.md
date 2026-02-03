@@ -40,38 +40,7 @@
 
 <br/>
 
-<!-- Interactive Game Section -->
-<details>
-<summary><b>🎮 Play Space Shooter Game! 🚀 (Click to Expand)</b></summary>
-<br/>
 
-<div align="center">
-  
-### 🌌 **SPACE DEFENDER** 🌌
-*Protect Earth from alien invaders! Use arrow keys to move and spacebar to shoot!*
-
-<a href="https://harmitx7.github.io/space-shooter">
-  <img src="https://img.shields.io/badge/🎮_PLAY_NOW-Click_Here-FF6B6B?style=for-the-badge&labelColor=1a1b27" />
-</a>
-
-```
-╔══════════════════════════════════════════╗
-║   🚀 Controls:                           ║
-║   ← → Arrow Keys: Move Left/Right        ║
-║   SPACE: Fire Laser                      ║
-║   Goal: Destroy all alien invaders!      ║
-╚══════════════════════════════════════════╝
-```
-
-**High Score Challenge:** Can you beat my score of 5000? 🏆
-
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4OCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/l0HlNQ03J5JxX6lva/giphy.gif" width="400" alt="Space Game"/>
-
-*Built with vanilla JavaScript and HTML5 Canvas - No frameworks needed!*
-
-</div>
-
-</details>
 
 </div>
 
