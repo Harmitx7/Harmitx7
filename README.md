@@ -222,12 +222,14 @@ const harmit = {
 <!-- Contribution Graph -->
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=Harmitx7&bg_color=0d1117&color=6c63ff&line=f75c7e&point=ffffff&area=true&hide_border=true&custom_title=Contribution%20Activity&area_color=6c63ff&title_color=ffffff&radius=10" width="100%"/>
 
-<!-- 3D Contribution Snake -->
+<!-- 3D Contribution Snake (Requires GitHub Action) -->
+<!--
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Harmitx7/Harmitx7/output/github-contribution-grid-snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Harmitx7/Harmitx7/output/github-contribution-grid-snake.svg">
   <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Harmitx7/Harmitx7/output/github-contribution-grid-snake.svg" width="100%">
 </picture>
+-->
 
 </div>
 
@@ -255,6 +257,8 @@ const harmit = {
 
 <div align="center">
 
+<!-- Replace 'project-1' and 'project-2' with your actual repository names -->
+<!--
 <table>
 <tr>
 <td width="50%">
@@ -269,6 +273,8 @@ const harmit = {
 </td>
 </tr>
 </table>
+-->
+<p><i>Add your repository names in the code to display pinned projects</i></p>
 
 </div>
 
