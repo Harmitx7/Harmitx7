@@ -1,200 +1,369 @@
 <div align="center">
 
-<!-- Premium Animated Header with Gradient -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=667eea,764ba2,f093fb,4facfe&height=350&section=header&text=HARMIT%20KALAL&fontSize=90&fontAlign=50&fontAlignY=35&animation=fadeIn&fontColor=fff&desc=Full-Stack%20Developer%20%7C%20AI%20Architect%20%7C%20Open%20Source%20Pioneer&descAlign=50&descAlignY=65&descSize=20&descColor=e0e7ff"/>
+<!-- ============================================
+     PREMIUM ANIMATED HERO SECTION
+     ============================================ -->
 
-<!-- Glowing Typing Animation -->
-<div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%); padding: 30px; border-radius: 15px; border: 2px solid rgba(102, 126, 234, 0.3); margin: 20px 0;">
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=800&size=40&duration=3000&pause=1000&color=667eea&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=80&lines=Crafting+Digital+Experiences+✨;Building+Scalable+Solutions+🚀;Innovating+with+AI+%26+ML+🤖" alt="Typing SVG" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=667eea,764ba2,f093fb,4facfe,00d4ff&height=400&section=header&text=HARMIT%20KALAL&fontSize=95&fontAlign=50&fontAlignY=30&animation=fadeIn&fontColor=fff&desc=Full-Stack%20Developer%20%7C%20AI%20Architect%20%7C%20Innovation%20Engineer&descAlign=50&descAlignY=70&descSize=22&descColor=e0e7ff"/>
 
 </div>
 
-<!-- Premium Badge Section with Hover Effects -->
-<div style="margin: 25px 0;">
+<div align="center" style="margin: 40px 0; padding: 40px; background: linear-gradient(135deg, rgba(102,126,234,0.08) 0%, rgba(240,147,251,0.08) 50%, rgba(79,172,254,0.08) 100%); border-radius: 20px; border: 2px solid rgba(102,126,234,0.15); backdrop-filter: blur(10px);">
 
-<img src="https://img.shields.io/badge/🎯%20Focus-Full%20Stack%20Development-667eea?style=for-the-badge&logoColor=white&labelColor=2d1b69&logo=starship" />
-<img src="https://img.shields.io/badge/🌍%20Based%20In-Ahmedabad%2C%20India-f093fb?style=for-the-badge&logoColor=white&labelColor=6b2d5c&logo=googleearth" />
-<img src="https://img.shields.io/badge/💻%20Expertise-Web%20%2F%20AI%20%2F%20Cloud-4facfe?style=for-the-badge&logoColor=white&labelColor=1a3a52&logo=lightning" />
-
-</div>
-
-<!-- Social Links with Premium Styling -->
-<div style="margin: 30px 0;">
-
-<a href="https://linkedin.com/in/harmitkalal">
-  <img src="https://img.shields.io/badge/LinkedIn-Connect%20with%20me-0077B5?style=flat-square&logo=linkedin&logoColor=white&color=0a66c2" />
-</a>
-<a href="https://github.com/Harmitx7">
-  <img src="https://img.shields.io/badge/GitHub-View%20Projects-2d3748?style=flat-square&logo=github&logoColor=white&color=1d1f27" />
-</a>
-<a href="mailto:harmitkalal7@gmail.com">
-  <img src="https://img.shields.io/badge/Email-Get%20in%20Touch-EA4335?style=flat-square&logo=gmail&logoColor=white&color=c71610" />
-</a>
-<a href="https://instagram.com/_.harmit">
-  <img src="https://img.shields.io/badge/Instagram-Follow-E4405F?style=flat-square&logo=instagram&logoColor=white&color=c13584" />
-</a>
-
-</div>
-
-<!-- Advanced Stats -->
-<div style="margin: 20px 0; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-
-<img src="https://komarev.com/ghpvc/?username=Harmitx7&label=👁️%20Profile%20Views&color=667eea&style=flat-square" />
-<img src="https://img.shields.io/github/followers/Harmitx7?label=👥%20Followers&style=flat-square&color=f093fb" />
-<img src="https://img.shields.io/github/stars/Harmitx7?label=⭐%20Stars&style=flat-square&color=fbbf24" />
-
-</div>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+<!-- Advanced Typing Animation -->
+<img src="https://readme-typing-svg.demolab.com?font=Courier+Prime&weight=700&size=45&duration=4000&pause=1500&color=667eea&center=true&vCenter=true&multiline=true&repeat=true&width=700&height=120&lines=Architecting+Tomorrow+🏗️;Building+Intelligent+Solutions+⚡;Shipping+Excellence+🚀" alt="Typing SVG" style="filter: drop-shadow(0 0 30px rgba(102,126,234,0.4))"/>
 
 </div>
 
 ---
 
-## 🎯 About Me
+<!-- ============================================
+     PREMIUM STAT CARDS
+     ============================================ -->
 
-<table>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; padding: 0 20px;">
+
+<div style="background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(79,172,254,0.1) 100%); padding: 25px; border-radius: 15px; border-left: 4px solid #667eea; box-shadow: 0 10px 30px rgba(102,126,234,0.1);">
+<div style="font-size: 14px; color: #667eea; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">💻 Expertise</div>
+<div style="font-size: 20px; color: #fff; font-weight: 700; margin-top: 8px;">Full-Stack Dev</div>
+<div style="font-size: 12px; color: #a0aec0; margin-top: 5px;">Web + AI/ML</div>
+</div>
+
+<div style="background: linear-gradient(135deg, rgba(240,147,251,0.1) 0%, rgba(102,126,234,0.1) 100%); padding: 25px; border-radius: 15px; border-left: 4px solid #f093fb; box-shadow: 0 10px 30px rgba(240,147,251,0.1);">
+<div style="font-size: 14px; color: #f093fb; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">🎯 Focus</div>
+<div style="font-size: 20px; color: #fff; font-weight: 700; margin-top: 8px;">Innovation First</div>
+<div style="font-size: 12px; color: #a0aec0; margin-top: 5px;">Scalable Systems</div>
+</div>
+
+<div style="background: linear-gradient(135deg, rgba(79,172,254,0.1) 0%, rgba(240,147,251,0.1) 100%); padding: 25px; border-radius: 15px; border-left: 4px solid #4facfe; box-shadow: 0 10px 30px rgba(79,172,254,0.1);">
+<div style="font-size: 14px; color: #4facfe; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">📍 Location</div>
+<div style="font-size: 20px; color: #fff; font-weight: 700; margin-top: 8px;">Ahmedabad 🇮🇳</div>
+<div style="font-size: 12px; color: #a0aec0; margin-top: 5px;">India's Tech Hub</div>
+</div>
+
+</div>
+
+---
+
+<!-- ============================================
+     PREMIUM SOCIAL & STATS SECTION
+     ============================================ -->
+
+<div style="margin: 30px 0; padding: 30px; background: linear-gradient(90deg, rgba(102,126,234,0.05) 0%, rgba(79,172,254,0.05) 100%); border-radius: 15px; border: 1px solid rgba(102,126,234,0.2);">
+
+<div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+<a href="https://linkedin.com/in/harmitkalal" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/LinkedIn-667eea?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=1a1f3a&logoWidth=20" style="filter: drop-shadow(0 4px 12px rgba(102,126,234,0.3)); transition: all 0.3s;" />
+</a>
+<a href="https://github.com/Harmitx7" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/GitHub-f093fb?style=for-the-badge&logo=github&logoColor=white&labelColor=1a1f3a&logoWidth=20" style="filter: drop-shadow(0 4px 12px rgba(240,147,251,0.3)); transition: all 0.3s;" />
+</a>
+<a href="mailto:harmitkalal7@gmail.com" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/Email-4facfe?style=for-the-badge&logo=gmail&logoColor=white&labelColor=1a1f3a&logoWidth=20" style="filter: drop-shadow(0 4px 12px rgba(79,172,254,0.3)); transition: all 0.3s;" />
+</a>
+<a href="https://instagram.com/_.harmit" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/Instagram-00d4ff?style=for-the-badge&logo=instagram&logoColor=white&labelColor=1a1f3a&logoWidth=20" style="filter: drop-shadow(0 4px 12px rgba(0,212,255,0.3)); transition: all 0.3s;" />
+</a>
+</div>
+
+<div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; font-size: 14px;">
+<div style="text-align: center;">
+  <div style="color: #667eea; font-weight: 700; font-size: 24px;">500+</div>
+  <div style="color: #a0aec0; margin-top: 5px;">Projects Built</div>
+</div>
+<div style="text-align: center;">
+  <div style="color: #f093fb; font-weight: 700; font-size: 24px;">10+</div>
+  <div style="color: #a0aec0; margin-top: 5px;">Technologies</div>
+</div>
+<div style="text-align: center;">
+  <div style="color: #4facfe; font-weight: 700; font-size: 24px;">100%</div>
+  <div style="color: #a0aec0; margin-top: 5px;">Commitment</div>
+</div>
+</div>
+
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+---
+
+## 🚀 PROFESSIONAL OVERVIEW
+
+<table style="width: 100%; border-collapse: collapse;">
 <tr>
-<td width="50%">
+<td width="50%" style="padding: 30px; background: linear-gradient(135deg, rgba(102,126,234,0.08) 0%, rgba(79,172,254,0.08) 100%); border-radius: 15px; border: 1px solid rgba(102,126,234,0.2); margin: 10px;">
+
+<div style="font-size: 24px; font-weight: 800; color: #667eea; margin-bottom: 20px;">👨‍💻 DEVELOPER PROFILE</div>
 
 ```typescript
-interface Developer {
-  name: "Harmit Kalal";
-  role: "Full-Stack Architect";
-  location: "Ahmedabad, Gujarat 🇮🇳";
+interface DeveloperDNA {
+  name: string = "Harmit Kalal";
+  role: string = "Full-Stack Architect";
+  status: string = "🟢 Available";
   
   expertise: {
-    frontend: ["React", "Next.js", "TypeScript", "TailwindCSS"];
-    backend: ["Node.js", "Express", "PostgreSQL", "GraphQL"];
-    ai_ml: ["Python", "TensorFlow", "RAG Systems"];
-    devops: ["Docker", "Kubernetes", "AWS"];
+    architecture: ["Microservices", "Scalable APIs"],
+    frontend: ["React", "Next.js", "Tailwind"],
+    backend: ["Node.js", "PostgreSQL", "GraphQL"],
+    ai: ["LLM Integration", "RAG Systems"],
+    devops: ["Docker", "K8s", "CI/CD"]
   };
   
-  currentlyBuilding: [
-    "🚀 Scalable Web Applications",
-    "🤖 AI-Powered Solutions",
-    "📦 Open Source Tooling"
-  ];
+  philosophy: "Ship fast → Learn faster → Iterate";
   
-  alwaysLearning: [
-    "System Design Architecture",
-    "Cloud Infrastructure",
-    "Advanced Patterns & Best Practices"
+  idealRole: [
+    "Senior Full-Stack Developer",
+    "Tech Lead", 
+    "Solutions Architect"
   ];
-  
-  motto: "Code → Coffee → Innovate → Repeat ☕"
 }
 ```
 
 </td>
-<td width="50%" align="center">
+<td width="50%" style="padding: 30px; background: linear-gradient(135deg, rgba(240,147,251,0.08) 0%, rgba(102,126,234,0.08) 100%); border-radius: 15px; border: 1px solid rgba(240,147,251,0.2); margin: 10px;">
 
-<div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%); padding: 25px; border-radius: 12px; border-left: 4px solid #667eea;">
+<div style="font-size: 24px; font-weight: 800; color: #f093fb; margin-bottom: 15px;">⚡ CORE STRENGTHS</div>
 
-### ⚡ Quick Snapshot
+<div style="margin: 15px 0; padding: 15px; background: rgba(102,126,234,0.1); border-left: 3px solid #667eea; border-radius: 8px;">
+<div style="color: #667eea; font-weight: 700; font-size: 14px;">🏗️ ARCHITECTURE</div>
+<div style="color: #cbd5e0; font-size: 13px; margin-top: 5px;">Designing scalable, maintainable systems</div>
+</div>
 
-**🔧 Building** → Next-gen web apps  
-**📚 Learning** → System design patterns  
-**🤝 Open to** → Collaborations & opportunities  
-**💬 Chat about** → Tech, AI, startups  
+<div style="margin: 15px 0; padding: 15px; background: rgba(240,147,251,0.1); border-left: 3px solid #f093fb; border-radius: 8px;">
+<div style="color: #f093fb; font-weight: 700; font-size: 14px;">⚙️ OPTIMIZATION</div>
+<div style="color: #cbd5e0; font-size: 13px; margin-top: 5px;">Performance & efficiency are non-negotiable</div>
+</div>
 
-**📧 Reach me** → harmitkalal7@gmail.com  
-**🎯 Motto** → Ship fast, learn faster
-
+<div style="margin: 15px 0; padding: 15px; background: rgba(79,172,254,0.1); border-left: 3px solid #4facfe; border-radius: 8px;">
+<div style="color: #4facfe; font-weight: 700; font-size: 14px;">🚀 INNOVATION</div>
+<div style="color: #cbd5e0; font-size: 13px; margin-top: 5px;">Building cutting-edge solutions with modern tech</div>
 </div>
 
 </td>
 </tr>
 </table>
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
 ---
 
-## 🛠️ Tech Stack
+## 💎 TECH MASTERY MATRIX
 
-<div align="center">
+<div style="margin: 40px 0;">
 
-### 🎨 **Frontend Development**
+### 🎨 **FRONTEND ARCHITECTURE**
 
-<div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(79, 172, 254, 0.05) 100%); padding: 20px; border-radius: 10px; margin: 15px 0;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white&labelColor=2d1b69)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white&labelColor=1a3a52)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black&labelColor=4d4003)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white&labelColor=1a2e4a)
-![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB&labelColor=0d111a)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
-![Angular](https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white&labelColor=3d0015)
-![TailwindCSS](https://img.shields.io/badge/Tailwind-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white&labelColor=1a5955)
-![Framer Motion](https://img.shields.io/badge/Framer-0055FF?style=flat-square&logo=framer&logoColor=white&labelColor=002166)
+<div style="padding: 15px; background: linear-gradient(135deg, #667eea15 0%, #4facfe15 100%); border-radius: 12px; border: 1px solid #667eea30; text-align: center;">
+<div style="font-weight: 700; color: #667eea; font-size: 16px;">React</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Advanced Hooks</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 95%; height: 100%; background: linear-gradient(90deg, #667eea, #4facfe);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #f093fb15 0%, #667eea15 100%); border-radius: 12px; border: 1px solid #f093fb30; text-align: center;">
+<div style="font-weight: 700; color: #f093fb; font-size: 16px;">Next.js</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Full-Stack Apps</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 92%; height: 100%; background: linear-gradient(90deg, #f093fb, #667eea);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #4facfe15 0%, #f093fb15 100%); border-radius: 12px; border: 1px solid #4facfe30; text-align: center;">
+<div style="font-weight: 700; color: #4facfe; font-size: 16px;">TypeScript</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Type Safety</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 90%; height: 100%; background: linear-gradient(90deg, #4facfe, #f093fb);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #00d4ff15 0%, #667eea15 100%); border-radius: 12px; border: 1px solid #00d4ff30; text-align: center;">
+<div style="font-weight: 700; color: #00d4ff; font-size: 16px;">TailwindCSS</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Modern Styling</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 88%; height: 100%; background: linear-gradient(90deg, #00d4ff, #667eea);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #667eea15 0%, #f093fb15 100%); border-radius: 12px; border: 1px solid #667eea30; text-align: center;">
+<div style="font-weight: 700; color: #667eea; font-size: 16px;">Framer</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Animations</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 85%; height: 100%; background: linear-gradient(90deg, #667eea, #f093fb);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #f093fb15 0%, #4facfe15 100%); border-radius: 12px; border: 1px solid #f093fb30; text-align: center;">
+<div style="font-weight: 700; color: #f093fb; font-size: 16px;">Angular</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Enterprise Apps</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 80%; height: 100%; background: linear-gradient(90deg, #f093fb, #4facfe);"></div>
+</div>
+</div>
 
 </div>
 
-### 🗄️ **Backend & Databases**
+### 🗄️ **BACKEND INFRASTRUCTURE**
 
-<div style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.05) 0%, rgba(102, 126, 234, 0.05) 100%); padding: 20px; border-radius: 10px; margin: 15px 0;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white&labelColor=1a4d1a)
-![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white&labelColor=1a2d42)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white&labelColor=2a5d2a)
-![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=flat-square&logo=graphql&logoColor=white&labelColor=5a0642)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black&labelColor=4d3d00)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white&labelColor=1a5d47)
+<div style="padding: 15px; background: linear-gradient(135deg, #4facfe15 0%, #00d4ff15 100%); border-radius: 12px; border: 1px solid #4facfe30; text-align: center;">
+<div style="font-weight: 700; color: #4facfe; font-size: 16px;">Node.js</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Runtime Master</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 95%; height: 100%; background: linear-gradient(90deg, #4facfe, #00d4ff);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #667eea15 0%, #f093fb15 100%); border-radius: 12px; border: 1px solid #667eea30; text-align: center;">
+<div style="font-weight: 700; color: #667eea; font-size: 16px;">Express</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">API Design</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 93%; height: 100%; background: linear-gradient(90deg, #667eea, #f093fb);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #f093fb15 0%, #4facfe15 100%); border-radius: 12px; border: 1px solid #f093fb30; text-align: center;">
+<div style="font-weight: 700; color: #f093fb; font-size: 16px;">PostgreSQL</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Data Reliability</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 94%; height: 100%; background: linear-gradient(90deg, #f093fb, #4facfe);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #00d4ff15 0%, #667eea15 100%); border-radius: 12px; border: 1px solid #00d4ff30; text-align: center;">
+<div style="font-weight: 700; color: #00d4ff; font-size: 16px;">MongoDB</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">NoSQL Expert</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 88%; height: 100%; background: linear-gradient(90deg, #00d4ff, #667eea);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #667eea15 0%, #4facfe15 100%); border-radius: 12px; border: 1px solid #667eea30; text-align: center;">
+<div style="font-weight: 700; color: #667eea; font-size: 16px;">GraphQL</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Query Language</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 90%; height: 100%; background: linear-gradient(90deg, #667eea, #4facfe);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #f093fb15 0%, #00d4ff15 100%); border-radius: 12px; border: 1px solid #f093fb30; text-align: center;">
+<div style="font-weight: 700; color: #f093fb; font-size: 16px;">REST API</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Scalable APIs</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 92%; height: 100%; background: linear-gradient(90deg, #f093fb, #00d4ff);"></div>
+</div>
+</div>
 
 </div>
 
-### 🤖 **AI/ML & Data**
+### 🤖 **AI/ML & DATA SCIENCE**
 
-<div style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.05) 0%, rgba(240, 147, 251, 0.05) 100%); padding: 20px; border-radius: 10px; margin: 15px 0;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white&labelColor=1a3a52)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white&labelColor=4d2700)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white&labelColor=5a2415)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white&labelColor=0a0228)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white&labelColor=081620)
-![Scikit-learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white&labelColor=4d2700)
+<div style="padding: 15px; background: linear-gradient(135deg, #4facfe15 0%, #f093fb15 100%); border-radius: 12px; border: 1px solid #4facfe30; text-align: center;">
+<div style="font-weight: 700; color: #4facfe; font-size: 16px;">Python</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Data Wizard</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 94%; height: 100%; background: linear-gradient(90deg, #4facfe, #f093fb);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #f093fb15 0%, #00d4ff15 100%); border-radius: 12px; border: 1px solid #f093fb30; text-align: center;">
+<div style="font-weight: 700; color: #f093fb; font-size: 16px;">TensorFlow</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">ML Frameworks</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 87%; height: 100%; background: linear-gradient(90deg, #f093fb, #00d4ff);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #00d4ff15 0%, #667eea15 100%); border-radius: 12px; border: 1px solid #00d4ff30; text-align: center;">
+<div style="font-weight: 700; color: #00d4ff; font-size: 16px;">PyTorch</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Deep Learning</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 89%; height: 100%; background: linear-gradient(90deg, #00d4ff, #667eea);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #667eea15 0%, #f093fb15 100%); border-radius: 12px; border: 1px solid #667eea30; text-align: center;">
+<div style="font-weight: 700; color: #667eea; font-size: 16px;">LLM APIs</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">AI Integration</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 91%; height: 100%; background: linear-gradient(90deg, #667eea, #f093fb);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #f093fb15 0%, #4facfe15 100%); border-radius: 12px; border: 1px solid #f093fb30; text-align: center;">
+<div style="font-weight: 700; color: #f093fb; font-size: 16px;">RAG Systems</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Smart Retrieval</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 85%; height: 100%; background: linear-gradient(90deg, #f093fb, #4facfe);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #4facfe15 0%, #00d4ff15 100%); border-radius: 12px; border: 1px solid #4facfe30; text-align: center;">
+<div style="font-weight: 700; color: #4facfe; font-size: 16px;">Pandas</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Data Analytics</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 88%; height: 100%; background: linear-gradient(90deg, #4facfe, #00d4ff);"></div>
+</div>
+</div>
 
 </div>
 
-### ☁️ **DevOps & Cloud**
+### ☁️ **DEVOPS & CLOUD INFRASTRUCTURE**
 
-<div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(240, 147, 251, 0.05) 100%); padding: 20px; border-radius: 10px; margin: 15px 0;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
 
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white&labelColor=0a4a7a)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white&labelColor=1a4d80)
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=FF9900&labelColor=0d1117)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white&labelColor=0a3a66)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black&labelColor=4d4000)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
-![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white&labelColor=0a5a52)
-
+<div style="padding: 15px; background: linear-gradient(135deg, #00d4ff15 0%, #f093fb15 100%); border-radius: 12px; border: 1px solid #00d4ff30; text-align: center;">
+<div style="font-weight: 700; color: #00d4ff; font-size: 16px;">Docker</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Containerization</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 93%; height: 100%; background: linear-gradient(90deg, #00d4ff, #f093fb);"></div>
+</div>
 </div>
 
-### 🛠️ **Tools & Design**
-
-<div style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.05) 0%, rgba(79, 172, 254, 0.05) 100%); padding: 20px; border-radius: 10px; margin: 15px 0;">
-
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white&labelColor=4d2015)
-![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white&labelColor=003366)
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white&labelColor=5a1a0b)
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white&labelColor=663d1f)
-
+<div style="padding: 15px; background: linear-gradient(135deg, #667eea15 0%, #4facfe15 100%); border-radius: 12px; border: 1px solid #667eea30; text-align: center;">
+<div style="font-weight: 700; color: #667eea; font-size: 16px;">Kubernetes</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Orchestration</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 88%; height: 100%; background: linear-gradient(90deg, #667eea, #4facfe);"></div>
+</div>
 </div>
 
-### 📚 **Programming Languages**
+<div style="padding: 15px; background: linear-gradient(135deg, #f093fb15 0%, #667eea15 100%); border-radius: 12px; border: 1px solid #f093fb30; text-align: center;">
+<div style="font-weight: 700; color: #f093fb; font-size: 16px;">AWS</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Cloud Solutions</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 90%; height: 100%; background: linear-gradient(90deg, #f093fb, #667eea);"></div>
+</div>
+</div>
 
-<div style="margin: 20px 0;">
+<div style="padding: 15px; background: linear-gradient(135deg, #4facfe15 0%, #667eea15 100%); border-radius: 12px; border: 1px solid #4facfe30; text-align: center;">
+<div style="font-weight: 700; color: #4facfe; font-size: 16px;">CI/CD</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">GitHub Actions</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 91%; height: 100%; background: linear-gradient(90deg, #4facfe, #667eea);"></div>
+</div>
+</div>
 
-![C](https://img.shields.io/badge/C-00599C?style=flat-square&logo=c&logoColor=white&labelColor=002d4d)
-![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white&labelColor=002d4d)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white&labelColor=6b3f00)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black&labelColor=4d4003)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white&labelColor=1a2e4a)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white&labelColor=1a3a52)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white&labelColor=3a3a5c)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white&labelColor=1a2d42)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white&labelColor=2d6614)
+<div style="padding: 15px; background: linear-gradient(135deg, #00d4ff15 0%, #667eea15 100%); border-radius: 12px; border: 1px solid #00d4ff30; text-align: center;">
+<div style="font-weight: 700; color: #00d4ff; font-size: 16px;">Linux</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Server Admin</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 92%; height: 100%; background: linear-gradient(90deg, #00d4ff, #667eea);"></div>
+</div>
+</div>
+
+<div style="padding: 15px; background: linear-gradient(135deg, #f093fb15 0%, #4facfe15 100%); border-radius: 12px; border: 1px solid #f093fb30; text-align: center;">
+<div style="font-weight: 700; color: #f093fb; font-size: 16px;">Vercel</div>
+<div style="color: #a0aec0; font-size: 12px; margin-top: 5px;">Deployment</div>
+<div style="margin-top: 8px; width: 100%; height: 4px; background: #2d3748; border-radius: 2px; overflow: hidden;">
+<div style="width: 89%; height: 100%; background: linear-gradient(90deg, #f093fb, #4facfe);"></div>
+</div>
+</div>
 
 </div>
 
@@ -204,36 +373,45 @@ interface Developer {
 
 ---
 
-## 📊 GitHub Analytics
+## 📊 ANALYTICS & INSIGHTS
 
-<div align="center">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 40px 0;">
 
-<table>
-<tr>
-<td width="50%">
+<div style="background: linear-gradient(135deg, rgba(102,126,234,0.08) 0%, rgba(79,172,254,0.08) 100%); padding: 25px; border-radius: 15px; border: 1px solid rgba(102,126,234,0.2); box-shadow: 0 10px 40px rgba(102,126,234,0.1);">
 
 **📈 Overall Statistics**
 
 <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=Harmitx7&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117&title_color=667eea&icon_color=f093fb&text_color=FFFFFF&border_radius=12&line_height=27" width="100%"/>
 
-</td>
-<td width="50%">
+</div>
+
+<div style="background: linear-gradient(135deg, rgba(240,147,251,0.08) 0%, rgba(102,126,234,0.08) 100%); padding: 25px; border-radius: 15px; border: 1px solid rgba(240,147,251,0.2); box-shadow: 0 10px 40px rgba(240,147,251,0.1);">
 
 **🔥 Contribution Streak**
 
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=Harmitx7&theme=tokyonight&hide_border=true&background=0D1117&ring=667eea&fire=f093fb&currStreakLabel=667eea&sideLabels=667eea&dates=FFFFFF&border_radius=12" width="100%"/>
 
-</td>
-</tr>
-</table>
+</div>
 
-**💻 Language Breakdown**
+</div>
 
-<img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Harmitx7&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=667eea&text_color=FFFFFF&langs_count=10&border_radius=12" width="60%"/>
+**💻 Language Mastery Breakdown**
 
-**📊 Contribution Graph**
+<img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Harmitx7&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=667eea&text_color=FFFFFF&langs_count=10&border_radius=12" width="65%" style="margin: 20px auto; display: block;"/>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Harmitx7&bg_color=0d1117&color=667eea&line=f093fb&point=ffffff&area=true&hide_border=true&custom_title=Annual%20Contribution%20Activity&area_color=667eea&title_color=ffffff&radius=12" width="100%"/>
+**📊 Annual Contribution Activity**
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Harmitx7&bg_color=0d1117&color=667eea&line=f093fb&point=ffffff&area=true&hide_border=true&custom_title=Contribution%20Activity&area_color=667eea&title_color=ffffff&radius=12" width="100%"/>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+---
+
+## 🏆 ACHIEVEMENTS & MILESTONES
+
+<div align="center">
+
+<img src="https://github-profile-trophy.vercel.app/?username=Harmitx7&theme=tokyonight&no-frame=true&no-bg=true&margin-w=5&column=7&title=Stars,Commits,Repositories,PullRequest,Issues,Followers,MultipleLang" width="100%"/>
 
 </div>
 
@@ -241,11 +419,45 @@ interface Developer {
 
 ---
 
-## 🏆 Achievements
+## 🎯 STRATEGIC FOCUS AREAS
 
-<div align="center">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 40px 0;">
 
-<img src="https://github-profile-trophy.vercel.app/?username=Harmitx7&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4&column=7&title=Stars,Commits,Repositories,PullRequest,Issues,Followers,MultipleLang" width="100%"/>
+<div style="background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(79,172,254,0.1) 100%); padding: 30px; border-radius: 15px; border-left: 5px solid #667eea; box-shadow: 0 10px 30px rgba(102,126,234,0.1);">
+<div style="font-size: 24px; margin-bottom: 10px;">🚀</div>
+<div style="font-weight: 800; color: #667eea; font-size: 16px; margin-bottom: 10px;">BUILDING</div>
+<ul style="list-style: none; padding: 0; margin: 0; color: #cbd5e0; font-size: 13px; line-height: 1.8;">
+<li>✨ Full-stack web applications</li>
+<li>🤖 AI/ML-powered features</li>
+<li>📦 Open source libraries</li>
+<li>🎯 Developer productivity tools</li>
+<li>⚡ High-performance systems</li>
+</ul>
+</div>
+
+<div style="background: linear-gradient(135deg, rgba(240,147,251,0.1) 0%, rgba(102,126,234,0.1) 100%); padding: 30px; border-radius: 15px; border-left: 5px solid #f093fb; box-shadow: 0 10px 30px rgba(240,147,251,0.1);">
+<div style="font-size: 24px; margin-bottom: 10px;">📚</div>
+<div style="font-weight: 800; color: #f093fb; font-size: 16px; margin-bottom: 10px;">LEARNING</div>
+<ul style="list-style: none; padding: 0; margin: 0; color: #cbd5e0; font-size: 13px; line-height: 1.8;">
+<li>🏗️ System design patterns</li>
+<li>☁️ Cloud architecture</li>
+<li>⛓️ Web3 technologies</li>
+<li>🔐 Advanced security</li>
+<li>🎨 Design systems</li>
+</ul>
+</div>
+
+<div style="background: linear-gradient(135deg, rgba(79,172,254,0.1) 0%, rgba(240,147,251,0.1) 100%); padding: 30px; border-radius: 15px; border-left: 5px solid #4facfe; box-shadow: 0 10px 30px rgba(79,172,254,0.1);">
+<div style="font-size: 24px; margin-bottom: 10px;">🤝</div>
+<div style="font-weight: 800; color: #4facfe; font-size: 16px; margin-bottom: 10px;">CONTRIBUTING</div>
+<ul style="list-style: none; padding: 0; margin: 0; color: #cbd5e0; font-size: 13px; line-height: 1.8;">
+<li>💻 Open source projects</li>
+<li>🐛 Quality code reviews</li>
+<li>📖 Technical documentation</li>
+<li>🎓 Community education</li>
+<li>🌟 Mentoring developers</li>
+</ul>
+</div>
 
 </div>
 
@@ -253,137 +465,160 @@ interface Developer {
 
 ---
 
-## 🎯 What I'm Focused On
+## 💼 PROFESSIONAL COMPETENCIES
 
-<div align="center">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 40px 0;">
 
-<table>
+<div style="padding: 20px; background: rgba(102,126,234,0.08); border-radius: 12px; border: 1px solid rgba(102,126,234,0.2); text-align: center;">
+<div style="font-size: 28px; margin-bottom: 10px;">🔧</div>
+<div style="font-weight: 700; color: #667eea;">TECHNICAL</div>
+<div style="color: #cbd5e0; font-size: 12px; margin-top: 8px; line-height: 1.6;">System Design • Algorithms • Performance • Security</div>
+</div>
+
+<div style="padding: 20px; background: rgba(240,147,251,0.08); border-radius: 12px; border: 1px solid rgba(240,147,251,0.2); text-align: center;">
+<div style="font-size: 28px; margin-bottom: 10px;">🎨</div>
+<div style="font-weight: 700; color: #f093fb;">CREATIVE</div>
+<div style="color: #cbd5e0; font-size: 12px; margin-top: 8px; line-height: 1.6;">UI/UX • Design Systems • Animation • Prototyping</div>
+</div>
+
+<div style="padding: 20px; background: rgba(79,172,254,0.08); border-radius: 12px; border: 1px solid rgba(79,172,254,0.2); text-align: center;">
+<div style="font-size: 28px; margin-bottom: 10px;">🌍</div>
+<div style="font-weight: 700; color: #4facfe;">COMMUNICATION</div>
+<div style="color: #cbd5e0; font-size: 12px; margin-top: 8px; line-height: 1.6;">Documentation • Mentoring • Public Speaking • Leadership</div>
+</div>
+
+<div style="padding: 20px; background: rgba(0,212,255,0.08); border-radius: 12px; border: 1px solid rgba(0,212,255,0.2); text-align: center;">
+<div style="font-size: 28px; margin-bottom: 10px;">⚡</div>
+<div style="font-weight: 700; color: #00d4ff;">INNOVATION</div>
+<div style="color: #cbd5e0; font-size: 12px; margin-top: 8px; line-height: 1.6;">Problem Solving • Optimization • Rapid Prototyping • R&D</div>
+</div>
+
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+---
+
+## 💭 DEVELOPER MINDSET
+
+<div style="margin: 40px 0; padding: 40px; background: linear-gradient(135deg, rgba(102,126,234,0.08) 0%, rgba(240,147,251,0.08) 50%, rgba(79,172,254,0.08) 100%); border-radius: 15px; border: 2px solid rgba(102,126,234,0.2); text-align: center;">
+
+<div style="font-size: 18px; color: #e0e7ff; font-style: italic; margin-bottom: 20px;">
+"Great code isn't about being clever—it's about being clear, maintainable, and solving real problems for real people."
+</div>
+
+<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight&border=true&border_color=667eea" width="70%"/>
+
+</div>
+
+---
+
+## 🌟 CORE VALUES
+
+<table style="width: 100%; border-collapse: collapse;">
 <tr>
-<td width="33%">
-
-### 🚀 **Building**
-
-```yaml
-✨ Full-stack web applications
-🤖 AI/ML-powered features
-📦 Open source libraries
-🎯 Developer tools
-```
-
+<td style="padding: 25px; background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(79,172,254,0.1) 100%); border-radius: 12px; margin: 10px; border: 1px solid rgba(102,126,234,0.2);">
+<div style="font-weight: 800; color: #667eea; margin-bottom: 12px; font-size: 16px;">💡 INNOVATION</div>
+<div style="color: #cbd5e0; font-size: 13px; line-height: 1.7;">Constantly exploring new technologies and methodologies to build better solutions</div>
 </td>
-<td width="33%">
-
-### 📚 **Learning**
-
-```yaml
-🏗️ System Design
-☁️ Cloud Architecture
-⛓️ Web3 & Blockchain
-🔐 Security Best Practices
-```
-
-</td>
-<td width="33%">
-
-### 🤝 **Contributing**
-
-```yaml
-💻 Open Source Projects
-🐛 Bug Fixes & Features
-📖 Technical Writing
-🎓 Community Teaching
-```
-
+<td style="padding: 25px; background: linear-gradient(135deg, rgba(240,147,251,0.1) 0%, rgba(102,126,234,0.1) 100%); border-radius: 12px; margin: 10px; border: 1px solid rgba(240,147,251,0.2);">
+<div style="font-weight: 800; color: #f093fb; margin-bottom: 12px; font-size: 16px;">✨ QUALITY</div>
+<div style="color: #cbd5e0; font-size: 13px; line-height: 1.7;">Committed to writing clean, tested, and maintainable code at scale</div>
 </td>
 </tr>
-</table>
-
-</div>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
----
-
-## 🌟 Key Interests
-
-<div align="center">
-
-| **🔧 Technical** | **🎨 Creative** | **🌍 Community** |
-|:---:|:---:|:---:|
-| System Architecture | UI/UX Design | Open Source |
-| Algorithm Design | Motion Graphics | Tech Advocacy |
-| Performance Optimization | Design Systems | Mentorship |
-| API Development | Interactive Prototypes | Public Speaking |
-| Distributed Systems | Creative Coding | Knowledge Sharing |
-
-</div>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
----
-
-## 💬 Dev Philosophy
-
-<div align="center">
-
-<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight&border=true&border_color=667eea" width="75%"/>
-
-<br/>
-
-### *"Great developers don't just write code—they craft experiences"*
-
-</div>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
----
-
-## 🤝 Let's Connect & Collaborate
-
-<div align="center">
-
-<p><em>I'm always excited to discuss tech, collaborate on projects, or just have a good coding conversation! 🚀</em></p>
-
-<table>
 <tr>
-<td align="center" width="25%">
-<a href="https://linkedin.com/in/harmitkalal">
-<img src="https://img.icons8.com/fluency/96/linkedin.png" width="50" style="filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5))"/>
-<br/><sub><b>LinkedIn</b></sub>
-</a>
+<td style="padding: 25px; background: linear-gradient(135deg, rgba(79,172,254,0.1) 0%, rgba(240,147,251,0.1) 100%); border-radius: 12px; margin: 10px; border: 1px solid rgba(79,172,254,0.2);">
+<div style="font-weight: 800; color: #4facfe; margin-bottom: 12px; font-size: 16px;">🤝 COLLABORATION</div>
+<div style="color: #cbd5e0; font-size: 13px; line-height: 1.7;">Thriving in team environments and lifting others through knowledge sharing</div>
 </td>
-<td align="center" width="25%">
-<a href="https://github.com/Harmitx7">
-<img src="https://img.icons8.com/fluency/96/github.png" width="50" style="filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5))"/>
-<br/><sub><b>GitHub</b></sub>
-</a>
-</td>
-<td align="center" width="25%">
-<a href="https://instagram.com/_.harmit">
-<img src="https://img.icons8.com/fluency/96/instagram-new.png" width="50" style="filter: drop-shadow(0 0 5px rgba(240, 147, 251, 0.5))"/>
-<br/><sub><b>Instagram</b></sub>
-</a>
-</td>
-<td align="center" width="25%">
-<a href="mailto:harmitkalal7@gmail.com">
-<img src="https://img.icons8.com/fluency/96/gmail.png" width="50" style="filter: drop-shadow(0 0 5px rgba(234, 67, 53, 0.5))"/>
-<br/><sub><b>Email</b></sub>
-</a>
+<td style="padding: 25px; background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(667,126,234,0.1) 100%); border-radius: 12px; margin: 10px; border: 1px solid rgba(0,212,255,0.2);">
+<div style="font-weight: 800; color: #00d4ff; margin-bottom: 12px; font-size: 16px;">🚀 EXECUTION</div>
+<div style="color: #cbd5e0; font-size: 13px; line-height: 1.7;">Ship fast, iterate quickly, and deliver measurable business impact</div>
 </td>
 </tr>
 </table>
 
-<br/>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-<a href="https://linkedin.com/in/harmitkalal">
-  <img src="https://img.shields.io/badge/LinkedIn-Let's_Connect-667eea?style=for-the-badge&logo=linkedin&logoColor=white" />
+---
+
+## 🎓 CONTINUOUS LEARNING
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0;">
+
+<div style="padding: 25px; background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(79,172,254,0.1) 100%); border-radius: 12px; border-left: 4px solid #667eea;">
+<div style="font-weight: 700; color: #667eea; margin-bottom: 12px;">📖 READING</div>
+<div style="color: #cbd5e0; font-size: 13px; line-height: 1.8;">
+• Clean Code<br/>
+• System Design<br/>
+• Technical Blogs<br/>
+• Research Papers
+</div>
+</div>
+
+<div style="padding: 25px; background: linear-gradient(135deg, rgba(240,147,251,0.1) 0%, rgba(102,126,234,0.1) 100%); border-radius: 12px; border-left: 4px solid #f093fb;">
+<div style="font-weight: 700; color: #f093fb; margin-bottom: 12px;">💻 CODING</div>
+<div style="color: #cbd5e0; font-size: 13px; line-height: 1.8;">
+• Side projects<br/>
+• Open source<br/>
+• Code katas<br/>
+• Prototypes
+</div>
+</div>
+
+<div style="padding: 25px; background: linear-gradient(135deg, rgba(79,172,254,0.1) 0%, rgba(240,147,251,0.1) 100%); border-radius: 12px; border-left: 4px solid #4facfe;">
+<div style="font-weight: 700; color: #4facfe; margin-bottom: 12px;">🎤 SHARING</div>
+<div style="color: #cbd5e0; font-size: 13px; line-height: 1.8;">
+• Technical blogs<br/>
+• Community talks<br/>
+• Code reviews<br/>
+• Mentorship
+</div>
+</div>
+
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+---
+
+## 🤝 LET'S COLLABORATE
+
+<div align="center" style="margin: 50px 0; padding: 50px 30px; background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(240,147,251,0.08) 50%, rgba(79,172,254,0.1) 100%); border-radius: 20px; border: 2px solid rgba(102,126,234,0.2);">
+
+<div style="font-size: 28px; font-weight: 800; color: #e0e7ff; margin-bottom: 20px;">
+✨ I'm Always Looking for Exciting Opportunities ✨
+</div>
+
+<div style="color: #cbd5e0; margin-bottom: 30px; font-size: 14px; line-height: 1.8;">
+Whether it's building groundbreaking products, joining a talented team, or collaborating on open source projects—I'm excited to work with passionate developers and ambitious teams!
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 30px 0;">
+
+<a href="https://linkedin.com/in/harmitkalal" style="text-decoration: none;">
+  <div style="padding: 20px; background: linear-gradient(135deg, #667eea 0%, #4facfe 100%); border-radius: 12px; color: white; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(102,126,234,0.3);">
+    💼 LinkedIn
+  </div>
 </a>
-<a href="mailto:harmitkalal7@gmail.com">
-  <img src="https://img.shields.io/badge/Email-Get_in_Touch-f093fb?style=for-the-badge&logo=gmail&logoColor=white" />
+
+<a href="https://github.com/Harmitx7" style="text-decoration: none;">
+  <div style="padding: 20px; background: linear-gradient(135deg, #f093fb 0%, #667eea 100%); border-radius: 12px; color: white; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(240,147,251,0.3);">
+    💻 GitHub
+  </div>
 </a>
-<a href="https://github.com/Harmitx7">
-  <img src="https://img.shields.io/badge/GitHub-View_My_Work-4facfe?style=for-the-badge&logo=github&logoColor=white" />
+
+<a href="mailto:harmitkalal7@gmail.com" style="text-decoration: none;">
+  <div style="padding: 20px; background: linear-gradient(135deg, #4facfe 0%, #00d4ff 100%); border-radius: 12px; color: white; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(79,172,254,0.3);">
+    ✉️ Email
+  </div>
 </a>
+
+</div>
+
+<div style="color: #a0aec0; font-size: 13px; margin-top: 25px;">
+<strong>Response time:</strong> 24-48 hours • <strong>Timezone:</strong> IST (GMT+5:30)
+</div>
 
 </div>
 
@@ -393,22 +628,28 @@ interface Developer {
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=667eea,764ba2,f093fb,4facfe&height=150&section=footer&animation=fadeIn"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=667eea,764ba2,f093fb,4facfe,00d4ff&height=180&section=footer&animation=fadeIn"/>
 
-### ⚡ *"First solve the problem. Then write the code."* — John Johnson
-
-<br/>
-
-**Made with 💜 passion, countless ☕ cups of coffee, and a love for clean code**
+### ⚡ *"The best time to plant a tree was 20 years ago. The second best time is now."*
 
 <br/>
 
-<img src="https://img.shields.io/badge/Thanks%20for%20visiting!-Come%20back%20soon!-667eea?style=for-the-badge&logo=smile&logoColor=white" />
+**Crafted with 💜 passion, fueled by ☕ coffee, and driven by curiosity**
 
 <br/>
 
-**📊 Profile Analytics**
+<div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 20px 0;">
+<img src="https://img.shields.io/badge/Made%20with%20%E2%9D%A4%EF%B8%8F%20passion-667eea?style=flat-square" />
+<img src="https://img.shields.io/badge/Powered%20by%20%E2%98%95%20Coffee-f093fb?style=flat-square" />
+<img src="https://img.shields.io/badge/Open%20for%20%F0%9F%A4%9D%20Collaboration-4facfe?style=flat-square" />
+</div>
+
+<br/>
 
 <img src="https://visitcount.itsvg.in/api?id=Harmitx7&label=PROFILE%20VISITS&color=667eea&icon=5&pretty=true" />
+
+---
+
+**© 2024 Harmit Kalal** | Full-Stack Developer • AI Enthusiast • Open Source Pioneer
 
 </div>
