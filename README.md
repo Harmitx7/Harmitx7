@@ -360,9 +360,3 @@ Made with 💜 passion, countless ☕ cups of coffee, and a love for clean code
 <img src="https://img.shields.io/badge/Thanks%20for%20visiting!-Come%20back%20soon!-667eea?style=for-the-badge&logo=smile&logoColor=white"/>
 
 </div>
-'''
-
-with open('/mnt/agents/output/README.md', 'w', encoding='utf-8') as f:
-    f.write(readme_content)
-
-print("File saved successfully!")
