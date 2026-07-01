@@ -1,5 +1,5 @@
 
-readme_content = '''<div align="center">
+<div align="center">
 
 <!-- Animated Gradient Header -->
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=667eea,764ba2,f093fb,4facfe&height=300&section=header&text=HARMIT%20KALAL&fontSize=80&fontAlign=50&fontAlignY=35&animation=fadeIn&fontColor=fff&desc=Full-Stack%20Developer%20%7C%20AI%20Architect%20%7C%20Open%20Source%20Pioneer&descAlign=50&descAlignY=65&descSize=18&descColor=e0e7ff"/>
