@@ -1,0 +1,70 @@
+<svg width="100%" viewBox="0 0 920 460" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="termBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0C0A09"/>
+      <stop offset="100%" stop-color="#141210"/>
+    </linearGradient>
+    <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1C1917"/>
+      <stop offset="100%" stop-color="#171412"/>
+    </linearGradient>
+    <linearGradient id="termBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B35" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#292524" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    @keyframes reveal { 0% { opacity:0; transform: translateX(-6px);} 100% { opacity:1; transform: translateX(0);} }
+    @keyframes blinkCursor { 0%,50% { opacity:1;} 51%,100% { opacity:0;} }
+    @keyframes dotPulse { 0%,100% { opacity:0.6; } 50% { opacity:1; } }
+    .ln { opacity:0; animation: reveal 0.4s ease-out forwards; }
+    .cursor { animation: blinkCursor 0.9s step-end infinite; }
+    .dot { animation: dotPulse 2.4s ease-in-out infinite; }
+    text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px; }
+    .k { fill:#00F0FF; font-weight: 600; } 
+    .s { fill:#F59E0B; } 
+    .n { fill:#FF6B35; } 
+    .p { fill:#A8A29E; } 
+    .c { fill:#4ADE80; font-weight: 700; }
+  </style>
+
+  <!-- Main Frame -->
+  <rect width="920" height="460" rx="12" fill="url(#termBg)" stroke="url(#termBorder)" stroke-width="1.2"/>
+  
+  <!-- Header Bar -->
+  <rect width="920" height="38" rx="12" fill="url(#headerBg)"/>
+  <rect y="22" width="920" height="16" fill="url(#headerBg)"/>
+  
+  <!-- Window Controls -->
+  <circle class="dot" cx="24" cy="19" r="5.5" fill="#FF5F56" style="animation-delay:0s"/>
+  <circle class="dot" cx="44" cy="19" r="5.5" fill="#FFBD2E" style="animation-delay:0.3s"/>
+  <circle class="dot" cx="64" cy="19" r="5.5" fill="#27C93F" style="animation-delay:0.6s"/>
+  
+  <text x="460" y="24" text-anchor="middle" fill="#A8A29E" font-size="11" letter-spacing="1.5">harmit@ahmedabad — boot_sequence.json</text>
+
+  <!-- CLI Output Body -->
+  <g transform="translate(32, 74)">
+    <text class="ln p" y="0" style="animation-delay:0.0s">$ ./init --profile harmit-kalal</text>
+    <text class="ln" y="26" style="animation-delay:0.35s"><tspan fill="#FF6B35">▸</tspan><tspan fill="#A8A29E"> loading developer_manifest.json ...</tspan></text>
+
+    <text class="ln" y="60" style="animation-delay:0.6s" fill="#78716C">{</text>
+    <text class="ln" y="86" style="animation-delay:0.75s">  <tspan class="k">"name"</tspan>: <tspan class="s">"Harmit Kalal"</tspan>,</text>
+    <text class="ln" y="112" style="animation-delay:0.9s">  <tspan class="k">"role"</tspan>: <tspan class="s">"AI Engineer · System Architect · Full-Stack"</tspan>,</text>
+    <text class="ln" y="138" style="animation-delay:1.05s">  <tspan class="k">"location"</tspan>: <tspan class="s">"Ahmedabad, Gujarat, IN"</tspan>,</text>
+    <text class="ln" y="164" style="animation-delay:1.2s">  <tspan class="k">"education"</tspan>: <tspan class="s">"B.E. Computer Engineering — Indus University"</tspan>,</text>
+
+    <text class="ln" y="196" style="animation-delay:1.4s">  <tspan class="k">"currently_shipping"</tspan>: [</text>
+    <text class="ln" y="220" style="animation-delay:1.55s">    <tspan class="s">"tribunal-kit — anti-hallucination agent kit (npm)"</tspan>,</text>
+    <text class="ln" y="244" style="animation-delay:1.7s">    <tspan class="s">".acf — Agent Context Format for LLM-native docs"</tspan></text>
+    <text class="ln" y="268" style="animation-delay:1.85s">  ],</text>
+
+    <text class="ln" y="300" style="animation-delay:2.0s">  <tspan class="k">"flagship_builds"</tspan>: [<tspan class="s">"tribunal-kit"</tspan>, <tspan class="s">"ARGUS-X"</tspan>, <tspan class="s">"ClashVision v3.0"</tspan>, <tspan class="s">"F1 Telemetry"</tspan>],</text>
+    <text class="ln" y="326" style="animation-delay:2.15s">  <tspan class="k">"stack"</tspan>: [<tspan class="s">"TypeScript"</tspan>, <tspan class="s">"Python"</tspan>, <tspan class="s">"Next.js 15"</tspan>, <tspan class="s">"Godot 4"</tspan>, <tspan class="s">"PyTorch"</tspan>],</text>
+    <text class="ln" y="352" style="animation-delay:2.30s">  <tspan class="k">"motto"</tspan>: <tspan class="s">"Build the real tool first. Document and promote second."</tspan></text>
+    <text class="ln" y="378" style="animation-delay:2.45s" fill="#78716C">}</text>
+
+    <text class="ln" y="410" style="animation-delay:2.7s"><tspan class="c">✓</tspan><tspan fill="#A8A29E"> boot sequence complete </tspan><tspan fill="#FF6B35" font-weight="700">[OK]</tspan><tspan class="cursor" fill="#00F0FF"> ▌</tspan></text>
+  </g>
+</svg>

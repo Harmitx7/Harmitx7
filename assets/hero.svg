@@ -1,0 +1,180 @@
+<svg width="100%" viewBox="0 0 1000 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080706"/>
+      <stop offset="45%" stop-color="#12100E"/>
+      <stop offset="100%" stop-color="#080706"/>
+    </linearGradient>
+
+    <!-- Accent Lines & Gradients -->
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6B35"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#00F0FF"/>
+    </linearGradient>
+
+    <linearGradient id="nameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#E7E5E4"/>
+      <stop offset="100%" stop-color="#A8A29E"/>
+    </linearGradient>
+
+    <linearGradient id="hudBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B35" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#292524" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Film Grain Filter -->
+    <filter id="grain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="mono"/>
+      <feBlend in="SourceGraphic" in2="mono" mode="multiply" result="grain"/>
+      <feComponentTransfer in="grain">
+        <feFuncA type="linear" slope="0.06"/>
+      </feComponentTransfer>
+      <feComposite in2="SourceGraphic" operator="over"/>
+    </filter>
+
+    <!-- Soft Glow Filter -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Glowing Dot Filter -->
+    <filter id="dotGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="dotGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="0.8" fill="#78716C" opacity="0.18"/>
+    </pattern>
+
+    <!-- Spotlights -->
+    <radialGradient id="spotlightL" cx="12%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6B35" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#FF6B35" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="spotlightR" cx="88%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <style>
+    @keyframes pulseLed { 0%,100%{opacity:0.4;r:4} 50%{opacity:1;r:5.5} }
+    @keyframes flickerTitle { 0%,100%{opacity:1} 45%{opacity:1} 46%{opacity:0.6} 47%{opacity:1} 82%{opacity:1} 83%{opacity:0.4} 84%{opacity:1} }
+    @keyframes glitchA { 0%,92%,100%{transform:translate(0,0);opacity:0} 93%{transform:translate(2px,-1px);opacity:0.6} 95%{transform:translate(-2px,1px);opacity:0.4} 97%{transform:translate(1px,0);opacity:0} }
+    @keyframes glitchB { 0%,94%,100%{transform:translate(0,0);opacity:0} 95%{transform:translate(-2px,1px);opacity:0.6} 97%{transform:translate(2px,-1px);opacity:0.4} 98%{transform:translate(-1px,0);opacity:0} }
+    @keyframes floatParticle { 0%{transform:translateY(0);opacity:0} 10%{opacity:0.7} 90%{opacity:0.4} 100%{transform:translateY(-320px);opacity:0} }
+    @keyframes scanlineMove { 0%{transform:translateY(-340px)} 100%{transform:translateY(40px)} }
+    @keyframes blinkCursor { 0%,50%{opacity:1} 51%,100%{opacity:0} }
+    
+    .title-main { animation: flickerTitle 8s infinite; }
+    .title-glitch-a { animation: glitchA 5s infinite; }
+    .title-glitch-b { animation: glitchB 5s infinite; }
+    .led-dot { animation: pulseLed 2s ease-in-out infinite; }
+    .particle { animation: floatParticle linear infinite; }
+    .scanline { animation: scanlineMove 7s linear infinite; }
+    .cursor { animation: blinkCursor 0.9s step-end infinite; }
+    text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; }
+  </style>
+
+  <!-- Base Canvas -->
+  <rect width="1000" height="340" fill="url(#bgGrad)"/>
+  <rect width="1000" height="340" fill="url(#dotGrid)"/>
+  <rect width="1000" height="340" fill="url(#spotlightL)"/>
+  <rect width="1000" height="340" fill="url(#spotlightR)"/>
+
+  <!-- Scanning Line -->
+  <g opacity="0.25">
+    <rect class="scanline" x="0" width="1000" height="70" fill="url(#accentLine)" opacity="0.035"/>
+  </g>
+
+  <!-- Floating Particles -->
+  <g>
+    <circle class="particle" cx="120" cy="320" r="1.6" fill="#FF6B35" opacity="0.6" style="animation-duration:9s;animation-delay:0s"/>
+    <circle class="particle" cx="280" cy="310" r="1.2" fill="#00F0FF" opacity="0.5" style="animation-duration:11s;animation-delay:1.5s"/>
+    <circle class="particle" cx="720" cy="320" r="1.8" fill="#F59E0B" opacity="0.5" style="animation-duration:8s;animation-delay:0.7s"/>
+    <circle class="particle" cx="880" cy="300" r="1.4" fill="#00F0FF" opacity="0.5" style="animation-duration:10s;animation-delay:2.2s"/>
+    <circle class="particle" cx="500" cy="315" r="1.0" fill="#E7E5E4" opacity="0.4" style="animation-duration:12s;animation-delay:3.1s"/>
+  </g>
+
+  <!-- Outer Frame & Corner Brackets -->
+  <rect x="8" y="8" width="984" height="324" rx="12" fill="none" stroke="url(#hudBorder)" stroke-width="1.2"/>
+  
+  <!-- Corner Crosshairs -->
+  <path d="M 20 18 L 36 18 M 20 18 L 20 34" stroke="#FF6B35" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 980 18 L 964 18 M 980 18 L 980 34" stroke="#00F0FF" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 20 322 L 36 322 M 20 322 L 20 306" stroke="#00F0FF" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 980 322 L 964 322 M 980 322 L 980 306" stroke="#FF6B35" stroke-width="1.5" opacity="0.7"/>
+
+  <!-- Top Telemetry Header Bar -->
+  <g transform="translate(48, 42)">
+    <!-- Status LED -->
+    <circle class="led-dot" cx="0" cy="-4" r="4.5" fill="#4ADE80" filter="url(#dotGlow)"/>
+    <text x="14" y="0" font-size="11" font-weight="700" fill="#4ADE80" letter-spacing="2">SYS_ONLINE</text>
+    
+    <text x="135" y="0" font-size="11" fill="#57534E">|</text>
+    <text x="155" y="0" font-size="11" fill="#A8A29E" letter-spacing="1.5">AHMEDABAD, IN</text>
+
+    <text x="310" y="0" font-size="11" fill="#57534E">|</text>
+    <text x="330" y="0" font-size="11" fill="#78716C" letter-spacing="1.5">INDUS UNIVERSITY</text>
+
+    <!-- Top Right Telemetry Code -->
+    <text x="890" y="0" font-size="11" fill="#57534E" text-anchor="end" letter-spacing="1">LOC: 23.0225° N, 72.5714° E</text>
+  </g>
+
+  <!-- Accent Gradient Rule -->
+  <rect x="48" y="62" width="904" height="1" fill="url(#accentLine)" opacity="0.3"/>
+
+  <!-- Main Name Header -->
+  <g transform="translate(48, 170)">
+    <!-- Glitch Layers -->
+    <text class="title-glitch-a" x="0" y="0" font-size="88" font-weight="800" fill="#00F0FF" letter-spacing="-3">HARMIT</text>
+    <text class="title-glitch-b" x="0" y="0" font-size="88" font-weight="800" fill="#FF6B35" letter-spacing="-3">HARMIT</text>
+    <!-- Main Text -->
+    <text class="title-main" x="0" y="0" font-size="88" font-weight="800" fill="url(#nameGrad)" filter="url(#softGlow)" letter-spacing="-3">HARMIT</text>
+  </g>
+
+  <!-- Last Name Accent -->
+  <g transform="translate(48, 222)">
+    <text font-size="32" font-weight="500" fill="#78716C" letter-spacing="10">KALAL</text>
+  </g>
+
+  <!-- Role Tags Row -->
+  <g transform="translate(48, 266)">
+    <!-- AI ENGINEER Tag -->
+    <rect x="0" y="-18" width="138" height="26" rx="6" fill="#1C1917" stroke="#FF6B35" stroke-opacity="0.5" stroke-width="1"/>
+    <text x="12" y="0" font-size="11" font-weight="700" fill="#FF6B35" letter-spacing="1.5">AI ENGINEER</text>
+
+    <!-- SYSTEM ARCHITECT Tag -->
+    <rect x="150" y="-18" width="170" height="26" rx="6" fill="#1C1917" stroke="#00F0FF" stroke-opacity="0.5" stroke-width="1"/>
+    <text x="162" y="0" font-size="11" font-weight="700" fill="#00F0FF" letter-spacing="1.5">SYSTEM ARCHITECT</text>
+
+    <!-- FULL-STACK Tag -->
+    <rect x="332" y="-18" width="130" height="26" rx="6" fill="#1C1917" stroke="#F59E0B" stroke-opacity="0.5" stroke-width="1"/>
+    <text x="344" y="0" font-size="11" font-weight="700" fill="#F59E0B" letter-spacing="1.5">FULL-STACK</text>
+  </g>
+
+  <!-- Bottom Telemetry HUD Line -->
+  <g transform="translate(952, 304)" text-anchor="end">
+    <text font-size="12" fill="#78716C">
+      <tspan fill="#57534E">$ </tspan><tspan fill="#A8A29E">active_target:</tspan><tspan fill="#FF6B35" font-weight="700"> tribunal-kit</tspan><tspan class="cursor" fill="#00F0FF"> ▌</tspan>
+    </text>
+  </g>
+
+  <!-- Noise Film Overlay -->
+  <rect width="1000" height="340" fill="transparent" filter="url(#grain)" opacity="0.45"/>
+</svg>
