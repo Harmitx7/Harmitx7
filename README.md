@@ -24,7 +24,6 @@
 
 <br/>
 
-## ⟶ terminal // quick_boot_sequence
 
 <div align="center">
 <!-- ═══════════════ DEVELOPER CONSOLE MANIFEST ═══════════════ -->
@@ -33,7 +32,6 @@
 
 <br/>
 
-## ⟶ quest_log // active_deployments
 
 <table>
 <tr>
@@ -124,7 +122,6 @@ npx tribunal-kit init
 
 <br/>
 
-## ⟶ skill_matrix // production_stack_topography
 
 <div align="center">
 <!-- ═══════════════ 4-TIER SKILL ARCHITECTURE MATRIX ═══════════════ -->
