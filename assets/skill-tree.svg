@@ -1,151 +1,212 @@
-<svg width="100%" viewBox="0 0 920 440" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" viewBox="0 0 960 500" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="stBg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#090807"/>
-      <stop offset="100%" stop-color="#141210"/>
+    <linearGradient id="smVoid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020205"/>
+      <stop offset="50%" stop-color="#080E1A"/>
+      <stop offset="100%" stop-color="#020205"/>
     </linearGradient>
-    <linearGradient id="headerAccent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#FF6B35"/>
-      <stop offset="100%" stop-color="#00F0FF"/>
+
+    <linearGradient id="smRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#0F172A" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#FF5722" stop-opacity="0.5"/>
     </linearGradient>
-    <filter id="glowDot" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2.5" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+
+    <linearGradient id="smConst" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#FF9100" stop-opacity="0.12"/>
+    </linearGradient>
+
+    <filter id="smGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
   <style>
-    @keyframes fadePill { 0%{opacity:0;transform:translateY(6px)} 100%{opacity:1;transform:translateY(0)} }
-    @keyframes pulseNode { 0%,100%{opacity:0.6;r:5} 50%{opacity:1;r:6.5} }
-    .pill { animation: fadePill 0.4s ease-out forwards; opacity:0; }
-    .catDot { animation: pulseNode 2.5s ease-in-out infinite; }
-    text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; }
+    @keyframes chipFloat { 0%{opacity:0;transform:translateY(8px);} 100%{opacity:1;transform:translateY(0);} }
+    @keyframes beaconOrbit { 0%,100%{opacity:0.5;r:4.5;} 50%{opacity:1;r:6.5;} }
+    @keyframes constBreath { 0%,100%{stroke-opacity:0.04;} 50%{stroke-opacity:0.18;} }
+    @keyframes nodeShimmer { 0%,100%{opacity:0.25;} 50%{opacity:0.7;} }
+
+    .chip { animation: chipFloat 0.5s cubic-bezier(0.16,1,0.3,1) forwards; opacity:0; }
+    .beacon { animation: beaconOrbit 2.5s ease-in-out infinite; }
+    .const-link { animation: constBreath 6s ease-in-out infinite; }
+    .const-star { animation: nodeShimmer 4s ease-in-out infinite; }
+
+    text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Consolas, monospace; }
   </style>
 
-  <!-- Container Base -->
-  <rect width="920" height="440" rx="12" fill="url(#stBg)" stroke="#292524" stroke-width="1.2"/>
+  <!-- Container -->
+  <rect width="960" height="500" rx="14" fill="url(#smVoid)" stroke="url(#smRim)" stroke-width="1.2"/>
 
-  <!-- Header Bar -->
+  <!-- Background Constellation Network -->
+  <g opacity="0.7">
+    <!-- Cross-section constellation lines connecting skill clusters -->
+    <line class="const-link" x1="100" y1="110" x2="300" y2="195" stroke="url(#smConst)" stroke-width="0.6"/>
+    <line class="const-link" x1="300" y1="195" x2="500" y2="280" stroke="url(#smConst)" stroke-width="0.5" style="animation-delay:1s;"/>
+    <line class="const-link" x1="500" y1="280" x2="700" y2="370" stroke="url(#smConst)" stroke-width="0.6" style="animation-delay:2s;"/>
+    <line class="const-link" x1="100" y1="110" x2="500" y2="280" stroke="url(#smConst)" stroke-width="0.4" style="animation-delay:0.5s;"/>
+    <line class="const-link" x1="300" y1="195" x2="700" y2="370" stroke="url(#smConst)" stroke-width="0.4" style="animation-delay:1.5s;"/>
+
+    <circle class="const-star" cx="100" cy="110" r="2" fill="#00F0FF" style="animation-delay:0s;"/>
+    <circle class="const-star" cx="300" cy="195" r="2" fill="#FF9100" style="animation-delay:0.8s;"/>
+    <circle class="const-star" cx="500" cy="280" r="2" fill="#00E676" style="animation-delay:1.6s;"/>
+    <circle class="const-star" cx="700" cy="370" r="2" fill="#F43F5E" style="animation-delay:2.4s;"/>
+  </g>
+
+  <!-- Header -->
   <g transform="translate(36, 44)">
-    <text x="0" y="0" font-size="11" fill="#78716C" letter-spacing="3" font-weight="700">SKILL_MATRIX // TECHNICAL_STACK_LANDSCAPE</text>
-    <rect x="0" y="10" width="120" height="2" rx="1" fill="url(#headerAccent)" opacity="0.8"/>
+    <text font-size="11" font-weight="800" fill="#64748B" letter-spacing="3">SKILL_MATRIX // COSMIC_TOPOGRAPHY</text>
+    <rect x="0" y="10" width="140" height="1.5" rx="0.75" fill="#00F0FF" opacity="0.4"/>
+    <text x="888" y="0" text-anchor="end" font-size="10" fill="#334155" letter-spacing="1.5">4 ORBITAL CLUSTERS // 26 MODULES</text>
   </g>
 
-  <!-- ═══ ROW 1: AI & AGENTIC SYSTEMS ═══ -->
-  <g transform="translate(36, 100)">
-    <circle class="catDot" cx="6" cy="-4" r="5" fill="#FF6B35" filter="url(#glowDot)"/>
-    <text x="20" y="0" font-size="12" font-weight="700" fill="#FF6B35" letter-spacing="1.5">AI &amp; AGENTIC</text>
+  <!-- ═══ ROW 1: AI & AGENTIC ═══ -->
+  <g transform="translate(36, 112)">
+    <circle class="beacon" cx="6" cy="-4" r="5" fill="#00F0FF" filter="url(#smGlow)"/>
+    <text x="22" y="0" font-size="12" font-weight="900" fill="#00F0FF" letter-spacing="1.5">AI &amp; AGENTIC</text>
 
-    <!-- Pills -->
-    <g transform="translate(200, -14)">
-      <rect class="pill" x="0" y="0" width="116" height="28" rx="6" fill="#1C1917" stroke="#FF6B35" stroke-opacity="0.4" style="animation-delay:0.05s"/>
-      <text class="pill" x="12" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.05s">tribunal-kit</text>
-
-      <rect class="pill" x="126" y="0" width="112" height="28" rx="6" fill="#1C1917" stroke="#FF6B35" stroke-opacity="0.4" style="animation-delay:0.12s"/>
-      <text class="pill" x="138" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.12s">LLM Agents</text>
-
-      <rect class="pill" x="248" y="0" width="138" height="28" rx="6" fill="#1C1917" stroke="#FF6B35" stroke-opacity="0.4" style="animation-delay:0.19s"/>
-      <text class="pill" x="260" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.19s">.acf Distillation</text>
-
-      <rect class="pill" x="396" y="0" width="124" height="28" rx="6" fill="#1C1917" stroke="#FF6B35" stroke-opacity="0.4" style="animation-delay:0.26s"/>
-      <text class="pill" x="408" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.26s">RAG Pipelines</text>
-
-      <rect class="pill" x="530" y="0" width="90" height="28" rx="6" fill="#1C1917" stroke="#FF6B35" stroke-opacity="0.4" style="animation-delay:0.33s"/>
-      <text class="pill" x="542" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.33s">PyTorch</text>
-
-      <rect class="pill" x="630" y="0" width="40" height="28" rx="6" fill="#1C1917" stroke="#FF6B35" stroke-opacity="0.2" style="animation-delay:0.4s"/>
-      <text class="pill" x="640" y="18" font-size="11" fill="#78716C" style="animation-delay:0.4s">+3</text>
+    <g transform="translate(196, -16)">
+      <g class="chip" style="animation-delay:0.05s;">
+        <rect x="0" y="0" width="126" height="30" rx="15" fill="none" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="14" y="19" font-size="11" font-weight="700" fill="#F8FAFC">tribunal-kit</text>
+      </g>
+      <g class="chip" style="animation-delay:0.12s;">
+        <rect x="136" y="0" width="118" height="30" rx="15" fill="none" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="150" y="19" font-size="11" font-weight="700" fill="#F8FAFC">LLM Agents</text>
+      </g>
+      <g class="chip" style="animation-delay:0.19s;">
+        <rect x="264" y="0" width="144" height="30" rx="15" fill="none" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="278" y="19" font-size="11" font-weight="700" fill="#F8FAFC">.acf Distillation</text>
+      </g>
+      <g class="chip" style="animation-delay:0.26s;">
+        <rect x="418" y="0" width="128" height="30" rx="15" fill="none" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="432" y="19" font-size="11" font-weight="700" fill="#F8FAFC">RAG Pipelines</text>
+      </g>
+      <g class="chip" style="animation-delay:0.33s;">
+        <rect x="556" y="0" width="90" height="30" rx="15" fill="none" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="570" y="19" font-size="11" font-weight="700" fill="#F8FAFC">PyTorch</text>
+      </g>
+      <g class="chip" style="animation-delay:0.40s;">
+        <rect x="656" y="0" width="62" height="30" rx="15" fill="none" stroke="#00F0FF" stroke-opacity="0.2" stroke-width="1"/>
+        <text x="670" y="19" font-size="11" fill="#475569">+3</text>
+      </g>
     </g>
   </g>
 
-  <line x1="36" y1="134" x2="884" y2="134" stroke="#292524" stroke-width="1"/>
+  <line x1="36" y1="148" x2="924" y2="148" stroke="#0F172A" stroke-width="0.8"/>
 
-  <!-- ═══ ROW 2: SYSTEMS & ARCHITECTURE ═══ -->
-  <g transform="translate(36, 180)">
-    <circle class="catDot" cx="6" cy="-4" r="5" fill="#00F0FF" filter="url(#glowDot)"/>
-    <text x="20" y="0" font-size="12" font-weight="700" fill="#00F0FF" letter-spacing="1.5">SYSTEMS &amp; ARCH</text>
+  <!-- ═══ ROW 2: SECURITY & ARCH ═══ -->
+  <g transform="translate(36, 200)">
+    <circle class="beacon" cx="6" cy="-4" r="5" fill="#FF9100" filter="url(#smGlow)"/>
+    <text x="22" y="0" font-size="12" font-weight="900" fill="#FF9100" letter-spacing="1.5">SECURITY &amp; ARCH</text>
 
-    <g transform="translate(200, -14)">
-      <rect class="pill" x="0" y="0" width="82" height="28" rx="6" fill="#1C1917" stroke="#00F0FF" stroke-opacity="0.4" style="animation-delay:0.45s"/>
-      <text class="pill" x="12" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.45s">Python</text>
-
-      <rect class="pill" x="92" y="0" width="96" height="28" rx="6" fill="#1C1917" stroke="#00F0FF" stroke-opacity="0.4" style="animation-delay:0.52s"/>
-      <text class="pill" x="104" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.52s">C# / .NET</text>
-
-      <rect class="pill" x="198" y="0" width="68" height="28" rx="6" fill="#1C1917" stroke="#00F0FF" stroke-opacity="0.4" style="animation-delay:0.59s"/>
-      <text class="pill" x="210" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.59s">C++</text>
-
-      <rect class="pill" x="276" y="0" width="134" height="28" rx="6" fill="#1C1917" stroke="#00F0FF" stroke-opacity="0.4" style="animation-delay:0.66s"/>
-      <text class="pill" x="288" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.66s">Microservices</text>
-
-      <rect class="pill" x="420" y="0" width="128" height="28" rx="6" fill="#1C1917" stroke="#00F0FF" stroke-opacity="0.4" style="animation-delay:0.73s"/>
-      <text class="pill" x="432" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.73s">SQL / DuckDB</text>
-
-      <rect class="pill" x="558" y="0" width="80" height="28" rx="6" fill="#1C1917" stroke="#00F0FF" stroke-opacity="0.4" style="animation-delay:0.8s"/>
-      <text class="pill" x="570" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.8s">Docker</text>
+    <g transform="translate(196, -16)">
+      <g class="chip" style="animation-delay:0.45s;">
+        <rect x="0" y="0" width="142" height="30" rx="15" fill="none" stroke="#FF9100" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="14" y="19" font-size="11" font-weight="700" fill="#F8FAFC">ARGUS-X Sandbox</text>
+      </g>
+      <g class="chip" style="animation-delay:0.52s;">
+        <rect x="152" y="0" width="130" height="30" rx="15" fill="none" stroke="#FF9100" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="166" y="19" font-size="11" font-weight="700" fill="#F8FAFC">MITRE ATT&amp;CK</text>
+      </g>
+      <g class="chip" style="animation-delay:0.59s;">
+        <rect x="292" y="0" width="124" height="30" rx="15" fill="none" stroke="#FF9100" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="306" y="19" font-size="11" font-weight="700" fill="#F8FAFC">Python 3.12</text>
+      </g>
+      <g class="chip" style="animation-delay:0.66s;">
+        <rect x="426" y="0" width="102" height="30" rx="15" fill="none" stroke="#FF9100" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="440" y="19" font-size="11" font-weight="700" fill="#F8FAFC">C# / .NET</text>
+      </g>
+      <g class="chip" style="animation-delay:0.73s;">
+        <rect x="538" y="0" width="82" height="30" rx="15" fill="none" stroke="#FF9100" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="552" y="19" font-size="11" font-weight="700" fill="#F8FAFC">Docker</text>
+      </g>
+      <g class="chip" style="animation-delay:0.80s;">
+        <rect x="630" y="0" width="92" height="30" rx="15" fill="none" stroke="#FF9100" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="644" y="19" font-size="11" font-weight="700" fill="#F8FAFC">FastAPI</text>
+      </g>
     </g>
   </g>
 
-  <line x1="36" y1="214" x2="884" y2="214" stroke="#292524" stroke-width="1"/>
+  <line x1="36" y1="236" x2="924" y2="236" stroke="#0F172A" stroke-width="0.8"/>
 
   <!-- ═══ ROW 3: FULL-STACK & WEB ═══ -->
-  <g transform="translate(36, 260)">
-    <circle class="catDot" cx="6" cy="-4" r="5" fill="#F59E0B" filter="url(#glowDot)"/>
-    <text x="20" y="0" font-size="12" font-weight="700" fill="#F59E0B" letter-spacing="1.5">FULL-STACK &amp; WEB</text>
+  <g transform="translate(36, 288)">
+    <circle class="beacon" cx="6" cy="-4" r="5" fill="#00E676" filter="url(#smGlow)"/>
+    <text x="22" y="0" font-size="12" font-weight="900" fill="#00E676" letter-spacing="1.5">FULL-STACK &amp; WEB</text>
 
-    <g transform="translate(200, -14)">
-      <rect class="pill" x="0" y="0" width="98" height="28" rx="6" fill="#1C1917" stroke="#F59E0B" stroke-opacity="0.4" style="animation-delay:0.85s"/>
-      <text class="pill" x="12" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.85s">Next.js 15</text>
-
-      <rect class="pill" x="108" y="0" width="84" height="28" rx="6" fill="#1C1917" stroke="#F59E0B" stroke-opacity="0.4" style="animation-delay:0.92s"/>
-      <text class="pill" x="120" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.92s">React 19</text>
-
-      <rect class="pill" x="202" y="0" width="108" height="28" rx="6" fill="#1C1917" stroke="#F59E0B" stroke-opacity="0.4" style="animation-delay:0.99s"/>
-      <text class="pill" x="214" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:0.99s">TypeScript</text>
-
-      <rect class="pill" x="320" y="0" width="72" height="28" rx="6" fill="#1C1917" stroke="#F59E0B" stroke-opacity="0.4" style="animation-delay:1.06s"/>
-      <text class="pill" x="332" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:1.06s">tRPC</text>
-
-      <rect class="pill" x="402" y="0" width="100" height="28" rx="6" fill="#1C1917" stroke="#F59E0B" stroke-opacity="0.4" style="animation-delay:1.13s"/>
-      <text class="pill" x="414" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:1.13s">Supabase</text>
-
-      <rect class="pill" x="512" y="0" width="124" height="28" rx="6" fill="#1C1917" stroke="#F59E0B" stroke-opacity="0.4" style="animation-delay:1.20s"/>
-      <text class="pill" x="524" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:1.20s">Tailwind CSS</text>
+    <g transform="translate(196, -16)">
+      <g class="chip" style="animation-delay:0.85s;">
+        <rect x="0" y="0" width="108" height="30" rx="15" fill="none" stroke="#00E676" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="14" y="19" font-size="11" font-weight="700" fill="#F8FAFC">Next.js 15</text>
+      </g>
+      <g class="chip" style="animation-delay:0.92s;">
+        <rect x="118" y="0" width="96" height="30" rx="15" fill="none" stroke="#00E676" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="132" y="19" font-size="11" font-weight="700" fill="#F8FAFC">React 19</text>
+      </g>
+      <g class="chip" style="animation-delay:0.99s;">
+        <rect x="224" y="0" width="116" height="30" rx="15" fill="none" stroke="#00E676" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="238" y="19" font-size="11" font-weight="700" fill="#F8FAFC">TypeScript</text>
+      </g>
+      <g class="chip" style="animation-delay:1.06s;">
+        <rect x="350" y="0" width="68" height="30" rx="15" fill="none" stroke="#00E676" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="364" y="19" font-size="11" font-weight="700" fill="#F8FAFC">tRPC</text>
+      </g>
+      <g class="chip" style="animation-delay:1.13s;">
+        <rect x="428" y="0" width="106" height="30" rx="15" fill="none" stroke="#00E676" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="442" y="19" font-size="11" font-weight="700" fill="#F8FAFC">Supabase</text>
+      </g>
+      <g class="chip" style="animation-delay:1.20s;">
+        <rect x="544" y="0" width="118" height="30" rx="15" fill="none" stroke="#00E676" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="558" y="19" font-size="11" font-weight="700" fill="#F8FAFC">PostgreSQL</text>
+      </g>
+      <g class="chip" style="animation-delay:1.27s;">
+        <rect x="672" y="0" width="84" height="30" rx="15" fill="none" stroke="#00E676" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="686" y="19" font-size="11" font-weight="700" fill="#F8FAFC">Tailwind</text>
+      </g>
     </g>
   </g>
 
-  <line x1="36" y1="294" x2="884" y2="294" stroke="#292524" stroke-width="1"/>
+  <line x1="36" y1="324" x2="924" y2="324" stroke="#0F172A" stroke-width="0.8"/>
 
-  <!-- ═══ ROW 4: GAME DEV & DEFENSE ═══ -->
-  <g transform="translate(36, 340)">
-    <circle class="catDot" cx="6" cy="-4" r="5" fill="#4ADE80" filter="url(#glowDot)"/>
-    <text x="20" y="0" font-size="12" font-weight="700" fill="#4ADE80" letter-spacing="1.5">GAME DEV &amp; DEFENSE</text>
+  <!-- ═══ ROW 4: SIM & GRAPHICS ═══ -->
+  <g transform="translate(36, 376)">
+    <circle class="beacon" cx="6" cy="-4" r="5" fill="#F43F5E" filter="url(#smGlow)"/>
+    <text x="22" y="0" font-size="12" font-weight="900" fill="#F43F5E" letter-spacing="1.5">SIM &amp; GRAPHICS</text>
 
-    <g transform="translate(200, -14)">
-      <rect class="pill" x="0" y="0" width="88" height="28" rx="6" fill="#1C1917" stroke="#4ADE80" stroke-opacity="0.4" style="animation-delay:1.25s"/>
-      <text class="pill" x="12" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:1.25s">Godot 4</text>
-
-      <rect class="pill" x="98" y="0" width="94" height="28" rx="6" fill="#1C1917" stroke="#4ADE80" stroke-opacity="0.4" style="animation-delay:1.32s"/>
-      <text class="pill" x="110" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:1.32s">GDScript</text>
-
-      <rect class="pill" x="202" y="0" width="168" height="28" rx="6" fill="#1C1917" stroke="#4ADE80" stroke-opacity="0.4" style="animation-delay:1.39s"/>
-      <text class="pill" x="214" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:1.39s">ARGUS-X Trigger Graph</text>
-
-      <rect class="pill" x="380" y="0" width="92" height="28" rx="6" fill="#1C1917" stroke="#4ADE80" stroke-opacity="0.4" style="animation-delay:1.46s"/>
-      <text class="pill" x="392" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:1.46s">Three.js</text>
-
-      <rect class="pill" x="482" y="0" width="144" height="28" rx="6" fill="#1C1917" stroke="#4ADE80" stroke-opacity="0.4" style="animation-delay:1.53s"/>
-      <text class="pill" x="494" y="18" font-size="11" fill="#FAFAF9" style="animation-delay:1.53s">MITRE ATT&amp;CK</text>
+    <g transform="translate(196, -16)">
+      <g class="chip" style="animation-delay:1.32s;">
+        <rect x="0" y="0" width="98" height="30" rx="15" fill="none" stroke="#F43F5E" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="14" y="19" font-size="11" font-weight="700" fill="#F8FAFC">Godot 4</text>
+      </g>
+      <g class="chip" style="animation-delay:1.39s;">
+        <rect x="108" y="0" width="98" height="30" rx="15" fill="none" stroke="#F43F5E" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="122" y="19" font-size="11" font-weight="700" fill="#F8FAFC">GDScript</text>
+      </g>
+      <g class="chip" style="animation-delay:1.46s;">
+        <rect x="216" y="0" width="138" height="30" rx="15" fill="none" stroke="#F43F5E" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="230" y="19" font-size="11" font-weight="700" fill="#F8FAFC">F1 Physics Sim</text>
+      </g>
+      <g class="chip" style="animation-delay:1.53s;">
+        <rect x="364" y="0" width="96" height="30" rx="15" fill="none" stroke="#F43F5E" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="378" y="19" font-size="11" font-weight="700" fill="#F8FAFC">Three.js</text>
+      </g>
+      <g class="chip" style="animation-delay:1.60s;">
+        <rect x="470" y="0" width="128" height="30" rx="15" fill="none" stroke="#F43F5E" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="484" y="19" font-size="11" font-weight="700" fill="#F8FAFC">DuckDB WASM</text>
+      </g>
     </g>
   </g>
 
-  <!-- Footer Accent Bar -->
-  <g transform="translate(36, 400)">
-    <rect x="0" y="0" width="60" height="2" rx="1" fill="#FF6B35" opacity="0.6"/>
-    <rect x="70" y="0" width="30" height="2" rx="1" fill="#00F0FF" opacity="0.5"/>
-    <text x="848" y="4" font-size="10" fill="#57534E" text-anchor="end">4 DEPLOYED PILLARS</text>
+  <!-- Bottom Telemetry -->
+  <g transform="translate(36, 460)">
+    <circle cx="0" cy="0" r="3" fill="#00F0FF"/>
+    <circle cx="12" cy="0" r="3" fill="#FF9100"/>
+    <circle cx="24" cy="0" r="3" fill="#00E676"/>
+    <circle cx="36" cy="0" r="3" fill="#F43F5E"/>
+    <text x="52" y="4" font-size="10" fill="#475569" letter-spacing="1">ORBITAL CLUSTERS SYNCHRONIZED</text>
+    <text x="888" y="4" text-anchor="end" font-size="10" fill="#334155">UPTIME: <tspan fill="#00E676" font-weight="700">99.99%</tspan></text>
   </g>
 </svg>

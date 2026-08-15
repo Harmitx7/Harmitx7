@@ -1,70 +1,161 @@
-<svg width="100%" viewBox="0 0 920 460" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" viewBox="0 0 960 520" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="termBg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0C0A09"/>
-      <stop offset="100%" stop-color="#141210"/>
+    <linearGradient id="tbVoid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#03050A"/>
+      <stop offset="100%" stop-color="#070C18"/>
     </linearGradient>
-    <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1C1917"/>
-      <stop offset="100%" stop-color="#171412"/>
+
+    <linearGradient id="tbHeaderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0A0F1C"/>
+      <stop offset="50%" stop-color="#141D30"/>
+      <stop offset="100%" stop-color="#0A0F1C"/>
     </linearGradient>
-    <linearGradient id="termBorder" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF6B35" stop-opacity="0.5"/>
-      <stop offset="50%" stop-color="#292524" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.5"/>
+
+    <linearGradient id="tbRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#0F172A" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#FF5722" stop-opacity="0.5"/>
     </linearGradient>
+
+    <linearGradient id="tbConst" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FF9100" stop-opacity="0.15"/>
+    </linearGradient>
+
+    <filter id="tbGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
 
   <style>
-    @keyframes reveal { 0% { opacity:0; transform: translateX(-6px);} 100% { opacity:1; transform: translateX(0);} }
-    @keyframes blinkCursor { 0%,50% { opacity:1;} 51%,100% { opacity:0;} }
-    @keyframes dotPulse { 0%,100% { opacity:0.6; } 50% { opacity:1; } }
-    .ln { opacity:0; animation: reveal 0.4s ease-out forwards; }
-    .cursor { animation: blinkCursor 0.9s step-end infinite; }
-    .dot { animation: dotPulse 2.4s ease-in-out infinite; }
-    text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px; }
-    .k { fill:#00F0FF; font-weight: 600; } 
-    .s { fill:#F59E0B; } 
-    .n { fill:#FF6B35; } 
-    .p { fill:#A8A29E; } 
-    .c { fill:#4ADE80; font-weight: 700; }
+    @keyframes lineReveal { 0%{opacity:0;transform:translateX(-8px);} 100%{opacity:1;transform:translateX(0);} }
+    @keyframes neonCursor { 0%,49%{opacity:1;} 50%,100%{opacity:0;} }
+    @keyframes ctrlGlow { 0%,100%{opacity:0.7;} 50%{opacity:1;} }
+    @keyframes starBg { 0%,100%{opacity:0.2;} 50%{opacity:0.6;} }
+    @keyframes constPulse { 0%,100%{stroke-opacity:0.05;} 50%{stroke-opacity:0.15;} }
+
+    .ln { opacity:0; animation: lineReveal 0.35s cubic-bezier(0.16,1,0.3,1) forwards; }
+    .cur { animation: neonCursor 0.85s step-end infinite; }
+    .ctrl { animation: ctrlGlow 3s ease-in-out infinite; }
+    .bg-star { animation: starBg 5s ease-in-out infinite; }
+    .const-bg { animation: constPulse 6s ease-in-out infinite; }
+
+    text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Consolas, monospace; font-size: 13px; }
+    .k { fill: #38BDF8; font-weight: 600; }
+    .s { fill: #FBBF24; }
+    .g { fill: #34D399; }
+    .r { fill: #FB7185; }
+    .d { fill: #64748B; }
+    .h { fill: #00F0FF; font-weight: 700; }
+    .ok { fill: #00E676; font-weight: 800; }
+    .fire { fill: #FF9100; font-weight: 800; }
+    .num { fill: #334155; font-size: 11px; }
   </style>
 
-  <!-- Main Frame -->
-  <rect width="920" height="460" rx="12" fill="url(#termBg)" stroke="url(#termBorder)" stroke-width="1.2"/>
-  
-  <!-- Header Bar -->
-  <rect width="920" height="38" rx="12" fill="url(#headerBg)"/>
-  <rect y="22" width="920" height="16" fill="url(#headerBg)"/>
-  
+  <!-- Window Frame -->
+  <rect width="960" height="520" rx="14" fill="url(#tbVoid)" stroke="url(#tbRim)" stroke-width="1.2"/>
+
+  <!-- Background Constellation Network -->
+  <g opacity="0.6">
+    <line class="const-bg" x1="800" y1="100" x2="900" y2="200" stroke="url(#tbConst)" stroke-width="0.5"/>
+    <line class="const-bg" x1="900" y1="200" x2="850" y2="350" stroke="url(#tbConst)" stroke-width="0.5" style="animation-delay:1s;"/>
+    <line class="const-bg" x1="850" y1="350" x2="920" y2="460" stroke="url(#tbConst)" stroke-width="0.5" style="animation-delay:2s;"/>
+    <circle class="bg-star" cx="800" cy="100" r="1.5" fill="#00F0FF" style="animation-delay:0s;"/>
+    <circle class="bg-star" cx="900" cy="200" r="1.8" fill="#38BDF8" style="animation-delay:1s;"/>
+    <circle class="bg-star" cx="850" cy="350" r="1.5" fill="#FF9100" style="animation-delay:2s;"/>
+    <circle class="bg-star" cx="920" cy="460" r="1.2" fill="#00E676" style="animation-delay:0.5s;"/>
+  </g>
+
+  <!-- Title Bar -->
+  <path d="M 0 14 C 0 6.268 6.268 0 14 0 L 946 0 C 953.732 0 960 6.268 960 14 L 960 42 L 0 42 Z" fill="url(#tbHeaderGrad)"/>
+  <line x1="0" y1="42" x2="960" y2="42" stroke="#1E293B" stroke-width="0.8"/>
+
   <!-- Window Controls -->
-  <circle class="dot" cx="24" cy="19" r="5.5" fill="#FF5F56" style="animation-delay:0s"/>
-  <circle class="dot" cx="44" cy="19" r="5.5" fill="#FFBD2E" style="animation-delay:0.3s"/>
-  <circle class="dot" cx="64" cy="19" r="5.5" fill="#27C93F" style="animation-delay:0.6s"/>
-  
-  <text x="460" y="24" text-anchor="middle" fill="#A8A29E" font-size="11" letter-spacing="1.5">harmit@ahmedabad — boot_sequence.json</text>
+  <circle class="ctrl" cx="20" cy="21" r="5.5" fill="#EF4444"/>
+  <circle class="ctrl" cx="38" cy="21" r="5.5" fill="#F59E0B"/>
+  <circle class="ctrl" cx="56" cy="21" r="5.5" fill="#10B981"/>
 
-  <!-- CLI Output Body -->
-  <g transform="translate(32, 74)">
-    <text class="ln p" y="0" style="animation-delay:0.0s">$ ./init --profile harmit-kalal</text>
-    <text class="ln" y="26" style="animation-delay:0.35s"><tspan fill="#FF6B35">▸</tspan><tspan fill="#A8A29E"> loading developer_manifest.json ...</tspan></text>
+  <!-- Active Tab -->
+  <g transform="translate(90, 7)">
+    <rect x="0" y="0" width="200" height="28" rx="6" fill="#060A14" stroke="#1E293B" stroke-width="0.8"/>
+    <circle cx="14" cy="14" r="3" fill="#00F0FF"/>
+    <text x="26" y="19" font-size="11" font-weight="700" fill="#F1F5F9">boot_manifest.json</text>
+  </g>
 
-    <text class="ln" y="60" style="animation-delay:0.6s" fill="#78716C">{</text>
-    <text class="ln" y="86" style="animation-delay:0.75s">  <tspan class="k">"name"</tspan>: <tspan class="s">"Harmit Kalal"</tspan>,</text>
-    <text class="ln" y="112" style="animation-delay:0.9s">  <tspan class="k">"role"</tspan>: <tspan class="s">"AI Engineer · System Architect · Full-Stack"</tspan>,</text>
-    <text class="ln" y="138" style="animation-delay:1.05s">  <tspan class="k">"location"</tspan>: <tspan class="s">"Ahmedabad, Gujarat, IN"</tspan>,</text>
-    <text class="ln" y="164" style="animation-delay:1.2s">  <tspan class="k">"education"</tspan>: <tspan class="s">"B.E. Computer Engineering — Indus University"</tspan>,</text>
+  <!-- Right Header Stats -->
+  <text x="936" y="26" text-anchor="end" font-size="10" fill="#475569" letter-spacing="0.8">
+    CPU: <tspan fill="#00E676" font-weight="700">14%</tspan> · MEM: <tspan fill="#38BDF8" font-weight="700">64MB</tspan> · RTT: <tspan fill="#FBBF24" font-weight="700">0.12ms</tspan>
+  </text>
 
-    <text class="ln" y="196" style="animation-delay:1.4s">  <tspan class="k">"currently_shipping"</tspan>: [</text>
-    <text class="ln" y="220" style="animation-delay:1.55s">    <tspan class="s">"tribunal-kit — anti-hallucination agent kit (npm)"</tspan>,</text>
-    <text class="ln" y="244" style="animation-delay:1.7s">    <tspan class="s">".acf — Agent Context Format for LLM-native docs"</tspan></text>
-    <text class="ln" y="268" style="animation-delay:1.85s">  ],</text>
+  <!-- ═══ CODE BODY ═══ -->
+  <g transform="translate(32, 76)">
+    <text class="ln" y="0" style="animation-delay:0.05s;">
+      <tspan class="h">harmit@station</tspan><tspan class="d">:</tspan><tspan fill="#38BDF8">~</tspan><tspan class="h">$</tspan> <tspan fill="#F8FAFC">cat boot_manifest.json</tspan>
+    </text>
 
-    <text class="ln" y="300" style="animation-delay:2.0s">  <tspan class="k">"flagship_builds"</tspan>: [<tspan class="s">"tribunal-kit"</tspan>, <tspan class="s">"ARGUS-X"</tspan>, <tspan class="s">"ClashVision v3.0"</tspan>, <tspan class="s">"F1 Telemetry"</tspan>],</text>
-    <text class="ln" y="326" style="animation-delay:2.15s">  <tspan class="k">"stack"</tspan>: [<tspan class="s">"TypeScript"</tspan>, <tspan class="s">"Python"</tspan>, <tspan class="s">"Next.js 15"</tspan>, <tspan class="s">"Godot 4"</tspan>, <tspan class="s">"PyTorch"</tspan>],</text>
-    <text class="ln" y="352" style="animation-delay:2.30s">  <tspan class="k">"motto"</tspan>: <tspan class="s">"Build the real tool first. Document and promote second."</tspan></text>
-    <text class="ln" y="378" style="animation-delay:2.45s" fill="#78716C">}</text>
+    <text class="ln" y="26" style="animation-delay:0.2s;"><tspan class="num"> 1 </tspan><tspan class="d">{</tspan></text>
 
-    <text class="ln" y="410" style="animation-delay:2.7s"><tspan class="c">✓</tspan><tspan fill="#A8A29E"> boot sequence complete </tspan><tspan fill="#FF6B35" font-weight="700">[OK]</tspan><tspan class="cursor" fill="#00F0FF"> ▌</tspan></text>
+    <text class="ln" y="50" style="animation-delay:0.35s;">
+      <tspan class="num"> 2 </tspan><tspan class="d">  </tspan><tspan class="k">"developer"</tspan><tspan class="d">: </tspan><tspan class="s">"Harmit Kalal"</tspan><tspan class="d">,</tspan>
+    </text>
+
+    <text class="ln" y="74" style="animation-delay:0.5s;">
+      <tspan class="num"> 3 </tspan><tspan class="d">  </tspan><tspan class="k">"handle"</tspan><tspan class="d">: </tspan><tspan class="s">"@Harmitx7"</tspan><tspan class="d">,  </tspan><tspan class="k">"location"</tspan><tspan class="d">: </tspan><tspan class="s">"Ahmedabad, Gujarat, IN"</tspan><tspan class="d">,</tspan>
+    </text>
+
+    <text class="ln" y="98" style="animation-delay:0.65s;">
+      <tspan class="num"> 4 </tspan><tspan class="d">  </tspan><tspan class="k">"roles"</tspan><tspan class="d">: [</tspan><tspan class="g">"AI Engineer"</tspan><tspan class="d">, </tspan><tspan class="g">"System Architect"</tspan><tspan class="d">, </tspan><tspan class="g">"Full-Stack"</tspan><tspan class="d">],</tspan>
+    </text>
+
+    <text class="ln" y="122" style="animation-delay:0.8s;">
+      <tspan class="num"> 5 </tspan><tspan class="d">  </tspan><tspan class="k">"education"</tspan><tspan class="d">: </tspan><tspan class="s">"B.E. Computer Engineering — Indus University"</tspan><tspan class="d">,</tspan>
+    </text>
+
+    <text class="ln" y="148" style="animation-delay:0.95s;">
+      <tspan class="num"> 6 </tspan><tspan class="d">  </tspan><tspan class="k">"flagship_deployments"</tspan><tspan class="d">: {</tspan>
+    </text>
+
+    <text class="ln" y="172" style="animation-delay:1.1s;">
+      <tspan class="num"> 7 </tspan><tspan class="d">    </tspan><tspan class="k">"tribunal-kit"</tspan><tspan class="d">: </tspan><tspan class="s">"Anti-hallucination agent kit — 52 agents, 21 reviewers (npm)"</tspan><tspan class="d">,</tspan>
+    </text>
+
+    <text class="ln" y="196" style="animation-delay:1.25s;">
+      <tspan class="num"> 8 </tspan><tspan class="d">    </tspan><tspan class="k">"ARGUS-X"</tspan><tspan class="d">: </tspan><tspan class="s">"Mobile malware deception framework (BoI × IIT Hyderabad Winner)"</tspan><tspan class="d">,</tspan>
+    </text>
+
+    <text class="ln" y="220" style="animation-delay:1.4s;">
+      <tspan class="num"> 9 </tspan><tspan class="d">    </tspan><tspan class="k">"ClashVision"</tspan><tspan class="d">: </tspan><tspan class="s">"PCI prediction engine — NVIDIA LocateAnything-3B + RL"</tspan><tspan class="d">,</tspan>
+    </text>
+
+    <text class="ln" y="244" style="animation-delay:1.55s;">
+      <tspan class="num">10 </tspan><tspan class="d">    </tspan><tspan class="k">"F1_Telemetry"</tspan><tspan class="d">: </tspan><tspan class="s">"Deterministic sector telemetry physics simulator"</tspan>
+    </text>
+
+    <text class="ln" y="268" style="animation-delay:1.7s;"><tspan class="num">11 </tspan><tspan class="d">  },</tspan></text>
+
+    <text class="ln" y="292" style="animation-delay:1.85s;">
+      <tspan class="num">12 </tspan><tspan class="d">  </tspan><tspan class="k">"acf_metrics"</tspan><tspan class="d">: { </tspan><tspan class="k">"compression"</tspan><tspan class="d">: </tspan><tspan class="r">"27x"</tspan><tspan class="d">, </tspan><tspan class="k">"hallucination_rate"</tspan><tspan class="d">: </tspan><tspan class="r">"0.00%"</tspan><tspan class="d"> },</tspan>
+    </text>
+
+    <text class="ln" y="316" style="animation-delay:2.0s;">
+      <tspan class="num">13 </tspan><tspan class="d">  </tspan><tspan class="k">"axiom"</tspan><tspan class="d">: </tspan><tspan class="fire">"Build the real tool first. Document and promote second."</tspan>
+    </text>
+
+    <text class="ln" y="340" style="animation-delay:2.15s;"><tspan class="num">14 </tspan><tspan class="d">}</tspan></text>
+
+    <!-- Audit Result Banner -->
+    <g class="ln" transform="translate(0, 372)" style="animation-delay:2.35s;">
+      <rect x="0" y="0" width="896" height="36" rx="8" fill="#060A14" stroke="#1E293B" stroke-width="0.8"/>
+      <circle cx="18" cy="18" r="4.5" fill="#00E676" filter="url(#tbGlow)"/>
+      <text x="34" y="23" font-size="12">
+        <tspan class="ok">PASS</tspan><tspan class="d"> · 406 files · 0 violations · Anti-Hallucination Guard </tspan><tspan class="ok">ACTIVE</tspan>
+      </text>
+    </g>
+
+    <!-- Cursor Prompt -->
+    <text class="ln" y="436" style="animation-delay:2.55s;">
+      <tspan class="h">harmit@station</tspan><tspan class="d">:</tspan><tspan fill="#38BDF8">~</tspan><tspan class="h">$</tspan> <tspan fill="#F8FAFC">npx tribunal-kit init</tspan><tspan class="cur" fill="#00F0FF"> ▌</tspan>
+    </text>
   </g>
 </svg>

@@ -1,15 +1,16 @@
 <div align="center">
 
-<!-- Hero HUD Banner -->
+<!-- ═══════════════ HERO CYBER-HUD BANNER ═══════════════ -->
 <img src="./assets/hero.svg" width="100%" alt="Harmit Kalal — AI Engineer · System Architect · Full-Stack"/>
 
 <br/>
 
-<!-- Social Navigation Badges -->
+<!-- ═══════════════ SOCIAL NAVIGATION BADGES ═══════════════ -->
 <a href="https://linkedin.com/in/harmitkalal"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
 <a href="https://github.com/Harmitx7"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
-<a href="https://harmit.vercel.app"><img src="https://img.shields.io/badge/Portfolio-FF6B35?style=for-the-badge&logo=vercel&logoColor=white"/></a>
-<a href="https://mailto:harmitkalal7@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+<a href="https://harmit.vercel.app"><img src="https://img.shields.io/badge/Portfolio-00F0FF?style=for-the-badge&logo=vercel&logoColor=05070D"/></a>
+<a href="https://www.npmjs.com/package/tribunal-kit"><img src="https://img.shields.io/badge/npm-tribunal--kit-CB3837?style=for-the-badge&logo=npm&logoColor=white"/></a>
+<a href="mailto:harmitkalal7@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
 <a href="https://instagram.com/_.harmit"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/></a>
 
 </div>
@@ -17,8 +18,8 @@
 <br/>
 
 <div align="center">
-<!-- Active Shipping Ticker -->
-<img src="./assets/status-bar.svg" width="92%" alt="active shipping ticker"/>
+<!-- ═══════════════ ACTIVE SHIPPING TELEMETRY TICKER ═══════════════ -->
+<img src="./assets/status-bar.svg" width="96%" alt="active shipping telemetry ticker"/>
 </div>
 
 <br/>
@@ -26,7 +27,8 @@
 ## ⟶ terminal // quick_boot_sequence
 
 <div align="center">
-<img src="./assets/terminal-boot.svg" width="95%" alt="terminal boot manifest"/>
+<!-- ═══════════════ DEVELOPER CONSOLE MANIFEST ═══════════════ -->
+<img src="./assets/terminal-boot.svg" width="96%" alt="terminal boot manifest"/>
 </div>
 
 <br/>
@@ -38,31 +40,31 @@
 <td width="50%" valign="top">
 
 ### 🎯 tribunal-kit
-> **Anti-Hallucination AI Agent Kit** for Cursor, Windsurf & Antigravity.
-> Features 27 specialist agents, 17 slash commands, 8 Tribunal reviewers, and a `.acf` (Agent Context Format) semantic distillation engine for LLM-native context.
+> **Anti-Hallucination Multi-Agent AI Framework** for Cursor, Windsurf & Antigravity IDEs.
+> Features 52 specialist agents, 40 workflows, 21 Tribunal parallel code reviewers, and a `.acf` (Agent Context Format) semantic distillation engine for LLM-native context.
 
-`TypeScript` · `Node.js` · `AI Agents` · `.acf Spec`
+`TypeScript` · `Node.js` · `Multi-Agent` · `.acf Spec Engine`
 
 ```bash
 npx tribunal-kit init
 ```
 
-🔗 [github.com/Harmitx7/tribunal-kit →](https://github.com/Harmitx7/tribunal-kit)
+🔗 **[github.com/Harmitx7/tribunal-kit →](https://github.com/Harmitx7/tribunal-kit)**
 
 </td>
 <td width="50%" valign="top">
 
 ### 🏆 ARGUS-X
 > **Hypothesis-Driven Mobile Malware Analysis Framework**
-> Trigger-graph reasoning, shadow-data deception layer, counterfactual verification & MITRE ATT&CK mapping. Built for national banking cybersecurity hackathon (**Bank of India × IIT Hyderabad**).
+> Trigger-graph reasoning, dynamic shadow-data deception layer, counterfactual verification & MITRE ATT&CK mapping. Built for national banking cybersecurity hackathon (**Bank of India × IIT Hyderabad**).
 
-`Python` · `Mobile Security` · `Deception Layer` · `MITRE`
+`Python` · `Mobile Security` · `Deception Layer` · `MITRE ATT&CK`
 
 ```bash
 # Hackathon Winner & National Finalist
 ```
 
-🔗 [github.com/Harmitx7/ARGUS-X →](https://github.com/Harmitx7)
+🔗 **[github.com/Harmitx7/ARGUS-X →](https://github.com/Harmitx7)**
 
 </td>
 </tr>
@@ -70,12 +72,12 @@ npx tribunal-kit init
 <td width="50%" valign="top">
 
 ### 🃏 ClashVision v3.0
-> **AI Battle Predictor & Strategy Engine for Clash Royale**
-> Scores PCI (Play Consistency Index), predicts real-time card counters, and serves tactics from Kaggle Season 18 dataset via NVIDIA's LocateAnything-3B.
+> **AI Battle Predictor & Real-time Policy Engine for Clash Royale**
+> Computes PCI (Play Consistency Index), predicts real-time card counters, and serves tactics from Kaggle Season 18 dataset via NVIDIA's LocateAnything-3B.
 
-`Python` · `PyTorch` · `NVIDIA AI` · `RL` · `Kaggle`
+`Python` · `PyTorch` · `NVIDIA AI` · `RL Policy` · `Kaggle`
 
-🔗 [github.com/Harmitx7/ClashVision-v3.0 →](https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset)
+🔗 **[github.com/Harmitx7/ClashVision-v3.0 →](https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset)**
 
 </td>
 <td width="50%" valign="top">
@@ -84,9 +86,9 @@ npx tribunal-kit init
 > **High-Frequency Formula 1 Telemetry Analysis Engine**
 > Upload, compare, and simulate lap telemetry — lap times, speed, throttle, brake, and RPM traces sector-by-sector with deterministic physics simulation.
 
-`Python` · `FastAPI` · `Telemetry` · `Physics Sim`
+`Python` · `FastAPI` · `Telemetry` · `Physics Sim` · `DuckDB`
 
-🔗 [github.com/Harmitx7/F1-TELEMETRY-DASHBOARD →](https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD)
+🔗 **[github.com/Harmitx7/F1-TELEMETRY-DASHBOARD →](https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD)**
 
 </td>
 </tr>
@@ -106,7 +108,7 @@ npx tribunal-kit init
 <br/>
 
 <details>
-<summary><b>📜 ARCHIVED_QUESTS</b> — Earlier builds & production systems</summary>
+<summary><b>📜 ARCHIVED_QUESTS</b> — Earlier builds, engines & production systems</summary>
 <br/>
 
 | Project | Domain / Core Mechanism | Stack |
@@ -122,10 +124,11 @@ npx tribunal-kit init
 
 <br/>
 
-## ⟶ skill_matrix // architecture & tech stack
+## ⟶ skill_matrix // production_stack_topography
 
 <div align="center">
-<img src="./assets/skill-tree.svg" width="95%" alt="skill matrix"/>
+<!-- ═══════════════ 4-TIER SKILL ARCHITECTURE MATRIX ═══════════════ -->
+<img src="./assets/skill-tree.svg" width="96%" alt="skill architecture matrix"/>
 </div>
 
 <br/>
@@ -134,14 +137,16 @@ npx tribunal-kit init
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Harmitx7&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=080706&title_color=FF6B35&icon_color=00F0FF&text_color=E7E5E4&border_radius=10" height="165"/>
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Harmitx7&theme=tokyonight&hide_border=true&background=080706&ring=FF6B35&fire=FF6B35&currStreakLabel=00F0FF&sideLabels=E7E5E4&dates=78716C&border_radius=10" height="165"/>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Harmitx7&layout=compact&theme=tokyonight&hide_border=true&bg_color=080706&title_color=00F0FF&text_color=E7E5E4&border_radius=10" height="165"/>
+<img src="https://github-readme-stats.vercel.app/api?username=Harmitx7&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=false&bg_color=060911&border_color=1E293B&title_color=00F0FF&icon_color=FF9100&text_color=E2E8F0&border_radius=12" height="165"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Harmitx7&theme=tokyonight&hide_border=false&background=060911&border=1E293B&ring=00F0FF&fire=FF9100&currStreakLabel=00E676&sideLabels=E2E8F0&dates=64748B&border_radius=12" height="165"/>
 
 <br/><br/>
 
-<!-- Contribution Matrix Snake -->
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Harmitx7&layout=compact&theme=tokyonight&hide_border=false&bg_color=060911&border_color=1E293B&title_color=00F0FF&text_color=E2E8F0&border_radius=12" height="165"/>
+
+<br/><br/>
+
+<!-- ═══════════════ CONTRIBUTION MATRIX SNAKE ═══════════════ -->
 <img src="https://raw.githubusercontent.com/Harmitx7/Harmitx7/output/github-contribution-grid-snake.svg" width="100%" alt="contribution telemetry"/>
 
 </div>
@@ -156,6 +161,7 @@ npx tribunal-kit init
 <br/>
 
 <div align="center">
+<!-- ═══════════════ CYBER TELEMETRY FOOTER ═══════════════ -->
 <img src="./assets/footer.svg" width="100%" alt="footer"/>
 
 <br/>

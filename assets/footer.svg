@@ -1,44 +1,87 @@
-<svg width="100%" viewBox="0 0 1000 130" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="fWaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#FF6B35"/>
-      <stop offset="50%" stop-color="#F59E0B"/>
-      <stop offset="100%" stop-color="#00F0FF"/>
+    <linearGradient id="fVoid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020205"/>
+      <stop offset="100%" stop-color="#060810"/>
     </linearGradient>
-    <filter id="fGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2.5" result="b"/>
+
+    <linearGradient id="fStreamA" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="35%" stop-color="#38BDF8"/>
+      <stop offset="65%" stop-color="#FF9100"/>
+      <stop offset="100%" stop-color="#FF5722"/>
+    </linearGradient>
+
+    <linearGradient id="fStreamB" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF5722" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#00E676" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <linearGradient id="fConst" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FF9100" stop-opacity="0.15"/>
+    </linearGradient>
+
+    <filter id="fQuoteGlow" x="-15%" y="-30%" width="130%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
+
   <style>
-    @keyframes drift { to { stroke-dashoffset: -400; } }
-    @keyframes glow { 0%,100%{opacity:0.8} 50%{opacity:1} }
-    .wave { animation: drift 8s linear infinite; }
-    .sig { animation: glow 4s ease-in-out infinite; }
-    text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; }
+    @keyframes wavePhA { 0%{stroke-dashoffset:0;} 100%{stroke-dashoffset:-500;} }
+    @keyframes wavePhB { 0%{stroke-dashoffset:-500;} 100%{stroke-dashoffset:0;} }
+    @keyframes quoteBreath { 0%,100%{opacity:0.85;} 50%{opacity:1;} }
+    @keyframes starPulse { 0%,100%{opacity:0.2;} 50%{opacity:0.7;} }
+    @keyframes constPulse { 0%,100%{stroke-opacity:0.05;} 50%{stroke-opacity:0.2;} }
+
+    .wave-a { stroke-dasharray: 14 8; animation: wavePhA 9s linear infinite; }
+    .wave-b { stroke-dasharray: 10 12; animation: wavePhB 12s linear infinite; }
+    .quote { animation: quoteBreath 4s ease-in-out infinite; }
+    .f-star { animation: starPulse 5s ease-in-out infinite; }
+    .f-const { animation: constPulse 6s ease-in-out infinite; }
+
+    text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Consolas, monospace; }
   </style>
 
-  <rect width="1000" height="130" fill="#080706"/>
+  <!-- Background -->
+  <rect width="1000" height="160" fill="url(#fVoid)"/>
 
-  <!-- Top Border Gradient Rule -->
-  <rect x="0" y="0" width="1000" height="1" fill="url(#fWaveGrad)" opacity="0.3"/>
+  <!-- Top Luminous Border -->
+  <rect x="0" y="0" width="1000" height="1.5" fill="url(#fStreamA)" opacity="0.7"/>
 
-  <!-- Subtle Dashed Telemetry Wave Line -->
-  <path class="wave" d="M0,32 C 150,12 250,52 400,32 S 650,12 800,32 S 950,52 1000,32"
-        fill="none" stroke="url(#fWaveGrad)" stroke-width="1.4" stroke-dasharray="10 8" opacity="0.45"/>
+  <!-- Background Micro Constellation -->
+  <g>
+    <line class="f-const" x1="120" y1="30" x2="350" y2="55" stroke="url(#fConst)" stroke-width="0.5"/>
+    <line class="f-const" x1="350" y1="55" x2="580" y2="28" stroke="url(#fConst)" stroke-width="0.5" style="animation-delay:1.5s;"/>
+    <line class="f-const" x1="580" y1="28" x2="830" y2="52" stroke="url(#fConst)" stroke-width="0.5" style="animation-delay:0.8s;"/>
 
-  <!-- Philosophy Quote -->
-  <text class="sig" x="500" y="70" text-anchor="middle" font-size="15" font-weight="600" fill="#FAFAF9" filter="url(#fGlow)">
-    "Build the real tool first. Document and promote second."
+    <circle class="f-star" cx="120" cy="30" r="1.5" fill="#00F0FF" style="animation-delay:0s;"/>
+    <circle class="f-star" cx="350" cy="55" r="1.8" fill="#38BDF8" style="animation-delay:1s;"/>
+    <circle class="f-star" cx="580" cy="28" r="1.5" fill="#FF9100" style="animation-delay:2s;"/>
+    <circle class="f-star" cx="830" cy="52" r="1.8" fill="#00E676" style="animation-delay:0.5s;"/>
+  </g>
+
+  <!-- Dual Harmonic Sine Waves -->
+  <path class="wave-a" d="M 0 42 Q 125 16, 250 42 T 500 42 T 750 42 T 1000 42" fill="none" stroke="url(#fStreamA)" stroke-width="1.5" opacity="0.4"/>
+  <path class="wave-b" d="M 0 42 Q 125 68, 250 42 T 500 42 T 750 42 T 1000 42" fill="none" stroke="url(#fStreamB)" stroke-width="1" opacity="0.25"/>
+
+  <!-- Core Axiom Quote -->
+  <text class="quote" x="500" y="90" text-anchor="middle" font-size="15.5" font-weight="800" fill="#F8FAFC" filter="url(#fQuoteGlow)">
+    &ldquo;Build the real tool first. Document and promote second.&rdquo;
   </text>
 
-  <!-- Sub-location Tag -->
-  <text x="500" y="98" text-anchor="middle" font-size="11" fill="#78716C" letter-spacing="2">
-    AHMEDABAD, INDIA · COMPUTER ENGINEERING · INDUS UNIVERSITY
+  <!-- Sub-Credentials -->
+  <text x="500" y="120" text-anchor="middle" font-size="10.5" fill="#475569" letter-spacing="2">
+    AHMEDABAD, IN (23.02°N, 72.57°E) · COMPUTER ENGINEERING · INDUS UNIVERSITY
   </text>
 
-  <!-- Bottom Accent Dots -->
-  <circle cx="480" cy="116" r="1.5" fill="#FF6B35" opacity="0.6"/>
-  <circle cx="500" cy="116" r="1.5" fill="#F59E0B" opacity="0.6"/>
-  <circle cx="520" cy="116" r="1.5" fill="#00F0FF" opacity="0.6"/>
+  <!-- Bottom Verification Nodes -->
+  <g transform="translate(500, 142)">
+    <circle cx="-24" cy="0" r="2.5" fill="#00F0FF"/>
+    <circle cx="-8" cy="0" r="2.5" fill="#38BDF8"/>
+    <circle cx="8" cy="0" r="2.5" fill="#FF9100"/>
+    <circle cx="24" cy="0" r="2.5" fill="#00E676"/>
+  </g>
 </svg>
