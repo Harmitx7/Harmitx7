@@ -134,7 +134,7 @@
 
     <!-- Oversized Editorial Headline -->
     <text x="42" y="98" fill="#151515">
-      <tspan class="serif" font-size="46" font-weight="400">259 </tspan>
+      <tspan class="serif" font-size="46" font-weight="400">260 </tspan>
       <tspan class="serif" font-size="46" font-style="italic">contributions</tspan>
     </text>
   </g>
@@ -175,8 +175,8 @@
     <!-- Month 11: Oct (17 commits) -->
     <rect class="bar bar-10" x="482" y="207" width="28" height="55" rx="4" ry="4" fill="#151515" />
     <text class="sans label-month" x="496" y="282" fill="#77777D" font-size="11" text-anchor="middle">Oct</text>
-    <!-- Month 12: Nov (11 commits) -->
-    <rect class="bar bar-11" x="526" y="222" width="28" height="40" rx="4" ry="4" fill="#C8C8C4" />
+    <!-- Month 12: Nov (12 commits) -->
+    <rect class="bar bar-11" x="526" y="220" width="28" height="42" rx="4" ry="4" fill="#C8C8C4" />
     <text class="sans label-month" x="540" y="282" fill="#77777D" font-size="11" text-anchor="middle">Nov</text>
   </g>
 
