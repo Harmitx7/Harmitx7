@@ -60,6 +60,8 @@ html = f"""<!DOCTYPE html>
 </html>"""
 
 # Fix relative card paths in HTML preview
+import re
+html = re.sub(r'\.svg\?[^"]+', '.svg', html)
 html = html.replace('src="./cards/', f'src="file:///{REPO_ROOT.replace(os.sep, "/")}/cards/')
 html = html.replace('src="cards/', f'src="file:///{REPO_ROOT.replace(os.sep, "/")}/cards/')
 

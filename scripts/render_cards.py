@@ -818,10 +818,6 @@ def compile_cards(out_dir: str = OUT_DIR) -> Dict[str, str]:
         "build.svg": render_tile_build(),
         "create.svg": render_tile_create(),
         "explore.svg": render_tile_explore(),
-        # Featured Repositories
-        "repo-tribunal-kit.svg": render_repo_tribunal_kit(),
-        "repo-clashvision.svg": render_repo_clashvision(),
-        "repo-f1-telemetry.svg": render_repo_f1_telemetry(),
         # Editorial Colophon
         "footer.svg": render_footer_card(),
     }
