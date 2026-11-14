@@ -6,15 +6,10 @@ Renders the complete editorial animated profile SVG cards:
 1. cards/hero.svg                - Editorial Hero with Instrument Serif typography & vector portrait
 2. cards/heatmap.svg             - 53-week contribution graph in warm cobalt editorial palette
 3. cards/activity.svg            - Monthly activity chart & balanced metrics panel
-4. cards/build.svg               - Signature World 1: BUILD (tribunal-kit)
-5. cards/create.svg              - Signature World 2: CREATE (DeckReactor & Labs)
-6. cards/explore.svg             - Signature World 3: EXPLORE (ClashVision & F1 Telemetry)
-7. cards/secure.svg              - Drop-in alias for backward compatibility
-8. cards/simulate.svg            - Drop-in alias for backward compatibility
-9. cards/repo-tribunal-kit.svg   - Featured repository 1
-10. cards/repo-clashvision.svg   - Featured repository 2
-11. cards/repo-f1-telemetry.svg  - Featured repository 3
-12. cards/footer.svg             - Editorial colophon & verification seal
+4. cards/build.svg               - Signature Card 1: BUILD (tribunal-kit)
+5. cards/create.svg              - Signature Card 2: CREATE (DeckReactor)
+6. cards/explore.svg             - Signature Card 3: EXPLORE (ClashVision & F1 Telemetry)
+7. cards/footer.svg              - Editorial colophon & verification seal
 
 Engine Guarantees:
 - Warm paper-and-ink editorial foundation with three controlled accents (Blue, Red, Yellow).
@@ -630,120 +625,7 @@ def render_tile_explore() -> str:
 
 
 # ══════════════════════════════════════════════════════════════════════════
-# 5. FEATURED REPOSITORIES (cards/repo-*.svg)
-# ══════════════════════════════════════════════════════════════════════════
-def render_repo_card(
-    repo_name: str,
-    desc_lines: List[str],
-    meta: str,
-    accent: str,
-    card_id: str,
-    entrance_delay: float = 0.30,
-) -> str:
-    """Render 286x196 warm off-white editorial repository card matching master visual reference."""
-    w, h = 286, 196
-    fonts_css = get_embedded_fonts_css([])
-
-    anim_css = "" if IS_STATIC else f"""
-    @keyframes slideUp {{ from {{ opacity: 0; transform: translateY(10px); }} to {{ opacity: 1; transform: translateY(0); }} }}
-    .card-root {{ animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) {entrance_delay:.2f}s both; }}
-    """
-
-    desc_svg_parts = []
-    start_y = 70
-    line_h = 21
-    for i, line in enumerate(desc_lines):
-        y = start_y + i * line_h
-        desc_svg_parts.append(
-            f'<text x="24" y="{y}" fill="{TEXT_SECONDARY}" font-size="12.5" font-weight="400">{escape(line)}</text>'
-        )
-    desc_svg = "\n    ".join(desc_svg_parts)
-
-    svg = f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
-  <defs>
-    <style>
-      {fonts_css}
-      text {{ font-family: {FONT_SANS}; }}
-      .mono {{ font-family: {FONT_MONO}; }}
-      .card-bg {{
-        transition: stroke 0.2s ease, fill 0.2s ease;
-      }}
-      .card-root:hover .card-bg {{
-        stroke: {accent};
-      }}
-      {anim_css}
-      @media (prefers-reduced-motion: reduce) {{
-        *, ::before, ::after {{ animation: none !important; opacity: 1 !important; transform: none !important; }}
-      }}
-    </style>
-  </defs>
-
-  <g class="card-root">
-    <!-- Warm Off-White Paper Body -->
-    <rect class="card-bg" x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{BG_CARD}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
-
-    <!-- 1. Top Header: Square + Repository Name -->
-    <rect x="24" y="27" width="7.5" height="7.5" rx="1.5" fill="{accent}"/>
-    <text x="38" y="35" fill="{TEXT_PRIMARY}" font-size="15" font-weight="600" letter-spacing="-0.2">{escape(repo_name)}</text>
-
-    <!-- 2. Description (3 comfortable lines) -->
-    {desc_svg}
-
-    <!-- 3. Footer Metadata Row -->
-    <text x="24" y="166" fill="{TEXT_MUTED}" class="mono" font-size="11" letter-spacing="0.3">{escape(meta)}</text>
-  </g>
-</svg>"""
-    return svg
-
-
-def render_repo_tribunal_kit() -> str:
-    return render_repo_card(
-        repo_name="tribunal-kit",
-        desc_lines=[
-            "Universal governance layer for AI",
-            "coding agents, enforcing zero",
-            "hallucination invariants.",
-        ],
-        meta="TypeScript · ★ 6",
-        accent=COLOR_BUILD,
-        card_id="repo-tribunal",
-        entrance_delay=0.30 if not IS_STATIC else 0.0,
-    )
-
-
-def render_repo_clashvision() -> str:
-    return render_repo_card(
-        repo_name="clashvision-v3.0",
-        desc_lines=[
-            "A live battle predictor and RL",
-            "policy engine for real-time mobile",
-            "esports analytics.",
-        ],
-        meta="Python · ★ 2",
-        accent=COLOR_CREATE,
-        card_id="repo-clashvision",
-        entrance_delay=0.46 if not IS_STATIC else 0.0,
-    )
-
-
-def render_repo_f1_telemetry() -> str:
-    return render_repo_card(
-        repo_name="f1-telemetry",
-        desc_lines=[
-            "High-frequency Formula 1 telemetry",
-            "traces and deterministic lap",
-            "comparison simulation engine.",
-        ],
-        meta="Python · live",
-        accent=COLOR_EXPLORE,
-        card_id="repo-f1",
-        entrance_delay=0.62 if not IS_STATIC else 0.0,
-    )
-
-
-# ══════════════════════════════════════════════════════════════════════════
-# 6. EDITORIAL FOOTER & COLOPHON (cards/footer.svg)
+# 5. EDITORIAL FOOTER & COLOPHON (cards/footer.svg)
 # ══════════════════════════════════════════════════════════════════════════
 def render_footer_card() -> str:
     """Render 880x96 restrained warm off-white editorial colophon."""
