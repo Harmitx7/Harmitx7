@@ -41,18 +41,19 @@ def get_embedded_serif_b64() -> str:
     return ""
 
 
-def generate_ascii_portrait_rows(
+def generate_halftone_matrix_paths(
     image_path: str,
-    cols: int = 76,
-    rows: int = 50,
-    start_x: int = 480,
+    cols: int = 56,
+    rows: int = 46,
+    start_x: int = 492,
     start_y: int = 50,
-    row_height: float = 6.4,
+    step_x: float = 6.4,
+    step_y: float = 7.6,
 ) -> str:
     """
-    Generate run-length encoded SVG ASCII portrait rows from source photo.
-    Compensates for monospace character width-to-height ratio (~0.6) to preserve
-    Harmit's natural facial proportions.
+    Generate art-directed Swiss Exhibition Vector Halftone Matrix from portrait photo.
+    Encodes 5 optical density tiers into single multi-point SVG subpaths (M{x} {y}h.01)
+    with stroke-linecap="round" for flawless, hardware-accelerated rendering under 50 KB.
     """
     if not os.path.exists(image_path):
         raise FileNotFoundError(f"Source portrait not found at: {image_path}")
@@ -62,80 +63,54 @@ def generate_ascii_portrait_rows(
     # Tight crop centering head and shoulders (460x460 -> 15..445, 8..448)
     cropped = img.crop((15, 8, 445, 448))
 
-    # Enhance contrast slightly to create crisp editorial tonal separation
+    # Enhance contrast to create crisp editorial tonal separation
     enhancer = ImageEnhance.Contrast(cropped)
-    contrasted = enhancer.enhance(1.28)
+    contrasted = enhancer.enhance(1.35)
 
     resized = contrasted.resize((cols, rows), Image.Resampling.LANCZOS)
     arr = np.array(resized)
 
-    # Editorial monochromatic character ramp (darkest ink to lightest tone)
-    ramps = {
-        0: "@%#WMB",   # Deepest ink: curly hair, pupils, deep shadows
-        1: "8&#*+=",   # Dark tone: eyebrows, jaw contour, deep midtones
-        2: "=-:+~",    # Midtone: cheekbones, nose bridge, neck shading
-        3: ":-..·",    # Light tone: subtle skin highlight feathering
-    }
-    colors = {
-        0: "#141412",  # Deep charcoal ink
-        1: "#42403A",  # Dark graphite
-        2: "#747168",  # Warm slate midtone
-        3: "#A8A59C",  # Soft paper tone
-    }
+    # 5 Calibrated optical density tiers (Deep Ink to Delicate Edge Feathering)
+    tiers = {0: [], 1: [], 2: [], 3: [], 4: []}
 
-    svg_lines = []
     for r in range(rows):
-        y = start_y + r * row_height
-        runs = []
-        current_bucket = None
-        current_chars = []
-
-        delay = f"{0.12 + r * 0.007:.3f}s" if not IS_STATIC else "0s"
-        anim_attr = f'style="animation: fadeIn 0.4s ease {delay} both;"' if not IS_STATIC else ""
-
+        y = int(round(start_y + r * step_y))
         for c in range(cols):
             val = arr[r, c]
-            # Threshold for off-white background wall in avatar (pure float, no box)
-            if val > 200:
-                bucket = 4
-                ch = " "
-            elif val < 60:
-                bucket = 0
-                ch = ramps[0][(c + r) % len(ramps[0])]
-            elif val < 110:
-                bucket = 1
-                ch = ramps[1][(c + r) % len(ramps[1])]
-            elif val < 155:
-                bucket = 2
-                ch = ramps[2][(c + r) % len(ramps[2])]
+            if val >= 208:
+                continue
+            x = int(round(start_x + c * step_x))
+            if val < 55:
+                tiers[0].append((x, y))
+            elif val < 95:
+                tiers[1].append((x, y))
+            elif val < 140:
+                tiers[2].append((x, y))
+            elif val < 180:
+                tiers[3].append((x, y))
             else:
-                bucket = 3
-                ch = ramps[3][(c + r) % len(ramps[3])]
+                tiers[4].append((x, y))
 
-            if bucket == current_bucket:
-                current_chars.append(ch)
-            else:
-                if current_chars:
-                    text = "".join(current_chars).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-                    if current_bucket == 4:
-                        runs.append(text)
-                    else:
-                        runs.append(f'<tspan fill="{colors[current_bucket]}">{text}</tspan>')
-                current_bucket = bucket
-                current_chars = [ch]
+    styles = [
+        (5.2, "#141412", "0.10s"),  # Tier 0: Deepest charcoal ink (hair, pupils)
+        (3.8, "#2E2C27", "0.15s"),  # Tier 1: Dark graphite (eyebrows, jawline)
+        (2.6, "#5E5B53", "0.20s"),  # Tier 2: Warm slate (cheekbones, nose contour)
+        (1.5, "#8F8C82", "0.25s"),  # Tier 3: Soft skin tone highlights
+        (0.8, "#BAB7AD", "0.30s"),  # Tier 4: Delicate perimeter feathering
+    ]
 
-        if current_chars:
-            text = "".join(current_chars).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-            if current_bucket == 4:
-                runs.append(text)
-            else:
-                runs.append(f'<tspan fill="{colors[current_bucket]}">{text}</tspan>')
+    paths = []
+    for t, pts in tiers.items():
+        if not pts:
+            continue
+        sw, col, delay = styles[t]
+        d_str = "".join([f"M{x} {y}h.01" for x, y in pts])
+        anim_attr = f'style="animation: fadeIn 0.5s ease {delay} both;"' if not IS_STATIC else ""
+        paths.append(
+            f'<path d="{d_str}" stroke="{col}" stroke-width="{sw}" stroke-linecap="round" fill="none" {anim_attr}/>'
+        )
 
-        line_content = "".join(runs).rstrip()
-        if line_content:
-            svg_lines.append(f'<text x="{start_x}" y="{y:.1f}" xml:space="preserve" {anim_attr}>{line_content}</text>')
-
-    return "\n    ".join(svg_lines)
+    return "\n    ".join(paths)
 
 
 def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
@@ -146,8 +121,16 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
 
     serif_b64 = get_embedded_serif_b64()
 
-    # Generate ASCII portrait rows with 76 columns x 50 rows
-    ascii_rows = generate_ascii_portrait_rows(portrait_path, cols=76, rows=50, start_x=480, start_y=50, row_height=6.4)
+    # Generate Swiss Exhibition Vector Halftone Matrix
+    halftone_matrix = generate_halftone_matrix_paths(
+        portrait_path,
+        cols=56,
+        rows=46,
+        start_x=492,
+        start_y=50,
+        step_x=6.4,
+        step_y=7.6,
+    )
 
     anim_css = "" if IS_STATIC else """
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -194,12 +177,6 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
         font-weight: 400;
         fill: #141412;
         letter-spacing: -1px;
-      }}
-
-      .ascii-grid {{
-        font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
-        font-size: 5.3px;
-        letter-spacing: 0.65px;
       }}
 
       {anim_css}
@@ -251,9 +228,9 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
     <text x="180" y="380" font-size="14" font-weight="700" fill="#2563EB">↗</text>
   </g>
 
-  <!-- Right Side: High-Resolution Monochrome ASCII Portrait -->
-  <g class="ascii-grid">
-    {ascii_rows}
+  <!-- Right Side: Swiss Exhibition Vector Halftone Matrix -->
+  <g id="halftone-matrix">
+    {halftone_matrix}
   </g>
 </svg>"""
     return svg
