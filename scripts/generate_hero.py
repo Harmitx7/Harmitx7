@@ -262,13 +262,12 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
 def main():
     svg_content = render_hero_svg(AVATAR_PATH)
 
-    # Save to both assets/hero.svg and cards/hero.svg
-    for target in [OUTPUT_HERO_ASSETS, OUTPUT_HERO_CARDS]:
-        os.makedirs(os.path.dirname(target), exist_ok=True)
-        with open(target, "w", encoding="utf-8") as f:
-            f.write(svg_content)
-        size_kb = len(svg_content.encode("utf-8")) / 1024
-        print(f"✔ Rendered {os.path.basename(target):<16} ({size_kb:4.1f} KB) -> {target}")
+    # Save to cards/hero.svg
+    os.makedirs(os.path.dirname(OUTPUT_HERO_CARDS), exist_ok=True)
+    with open(OUTPUT_HERO_CARDS, "w", encoding="utf-8") as f:
+        f.write(svg_content)
+    size_kb = len(svg_content.encode("utf-8")) / 1024
+    print(f"✔ Rendered {os.path.basename(OUTPUT_HERO_CARDS):<16} ({size_kb:4.1f} KB) -> {OUTPUT_HERO_CARDS}")
 
 
 if __name__ == "__main__":
