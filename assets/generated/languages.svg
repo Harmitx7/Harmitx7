@@ -24,50 +24,50 @@
   </style>
   <rect x="0" y="0" width="960" height="180" rx="12" fill="url(#langVoid)" stroke="url(#langRim)" stroke-width="1.0"/>
   <text x="24" y="26" fill="#00F0FF" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="11.0" font-weight="700" letter-spacing="1.5">// LANGUAGE_POLYGLOT_SPECTRUM</text>
-  <text x="936" y="26" fill="#334155" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.0" font-weight="600" text-anchor="end" letter-spacing="1.0">TOTAL AUDITED CODE: 11.49 MB across 15 REPOSITORIES</text>
+  <text x="936" y="26" fill="#334155" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.0" font-weight="600" text-anchor="end" letter-spacing="1.0">TOTAL AUDITED CODE: 11.74 MB across 15 REPOSITORIES</text>
   <line x1="24" y1="36" x2="936" y2="36" stroke="#1E293B" stroke-width="0.8"/>
   <g>
   <rect x="24" y="52" width="912" height="14" rx="7" fill="#0C1017" stroke="#1E293B" stroke-width="0.8"/>
-  <rect x="24" y="52" width="501.41759999999994" height="14" rx="7" fill="#F7DF1E" opacity="0.920"/>
-  <rect x="525.4176" y="52" width="211.31040000000002" height="14" fill="#3572A5" opacity="0.920"/>
-  <rect x="736.7280000000001" y="52" width="75.0576" height="14" fill="#3178C6" opacity="0.920"/>
-  <rect x="811.7856" y="52" width="52.1664" height="14" fill="#B07219" opacity="0.920"/>
-  <rect x="863.952" y="52" width="24.350399999999997" height="14" fill="#DEA584" opacity="0.920"/>
-  <rect x="888.3024" y="52" width="19.7904" height="14" fill="#563D7C" opacity="0.920"/>
-  <rect x="908.0928" y="52" width="16.5072" height="14" fill="#E34C26" opacity="0.920"/>
-  <rect x="924.6" y="52" width="6.2928" height="14" fill="#A97BFF" opacity="0.920"/>
-  <rect x="930.8928000000001" y="52" width="2.5536000000000003" height="14" fill="#89E051" opacity="0.920"/>
-  <rect x="933.4464" y="52" width="1.368" height="14" fill="#64748B" opacity="0.920"/>
+  <rect x="24" y="52" width="490.65599999999995" height="14" rx="7" fill="#F7DF1E" opacity="0.920"/>
+  <rect x="514.656" y="52" width="226.2672" height="14" fill="#3572A5" opacity="0.920"/>
+  <rect x="740.9232" y="52" width="73.50720000000001" height="14" fill="#3178C6" opacity="0.920"/>
+  <rect x="814.4304" y="52" width="51.071999999999996" height="14" fill="#B07219" opacity="0.920"/>
+  <rect x="865.5024" y="52" width="23.803199999999997" height="14" fill="#DEA584" opacity="0.920"/>
+  <rect x="889.3055999999999" y="52" width="19.3344" height="14" fill="#563D7C" opacity="0.920"/>
+  <rect x="908.6399999999999" y="52" width="16.142400000000002" height="14" fill="#E34C26" opacity="0.920"/>
+  <rect x="924.7823999999998" y="52" width="6.201600000000001" height="14" fill="#A97BFF" opacity="0.920"/>
+  <rect x="930.9839999999998" y="52" width="2.5536000000000003" height="14" fill="#89E051" opacity="0.920"/>
+  <rect x="933.5375999999998" y="52" width="1.368" height="14" fill="#64748B" opacity="0.920"/>
 </g>
   <g>
   <circle cx="30.0" cy="100" r="4.5" fill="#F7DF1E"/>
   <text x="42.0" y="104" fill="#F8FAFC" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="12.5" font-weight="700">JavaScript</text>
-  <text x="42.0" y="120" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">55.0% · 6.32 MB</text>
+  <text x="42.0" y="120" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">53.8% · 6.32 MB</text>
 </g>
   <g>
   <circle cx="258.0" cy="100" r="4.5" fill="#3572A5"/>
   <text x="270.0" y="104" fill="#F8FAFC" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="12.5" font-weight="700">Python</text>
-  <text x="270.0" y="120" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">23.2% · 2.66 MB</text>
+  <text x="270.0" y="120" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">24.8% · 2.91 MB</text>
 </g>
   <g>
   <circle cx="486.0" cy="100" r="4.5" fill="#3178C6"/>
   <text x="498.0" y="104" fill="#F8FAFC" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="12.5" font-weight="700">TypeScript</text>
-  <text x="498.0" y="120" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">8.2% · 968.9 KB</text>
+  <text x="498.0" y="120" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">8.1% · 968.9 KB</text>
 </g>
   <g>
   <circle cx="714.0" cy="100" r="4.5" fill="#B07219"/>
   <text x="726.0" y="104" fill="#F8FAFC" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="12.5" font-weight="700">Java</text>
-  <text x="726.0" y="120" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">5.7% · 673.0 KB</text>
+  <text x="726.0" y="120" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">5.6% · 673.0 KB</text>
 </g>
   <g>
   <circle cx="30.0" cy="140" r="4.5" fill="#DEA584"/>
   <text x="42.0" y="144" fill="#F8FAFC" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="12.5" font-weight="700">Rust</text>
-  <text x="42.0" y="160" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">2.7% · 314.3 KB</text>
+  <text x="42.0" y="160" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">2.6% · 314.3 KB</text>
 </g>
   <g>
   <circle cx="258.0" cy="140" r="4.5" fill="#563D7C"/>
   <text x="270.0" y="144" fill="#F8FAFC" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="12.5" font-weight="700">CSS</text>
-  <text x="270.0" y="160" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">2.2% · 255.3 KB</text>
+  <text x="270.0" y="160" fill="#64748B" font-family="'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="500">2.1% · 255.3 KB</text>
 </g>
   <g>
   <circle cx="486.0" cy="140" r="4.5" fill="#E34C26"/>

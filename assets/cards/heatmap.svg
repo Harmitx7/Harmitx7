@@ -47,7 +47,7 @@
   <!-- Right Badge -->
   <rect x="620" y="16" width="224" height="24" rx="6" fill="#111827" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1"/>
   <text x="732" y="32" fill="#F8FAFC" font-size="10.5" font-weight="600" text-anchor="middle">
-    <tspan fill="#00F0FF">250</tspan> CONTRIBUTIONS IN PAST YEAR
+    <tspan fill="#00F0FF">251</tspan> CONTRIBUTIONS IN PAST YEAR
   </text>
 
   <!-- Labels -->
@@ -545,13 +545,13 @@
       <rect x="796.8" y="113.2" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="796.8" y="127.6" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="796.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
-      <rect x="796.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
+      <rect x="796.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
   </g>
 
   <!-- Footer Legend & Stats -->
   <text x="48" y="186" fill="#64748B" font-size="10.5">
-    ACTIVE CADENCE: <tspan fill="#00E676">100 ACTIVE DAYS</tspan> &#160;·&#160; LONGEST STREAK: <tspan fill="#F8FAFC">5 DAYS</tspan>
+    ACTIVE CADENCE: <tspan fill="#00E676">101 ACTIVE DAYS</tspan> &#160;·&#160; LONGEST STREAK: <tspan fill="#F8FAFC">5 DAYS</tspan>
   </text>
 
   <g transform="translate(735, 175)">

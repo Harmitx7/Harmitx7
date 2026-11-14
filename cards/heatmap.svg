@@ -12,12 +12,17 @@
     @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
     @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
     @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-    @keyframes beacon { 0%, 100% { transform: scale(1); opacity: 0.95; } 50% { transform: scale(1.3); opacity: 0.35; } }
+    @keyframes pop { 0% { opacity: 0; transform: scale(0.7); } 70% { opacity: 1; transform: scale(1.05); } 100% { transform: none; } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    @keyframes beacon { 0%, 100% { transform: scale(1); opacity: 0.95; } 50% { transform: scale(1.25); opacity: 0.4; } }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     @keyframes orbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
     text { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
     .sans { font-family: Geist, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .serif { font-family: 'Instrument Serif', Georgia, serif; }
+    
+    .cell { transition: fill 0.2s ease; }
     
 
     @media (prefers-reduced-motion: reduce) {
@@ -32,19 +37,20 @@
 </style>
   </defs>
 
+  <!-- Background -->
   <rect x="1" y="1" width="878" height="203" rx="14" fill="#0C111C" stroke="#1E293B" stroke-width="1.5"/>
 
   <!-- Header -->
   <text x="36" y="32" fill="#00F0FF" font-size="11" letter-spacing="2">02 // ANNUAL SHIPPING CADENCE</text>
   <text x="188" y="32" fill="#64748B" font-size="11" letter-spacing="1">· 53-WEEK CONTRIBUTION CALENDAR</text>
   
-  <!-- Right Total Badge -->
-  <rect x="620" y="16" width="224" height="24" rx="6" fill="#101624" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1"/>
+  <!-- Right Badge -->
+  <rect x="620" y="16" width="224" height="24" rx="6" fill="#111827" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1"/>
   <text x="732" y="32" fill="#F8FAFC" font-size="10.5" font-weight="600" text-anchor="middle">
-    <tspan fill="#00F0FF">250</tspan> CONTRIBUTIONS IN PAST YEAR
+    <tspan fill="#00F0FF">251</tspan> CONTRIBUTIONS IN PAST YEAR
   </text>
 
-  <!-- Labels & Grid -->
+  <!-- Labels -->
   <text x="48.0" y="56" fill="#64748B" font-size="9.5">Nov</text>
     <text x="105.6" y="56" fill="#64748B" font-size="9.5">Dec</text>
     <text x="163.2" y="56" fill="#64748B" font-size="9.5">Jan</text>
@@ -61,8 +67,10 @@
   <text x="26" y="92.4" fill="#64748B" font-size="9" text-anchor="middle">M</text>
     <text x="26" y="121.2" fill="#64748B" font-size="9" text-anchor="middle">W</text>
     <text x="26" y="150.0" fill="#64748B" font-size="9" text-anchor="middle">F</text>
+
+  <!-- Grid Cells -->
   <g>
-    <g style="animation: fade 0.3s ease 0.350s both;">
+    <g style="animation: fade 0.3s ease 0.050s both;">
       <rect x="48.0" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="48.0" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="48.0" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -71,7 +79,7 @@
       <rect x="48.0" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="48.0" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.357s both;">
+    <g style="animation: fade 0.3s ease 0.058s both;">
       <rect x="62.4" y="70.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="62.4" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="62.4" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -80,7 +88,7 @@
       <rect x="62.4" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="62.4" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.364s both;">
+    <g style="animation: fade 0.3s ease 0.066s both;">
       <rect x="76.8" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="76.8" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="76.8" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -89,7 +97,7 @@
       <rect x="76.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="76.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.371s both;">
+    <g style="animation: fade 0.3s ease 0.074s both;">
       <rect x="91.2" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="91.2" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="91.2" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -98,7 +106,7 @@
       <rect x="91.2" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="91.2" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.378s both;">
+    <g style="animation: fade 0.3s ease 0.082s both;">
       <rect x="105.6" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="105.6" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="105.6" y="98.8" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
@@ -107,7 +115,7 @@
       <rect x="105.6" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="105.6" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.385s both;">
+    <g style="animation: fade 0.3s ease 0.090s both;">
       <rect x="120.0" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="120.0" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="120.0" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -116,7 +124,7 @@
       <rect x="120.0" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="120.0" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.392s both;">
+    <g style="animation: fade 0.3s ease 0.098s both;">
       <rect x="134.4" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="134.4" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="134.4" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -125,7 +133,7 @@
       <rect x="134.4" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="134.4" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.399s both;">
+    <g style="animation: fade 0.3s ease 0.106s both;">
       <rect x="148.8" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="148.8" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="148.8" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -134,7 +142,7 @@
       <rect x="148.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="148.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.406s both;">
+    <g style="animation: fade 0.3s ease 0.114s both;">
       <rect x="163.2" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="163.2" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="163.2" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -143,7 +151,7 @@
       <rect x="163.2" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="163.2" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.413s both;">
+    <g style="animation: fade 0.3s ease 0.122s both;">
       <rect x="177.6" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="177.6" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="177.6" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -152,7 +160,7 @@
       <rect x="177.6" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="177.6" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.420s both;">
+    <g style="animation: fade 0.3s ease 0.130s both;">
       <rect x="192.0" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="192.0" y="84.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="192.0" y="98.8" width="11.2" height="11.2" rx="2" fill="#004752"/>
@@ -161,7 +169,7 @@
       <rect x="192.0" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="192.0" y="156.4" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.427s both;">
+    <g style="animation: fade 0.3s ease 0.138s both;">
       <rect x="206.4" y="70.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="206.4" y="84.4" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
       <rect x="206.4" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -170,7 +178,7 @@
       <rect x="206.4" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="206.4" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.434s both;">
+    <g style="animation: fade 0.3s ease 0.146s both;">
       <rect x="220.8" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="220.8" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="220.8" y="98.8" width="11.2" height="11.2" rx="2" fill="#004752"/>
@@ -179,7 +187,7 @@
       <rect x="220.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="220.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.441s both;">
+    <g style="animation: fade 0.3s ease 0.154s both;">
       <rect x="235.2" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="235.2" y="84.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="235.2" y="98.8" width="11.2" height="11.2" rx="2" fill="#004752"/>
@@ -188,7 +196,7 @@
       <rect x="235.2" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="235.2" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.448s both;">
+    <g style="animation: fade 0.3s ease 0.162s both;">
       <rect x="249.6" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="249.6" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="249.6" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -197,7 +205,7 @@
       <rect x="249.6" y="142.0" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
       <rect x="249.6" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.455s both;">
+    <g style="animation: fade 0.3s ease 0.170s both;">
       <rect x="264.0" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="264.0" y="84.4" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
       <rect x="264.0" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -206,7 +214,7 @@
       <rect x="264.0" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="264.0" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.462s both;">
+    <g style="animation: fade 0.3s ease 0.178s both;">
       <rect x="278.4" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="278.4" y="84.4" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
       <rect x="278.4" y="98.8" width="11.2" height="11.2" rx="2" fill="#004752"/>
@@ -215,7 +223,7 @@
       <rect x="278.4" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="278.4" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.469s both;">
+    <g style="animation: fade 0.3s ease 0.186s both;">
       <rect x="292.8" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="292.8" y="84.4" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
       <rect x="292.8" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -224,7 +232,7 @@
       <rect x="292.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="292.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.476s both;">
+    <g style="animation: fade 0.3s ease 0.194s both;">
       <rect x="307.2" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="307.2" y="84.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="307.2" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -233,7 +241,7 @@
       <rect x="307.2" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="307.2" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.483s both;">
+    <g style="animation: fade 0.3s ease 0.202s both;">
       <rect x="321.6" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="321.6" y="84.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="321.6" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -242,7 +250,7 @@
       <rect x="321.6" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="321.6" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.490s both;">
+    <g style="animation: fade 0.3s ease 0.210s both;">
       <rect x="336.0" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="336.0" y="84.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="336.0" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -251,7 +259,7 @@
       <rect x="336.0" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="336.0" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.497s both;">
+    <g style="animation: fade 0.3s ease 0.218s both;">
       <rect x="350.4" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="350.4" y="84.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="350.4" y="98.8" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
@@ -260,7 +268,7 @@
       <rect x="350.4" y="142.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="350.4" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.504s both;">
+    <g style="animation: fade 0.3s ease 0.226s both;">
       <rect x="364.8" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="364.8" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="364.8" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -269,7 +277,7 @@
       <rect x="364.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="364.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.511s both;">
+    <g style="animation: fade 0.3s ease 0.234s both;">
       <rect x="379.2" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="379.2" y="84.4" width="11.2" height="11.2" rx="2" fill="#00D4E5"/>
       <rect x="379.2" y="98.8" width="11.2" height="11.2" rx="2" fill="#004752"/>
@@ -278,7 +286,7 @@
       <rect x="379.2" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="379.2" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.518s both;">
+    <g style="animation: fade 0.3s ease 0.242s both;">
       <rect x="393.6" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="393.6" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="393.6" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -287,7 +295,7 @@
       <rect x="393.6" y="142.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="393.6" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.525s both;">
+    <g style="animation: fade 0.3s ease 0.250s both;">
       <rect x="408.0" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="408.0" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="408.0" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -296,7 +304,7 @@
       <rect x="408.0" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="408.0" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.532s both;">
+    <g style="animation: fade 0.3s ease 0.258s both;">
       <rect x="422.4" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="422.4" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="422.4" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -305,7 +313,7 @@
       <rect x="422.4" y="142.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="422.4" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.539s both;">
+    <g style="animation: fade 0.3s ease 0.266s both;">
       <rect x="436.8" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="436.8" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="436.8" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -314,7 +322,7 @@
       <rect x="436.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="436.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.546s both;">
+    <g style="animation: fade 0.3s ease 0.274s both;">
       <rect x="451.2" y="70.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="451.2" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="451.2" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -323,7 +331,7 @@
       <rect x="451.2" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="451.2" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.553s both;">
+    <g style="animation: fade 0.3s ease 0.282s both;">
       <rect x="465.6" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="465.6" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="465.6" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -332,7 +340,7 @@
       <rect x="465.6" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="465.6" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.560s both;">
+    <g style="animation: fade 0.3s ease 0.290s both;">
       <rect x="480.0" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="480.0" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="480.0" y="98.8" width="11.2" height="11.2" rx="2" fill="#004752"/>
@@ -341,7 +349,7 @@
       <rect x="480.0" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="480.0" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.567s both;">
+    <g style="animation: fade 0.3s ease 0.298s both;">
       <rect x="494.4" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="494.4" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="494.4" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -350,7 +358,7 @@
       <rect x="494.4" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="494.4" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.574s both;">
+    <g style="animation: fade 0.3s ease 0.306s both;">
       <rect x="508.8" y="70.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="508.8" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="508.8" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -359,7 +367,7 @@
       <rect x="508.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="508.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.581s both;">
+    <g style="animation: fade 0.3s ease 0.314s both;">
       <rect x="523.2" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="523.2" y="84.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="523.2" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -368,7 +376,7 @@
       <rect x="523.2" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="523.2" y="156.4" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.588s both;">
+    <g style="animation: fade 0.3s ease 0.322s both;">
       <rect x="537.6" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="537.6" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="537.6" y="98.8" width="11.2" height="11.2" rx="2" fill="#004752"/>
@@ -377,7 +385,7 @@
       <rect x="537.6" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="537.6" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.595s both;">
+    <g style="animation: fade 0.3s ease 0.330s both;">
       <rect x="552.0" y="70.0" width="11.2" height="11.2" rx="2" fill="#00D4E5"/>
       <rect x="552.0" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="552.0" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -386,7 +394,7 @@
       <rect x="552.0" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="552.0" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.602s both;">
+    <g style="animation: fade 0.3s ease 0.338s both;">
       <rect x="566.4" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="566.4" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="566.4" y="98.8" width="11.2" height="11.2" rx="2" fill="#004752"/>
@@ -395,7 +403,7 @@
       <rect x="566.4" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="566.4" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.609s both;">
+    <g style="animation: fade 0.3s ease 0.346s both;">
       <rect x="580.8" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="580.8" y="84.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="580.8" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -404,7 +412,7 @@
       <rect x="580.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="580.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.616s both;">
+    <g style="animation: fade 0.3s ease 0.354s both;">
       <rect x="595.2" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="595.2" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="595.2" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -413,7 +421,7 @@
       <rect x="595.2" y="142.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="595.2" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.623s both;">
+    <g style="animation: fade 0.3s ease 0.362s both;">
       <rect x="609.6" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="609.6" y="84.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="609.6" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -422,7 +430,7 @@
       <rect x="609.6" y="142.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="609.6" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.630s both;">
+    <g style="animation: fade 0.3s ease 0.370s both;">
       <rect x="624.0" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="624.0" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="624.0" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -431,7 +439,7 @@
       <rect x="624.0" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="624.0" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.637s both;">
+    <g style="animation: fade 0.3s ease 0.378s both;">
       <rect x="638.4" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="638.4" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="638.4" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -440,7 +448,7 @@
       <rect x="638.4" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="638.4" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.644s both;">
+    <g style="animation: fade 0.3s ease 0.386s both;">
       <rect x="652.8" y="70.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="652.8" y="84.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="652.8" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -449,7 +457,7 @@
       <rect x="652.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="652.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.651s both;">
+    <g style="animation: fade 0.3s ease 0.394s both;">
       <rect x="667.2" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="667.2" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="667.2" y="98.8" width="11.2" height="11.2" rx="2" fill="#004752"/>
@@ -458,7 +466,7 @@
       <rect x="667.2" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="667.2" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.658s both;">
+    <g style="animation: fade 0.3s ease 0.402s both;">
       <rect x="681.6" y="70.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="681.6" y="84.4" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
       <rect x="681.6" y="98.8" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
@@ -467,7 +475,7 @@
       <rect x="681.6" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="681.6" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.665s both;">
+    <g style="animation: fade 0.3s ease 0.410s both;">
       <rect x="696.0" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="696.0" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="696.0" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -476,7 +484,7 @@
       <rect x="696.0" y="142.0" width="11.2" height="11.2" rx="2" fill="#008B9B"/>
       <rect x="696.0" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.672s both;">
+    <g style="animation: fade 0.3s ease 0.418s both;">
       <rect x="710.4" y="70.0" width="11.2" height="11.2" rx="2" fill="#00F0FF"/>
       <rect x="710.4" y="84.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="710.4" y="98.8" width="11.2" height="11.2" rx="2" fill="#004752"/>
@@ -485,7 +493,7 @@
       <rect x="710.4" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="710.4" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.679s both;">
+    <g style="animation: fade 0.3s ease 0.426s both;">
       <rect x="724.8" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="724.8" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="724.8" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -494,7 +502,7 @@
       <rect x="724.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="724.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.686s both;">
+    <g style="animation: fade 0.3s ease 0.434s both;">
       <rect x="739.2" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="739.2" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="739.2" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -503,7 +511,7 @@
       <rect x="739.2" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="739.2" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.693s both;">
+    <g style="animation: fade 0.3s ease 0.442s both;">
       <rect x="753.6" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="753.6" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="753.6" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -512,7 +520,7 @@
       <rect x="753.6" y="142.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="753.6" y="156.4" width="11.2" height="11.2" rx="2" fill="#00F0FF"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.700s both;">
+    <g style="animation: fade 0.3s ease 0.450s both;">
       <rect x="768.0" y="70.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="768.0" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="768.0" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -521,7 +529,7 @@
       <rect x="768.0" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="768.0" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.707s both;">
+    <g style="animation: fade 0.3s ease 0.458s both;">
       <rect x="782.4" y="70.0" width="11.2" height="11.2" rx="2" fill="#004752"/>
       <rect x="782.4" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="782.4" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
@@ -530,20 +538,20 @@
       <rect x="782.4" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="782.4" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
     </g>
-    <g style="animation: fade 0.3s ease 0.714s both;">
+    <g style="animation: fade 0.3s ease 0.466s both;">
       <rect x="796.8" y="70.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="796.8" y="84.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="796.8" y="98.8" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="796.8" y="113.2" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="796.8" y="127.6" width="11.2" height="11.2" rx="2" fill="#101622"/>
       <rect x="796.8" y="142.0" width="11.2" height="11.2" rx="2" fill="#101622"/>
-      <rect x="796.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#101622"/>
+      <rect x="796.8" y="156.4" width="11.2" height="11.2" rx="2" fill="#004752"/>
     </g>
   </g>
 
   <!-- Footer Legend & Stats -->
   <text x="48" y="186" fill="#64748B" font-size="10.5">
-    ACTIVE CADENCE: <tspan fill="#00E676">100 ACTIVE DAYS</tspan> &#160;·&#160; LONGEST STREAK: <tspan fill="#F8FAFC">5 DAYS</tspan>
+    ACTIVE CADENCE: <tspan fill="#00E676">101 ACTIVE DAYS</tspan> &#160;·&#160; LONGEST STREAK: <tspan fill="#F8FAFC">5 DAYS</tspan>
   </text>
 
   <g transform="translate(735, 175)">

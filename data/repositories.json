@@ -2,39 +2,39 @@
   "repositories_count": 15,
   "total_stars": 11,
   "total_forks": 1,
-  "total_code_bytes": 12052249,
+  "total_code_bytes": 12315106,
   "languages_distribution": {
     "JavaScript": {
       "bytes": 6625968,
-      "percentage": 54.98
+      "percentage": 53.8
     },
     "Python": {
-      "bytes": 2792707,
-      "percentage": 23.17
+      "bytes": 3055564,
+      "percentage": 24.81
     },
     "TypeScript": {
       "bytes": 992141,
-      "percentage": 8.23
+      "percentage": 8.06
     },
     "Java": {
       "bytes": 689191,
-      "percentage": 5.72
+      "percentage": 5.6
     },
     "Rust": {
       "bytes": 321836,
-      "percentage": 2.67
+      "percentage": 2.61
     },
     "CSS": {
       "bytes": 261461,
-      "percentage": 2.17
+      "percentage": 2.12
     },
     "HTML": {
       "bytes": 217620,
-      "percentage": 1.81
+      "percentage": 1.77
     },
     "Kotlin": {
       "bytes": 83591,
-      "percentage": 0.69
+      "percentage": 0.68
     },
     "Shell": {
       "bytes": 34234,
@@ -194,17 +194,19 @@
       "html_url": "https://github.com/Harmitx7/Harmitx7",
       "description": null,
       "is_fork": false,
-      "primary_language": null,
-      "languages_bytes": {},
-      "total_code_bytes": 0,
+      "primary_language": "Python",
+      "languages_bytes": {
+        "Python": 262857
+      },
+      "total_code_bytes": 262857,
       "stargazers_count": 0,
       "forks_count": 0,
       "watchers_count": 0,
       "open_issues_count": 0,
       "topics": [],
       "created_at": "2024-02-28T17:39:03Z",
-      "updated_at": "2026-08-15T17:29:46Z",
-      "pushed_at": "2026-08-15T17:29:26Z",
+      "updated_at": "2026-11-14T08:46:13Z",
+      "pushed_at": "2026-11-14T08:46:09Z",
       "archived": false,
       "disabled": false,
       "license_name": null
