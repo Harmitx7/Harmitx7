@@ -45,15 +45,17 @@ def generate_halftone_matrix_paths(
     image_path: str,
     cols: int = 56,
     rows: int = 46,
-    start_x: int = 492,
-    start_y: int = 50,
-    step_x: float = 6.4,
-    step_y: float = 7.6,
+    start_x: int = 488,
+    start_y: int = 42,
+    step_x: float = 6.2,
+    step_y: float = 7.1,
+    theme: str = "light",
 ) -> str:
     """
     Generate art-directed Swiss Exhibition Vector Halftone Matrix from portrait photo.
     Encodes 5 optical density tiers into single multi-point SVG subpaths (M{x} {y}h.01)
     with stroke-linecap="round" for flawless, hardware-accelerated rendering under 50 KB.
+    Supports both "light" (charcoal ink on warm paper) and "dark" (cyber-glass luminescence on obsidian).
     """
     if not os.path.exists(image_path):
         raise FileNotFoundError(f"Source portrait not found at: {image_path}")
@@ -91,30 +93,38 @@ def generate_halftone_matrix_paths(
             else:
                 tiers[4].append((x, y))
 
-    styles = [
-        (5.2, "#141412", "0.10s"),  # Tier 0: Deepest charcoal ink (hair, pupils)
-        (3.8, "#2E2C27", "0.15s"),  # Tier 1: Dark graphite (eyebrows, jawline)
-        (2.6, "#5E5B53", "0.20s"),  # Tier 2: Warm slate (cheekbones, nose contour)
-        (1.5, "#8F8C82", "0.25s"),  # Tier 3: Soft skin tone highlights
-        (0.8, "#BAB7AD", "0.30s"),  # Tier 4: Delicate perimeter feathering
-    ]
+    if theme == "dark":
+        styles = [
+            (4.8, "#F0F6FC", "dot-t0"),  # Tier 0: Luminous titanium white
+            (3.6, "#C9D1D9", "dot-t1"),  # Tier 1: Bright silver
+            (2.4, "#58A6FF", "dot-t2 anim-synapse"),  # Tier 2: Electric Cobalt synaptic pulse
+            (1.4, "#8B949E", "dot-t3"),  # Tier 3: Slate structure
+            (0.8, "#30363D", "dot-t4"),  # Tier 4: Deep perimeter feathering
+        ]
+    else:
+        styles = [
+            (5.2, "#141412", "dot-t0"),  # Tier 0: Deepest charcoal ink (hair, pupils)
+            (3.8, "#2E2C27", "dot-t1"),  # Tier 1: Dark graphite (eyebrows, jawline)
+            (2.6, "#5E5B53", "dot-t2"),  # Tier 2: Warm slate (cheekbones, nose contour)
+            (1.5, "#8F8C82", "dot-t3"),  # Tier 3: Soft skin tone highlights
+            (0.8, "#BAB7AD", "dot-t4"),  # Tier 4: Delicate perimeter feathering
+        ]
 
     paths = []
     for t, pts in tiers.items():
         if not pts:
             continue
-        sw, col, delay = styles[t]
+        sw, col, cls_name = styles[t]
         d_str = "".join([f"M{x} {y}h.01" for x, y in pts])
-        anim_attr = f'style="animation: fadeIn 0.5s ease {delay} both;"' if not IS_STATIC else ""
         paths.append(
-            f'<path d="{d_str}" stroke="{col}" stroke-width="{sw}" stroke-linecap="round" fill="none" {anim_attr}/>'
+            f'<path class="{cls_name}" d="{d_str}" stroke="{col}" stroke-width="{sw}" stroke-linecap="round" fill="none"/>'
         )
 
     return "\n    ".join(paths)
 
 
-def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
-    """Render the master editorial typographic hero SVG (880x408, 2.16:1 ratio)."""
+def render_hero_svg(source_portrait_path: Optional[str] = None, theme: str = "light") -> str:
+    """Render the master editorial typographic hero SVG (880x408, 2.16:1 ratio) in light or dark theme."""
     portrait_path = source_portrait_path or AVATAR_PATH
     if not os.path.exists(portrait_path):
         raise FileNotFoundError(f"Personal portrait image required: {portrait_path}")
@@ -130,17 +140,37 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
         start_y=42,
         step_x=6.2,
         step_y=7.1,
+        theme=theme,
     )
 
-    anim_css = "" if IS_STATIC else """
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    is_dark = (theme == "dark")
+    bg_canvas = "#0D1117" if is_dark else "#F3F3F0"
+    border_canvas = "#30363D" if is_dark else "#DEDEDA"
+    accent_blue = "#388BFD" if is_dark else "#244DFF"
+    text_primary = "#F0F6FC" if is_dark else "#151515"
+    text_secondary = "#8B949E" if is_dark else "#52524C"
+    text_muted = "#6E7681" if is_dark else "#77777D"
 
-    .anim-role { animation: fadeIn 0.4s ease 0.05s both; }
-    .anim-name1 { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both; }
-    .anim-name2 { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.20s both; }
-    .anim-bio { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }
-    .anim-link { animation: fadeIn 0.6s ease 0.36s both; }
+    anim_css = "" if IS_STATIC else f"""
+    @keyframes fadeIn {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
+    @keyframes slideUp {{ from {{ opacity: 0; transform: translateY(8px); }} to {{ opacity: 1; transform: translateY(0); }} }}
+    @keyframes synapticPulse {{
+      0%, 100% {{ opacity: 0.85; }}
+      50% {{ opacity: 1.0; stroke: #79B8FF; filter: drop-shadow(0 0 2px rgba(56, 139, 253, 0.75)); }}
+    }}
+
+    .anim-role {{ animation: fadeIn 0.4s ease 0.05s both; }}
+    .anim-name1 {{ animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both; }}
+    .anim-name2 {{ animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.20s both; }}
+    .anim-bio {{ animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }}
+    .anim-link {{ animation: fadeIn 0.6s ease 0.36s both; }}
+
+    .dot-t0 {{ animation: fadeIn 0.5s ease 0.10s both; }}
+    .dot-t1 {{ animation: fadeIn 0.5s ease 0.15s both; }}
+    .dot-t2 {{ animation: fadeIn 0.5s ease 0.20s both; }}
+    .dot-t3 {{ animation: fadeIn 0.5s ease 0.25s both; }}
+    .dot-t4 {{ animation: fadeIn 0.5s ease 0.30s both; }}
+    {" .anim-synapse { animation: synapticPulse 4.5s ease-in-out infinite; }" if is_dark else ""}
     """
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -168,14 +198,14 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
       .name-first {{
         font-size: 78px;
         font-weight: 400;
-        fill: #151515;
+        fill: {text_primary};
         letter-spacing: -1px;
       }}
       .name-last {{
         font-size: 78px;
         font-style: italic;
         font-weight: 400;
-        fill: #151515;
+        fill: {text_primary};
         letter-spacing: -1px;
       }}
 
@@ -186,19 +216,21 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
           animation: none !important;
           opacity: 1 !important;
           transform: none !important;
+          filter: none !important;
         }}
       }}
     </style>
   </defs>
 
-  <!-- Editorial Warm Off-White Canvas -->
-  <rect x="1" y="1" width="878" height="406" rx="16" fill="#F3F3F0" stroke="#DEDEDA" stroke-width="1"/>
+  <!-- Editorial Canvas -->
+  <rect x="1" y="1" width="878" height="406" rx="16" fill="{bg_canvas}" stroke="{border_canvas}" stroke-width="1"/>
 
   <!-- Left Side: Identity & Editorial Typography -->
-  <!-- 1. Small Blue Square + Uppercase Professional Role -->
+  <!-- 1. Small Blue Square + Uppercase Professional Role + Top Coordinate Metadata -->
   <g class="anim-role">
-    <rect x="46" y="46" width="7.5" height="7.5" fill="#244DFF" rx="1.5"/>
-    <text x="62" y="53.5" fill="#77777D" class="mono" font-size="10.5" font-weight="600" letter-spacing="1.5">FULLSTACK ENGINEER / ARCHITECT</text>
+    <rect x="46" y="46" width="7.5" height="7.5" fill="{accent_blue}" rx="1.5"/>
+    <text x="62" y="53.5" fill="{text_muted}" class="mono" font-size="10.5" font-weight="600" letter-spacing="1.5">FULLSTACK ENGINEER / ARCHITECT</text>
+    <text x="834" y="53.5" fill="{text_muted}" class="mono" font-size="9.5" text-anchor="end" letter-spacing="1.2">SYS.ARCH // 19.0760° N, 72.8777° E</text>
   </g>
 
   <!-- 2. Two-Line Editorial Serif Name -->
@@ -211,21 +243,21 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
 
   <!-- 3. Short Personal Introduction in Clean Sans-Serif -->
   <g class="anim-bio">
-    <text x="46" y="254" font-size="14.5" fill="#52524C" font-weight="400">
+    <text x="46" y="254" font-size="14.5" fill="{text_secondary}" font-weight="400">
       AI Systems Engineer &amp; Architect building anti-hallucination
     </text>
-    <text x="46" y="278" font-size="14.5" fill="#52524C" font-weight="400">
+    <text x="46" y="278" font-size="14.5" fill="{text_secondary}" font-weight="400">
       multi-agent governance and deterministic software systems.
     </text>
-    <text x="46" y="304" font-size="13" fill="#77777D" font-weight="400">
+    <text x="46" y="304" font-size="13" fill="{text_muted}" font-weight="400">
       Specializing in autonomous runtimes, subagents &amp; telemetry.
     </text>
   </g>
 
-  <!-- 4. Website Link with Small Blue Directional Arrow -->
+  <!-- 4. Website Link with Small Directional Arrow -->
   <g class="anim-link">
-    <text x="46" y="358" font-size="13.5" font-weight="600" fill="#151515" letter-spacing="0.2">harmit.vercel.app</text>
-    <text x="172" y="358" font-size="14" font-weight="700" fill="#244DFF">↗</text>
+    <text x="46" y="358" font-size="13.5" font-weight="600" fill="{text_primary}" letter-spacing="0.2">harmit.vercel.app</text>
+    <text x="172" y="358" font-size="14" font-weight="700" fill="{accent_blue}">↗</text>
   </g>
 
   <!-- Right Side: Swiss Exhibition Vector Halftone Matrix -->
@@ -237,14 +269,27 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
 
 
 def main():
-    svg_content = render_hero_svg(AVATAR_PATH)
+    cards_dir = os.path.join(REPO_ROOT, "cards")
+    assets_dir = os.path.join(REPO_ROOT, "assets")
+    os.makedirs(cards_dir, exist_ok=True)
+    os.makedirs(assets_dir, exist_ok=True)
 
-    # Save to cards/hero.svg
-    os.makedirs(os.path.dirname(OUTPUT_HERO_CARDS), exist_ok=True)
-    with open(OUTPUT_HERO_CARDS, "w", encoding="utf-8") as f:
-        f.write(svg_content)
-    size_kb = len(svg_content.encode("utf-8")) / 1024
-    print(f"✔ Rendered {os.path.basename(OUTPUT_HERO_CARDS):<16} ({size_kb:4.1f} KB) -> {OUTPUT_HERO_CARDS}")
+    for theme in ["dark", "light"]:
+        svg_content = render_hero_svg(AVATAR_PATH, theme=theme)
+        card_path = os.path.join(cards_dir, f"hero-{theme}.svg")
+        with open(card_path, "w", encoding="utf-8") as f:
+            f.write(svg_content)
+        size_kb = len(svg_content.encode("utf-8")) / 1024
+        print(f"✔ Rendered {f'hero-{theme}.svg':<18} ({size_kb:4.1f} KB) -> {card_path}")
+
+        # Also write default hero.svg as light copy for backward compatibility
+        if theme == "light":
+            default_path = os.path.join(cards_dir, "hero.svg")
+            with open(default_path, "w", encoding="utf-8") as f:
+                f.write(svg_content)
+            asset_path = os.path.join(assets_dir, "hero.svg")
+            with open(asset_path, "w", encoding="utf-8") as f:
+                f.write(svg_content)
 
 
 if __name__ == "__main__":

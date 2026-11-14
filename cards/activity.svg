@@ -19,7 +19,7 @@
       text { font-family: Geist, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
       .serif { font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif; }
       .sans { font-family: Geist, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-      .mono { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      .mono { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-variant-numeric: tabular-nums; }
       
     @keyframes fadeIn {
       0% { opacity: 0; }
@@ -141,6 +141,7 @@
 
   <!-- Monthly Bar Chart -->
   <g>
+    
     <!-- Month 1: Dec (6 commits) -->
     <rect class="bar bar-0" x="44" y="230" width="28" height="26" rx="4" ry="4" fill="#151515" />
     <text class="sans label-month" x="58" y="276" fill="#77777D" font-size="11" text-anchor="middle">Dec</text>

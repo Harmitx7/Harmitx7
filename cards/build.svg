@@ -23,20 +23,17 @@
   </defs>
 
   <g class="card-root">
-    <!-- Solid Vibrant Blue Body with Rounded Border -->
     <rect x="1" y="1" width="284" height="194" rx="16" fill="#244DFF" stroke="#3B62FF" stroke-width="1" />
+    
 
-    <!-- 1. Top Category & Arrow -->
-    <text x="22" y="32" fill="#FFFFFF" class="mono" font-size="11" font-weight="600" letter-spacing="2">BUILD</text>
+    <text x="22" y="32" fill="#FFFFFF" class="mono" font-size="11" font-weight="600" letter-spacing="2">01 // BUILD</text>
     <text x="264" y="32" fill="#FFFFFF" class="sans" font-size="14" font-weight="600" text-anchor="end">→</text>
 
-    <!-- 2. Headline -->
     <text x="22" y="86" fill="#FFFFFF">
       <tspan class="serif" font-size="30" font-weight="400">tribunal</tspan>
       <tspan class="serif" font-size="30" font-style="italic">-kit</tspan>
     </text>
 
-    <!-- 3. Description -->
     <text x="22" y="122" fill="#FFFFFF" fill-opacity="0.92" font-size="12">
       Anti-hallucination governance layer
     </text>
@@ -44,7 +41,6 @@
       for autonomous AI coding agents.
     </text>
 
-    <!-- 4. Tech metadata -->
     <text x="22" y="170" fill="#FFFFFF" fill-opacity="0.65" class="mono" font-size="10">TypeScript · Rust</text>
   </g>
 </svg>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 96" width="100%" height="96">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 72" width="100%" height="72">
   <defs>
     <style>
       @font-face {
@@ -14,7 +14,15 @@
       .mono { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
       
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .card-root { animation: fadeIn 0.6s ease 0.85s both; }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.7; transform: scale(1); }
+      50% { opacity: 1.0; transform: scale(1.3); }
+    }
+    .card-root { animation: fadeIn 0.6s ease 0.40s both; }
+    .anim-pulse {
+      transform-origin: 594px 36px;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
     
       @media (prefers-reduced-motion: reduce) {
         *, ::before, ::after { animation: none !important; opacity: 1 !important; transform: none !important; }
@@ -23,26 +31,16 @@
   </defs>
 
   <g class="card-root">
-    <rect x="1" y="1" width="878" height="94" rx="16" fill="#F3F3F0" stroke="#DEDEDA" stroke-width="1"/>
+    <rect x="1" y="1" width="878" height="70" rx="14" fill="#F3F3F0" stroke="#DEDEDA" stroke-width="1"/>
 
-    <!-- Colophon Content -->
-    <text x="36" y="36" fill="#151515" class="serif" font-size="18">Harmit Kalal</text>
-    <text x="146" y="36" fill="#77777D" class="sans" font-size="12">&#160;·&#160; AI Systems Engineer &amp; System Architect</text>
+    <!-- Left: Identity & Mandate -->
+    <text x="36" y="42" fill="#151515" class="serif" font-size="20">Harmit Kalal</text>
+    <text x="148" y="42" fill="#77777D" class="sans" font-size="12"> · AI Systems Engineer &amp; System Architect</text>
 
-    <text x="844" y="36" fill="#77777D" class="mono" font-size="10.5" text-anchor="end">
-      HANDCRAFTED SVG ENGINE &#160;·&#160; 0 THIRD-PARTY WIDGETS
-    </text>
-
-    <line x1="36" y1="48" x2="844" y2="48" stroke="#DEDEDA" stroke-width="0.75"/>
-
-    <!-- Navigation / Social Links Inside Card -->
-    <text x="36" y="74" fill="#244DFF" class="mono" font-size="11" font-weight="600">harmit.vercel.app</text>
-    <text x="190" y="74" fill="#77777D" class="mono" font-size="11">github.com/Harmitx7</text>
-    <text x="350" y="74" fill="#77777D" class="mono" font-size="11">linkedin.com/in/harmitkalal</text>
-    <text x="560" y="74" fill="#77777D" class="mono" font-size="11">harmitkalal7@gmail.com</text>
-
-    <text x="844" y="74" fill="#77777D" class="mono" font-size="10.5" text-anchor="end">
-      AUTOMATED DAILY REFRESH
+    <!-- Right: Verified Pipeline Indicator & Colophon Seal -->
+    <circle cx="594" cy="38" r="3.5" fill="#244DFF" class="anim-pulse"/>
+    <text x="844" y="42" fill="#77777D" class="mono" font-size="10" text-anchor="end" letter-spacing="1.2">
+      VERIFIED TELEMETRY · DETERMINISTIC PIPELINE · DAILY REFRESH
     </text>
   </g>
 </svg>

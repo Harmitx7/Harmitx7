@@ -460,11 +460,139 @@ def get_glass_card_css(
 
 
 # ══════════════════════════════════════════════════════════════════════════
-# 4. THREE SIGNATURE WORLDS (cards/build.svg, cards/create.svg, cards/explore.svg)
+# 4. FLAGSHIP SYSTEMS ARCHITECTURE DECK & SIGNATURE WORLDS
 # ══════════════════════════════════════════════════════════════════════════
-def render_tile_build() -> str:
-    """Render 286x196 solid electric-blue signature card for BUILD (tribunal-kit)."""
+def render_projects_deck(theme: str = "light") -> str:
+    """
+    Render 880x216 unified Flagship Systems Architecture Deck.
+    Combines the 3 signature project domains (BUILD, CREATE, EXPLORE) into a single cohesive,
+    responsive console with 2.5px top illuminated chromatic bevel tabs, preventing mobile slivers.
+    """
+    is_dark = (theme == "dark")
+    bg_canvas = "#0D1117" if is_dark else "#F3F3F0"
+    border_canvas = "#30363D" if is_dark else "#DEDEDA"
+    bg_pod = "#161B22" if is_dark else "#FFFFFF"
+    border_pod = "#30363D" if is_dark else "#E2E2DE"
+
+    text_primary = "#F0F6FC" if is_dark else "#151515"
+    text_secondary = "#8B949E" if is_dark else "#52524C"
+    text_muted = "#6E7681" if is_dark else "#77777D"
+
+    accent_build = "#388BFD" if is_dark else "#244DFF"
+    accent_create = "#F85149" if is_dark else "#F13931"
+    accent_explore = "#E3B341" if is_dark else "#D9A208"
+
+    fonts_css = get_embedded_fonts_css(["serif", "sans", "mono"])
+
+    anim_css = "" if IS_STATIC else """
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .anim-root { animation: fadeIn 0.7s ease both; }
+    .anim-hdr { animation: fadeIn 0.5s ease 0.10s both; }
+    .anim-pod-1 { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both; }
+    .anim-pod-2 { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }
+    .anim-pod-3 { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.38s both; }
+    """
+
+    svg = f"""<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 216" width="100%" height="216">
+  <defs>
+    <style>
+      {fonts_css}
+      text {{ font-family: {FONT_SANS}; }}
+      .serif {{ font-family: {FONT_SERIF}; }}
+      .sans {{ font-family: {FONT_SANS}; }}
+      .mono {{ font-family: {FONT_MONO}; }}
+      {anim_css}
+      @media (prefers-reduced-motion: reduce) {{
+        *, ::before, ::after {{ animation: none !important; opacity: 1 !important; transform: none !important; }}
+      }}
+    </style>
+  </defs>
+
+  <!-- Root Deck Canvas -->
+  <g class="anim-root">
+    <rect x="1" y="1" width="878" height="214" rx="16" fill="{bg_canvas}" stroke="{border_canvas}" stroke-width="1"/>
+  </g>
+
+  <!-- Header Bar -->
+  <g class="anim-hdr">
+    <text x="36" y="38" fill="{text_muted}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">04 // FLAGSHIP SYSTEMS ARCHITECTURE</text>
+    <text x="844" y="38" fill="{text_muted}" class="mono" font-size="9.5" text-anchor="end" letter-spacing="1.2">AUTONOMOUS ENGINE MATRIX · 3 WORLDS</text>
+    <line x1="36" y1="48" x2="844" y2="48" stroke="{border_canvas}" stroke-width="0.75"/>
+  </g>
+
+  <!-- ════════════ POD 1: BUILD (tribunal-kit) ════════════ -->
+  <g class="anim-pod-1">
+    <rect x="36" y="60" width="254" height="140" rx="10" fill="{bg_pod}" stroke="{border_pod}" stroke-width="1"/>
+    <!-- Top 3px Chromatic Bevel -->
+    <rect x="36" y="60" width="254" height="3" rx="1.5" fill="{accent_build}"/>
+    
+    <text x="54" y="86" fill="{accent_build}" class="mono" font-size="10" font-weight="600" letter-spacing="1.5">01 // BUILD</text>
+    <text x="272" y="86" fill="{accent_build}" class="sans" font-size="12" font-weight="600" text-anchor="end">→</text>
+
+    <text x="54" y="118">
+      <tspan class="serif" font-size="22" font-weight="400" fill="{text_primary}">tribunal</tspan>
+      <tspan class="serif" font-size="22" font-style="italic" fill="{text_primary}">-kit</tspan>
+    </text>
+
+    <text x="54" y="141" fill="{text_secondary}" class="sans" font-size="11.5">Anti-hallucination governance layer</text>
+    <text x="54" y="157" fill="{text_secondary}" class="sans" font-size="11.5">for autonomous AI coding agents.</text>
+
+    <text x="54" y="184" fill="{text_muted}" class="mono" font-size="9.5">TypeScript · Rust · MCP</text>
+  </g>
+
+  <!-- ════════════ POD 2: CREATE (DeckReactor) ════════════ -->
+  <g class="anim-pod-2">
+    <rect x="313" y="60" width="254" height="140" rx="10" fill="{bg_pod}" stroke="{border_pod}" stroke-width="1"/>
+    <!-- Top 3px Chromatic Bevel -->
+    <rect x="313" y="60" width="254" height="3" rx="1.5" fill="{accent_create}"/>
+
+    <text x="331" y="86" fill="{accent_create}" class="mono" font-size="10" font-weight="600" letter-spacing="1.5">02 // CREATE</text>
+    <text x="549" y="86" fill="{accent_create}" class="sans" font-size="12" font-weight="600" text-anchor="end">→</text>
+
+    <text x="331" y="118">
+      <tspan class="serif" font-size="22" font-weight="400" fill="{text_primary}">Deck</tspan>
+      <tspan class="serif" font-size="22" font-style="italic" fill="{text_primary}">Reactor</tspan>
+    </text>
+
+    <text x="331" y="141" fill="{text_secondary}" class="sans" font-size="11.5">Dynamic canvas environments &amp;</text>
+    <text x="331" y="157" fill="{text_secondary}" class="sans" font-size="11.5">generative visual developer tooling.</text>
+
+    <text x="331" y="184" fill="{text_muted}" class="mono" font-size="9.5">React · Canvas · WebGL</text>
+  </g>
+
+  <!-- ════════════ POD 3: EXPLORE (ClashVision & F1) ════════════ -->
+  <g class="anim-pod-3">
+    <rect x="590" y="60" width="254" height="140" rx="10" fill="{bg_pod}" stroke="{border_pod}" stroke-width="1"/>
+    <!-- Top 3px Chromatic Bevel -->
+    <rect x="590" y="60" width="254" height="3" rx="1.5" fill="{accent_explore}"/>
+
+    <text x="608" y="86" fill="{accent_explore}" class="mono" font-size="10" font-weight="600" letter-spacing="1.5">03 // EXPLORE</text>
+    <text x="826" y="86" fill="{accent_explore}" class="sans" font-size="12" font-weight="600" text-anchor="end">→</text>
+
+    <text x="608" y="118">
+      <tspan class="serif" font-size="22" font-weight="400" fill="{text_primary}">ClashVision </tspan>
+      <tspan class="serif" font-size="22" font-style="italic" fill="{text_primary}">&amp; F1</tspan>
+    </text>
+
+    <text x="608" y="141" fill="{text_secondary}" class="sans" font-size="11.5">Real-time tactical prediction and</text>
+    <text x="608" y="157" fill="{text_secondary}" class="sans" font-size="11.5">high-frequency lap simulation.</text>
+
+    <text x="608" y="184" fill="{text_muted}" class="mono" font-size="9.5">Python · PyTorch · DuckDB</text>
+  </g>
+</svg>"""
+    return svg
+
+
+def render_tile_build(theme: str = "light") -> str:
+    """Render 286x196 signature card for BUILD (tribunal-kit)."""
     w, h = 286, 196
+    is_dark = (theme == "dark")
+    bg = "#161B22" if is_dark else COLOR_BUILD
+    border = "#388BFD" if is_dark else "#3B62FF"
+    text_color = "#F0F6FC" if is_dark else "#FFFFFF"
+    accent_bar = "#388BFD" if is_dark else "#FFFFFF"
     fonts_css = get_embedded_fonts_css(["serif"])
 
     anim_css = "" if IS_STATIC else """
@@ -472,6 +600,8 @@ def render_tile_build() -> str:
     .card-root { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
     """
 
+    bevel_bar = f'<rect x="1" y="1" width="{w-2}" height="3" rx="1.5" fill="{accent_bar}" />' if is_dark else ""
+
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
   <defs>
@@ -488,37 +618,38 @@ def render_tile_build() -> str:
   </defs>
 
   <g class="card-root">
-    <!-- Solid Vibrant Blue Body with Rounded Border -->
-    <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{COLOR_BUILD}" stroke="#3B62FF" stroke-width="1" />
+    <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{bg}" stroke="{border}" stroke-width="1" />
+    {bevel_bar}
 
-    <!-- 1. Top Category & Arrow -->
-    <text x="22" y="32" fill="#FFFFFF" class="mono" font-size="11" font-weight="600" letter-spacing="2">BUILD</text>
-    <text x="264" y="32" fill="#FFFFFF" class="sans" font-size="14" font-weight="600" text-anchor="end">→</text>
+    <text x="22" y="32" fill="{accent_bar}" class="mono" font-size="11" font-weight="600" letter-spacing="2">01 // BUILD</text>
+    <text x="264" y="32" fill="{accent_bar}" class="sans" font-size="14" font-weight="600" text-anchor="end">→</text>
 
-    <!-- 2. Headline -->
-    <text x="22" y="86" fill="#FFFFFF">
+    <text x="22" y="86" fill="{text_color}">
       <tspan class="serif" font-size="30" font-weight="400">tribunal</tspan>
       <tspan class="serif" font-size="30" font-style="italic">-kit</tspan>
     </text>
 
-    <!-- 3. Description -->
-    <text x="22" y="122" fill="#FFFFFF" fill-opacity="0.92" font-size="12">
+    <text x="22" y="122" fill="{text_color}" fill-opacity="0.92" font-size="12">
       Anti-hallucination governance layer
     </text>
-    <text x="22" y="140" fill="#FFFFFF" fill-opacity="0.92" font-size="12">
+    <text x="22" y="140" fill="{text_color}" fill-opacity="0.92" font-size="12">
       for autonomous AI coding agents.
     </text>
 
-    <!-- 4. Tech metadata -->
-    <text x="22" y="170" fill="#FFFFFF" fill-opacity="0.65" class="mono" font-size="10">TypeScript · Rust</text>
+    <text x="22" y="170" fill="{text_color}" fill-opacity="0.65" class="mono" font-size="10">TypeScript · Rust</text>
   </g>
 </svg>"""
     return svg
 
 
-def render_tile_create() -> str:
-    """Render 286x196 solid tomato-red signature card for CREATE (DeckReactor)."""
+def render_tile_create(theme: str = "light") -> str:
+    """Render 286x196 signature card for CREATE (DeckReactor)."""
     w, h = 286, 196
+    is_dark = (theme == "dark")
+    bg = "#161B22" if is_dark else COLOR_CREATE
+    border = "#F85149" if is_dark else "#F7524A"
+    text_color = "#F0F6FC" if is_dark else "#FFFFFF"
+    accent_bar = "#F85149" if is_dark else "#FFFFFF"
     fonts_css = get_embedded_fonts_css(["serif"])
 
     anim_css = "" if IS_STATIC else """
@@ -526,6 +657,8 @@ def render_tile_create() -> str:
     .card-root { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }
     """
 
+    bevel_bar = f'<rect x="1" y="1" width="{w-2}" height="3" rx="1.5" fill="{accent_bar}" />' if is_dark else ""
+
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
   <defs>
@@ -542,37 +675,38 @@ def render_tile_create() -> str:
   </defs>
 
   <g class="card-root">
-    <!-- Solid Vibrant Red Body with Rounded Border -->
-    <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{COLOR_CREATE}" stroke="#F7524A" stroke-width="1" />
+    <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{bg}" stroke="{border}" stroke-width="1" />
+    {bevel_bar}
 
-    <!-- 1. Top Category & Arrow -->
-    <text x="22" y="32" fill="#FFFFFF" class="mono" font-size="11" font-weight="600" letter-spacing="2">CREATE</text>
-    <text x="264" y="32" fill="#FFFFFF" class="sans" font-size="14" font-weight="600" text-anchor="end">→</text>
+    <text x="22" y="32" fill="{accent_bar}" class="mono" font-size="11" font-weight="600" letter-spacing="2">02 // CREATE</text>
+    <text x="264" y="32" fill="{accent_bar}" class="sans" font-size="14" font-weight="600" text-anchor="end">→</text>
 
-    <!-- 2. Headline -->
-    <text x="22" y="86" fill="#FFFFFF">
+    <text x="22" y="86" fill="{text_color}">
       <tspan class="serif" font-size="30" font-weight="400">Deck</tspan>
       <tspan class="serif" font-size="30" font-style="italic">Reactor</tspan>
     </text>
 
-    <!-- 3. Description -->
-    <text x="22" y="122" fill="#FFFFFF" fill-opacity="0.92" font-size="12">
+    <text x="22" y="122" fill="{text_color}" fill-opacity="0.92" font-size="12">
       Dynamic canvas environments and
     </text>
-    <text x="22" y="140" fill="#FFFFFF" fill-opacity="0.92" font-size="12">
+    <text x="22" y="140" fill="{text_color}" fill-opacity="0.92" font-size="12">
       generative visual developer tooling.
     </text>
 
-    <!-- 4. Tech metadata -->
-    <text x="22" y="170" fill="#FFFFFF" fill-opacity="0.65" class="mono" font-size="10">React · SVG · Canvas</text>
+    <text x="22" y="170" fill="{text_color}" fill-opacity="0.65" class="mono" font-size="10">React · SVG · Canvas</text>
   </g>
 </svg>"""
     return svg
 
 
-def render_tile_explore() -> str:
-    """Render 286x196 solid golden-amber signature card for EXPLORE (ClashVision & F1)."""
+def render_tile_explore(theme: str = "light") -> str:
+    """Render 286x196 signature card for EXPLORE (ClashVision & F1)."""
     w, h = 286, 196
+    is_dark = (theme == "dark")
+    bg = "#161B22" if is_dark else COLOR_EXPLORE
+    border = "#E3B341" if is_dark else "#E5B208"
+    text_color = "#F0F6FC" if is_dark else TEXT_PRIMARY
+    accent_bar = "#E3B341" if is_dark else TEXT_PRIMARY
     fonts_css = get_embedded_fonts_css(["serif"])
 
     anim_css = "" if IS_STATIC else """
@@ -580,6 +714,8 @@ def render_tile_explore() -> str:
     .card-root { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.40s both; }
     """
 
+    bevel_bar = f'<rect x="1" y="1" width="{w-2}" height="3" rx="1.5" fill="{accent_bar}" />' if is_dark else ""
+
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
   <defs>
@@ -596,49 +732,59 @@ def render_tile_explore() -> str:
   </defs>
 
   <g class="card-root">
-    <!-- Solid Warm Golden Amber Body with Rounded Border -->
-    <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{COLOR_EXPLORE}" stroke="#E5B208" stroke-width="1" />
+    <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{bg}" stroke="{border}" stroke-width="1" />
+    {bevel_bar}
 
-    <!-- 1. Top Category & Arrow -->
-    <text x="22" y="32" fill="{TEXT_PRIMARY}" class="mono" font-size="11" font-weight="600" letter-spacing="2">EXPLORE</text>
-    <text x="264" y="32" fill="{TEXT_PRIMARY}" class="sans" font-size="14" font-weight="600" text-anchor="end">→</text>
+    <text x="22" y="32" fill="{accent_bar}" class="mono" font-size="11" font-weight="600" letter-spacing="2">03 // EXPLORE</text>
+    <text x="264" y="32" fill="{accent_bar}" class="sans" font-size="14" font-weight="600" text-anchor="end">→</text>
 
-    <!-- 2. Headline -->
-    <text x="22" y="86" fill="{TEXT_PRIMARY}">
+    <text x="22" y="86" fill="{text_color}">
       <tspan class="serif" font-size="28" font-weight="400">ClashVision </tspan>
       <tspan class="serif" font-size="28" font-style="italic">&amp; F1</tspan>
     </text>
 
-    <!-- 3. Description -->
-    <text x="22" y="122" fill="#2A2A2A" font-size="12">
+    <text x="22" y="122" fill="{text_color}" fill-opacity="0.9" font-size="12">
       Real-time tactical battle prediction
     </text>
-    <text x="22" y="140" fill="#2A2A2A" font-size="12">
+    <text x="22" y="140" fill="{text_color}" fill-opacity="0.9" font-size="12">
       and high-frequency lap simulation.
     </text>
 
-    <!-- 4. Tech metadata -->
-    <text x="22" y="170" fill="#5A5230" class="mono" font-size="10">Python · PyTorch · DuckDB</text>
+    <text x="22" y="170" fill="{text_color}" fill-opacity="0.65" class="mono" font-size="10">Python · PyTorch · DuckDB</text>
   </g>
 </svg>"""
     return svg
 
 
 # ══════════════════════════════════════════════════════════════════════════
-# 5. EDITORIAL FOOTER & COLOPHON (cards/footer.svg)
+# 5. EDITORIAL COLOPHON & VERIFICATION SEAL (cards/footer.svg)
 # ══════════════════════════════════════════════════════════════════════════
-def render_footer_card() -> str:
-    """Render 880x96 restrained warm off-white editorial colophon."""
-    delay = "0.85s" if not IS_STATIC else "0s"
+def render_footer_card(theme: str = "light") -> str:
+    """Render 880x72 authentic verification seal and editorial colophon."""
+    is_dark = (theme == "dark")
+    bg = "#0D1117" if is_dark else BG_CARD
+    border = "#30363D" if is_dark else BORDER_HAIRLINE
+    text_primary = "#F0F6FC" if is_dark else TEXT_PRIMARY
+    text_muted = "#6E7681" if is_dark else TEXT_MUTED
+    pulse_dot = "#388BFD" if is_dark else COLOR_BUILD
+
     fonts_css = get_embedded_fonts_css(["serif"])
 
     anim_css = "" if IS_STATIC else f"""
     @keyframes fadeIn {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
-    .card-root {{ animation: fadeIn 0.6s ease {delay} both; }}
+    @keyframes pulseGlow {{
+      0%, 100% {{ opacity: 0.7; transform: scale(1); }}
+      50% {{ opacity: 1.0; transform: scale(1.3); }}
+    }}
+    .card-root {{ animation: fadeIn 0.6s ease 0.40s both; }}
+    .anim-pulse {{
+      transform-origin: 594px 36px;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }}
     """
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 96" width="100%" height="96">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 72" width="100%" height="72">
   <defs>
     <style>
       {fonts_css}
@@ -653,26 +799,16 @@ def render_footer_card() -> str:
   </defs>
 
   <g class="card-root">
-    <rect x="1" y="1" width="878" height="94" rx="16" fill="{BG_CARD}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
+    <rect x="1" y="1" width="878" height="70" rx="14" fill="{bg}" stroke="{border}" stroke-width="1"/>
 
-    <!-- Colophon Content -->
-    <text x="36" y="36" fill="{TEXT_PRIMARY}" class="serif" font-size="18">Harmit Kalal</text>
-    <text x="146" y="36" fill="{TEXT_MUTED}" class="sans" font-size="12">&#160;·&#160; AI Systems Engineer &amp; System Architect</text>
+    <!-- Left: Identity & Mandate -->
+    <text x="36" y="42" fill="{text_primary}" class="serif" font-size="20">Harmit Kalal</text>
+    <text x="148" y="42" fill="{text_muted}" class="sans" font-size="12"> · AI Systems Engineer &amp; System Architect</text>
 
-    <text x="844" y="36" fill="{TEXT_MUTED}" class="mono" font-size="10.5" text-anchor="end">
-      HANDCRAFTED SVG ENGINE &#160;·&#160; 0 THIRD-PARTY WIDGETS
-    </text>
-
-    <line x1="36" y1="48" x2="844" y2="48" stroke="{DIVIDER_LINE}" stroke-width="0.75"/>
-
-    <!-- Navigation / Social Links Inside Card -->
-    <text x="36" y="74" fill="{COLOR_BUILD}" class="mono" font-size="11" font-weight="600">harmit.vercel.app</text>
-    <text x="190" y="74" fill="{TEXT_MUTED}" class="mono" font-size="11">github.com/Harmitx7</text>
-    <text x="350" y="74" fill="{TEXT_MUTED}" class="mono" font-size="11">linkedin.com/in/harmitkalal</text>
-    <text x="560" y="74" fill="{TEXT_MUTED}" class="mono" font-size="11">harmitkalal7@gmail.com</text>
-
-    <text x="844" y="74" fill="{TEXT_MUTED}" class="mono" font-size="10.5" text-anchor="end">
-      AUTOMATED DAILY REFRESH
+    <!-- Right: Verified Pipeline Indicator & Colophon Seal -->
+    <circle cx="594" cy="38" r="3.5" fill="{pulse_dot}" class="anim-pulse"/>
+    <text x="844" y="42" fill="{text_muted}" class="mono" font-size="10" text-anchor="end" letter-spacing="1.2">
+      VERIFIED TELEMETRY · DETERMINISTIC PIPELINE · DAILY REFRESH
     </text>
   </g>
 </svg>"""
@@ -683,8 +819,10 @@ def render_footer_card() -> str:
 # COMPILER DISPATCHER
 # ══════════════════════════════════════════════════════════════════════════
 def compile_cards(out_dir: str = OUT_DIR) -> Dict[str, str]:
-    """Render all editorial cards into target directory."""
+    """Render all editorial cards in dark and light themes into target directory."""
     os.makedirs(out_dir, exist_ok=True)
+    assets_dir = os.path.join(REPO_ROOT, "assets")
+    os.makedirs(assets_dir, exist_ok=True)
 
     # Load contribution intelligence
     contrib_data: Dict[str, Any] = {}
@@ -692,37 +830,102 @@ def compile_cards(out_dir: str = OUT_DIR) -> Dict[str, str]:
         with open(DATA_CONTRIB, "r", encoding="utf-8") as f:
             contrib_data = json.load(f)
 
-    renderers = {
-        "hero.svg": render_hero_svg(),
-        "heatmap.svg": render_heatmap_card(contrib_data),
-        "activity.svg": render_activity_card(contrib_data),
-        # Three Signature Worlds
-        "build.svg": render_tile_build(),
-        "create.svg": render_tile_create(),
-        "explore.svg": render_tile_explore(),
-        # Editorial Colophon
-        "footer.svg": render_footer_card(),
-    }
-
     results: Dict[str, str] = {}
-    for name, content in renderers.items():
-        path = os.path.join(out_dir, name)
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(content)
-        size_kb = len(content.encode("utf-8")) / 1024
-        print(f"✔ Rendered {name:<26} ({size_kb:4.1f} KB) -> {path}")
-        results[name] = path
 
-    # Also mirror monthly activity to assets/monthly-activity.svg
-    assets_path = os.path.join(REPO_ROOT, "assets", "monthly-activity.svg")
-    os.makedirs(os.path.dirname(assets_path), exist_ok=True)
-    with open(assets_path, "w", encoding="utf-8") as f:
-        f.write(renderers["activity.svg"])
+    for theme in ["dark", "light"]:
+        # 1. Hero
+        hero_content = render_hero_svg(theme=theme)
+        hero_file = f"hero-{theme}.svg"
+        hero_path = os.path.join(out_dir, hero_file)
+        with open(hero_path, "w", encoding="utf-8") as f:
+            f.write(hero_content)
+        results[hero_file] = hero_path
 
-    # Also mirror contribution calendar to assets/contribution-calendar.svg
-    calendar_asset_path = os.path.join(REPO_ROOT, "assets", "contribution-calendar.svg")
-    with open(calendar_asset_path, "w", encoding="utf-8") as f:
-        f.write(renderers["heatmap.svg"])
+        # 2. Heatmap / Contribution Calendar
+        cal_data = extract_calendar_data(contrib_data)
+        heatmap_content = render_contribution_calendar_svg(cal_data, theme=theme)
+        heatmap_file = f"heatmap-{theme}.svg"
+        heatmap_path = os.path.join(out_dir, heatmap_file)
+        with open(heatmap_path, "w", encoding="utf-8") as f:
+            f.write(heatmap_content)
+        results[heatmap_file] = heatmap_path
+
+        # 3. Monthly Activity
+        stats = extract_monthly_data(contrib_data)
+        activity_content = render_monthly_activity_svg(stats, theme=theme)
+        activity_file = f"activity-{theme}.svg"
+        activity_path = os.path.join(out_dir, activity_file)
+        with open(activity_path, "w", encoding="utf-8") as f:
+            f.write(activity_content)
+        results[activity_file] = activity_path
+
+        # 4. Flagship Projects Deck
+        projects_content = render_projects_deck(theme=theme)
+        projects_file = f"projects-{theme}.svg"
+        projects_path = os.path.join(out_dir, projects_file)
+        with open(projects_path, "w", encoding="utf-8") as f:
+            f.write(projects_content)
+        results[projects_file] = projects_path
+
+        # 5. Standalone Tiles (BUILD, CREATE, EXPLORE)
+        build_content = render_tile_build(theme=theme)
+        build_file = f"build-{theme}.svg"
+        build_path = os.path.join(out_dir, build_file)
+        with open(build_path, "w", encoding="utf-8") as f:
+            f.write(build_content)
+        results[build_file] = build_path
+
+        create_content = render_tile_create(theme=theme)
+        create_file = f"create-{theme}.svg"
+        create_path = os.path.join(out_dir, create_file)
+        with open(create_path, "w", encoding="utf-8") as f:
+            f.write(create_content)
+        results[create_file] = create_path
+
+        explore_content = render_tile_explore(theme=theme)
+        explore_file = f"explore-{theme}.svg"
+        explore_path = os.path.join(out_dir, explore_file)
+        with open(explore_path, "w", encoding="utf-8") as f:
+            f.write(explore_content)
+        results[explore_file] = explore_path
+
+        # 6. Colophon / Footer
+        footer_content = render_footer_card(theme=theme)
+        footer_file = f"footer-{theme}.svg"
+        footer_path = os.path.join(out_dir, footer_file)
+        with open(footer_path, "w", encoding="utf-8") as f:
+            f.write(footer_content)
+        results[footer_file] = footer_path
+
+        # Default fallback files (light theme copies for legacy markdown viewers)
+        if theme == "light":
+            defaults = {
+                "hero.svg": hero_content,
+                "heatmap.svg": heatmap_content,
+                "activity.svg": activity_content,
+                "projects.svg": projects_content,
+                "build.svg": build_content,
+                "create.svg": create_content,
+                "explore.svg": explore_content,
+                "footer.svg": footer_content,
+            }
+            for d_name, d_content in defaults.items():
+                d_path = os.path.join(out_dir, d_name)
+                with open(d_path, "w", encoding="utf-8") as f:
+                    f.write(d_content)
+                results[d_name] = d_path
+
+            # Mirror to assets
+            with open(os.path.join(assets_dir, "monthly-activity.svg"), "w", encoding="utf-8") as f:
+                f.write(activity_content)
+            with open(os.path.join(assets_dir, "contribution-calendar.svg"), "w", encoding="utf-8") as f:
+                f.write(heatmap_content)
+            with open(os.path.join(assets_dir, "hero.svg"), "w", encoding="utf-8") as f:
+                f.write(hero_content)
+
+    for fname, fpath in results.items():
+        size_kb = os.path.getsize(fpath) / 1024
+        print(f"✔ Rendered {fname:<24} ({size_kb:4.1f} KB) -> {fpath}")
 
     return results
 

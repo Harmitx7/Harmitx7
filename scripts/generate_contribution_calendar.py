@@ -25,21 +25,37 @@ FONTS_DIR = os.path.join(REPO_ROOT, "fonts")
 IS_STATIC = os.environ.get("STATIC") == "1"
 
 # ══════════════════════════════════════════════════════════════════════════
-# COLOR PALETTE — "EVERY DAY, IN BLUE" SPECIFICATION
+# COLOR PALETTE — "EVERY DAY, IN BLUE" DUAL-MODE SPECIFICATION
 # ══════════════════════════════════════════════════════════════════════════
-BG_SURFACE = "#F3F3F0"       # Warm off-white paper canvas
-BORDER_CONTAINER = "#DEDEDA" # Subtle container edge hairline
-TEXT_PRIMARY = "#171717"     # Near-black editorial ink
-TEXT_SECONDARY = "#77777D"   # Neutral grey metadata & month labels
-ACCENT_BLUE = "#244DFF"      # Strong electric blue for title and peak activity
-
-# 5 Intensity Levels
-LEVEL_COLORS = {
-    0: "#E6E6E2",  # Empty pale-grey cell
-    1: "#DCE4FF",  # Level 1: pale soft blue
-    2: "#AFC1FF",  # Level 2: light blue
-    3: "#5478FF",  # Level 3: medium blue
-    4: "#244DFF",  # Level 4: strong electric blue
+THEME_PALETTES = {
+    "light": {
+        "bg_surface": "#F3F3F0",        # Warm off-white paper canvas
+        "border_container": "#DEDEDA",  # Subtle container edge hairline
+        "text_primary": "#171717",      # Near-black editorial ink
+        "text_secondary": "#77777D",    # Neutral grey metadata & month labels
+        "accent_blue": "#244DFF",       # Strong electric blue for title and peak
+        "levels": {
+            0: "#E6E6E2",  # Empty pale-grey cell
+            1: "#DCE4FF",  # Level 1: pale soft blue
+            2: "#AFC1FF",  # Level 2: light blue
+            3: "#5478FF",  # Level 3: medium blue
+            4: "#244DFF",  # Level 4: strong electric blue
+        },
+    },
+    "dark": {
+        "bg_surface": "#0D1117",        # Obsidian GitHub dark canvas
+        "border_container": "#30363D",  # Subtle container edge hairline
+        "text_primary": "#F0F6FC",      # Luminous titanium white
+        "text_secondary": "#8B949E",    # Slate grey metadata & month labels
+        "accent_blue": "#388BFD",       # Luminous electric cobalt
+        "levels": {
+            0: "#161B22",  # Empty dark grid cell
+            1: "#0E3A75",  # Level 1: deep midnight blue
+            2: "#1B54B8",  # Level 2: cobalt blue
+            3: "#2870EA",  # Level 3: radiant blue
+            4: "#388BFD",  # Level 4: high-intensity electric blue
+        },
+    },
 }
 
 FONT_SERIF = "'Instrument Serif', Georgia, 'Times New Roman', serif"
@@ -130,6 +146,7 @@ def extract_calendar_data(contrib_data: Optional[Dict[str, Any]] = None) -> Dict
 # ══════════════════════════════════════════════════════════════════════════
 def render_contribution_calendar_svg(
     calendar_data: Optional[Dict[str, Any]] = None,
+    theme: str = "light",
     is_static: Optional[bool] = None,
 ) -> str:
     """Render 880x238 editorial contribution calendar SVG with 3.7:1 aspect ratio."""
@@ -138,6 +155,14 @@ def render_contribution_calendar_svg(
 
     if calendar_data is None:
         calendar_data = extract_calendar_data()
+
+    pal = THEME_PALETTES.get(theme, THEME_PALETTES["light"])
+    bg_surface = pal["bg_surface"]
+    border_container = pal["border_container"]
+    text_primary = pal["text_primary"]
+    text_secondary = pal["text_secondary"]
+    accent_blue = pal["accent_blue"]
+    level_colors = pal["levels"]
 
     w, h = 880, 238
     fonts_css = get_embedded_fonts_css()
@@ -164,7 +189,7 @@ def render_contribution_calendar_svg(
         for row_idx, day in enumerate(week):
             cy = round(grid_y + row_idx * step, 1)
             level = day.get("level", 0) if day else 0
-            if level not in LEVEL_COLORS:
+            if level not in level_colors:
                 level = 0
 
             cell_rects.append(f'<rect class="c l{level}" x="{cx}" y="{cy}"/>')
@@ -180,7 +205,7 @@ def render_contribution_calendar_svg(
     for col_idx, lbl in month_positions:
         mx = round(left_x + col_idx * step + 5.7, 1)
         month_labels_svg.append(
-            f'<text x="{mx}" y="206" fill="{TEXT_SECONDARY}" class="mono" font-size="10" text-anchor="middle">{lbl}</text>'
+            f'<text x="{mx}" y="206" fill="{text_secondary}" class="mono" font-size="10" text-anchor="middle">{lbl}</text>'
         )
     rendered_months_svg = "\n    ".join(month_labels_svg)
 
@@ -235,18 +260,18 @@ def render_contribution_calendar_svg(
       .sans {{ font-family: {FONT_SANS}; }}
       .mono {{ font-family: {FONT_MONO}; }}
       rect.c {{ width: 11.4px; height: 11.4px; rx: 2.5px; }}
-      .l0 {{ fill: {LEVEL_COLORS[0]}; }}
-      .l1 {{ fill: {LEVEL_COLORS[1]}; }}
-      .l2 {{ fill: {LEVEL_COLORS[2]}; }}
-      .l3 {{ fill: {LEVEL_COLORS[3]}; }}
-      .l4 {{ fill: {LEVEL_COLORS[4]}; }}
+      .l0 {{ fill: {level_colors[0]}; }}
+      .l1 {{ fill: {level_colors[1]}; }}
+      .l2 {{ fill: {level_colors[2]}; }}
+      .l3 {{ fill: {level_colors[3]}; }}
+      .l4 {{ fill: {level_colors[4]}; }}
       {extra_css}
     </style>
   </defs>
 
   <!-- Container Surface with Subtle Rounded Border -->
   <g class="anim-root">
-    <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{BG_SURFACE}" stroke="{BORDER_CONTAINER}" stroke-width="1"/>
+    <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{bg_surface}" stroke="{border_container}" stroke-width="1"/>
   </g>
 
   <!-- ══════════════════════════════════════════════════════════════════════════
@@ -255,12 +280,12 @@ def render_contribution_calendar_svg(
   <g class="anim-header">
     <!-- Upper-Left Headline -->
     <text x="{left_x}" y="48">
-      <tspan class="serif" font-size="34" font-weight="400" fill="{TEXT_PRIMARY}">Every day, </tspan>
-      <tspan class="serif" font-size="34" font-style="italic" fill="{ACCENT_BLUE}">in blue</tspan>
+      <tspan class="serif" font-size="34" font-weight="400" fill="{text_primary}">Every day, </tspan>
+      <tspan class="serif" font-size="34" font-style="italic" fill="{accent_blue}">in blue</tspan>
     </text>
 
     <!-- Upper-Right Daily Status -->
-    <text x="836" y="44" fill="{TEXT_SECONDARY}" class="mono" font-size="10" font-weight="500" letter-spacing="2.5" text-anchor="end">
+    <text x="836" y="44" fill="{text_secondary}" class="mono" font-size="10" font-weight="500" letter-spacing="2.5" text-anchor="end">
       REFRESHED DAILY
     </text>
   </g>
@@ -281,13 +306,13 @@ def render_contribution_calendar_svg(
 
     <!-- Bottom-Right Intensity Legend: less [][][][][] more -->
     <g transform="translate(714, 198)">
-      <text x="0" y="8" fill="{TEXT_SECONDARY}" class="mono" font-size="10">less</text>
-      <rect x="28" y="0" width="8.5" height="8.5" rx="2" fill="{LEVEL_COLORS[0]}" />
-      <rect x="39" y="0" width="8.5" height="8.5" rx="2" fill="{LEVEL_COLORS[1]}" />
-      <rect x="50" y="0" width="8.5" height="8.5" rx="2" fill="{LEVEL_COLORS[2]}" />
-      <rect x="61" y="0" width="8.5" height="8.5" rx="2" fill="{LEVEL_COLORS[3]}" />
-      <rect x="72" y="0" width="8.5" height="8.5" rx="2" fill="{LEVEL_COLORS[4]}" />
-      <text x="86" y="8" fill="{TEXT_SECONDARY}" class="mono" font-size="10">more</text>
+      <text x="0" y="8" fill="{text_secondary}" class="mono" font-size="10">less</text>
+      <rect x="28" y="0" width="8.5" height="8.5" rx="2" fill="{level_colors[0]}" />
+      <rect x="39" y="0" width="8.5" height="8.5" rx="2" fill="{level_colors[1]}" />
+      <rect x="50" y="0" width="8.5" height="8.5" rx="2" fill="{level_colors[2]}" />
+      <rect x="61" y="0" width="8.5" height="8.5" rx="2" fill="{level_colors[3]}" />
+      <rect x="72" y="0" width="8.5" height="8.5" rx="2" fill="{level_colors[4]}" />
+      <text x="86" y="8" fill="{text_secondary}" class="mono" font-size="10">more</text>
     </g>
   </g>
 </svg>"""
@@ -296,26 +321,39 @@ def render_contribution_calendar_svg(
 
 def compile_contribution_calendar(
     contrib_path: str = DATA_CONTRIB,
-    out_asset_path: str = OUT_ASSET,
-    out_card_path: str = OUT_CARD,
-) -> str:
-    """Compile and write contribution calendar SVG to assets and cards directories."""
+) -> Dict[str, str]:
+    """Compile and write contribution calendar SVG in dark and light themes."""
     contrib_data = {}
     if os.path.exists(contrib_path):
         with open(contrib_path, "r", encoding="utf-8") as f:
             contrib_data = json.load(f)
 
     cal_data = extract_calendar_data(contrib_data)
-    svg_content = render_contribution_calendar_svg(cal_data)
+    cards_dir = os.path.join(REPO_ROOT, "cards")
+    assets_dir = os.path.join(REPO_ROOT, "assets")
+    os.makedirs(cards_dir, exist_ok=True)
+    os.makedirs(assets_dir, exist_ok=True)
 
-    for p in [out_asset_path, out_card_path]:
-        os.makedirs(os.path.dirname(p), exist_ok=True)
-        with open(p, "w", encoding="utf-8") as f:
+    results = {}
+    for theme in ["dark", "light"]:
+        svg_content = render_contribution_calendar_svg(cal_data, theme=theme)
+        card_p = os.path.join(cards_dir, f"heatmap-{theme}.svg")
+        with open(card_p, "w", encoding="utf-8") as f:
             f.write(svg_content)
         size_kb = len(svg_content.encode("utf-8")) / 1024
-        print(f"✔ Compiled contribution calendar SVG ({size_kb:.1f} KB) -> {p}")
+        print(f"✔ Compiled heatmap-{theme}.svg ({size_kb:.1f} KB) -> {card_p}")
+        results[f"heatmap-{theme}.svg"] = card_p
 
-    return svg_content
+        if theme == "light":
+            # Default backward compatibility
+            default_p = os.path.join(cards_dir, "heatmap.svg")
+            with open(default_p, "w", encoding="utf-8") as f:
+                f.write(svg_content)
+            asset_p = os.path.join(assets_dir, "contribution-calendar.svg")
+            with open(asset_p, "w", encoding="utf-8") as f:
+                f.write(svg_content)
+
+    return results
 
 
 if __name__ == "__main__":

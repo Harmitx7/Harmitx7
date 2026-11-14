@@ -25,17 +25,32 @@ FONTS_DIR = os.path.join(REPO_ROOT, "fonts")
 IS_STATIC = os.environ.get("STATIC") == "1"
 
 # ══════════════════════════════════════════════════════════════════════════
-# COLOR PALETTE — EDITORIAL SWISS SPECIFICATION
+# COLOR PALETTE — EDITORIAL SWISS DUAL-MODE SPECIFICATION
 # ══════════════════════════════════════════════════════════════════════════
-BG_SURFACE = "#F3F3F0"       # Warm off-white paper canvas
-BORDER_CONTAINER = "#DEDEDA" # Subtle container edge rule
-DIVIDER_LINE = "#DEDEDA"     # Horizontal metric separators
-TEXT_PRIMARY = "#151515"     # Near-black editorial ink
-TEXT_SECONDARY = "#77777D"   # Neutral grey metadata & descriptions
-TEXT_FAINT = "#A0A0A5"       # Subdued slash / secondary denominator
-ACCENT_BLUE = "#315BFF"      # Vibrant electric blue for maximum peak
-BAR_INACTIVE = "#151515"     # Near-black monthly bars
-BAR_CURRENT = "#C8C8C4"      # Soft grey for ongoing partial month
+THEME_PALETTES = {
+    "light": {
+        "bg_surface": "#F3F3F0",        # Warm off-white paper canvas
+        "border_container": "#DEDEDA",  # Subtle container edge rule
+        "divider_line": "#DEDEDA",      # Horizontal metric separators
+        "text_primary": "#151515",      # Near-black editorial ink
+        "text_secondary": "#77777D",    # Neutral grey metadata & descriptions
+        "text_faint": "#A0A0A5",        # Subdued slash / secondary denominator
+        "accent_blue": "#315BFF",       # Vibrant electric blue for maximum peak
+        "bar_inactive": "#151515",      # Near-black monthly bars
+        "bar_current": "#C8C8C4",       # Soft grey for ongoing partial month
+    },
+    "dark": {
+        "bg_surface": "#0D1117",        # Obsidian GitHub dark canvas
+        "border_container": "#30363D",  # Hairline border rule
+        "divider_line": "#21262D",      # Inset panel & metric separators
+        "text_primary": "#F0F6FC",      # Luminous titanium white
+        "text_secondary": "#8B949E",    # Slate grey metadata & descriptions
+        "text_faint": "#484F58",        # Subdued slash / secondary denominator
+        "accent_blue": "#388BFD",       # Vibrant electric cobalt for peak
+        "bar_inactive": "#242B35",      # Deep slate bars
+        "bar_current": "#484F58",       # Medium slate for current month
+    },
+}
 
 FONT_SERIF = "'Instrument Serif', Georgia, 'Times New Roman', serif"
 FONT_SANS = "Geist, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
@@ -156,14 +171,26 @@ def extract_monthly_data(contrib_data: Optional[Dict[str, Any]] = None) -> Dict[
 # ══════════════════════════════════════════════════════════════════════════
 def render_monthly_activity_svg(
     stats: Optional[Dict[str, Any]] = None,
+    theme: str = "light",
     is_static: Optional[bool] = None,
 ) -> str:
-    """Render 880x332 editorial monthly activity visualization SVG (2.65:1 ratio)."""
+    """Render 880x332 editorial monthly activity visualization SVG in dark or light theme."""
     if is_static is None:
         is_static = IS_STATIC
 
     if stats is None:
         stats = extract_monthly_data()
+
+    pal = THEME_PALETTES.get(theme, THEME_PALETTES["light"])
+    bg_surface = pal["bg_surface"]
+    border_container = pal["border_container"]
+    divider_line = pal["divider_line"]
+    text_primary = pal["text_primary"]
+    text_secondary = pal["text_secondary"]
+    text_faint = pal["text_faint"]
+    accent_blue = pal["accent_blue"]
+    bar_inactive = pal["bar_inactive"]
+    bar_current = pal["bar_current"]
 
     w, h = 880, 332
     fonts_css = get_embedded_fonts_css()
@@ -187,6 +214,7 @@ def render_monthly_activity_svg(
     # Build bars SVG
     bars_svg_list = []
     bar_animations_css = []
+    peak_aura_svg = ""
 
     for i, m in enumerate(months):
         bx = left_x + i * (bar_w + bar_gap)
@@ -203,11 +231,13 @@ def render_monthly_activity_svg(
 
         # Palette selection
         if is_peak:
-            fill_color = ACCENT_BLUE
+            fill_color = accent_blue
+            if theme == "dark":
+                peak_aura_svg = f'<ellipse cx="{bx + bar_w // 2}" cy="{by + bh // 2}" rx="32" ry="{bh * 0.75}" fill="url(#peak-glow)" />'
         elif is_current:
-            fill_color = BAR_CURRENT
+            fill_color = bar_current
         else:
-            fill_color = BAR_INACTIVE
+            fill_color = bar_inactive
 
         bar_id = f"bar-{i}"
 
@@ -238,14 +268,14 @@ def render_monthly_activity_svg(
             cx = bx + bar_w // 2
             peak_anim_class = "anim-peak-count" if not is_static else ""
             bars_svg_list.append(
-                f'    <text class="mono {peak_anim_class}" x="{cx}" y="{label_y}" fill="{ACCENT_BLUE}" font-size="11" font-weight="600" text-anchor="middle">{cnt:,}</text>'
+                f'    <text class="mono {peak_anim_class}" x="{cx}" y="{label_y}" fill="{accent_blue}" font-size="11" font-weight="600" text-anchor="middle">{cnt:,}</text>'
             )
 
         # Month label beneath bar
         label_y = y_baseline + 20
         cx = bx + bar_w // 2
         bars_svg_list.append(
-            f'    <text class="sans label-month" x="{cx}" y="{label_y}" fill="{TEXT_SECONDARY}" font-size="11" text-anchor="middle">{m["label"]}</text>'
+            f'    <text class="sans label-month" x="{cx}" y="{label_y}" fill="{text_secondary}" font-size="11" text-anchor="middle">{m["label"]}</text>'
         )
 
     rendered_bars_svg = "\n".join(bars_svg_list)
@@ -295,6 +325,15 @@ def render_monthly_activity_svg(
     }}
     """
 
+    peak_glow_def = ""
+    if theme == "dark":
+        peak_glow_def = """
+    <radialGradient id="peak-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#388BFD" stop-opacity="0.32" />
+      <stop offset="70%" stop-color="#388BFD" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#388BFD" stop-opacity="0.0" />
+    </radialGradient>"""
+
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
   <defs>
@@ -303,14 +342,14 @@ def render_monthly_activity_svg(
       text {{ font-family: {FONT_SANS}; }}
       .serif {{ font-family: {FONT_SERIF}; }}
       .sans {{ font-family: {FONT_SANS}; }}
-      .mono {{ font-family: {FONT_MONO}; }}
+      .mono {{ font-family: {FONT_MONO}; font-variant-numeric: tabular-nums; }}
       {extra_css}
-    </style>
+    </style>{peak_glow_def}
   </defs>
 
   <!-- Container Surface with Subtle Rounded Border -->
   <g class="anim-root">
-    <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{BG_SURFACE}" stroke="{BORDER_CONTAINER}" stroke-width="1"/>
+    <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{bg_surface}" stroke="{border_container}" stroke-width="1"/>
   </g>
 
   <!-- ══════════════════════════════════════════════════════════════════════════
@@ -318,12 +357,12 @@ def render_monthly_activity_svg(
        ══════════════════════════════════════════════════════════════════════════ -->
   <g class="anim-header">
     <!-- Small Uppercase Section Label -->
-    <text x="{left_x}" y="50" fill="{TEXT_SECONDARY}" class="mono" font-size="10.5" font-weight="500" letter-spacing="2">
+    <text x="{left_x}" y="50" fill="{text_secondary}" class="mono" font-size="10.5" font-weight="500" letter-spacing="2">
       THE LAST 12 MONTHS ON GITHUB
     </text>
 
     <!-- Oversized Editorial Headline -->
-    <text x="{left_x}" y="94" fill="{TEXT_PRIMARY}">
+    <text x="{left_x}" y="94" fill="{text_primary}">
       <tspan class="serif" font-size="44" font-weight="400">{total_contributions:,} </tspan>
       <tspan class="serif" font-size="44" font-style="italic">contributions</tspan>
     </text>
@@ -331,6 +370,7 @@ def render_monthly_activity_svg(
 
   <!-- Monthly Bar Chart -->
   <g>
+    {peak_aura_svg}
 {rendered_bars_svg}
   </g>
 
@@ -340,39 +380,39 @@ def render_monthly_activity_svg(
   
   <!-- STATISTIC 01: Streak -->
   <g class="anim-stat-1">
-    <text x="640" y="84" fill="{TEXT_PRIMARY}">
+    <text x="640" y="84" fill="{text_primary}">
       <tspan class="serif" font-size="38" font-weight="400">{longest_streak} </tspan>
       <tspan class="serif" font-size="34" font-style="italic">days</tspan>
     </text>
-    <text x="640" y="106" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+    <text x="640" y="106" fill="{text_secondary}" class="sans" font-size="12">
       current streak, and the longest
     </text>
   </g>
 
   <!-- Thin Horizontal Divider 01 -->
-  <line class="anim-div-1" x1="640" y1="130" x2="836" y2="130" stroke="{DIVIDER_LINE}" stroke-width="1" />
+  <line class="anim-div-1" x1="640" y1="130" x2="836" y2="130" stroke="{divider_line}" stroke-width="1" />
 
   <!-- STATISTIC 02: Active Days Ratio -->
   <g class="anim-stat-2">
     <text x="640" y="176">
-      <tspan class="serif" font-size="38" fill="{TEXT_PRIMARY}" font-weight="400">{active_days} </tspan>
-      <tspan class="serif" font-size="32" fill="{TEXT_FAINT}">/ </tspan>
-      <tspan class="serif" font-size="34" fill="{TEXT_SECONDARY}" font-style="italic">{total_calendar_days}</tspan>
+      <tspan class="serif" font-size="38" fill="{text_primary}" font-weight="400">{active_days} </tspan>
+      <tspan class="serif" font-size="32" fill="{text_faint}">/ </tspan>
+      <tspan class="serif" font-size="34" fill="{text_secondary}" font-style="italic">{total_calendar_days}</tspan>
     </text>
-    <text x="640" y="198" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+    <text x="640" y="198" fill="{text_secondary}" class="sans" font-size="12">
       days with a commit
     </text>
   </g>
 
   <!-- Thin Horizontal Divider 02 -->
-  <line class="anim-div-2" x1="640" y1="222" x2="836" y2="222" stroke="{DIVIDER_LINE}" stroke-width="1" />
+  <line class="anim-div-2" x1="640" y1="222" x2="836" y2="222" stroke="{divider_line}" stroke-width="1" />
 
   <!-- STATISTIC 03: Peak Velocity on Busiest Day -->
   <g class="anim-stat-3">
-    <text x="640" y="268" fill="{TEXT_PRIMARY}" class="serif" font-size="38" font-weight="400">
+    <text x="640" y="268" fill="{text_primary}" class="serif" font-size="38" font-weight="400">
       {busiest_day_commits}
     </text>
-    <text x="640" y="290" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+    <text x="640" y="290" fill="{text_secondary}" class="sans" font-size="12">
       on the busiest day
     </text>
   </g>
@@ -382,26 +422,38 @@ def render_monthly_activity_svg(
 
 def compile_monthly_activity(
     contrib_path: str = DATA_CONTRIB,
-    out_asset_path: str = OUT_ASSET,
-    out_card_path: str = OUT_CARD,
-) -> str:
-    """Compile and write monthly activity SVG to assets and cards directories."""
+) -> Dict[str, str]:
+    """Compile and write monthly activity SVG in dark and light themes."""
     contrib_data = {}
     if os.path.exists(contrib_path):
         with open(contrib_path, "r", encoding="utf-8") as f:
             contrib_data = json.load(f)
 
     stats = extract_monthly_data(contrib_data)
-    svg_content = render_monthly_activity_svg(stats)
+    cards_dir = os.path.join(REPO_ROOT, "cards")
+    assets_dir = os.path.join(REPO_ROOT, "assets")
+    os.makedirs(cards_dir, exist_ok=True)
+    os.makedirs(assets_dir, exist_ok=True)
 
-    for p in [out_asset_path, out_card_path]:
-        os.makedirs(os.path.dirname(p), exist_ok=True)
-        with open(p, "w", encoding="utf-8") as f:
+    results = {}
+    for theme in ["dark", "light"]:
+        svg_content = render_monthly_activity_svg(stats, theme=theme)
+        card_p = os.path.join(cards_dir, f"activity-{theme}.svg")
+        with open(card_p, "w", encoding="utf-8") as f:
             f.write(svg_content)
         size_kb = len(svg_content.encode("utf-8")) / 1024
-        print(f"✔ Compiled monthly activity SVG ({size_kb:.1f} KB) -> {p}")
+        print(f"✔ Compiled activity-{theme}.svg ({size_kb:.1f} KB) -> {card_p}")
+        results[f"activity-{theme}.svg"] = card_p
 
-    return svg_content
+        if theme == "light":
+            default_p = os.path.join(cards_dir, "activity.svg")
+            with open(default_p, "w", encoding="utf-8") as f:
+                f.write(svg_content)
+            asset_p = os.path.join(assets_dir, "monthly-activity.svg")
+            with open(asset_p, "w", encoding="utf-8") as f:
+                f.write(svg_content)
+
+    return results
 
 
 if __name__ == "__main__":

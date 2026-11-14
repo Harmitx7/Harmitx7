@@ -23,20 +23,17 @@
   </defs>
 
   <g class="card-root">
-    <!-- Solid Vibrant Red Body with Rounded Border -->
     <rect x="1" y="1" width="284" height="194" rx="16" fill="#F13931" stroke="#F7524A" stroke-width="1" />
+    
 
-    <!-- 1. Top Category & Arrow -->
-    <text x="22" y="32" fill="#FFFFFF" class="mono" font-size="11" font-weight="600" letter-spacing="2">CREATE</text>
+    <text x="22" y="32" fill="#FFFFFF" class="mono" font-size="11" font-weight="600" letter-spacing="2">02 // CREATE</text>
     <text x="264" y="32" fill="#FFFFFF" class="sans" font-size="14" font-weight="600" text-anchor="end">→</text>
 
-    <!-- 2. Headline -->
     <text x="22" y="86" fill="#FFFFFF">
       <tspan class="serif" font-size="30" font-weight="400">Deck</tspan>
       <tspan class="serif" font-size="30" font-style="italic">Reactor</tspan>
     </text>
 
-    <!-- 3. Description -->
     <text x="22" y="122" fill="#FFFFFF" fill-opacity="0.92" font-size="12">
       Dynamic canvas environments and
     </text>
@@ -44,7 +41,6 @@
       generative visual developer tooling.
     </text>
 
-    <!-- 4. Tech metadata -->
     <text x="22" y="170" fill="#FFFFFF" fill-opacity="0.65" class="mono" font-size="10">React · SVG · Canvas</text>
   </g>
 </svg>
