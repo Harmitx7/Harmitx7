@@ -48,10 +48,3 @@
 </p>
 
 </div>
-
-<p align="center">
-  <a href="https://harmit.vercel.app"><code>[ ↗ harmit.vercel.app ]</code></a> &nbsp;&nbsp;
-  <a href="https://github.com/Harmitx7"><code>[ ↗ github ]</code></a> &nbsp;&nbsp;
-  <a href="https://linkedin.com/in/harmitkalal"><code>[ ↗ linkedin ]</code></a> &nbsp;&nbsp;
-  <a href="mailto:harmitkalal7@gmail.com"><code>[ ↗ email ]</code></a>
-</p>
