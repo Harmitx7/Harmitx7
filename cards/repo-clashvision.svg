@@ -38,44 +38,111 @@
       }
     }
     
-    .anim-card { animation: fadeIn 0.6s ease 0.88s both; }
+    .anim-card {
+      animation: cardEntrance_repo-clashvision 0.80s cubic-bezier(0.16, 1, 0.3, 1) 0.46s both;
+    }
+    @keyframes cardEntrance_repo-clashvision {
+      0% {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .ambient-glow {
+      animation: ambientBloom_repo-clashvision 1.20s ease 0.46s both;
+    }
+    @keyframes ambientBloom_repo-clashvision {
+      0% {
+        opacity: 0;
+      }
+      40% {
+        opacity: 0.10;
+      }
+      75% {
+        opacity: 0.45;
+      }
+      100% {
+        opacity: 0.20;
+      }
+    }
+
+    .glass-edge {
+      animation: rimReveal_repo-clashvision 0.90s ease 0.46s both;
+    }
+    @keyframes rimReveal_repo-clashvision {
+      0% {
+        opacity: 0;
+      }
+      70% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.85;
+      }
+    }
+
+    @keyframes contentRise_repo-clashvision {
+      0% {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .content-stagger-1 { animation: contentRise_repo-clashvision 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.58s both; }
+    .content-stagger-2 { animation: contentRise_repo-clashvision 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.68s both; }
+    .content-stagger-3 { animation: contentRise_repo-clashvision 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.78s both; }
+    .content-stagger-4 { animation: contentRise_repo-clashvision 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.88s both; }
+    .content-stagger-5 { animation: contentRise_repo-clashvision 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.98s both; }
+
     @keyframes shimmerSweep_repo-clashvision {
-      0%, 15% {
+      0% {
         transform: rotate(26deg) translate(-280px, -140px);
         opacity: 0;
       }
-      20% {
+      2% {
         opacity: 0.9;
       }
-      42% {
+      10% {
         transform: rotate(26deg) translate(360px, -140px);
         opacity: 0.9;
       }
-      48%, 100% {
+      12%, 100% {
         transform: rotate(26deg) translate(420px, -140px);
         opacity: 0;
       }
     }
     .shimmer-rect {
-      animation: shimmerSweep_repo-clashvision 8.5s cubic-bezier(0.16, 1, 0.3, 1) 3.4s infinite;
+      animation: shimmerSweep_repo-clashvision 8.7s cubic-bezier(0.16, 1, 0.3, 1) 0.82s infinite;
       pointer-events: none;
     }
+
     @media (hover: hover) {
       .card-root:hover .glass-edge {
         stroke: #F59E0B;
-        stroke-opacity: 0.70;
-        filter: drop-shadow(0 0 6px #F59E0B40);
+        stroke-opacity: 0.80;
+        filter: drop-shadow(0 0 8px #F59E0B40);
       }
       .card-root:hover .ambient-glow {
-        opacity: 0.30;
+        opacity: 0.38;
       }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      .shimmer-rect { display: none !important; }
-      *, ::before, ::after {
+      .anim-card, .ambient-glow, .glass-edge, .shimmer-rect,
+      .content-stagger-1, .content-stagger-2, .content-stagger-3, .content-stagger-4, .content-stagger-5 {
         animation: none !important;
         transform: none !important;
+        opacity: 1 !important;
       }
+      .shimmer-rect { display: none !important; }
     }
     
 </style>
@@ -138,30 +205,41 @@
     <!-- Outer Illuminated Glass Edge -->
     <rect class="glass-edge" x="1" y="1" width="284" height="208" rx="12" fill="none" stroke="url(#glass-rim-repo-clashvision)" stroke-width="1" />
 
-    <!-- Top Metadata Bar -->
-    <g transform="translate(20, 20)">
-      <!-- Language Pill -->
-      <circle cx="5" cy="8" r="3.5" fill="#F59E0B"/>
-      <text x="14" y="12" fill="#7D7A73" class="mono" font-size="10">Python / PyTorch</text>
+    <!-- 1. Top Metadata Bar -->
+    <g class="content-stagger-1">
+      <g transform="translate(20, 20)">
+        <!-- Language Pill -->
+        <circle cx="5" cy="8" r="3.5" fill="#F59E0B"/>
+        <text x="14" y="12" fill="#7D7A73" class="mono" font-size="10">Python / PyTorch</text>
 
-      <!-- Stars and Forks -->
-      <text x="244" y="12" fill="#7D7A73" class="mono" font-size="10" text-anchor="end">
-        ★ 2 &#160;·&#160; ⑂ 0
-      </text>
+        <!-- Stars and Forks -->
+        <text x="244" y="12" fill="#7D7A73" class="mono" font-size="10" text-anchor="end">
+          ★ 2 &#160;·&#160; ⑂ 0
+        </text>
+      </g>
     </g>
 
-    <!-- Repository Title -->
-    <text x="20" y="66" fill="#F5F3EF" class="serif" font-size="21">ClashVision v3.0</text>
-    <text x="20" y="84" fill="#F59E0B" class="sans" font-size="10.5" font-weight="600" letter-spacing="0.5">RL BATTLE POLICY ENGINE</text>
+    <!-- 2. Repository Title -->
+    <g class="content-stagger-2">
+      <text x="20" y="66" fill="#F5F3EF" class="serif" font-size="21">ClashVision v3.0</text>
+    </g>
 
-    <!-- Description (Comfortable line spacing, no overflow) -->
-    <text x="20" y="112" fill="#C4C0B6" class="sans" font-size="12">Real-time tactical battle predictor and</text>
-    <text x="20" y="128" fill="#C4C0B6" class="sans" font-size="12">deep Q-network reinforcement policy.</text>
+    <!-- 3. Subtitle / Tagline -->
+    <g class="content-stagger-3">
+      <text x="20" y="84" fill="#F59E0B" class="sans" font-size="10.5" font-weight="600" letter-spacing="0.5">RL BATTLE POLICY ENGINE</text>
+    </g>
 
-    <!-- Divider & Quick Start -->
-    <line x1="20" y1="152" x2="264" y2="152" stroke="#262834" stroke-width="1"/>
-    
-    <text x="20" y="180" fill="#7D7A73" class="mono" font-size="10">Kaggle Season 18 Dataset</text>
-    <text x="264" y="180" fill="#F5F3EF" class="sans" font-size="11" font-weight="600" text-anchor="end">View Code →</text>
+    <!-- 4. Description -->
+    <g class="content-stagger-4">
+      <text x="20" y="112" fill="#C4C0B6" class="sans" font-size="12">Real-time tactical battle predictor and</text>
+      <text x="20" y="128" fill="#C4C0B6" class="sans" font-size="12">deep Q-network reinforcement policy.</text>
+    </g>
+
+    <!-- 5. Divider & Quick Start / Action Link -->
+    <g class="content-stagger-5">
+      <line x1="20" y1="152" x2="264" y2="152" stroke="#262834" stroke-width="1"/>
+      <text x="20" y="180" fill="#7D7A73" class="mono" font-size="10">Kaggle Season 18 Dataset</text>
+      <text x="264" y="180" fill="#F5F3EF" class="sans" font-size="11" font-weight="600" text-anchor="end">View Code →</text>
+    </g>
   </g>
 </svg>

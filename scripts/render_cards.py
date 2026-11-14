@@ -497,52 +497,147 @@ def get_glass_card_defs(card_id: str, accent: str, w: int, h: int) -> str:
     </linearGradient>"""
 
 
-def get_glass_card_css(card_id: str, accent: str, shimmer_delay: str, entrance_delay: str) -> str:
-    """Generate scoped CSS for glass shimmer diagonal sweep and hover physics."""
+def get_glass_card_css(
+    card_id: str,
+    accent: str,
+    entrance_delay: Any = 0.30,
+    shimmer_period: float = 8.5,
+) -> str:
+    """Generate scoped CSS for cinematic card entrance, ambient bloom, sequential content reveal, and glass shimmer."""
     if IS_STATIC:
         return f"""
-    .anim-card {{ opacity: 1; }}
+    .anim-card, .glass-edge, .ambient-glow,
+    .content-stagger-1, .content-stagger-2, .content-stagger-3, .content-stagger-4, .content-stagger-5 {{
+      opacity: 1 !important;
+      transform: none !important;
+    }}
+    .ambient-glow {{ opacity: 0.20 !important; }}
     .shimmer-rect {{ display: none !important; }}
     """
+
+    if isinstance(entrance_delay, str):
+        try:
+            t_card = float(entrance_delay.replace("s", ""))
+        except ValueError:
+            t_card = 0.30
+    else:
+        t_card = float(entrance_delay)
+
+    s1 = f"{t_card + 0.12:.2f}s"
+    s2 = f"{t_card + 0.22:.2f}s"
+    s3 = f"{t_card + 0.32:.2f}s"
+    s4 = f"{t_card + 0.42:.2f}s"
+    s5 = f"{t_card + 0.52:.2f}s"
+    shimmer_start = f"{t_card + 0.36:.2f}s"
+    bloom_start = f"{t_card:.2f}s"
+    rim_start = f"{t_card:.2f}s"
+
     return f"""
-    .anim-card {{ animation: fadeIn 0.6s ease {entrance_delay} both; }}
+    .anim-card {{
+      animation: cardEntrance_{card_id} 0.80s cubic-bezier(0.16, 1, 0.3, 1) {t_card:.2f}s both;
+    }}
+    @keyframes cardEntrance_{card_id} {{
+      0% {{
+        opacity: 0;
+        transform: translateY(28px);
+      }}
+      100% {{
+        opacity: 1;
+        transform: translateY(0);
+      }}
+    }}
+
+    .ambient-glow {{
+      animation: ambientBloom_{card_id} 1.20s ease {bloom_start} both;
+    }}
+    @keyframes ambientBloom_{card_id} {{
+      0% {{
+        opacity: 0;
+      }}
+      40% {{
+        opacity: 0.10;
+      }}
+      75% {{
+        opacity: 0.45;
+      }}
+      100% {{
+        opacity: 0.20;
+      }}
+    }}
+
+    .glass-edge {{
+      animation: rimReveal_{card_id} 0.90s ease {rim_start} both;
+    }}
+    @keyframes rimReveal_{card_id} {{
+      0% {{
+        opacity: 0;
+      }}
+      70% {{
+        opacity: 1;
+      }}
+      100% {{
+        opacity: 0.85;
+      }}
+    }}
+
+    @keyframes contentRise_{card_id} {{
+      0% {{
+        opacity: 0;
+        transform: translateY(8px);
+      }}
+      100% {{
+        opacity: 1;
+        transform: translateY(0);
+      }}
+    }}
+
+    .content-stagger-1 {{ animation: contentRise_{card_id} 0.55s cubic-bezier(0.16, 1, 0.3, 1) {s1} both; }}
+    .content-stagger-2 {{ animation: contentRise_{card_id} 0.55s cubic-bezier(0.16, 1, 0.3, 1) {s2} both; }}
+    .content-stagger-3 {{ animation: contentRise_{card_id} 0.55s cubic-bezier(0.16, 1, 0.3, 1) {s3} both; }}
+    .content-stagger-4 {{ animation: contentRise_{card_id} 0.55s cubic-bezier(0.16, 1, 0.3, 1) {s4} both; }}
+    .content-stagger-5 {{ animation: contentRise_{card_id} 0.55s cubic-bezier(0.16, 1, 0.3, 1) {s5} both; }}
+
     @keyframes shimmerSweep_{card_id} {{
-      0%, 15% {{
+      0% {{
         transform: rotate(26deg) translate(-280px, -140px);
         opacity: 0;
       }}
-      20% {{
+      2% {{
         opacity: 0.9;
       }}
-      42% {{
+      10% {{
         transform: rotate(26deg) translate(360px, -140px);
         opacity: 0.9;
       }}
-      48%, 100% {{
+      12%, 100% {{
         transform: rotate(26deg) translate(420px, -140px);
         opacity: 0;
       }}
     }}
     .shimmer-rect {{
-      animation: shimmerSweep_{card_id} 8.5s cubic-bezier(0.16, 1, 0.3, 1) {shimmer_delay} infinite;
+      animation: shimmerSweep_{card_id} {shimmer_period}s cubic-bezier(0.16, 1, 0.3, 1) {shimmer_start} infinite;
       pointer-events: none;
     }}
+
     @media (hover: hover) {{
       .card-root:hover .glass-edge {{
         stroke: {accent};
-        stroke-opacity: 0.70;
-        filter: drop-shadow(0 0 6px {accent}40);
+        stroke-opacity: 0.80;
+        filter: drop-shadow(0 0 8px {accent}40);
       }}
       .card-root:hover .ambient-glow {{
-        opacity: 0.30;
+        opacity: 0.38;
       }}
     }}
+
     @media (prefers-reduced-motion: reduce) {{
-      .shimmer-rect {{ display: none !important; }}
-      *, ::before, ::after {{
+      .anim-card, .ambient-glow, .glass-edge, .shimmer-rect,
+      .content-stagger-1, .content-stagger-2, .content-stagger-3, .content-stagger-4, .content-stagger-5 {{
         animation: none !important;
         transform: none !important;
+        opacity: 1 !important;
       }}
+      .shimmer-rect {{ display: none !important; }}
     }}
     """
 
@@ -555,7 +650,8 @@ def render_tile_build() -> str:
     w, h = 286, 250
     card_id = "tile-build"
     accent = ACCENT_BLUE
-    extra_css = get_glass_card_css(card_id, accent, shimmer_delay="0.5s", entrance_delay="0.55s")
+    entrance_delay = 0.28 if not IS_STATIC else 0.0
+    extra_css = get_glass_card_css(card_id, accent, entrance_delay=entrance_delay, shimmer_period=8.2)
     defs_content = get_glass_card_defs(card_id, accent, w, h)
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -584,36 +680,49 @@ def render_tile_build() -> str:
     <!-- Outer Illuminated Glass Edge -->
     <rect class="glass-edge" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="none" stroke="url(#glass-rim-{card_id})" stroke-width="1" />
     
-    <!-- Top Category & Accent Pill -->
-    <text x="22" y="32" fill="{accent}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">01 // BUILD</text>
-    <circle cx="260" cy="28" r="4" fill="{accent}"/>
+    <!-- 1. Top Category & Accent Pill + Vector Motif -->
+    <g class="content-stagger-1">
+      <text x="22" y="32" fill="{accent}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">01 // BUILD</text>
+      <circle cx="260" cy="28" r="4" fill="{accent}"/>
 
-    <!-- Minimalist Vector Motif: Directed Neural Agent Graph -->
-    <g transform="translate(22, 46)">
-      <rect x="0" y="0" width="44" height="44" rx="8" fill="#14151D" stroke="#262835" stroke-width="1"/>
-      <circle cx="14" cy="14" r="3.5" fill="{accent}"/>
-      <circle cx="30" cy="14" r="3" fill="{TEXT_MUTED}"/>
-      <circle cx="22" cy="30" r="4" fill="{TEXT_PRIMARY}"/>
-      <line x1="14" y1="14" x2="30" y2="14" stroke="{accent}" stroke-width="1.2" stroke-opacity="0.7"/>
-      <line x1="14" y1="14" x2="22" y2="30" stroke="{accent}" stroke-width="1.2" stroke-opacity="0.7"/>
-      <line x1="30" y1="14" x2="22" y2="30" stroke="{BORDER_FOCUS}" stroke-width="1.2"/>
+      <!-- Minimalist Vector Motif: Directed Neural Agent Graph -->
+      <g transform="translate(22, 46)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#14151D" stroke="#262835" stroke-width="1"/>
+        <circle cx="14" cy="14" r="3.5" fill="{accent}"/>
+        <circle cx="30" cy="14" r="3" fill="{TEXT_MUTED}"/>
+        <circle cx="22" cy="30" r="4" fill="{TEXT_PRIMARY}"/>
+        <line x1="14" y1="14" x2="30" y2="14" stroke="{accent}" stroke-width="1.2" stroke-opacity="0.7"/>
+        <line x1="14" y1="14" x2="22" y2="30" stroke="{accent}" stroke-width="1.2" stroke-opacity="0.7"/>
+        <line x1="30" y1="14" x2="22" y2="30" stroke="{BORDER_FOCUS}" stroke-width="1.2"/>
+      </g>
     </g>
 
-    <!-- Content -->
-    <text x="22" y="122" fill="{TEXT_PRIMARY}" class="serif" font-size="24">tribunal-kit</text>
-    <text x="22" y="142" fill="{accent}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">MULTI-AGENT GOVERNANCE</text>
-    
-    <text x="22" y="168" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
-      Anti-hallucination governance layer
-    </text>
-    <text x="22" y="184" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
-      for autonomous AI coding agents.
-    </text>
+    <!-- 2. Project Title -->
+    <g class="content-stagger-2">
+      <text x="22" y="122" fill="{TEXT_PRIMARY}" class="serif" font-size="24">tribunal-kit</text>
+    </g>
 
-    <!-- Bottom Metadata Row (Explicitly spaced) -->
-    <line x1="22" y1="208" x2="264" y2="208" stroke="#262834" stroke-width="1"/>
-    <text x="22" y="228" fill="{TEXT_MUTED}" class="mono" font-size="10">TypeScript · Rust</text>
-    <text x="264" y="228" fill="{accent}" class="sans" font-size="11" font-weight="600" text-anchor="end">Explore →</text>
+    <!-- 3. Subtitle -->
+    <g class="content-stagger-3">
+      <text x="22" y="142" fill="{accent}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">MULTI-AGENT GOVERNANCE</text>
+    </g>
+    
+    <!-- 4. Description -->
+    <g class="content-stagger-4">
+      <text x="22" y="168" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+        Anti-hallucination governance layer
+      </text>
+      <text x="22" y="184" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+        for autonomous AI coding agents.
+      </text>
+    </g>
+
+    <!-- 5. Bottom Metadata Row -->
+    <g class="content-stagger-5">
+      <line x1="22" y1="208" x2="264" y2="208" stroke="#262834" stroke-width="1"/>
+      <text x="22" y="228" fill="{TEXT_MUTED}" class="mono" font-size="10">TypeScript · Rust</text>
+      <text x="264" y="228" fill="{accent}" class="sans" font-size="11" font-weight="600" text-anchor="end">Explore →</text>
+    </g>
   </g>
 </svg>"""
     return svg
@@ -624,7 +733,8 @@ def render_tile_create() -> str:
     w, h = 286, 250
     card_id = "tile-create"
     accent = ACCENT_YELLOW
-    extra_css = get_glass_card_css(card_id, accent, shimmer_delay="3.3s", entrance_delay="0.62s")
+    entrance_delay = 0.44 if not IS_STATIC else 0.0
+    extra_css = get_glass_card_css(card_id, accent, entrance_delay=entrance_delay, shimmer_period=8.7)
     defs_content = get_glass_card_defs(card_id, accent, w, h)
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -653,32 +763,45 @@ def render_tile_create() -> str:
     <!-- Outer Illuminated Glass Edge -->
     <rect class="glass-edge" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="none" stroke="url(#glass-rim-{card_id})" stroke-width="1" />
     
-    <!-- Top Category & Accent Pill -->
-    <text x="22" y="32" fill="{accent}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">02 // CREATE</text>
-    <circle cx="260" cy="28" r="4" fill="{accent}"/>
+    <!-- 1. Top Category & Accent Pill + Vector Motif -->
+    <g class="content-stagger-1">
+      <text x="22" y="32" fill="{accent}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">02 // CREATE</text>
+      <circle cx="260" cy="28" r="4" fill="{accent}"/>
 
-    <!-- Minimalist Vector Motif: Generative Harmonic Curve -->
-    <g transform="translate(22, 46)">
-      <rect x="0" y="0" width="44" height="44" rx="8" fill="#14151D" stroke="#262835" stroke-width="1"/>
-      <path d="M 10 32 Q 22 8 34 32" fill="none" stroke="{accent}" stroke-width="1.8" stroke-linecap="round"/>
-      <circle cx="22" cy="18" r="3" fill="{TEXT_PRIMARY}"/>
+      <!-- Minimalist Vector Motif: Generative Harmonic Curve -->
+      <g transform="translate(22, 46)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#14151D" stroke="#262835" stroke-width="1"/>
+        <path d="M 10 32 Q 22 8 34 32" fill="none" stroke="{accent}" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="22" cy="18" r="3" fill="{TEXT_PRIMARY}"/>
+      </g>
     </g>
 
-    <!-- Content -->
-    <text x="22" y="122" fill="{TEXT_PRIMARY}" class="serif" font-size="24">DeckReactor</text>
-    <text x="22" y="142" fill="{accent}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">CREATIVE LABS &amp; SYSTEMS</text>
-    
-    <text x="22" y="168" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
-      Dynamic canvas environments and
-    </text>
-    <text x="22" y="184" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
-      generative visual developer tooling.
-    </text>
+    <!-- 2. Project Title -->
+    <g class="content-stagger-2">
+      <text x="22" y="122" fill="{TEXT_PRIMARY}" class="serif" font-size="24">DeckReactor</text>
+    </g>
 
-    <!-- Bottom Metadata Row -->
-    <line x1="22" y1="208" x2="264" y2="208" stroke="#262834" stroke-width="1"/>
-    <text x="22" y="228" fill="{TEXT_MUTED}" class="mono" font-size="10">React · SVG · Canvas</text>
-    <text x="264" y="228" fill="{accent}" class="sans" font-size="11" font-weight="600" text-anchor="end">Visit Lab →</text>
+    <!-- 3. Subtitle -->
+    <g class="content-stagger-3">
+      <text x="22" y="142" fill="{accent}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">CREATIVE LABS &amp; SYSTEMS</text>
+    </g>
+    
+    <!-- 4. Description -->
+    <g class="content-stagger-4">
+      <text x="22" y="168" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+        Dynamic canvas environments and
+      </text>
+      <text x="22" y="184" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+        generative visual developer tooling.
+      </text>
+    </g>
+
+    <!-- 5. Bottom Metadata Row -->
+    <g class="content-stagger-5">
+      <line x1="22" y1="208" x2="264" y2="208" stroke="#262834" stroke-width="1"/>
+      <text x="22" y="228" fill="{TEXT_MUTED}" class="mono" font-size="10">React · SVG · Canvas</text>
+      <text x="264" y="228" fill="{accent}" class="sans" font-size="11" font-weight="600" text-anchor="end">Visit Lab →</text>
+    </g>
   </g>
 </svg>"""
     return svg
@@ -689,7 +812,8 @@ def render_tile_explore() -> str:
     w, h = 286, 250
     card_id = "tile-explore"
     accent = ACCENT_RED
-    extra_css = get_glass_card_css(card_id, accent, shimmer_delay="6.1s", entrance_delay="0.70s")
+    entrance_delay = 0.60 if not IS_STATIC else 0.0
+    extra_css = get_glass_card_css(card_id, accent, entrance_delay=entrance_delay, shimmer_period=9.2)
     defs_content = get_glass_card_defs(card_id, accent, w, h)
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -718,31 +842,44 @@ def render_tile_explore() -> str:
     <!-- Outer Illuminated Glass Edge -->
     <rect class="glass-edge" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="none" stroke="url(#glass-rim-{card_id})" stroke-width="1" />
     
-    <!-- Top Category & Accent Pill -->
-    <text x="22" y="32" fill="{accent}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">03 // EXPLORE</text>
-    <circle cx="260" cy="28" r="4" fill="{accent}"/>
+    <!-- 1. Top Category & Accent Pill + Vector Motif -->
+    <g class="content-stagger-1">
+      <text x="22" y="32" fill="{accent}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">03 // EXPLORE</text>
+      <circle cx="260" cy="28" r="4" fill="{accent}"/>
 
-    <!-- Minimalist Vector Motif: Telemetry Lap Trace Wave -->
-    <g transform="translate(22, 46)">
-      <rect x="0" y="0" width="44" height="44" rx="8" fill="#14151D" stroke="#262835" stroke-width="1"/>
-      <path d="M 8 26 L 16 14 L 24 30 L 32 10 L 38 20" fill="none" stroke="{accent}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Minimalist Vector Motif: Telemetry Lap Trace Wave -->
+      <g transform="translate(22, 46)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#14151D" stroke="#262835" stroke-width="1"/>
+        <path d="M 8 26 L 16 14 L 24 30 L 32 10 L 38 20" fill="none" stroke="{accent}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
     </g>
 
-    <!-- Content -->
-    <text x="22" y="122" fill="{TEXT_PRIMARY}" class="serif" font-size="24">ClashVision &amp; F1</text>
-    <text x="22" y="142" fill="{accent}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">RL POLICY &amp; TELEMETRY</text>
-    
-    <text x="22" y="168" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
-      Real-time tactical battle prediction
-    </text>
-    <text x="22" y="184" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
-      and high-frequency lap simulation.
-    </text>
+    <!-- 2. Project Title -->
+    <g class="content-stagger-2">
+      <text x="22" y="122" fill="{TEXT_PRIMARY}" class="serif" font-size="24">ClashVision &amp; F1</text>
+    </g>
 
-    <!-- Bottom Metadata Row -->
-    <line x1="22" y1="208" x2="264" y2="208" stroke="#262834" stroke-width="1"/>
-    <text x="22" y="228" fill="{TEXT_MUTED}" class="mono" font-size="10">Python · PyTorch · DuckDB</text>
-    <text x="264" y="228" fill="{accent}" class="sans" font-size="11" font-weight="600" text-anchor="end">Inspect →</text>
+    <!-- 3. Subtitle -->
+    <g class="content-stagger-3">
+      <text x="22" y="142" fill="{accent}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">RL POLICY &amp; TELEMETRY</text>
+    </g>
+    
+    <!-- 4. Description -->
+    <g class="content-stagger-4">
+      <text x="22" y="168" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+        Real-time tactical battle prediction
+      </text>
+      <text x="22" y="184" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+        and high-frequency lap simulation.
+      </text>
+    </g>
+
+    <!-- 5. Bottom Metadata Row -->
+    <g class="content-stagger-5">
+      <line x1="22" y1="208" x2="264" y2="208" stroke="#262834" stroke-width="1"/>
+      <text x="22" y="228" fill="{TEXT_MUTED}" class="mono" font-size="10">Python · PyTorch · DuckDB</text>
+      <text x="264" y="228" fill="{accent}" class="sans" font-size="11" font-weight="600" text-anchor="end">Inspect →</text>
+    </g>
   </g>
 </svg>"""
     return svg
@@ -762,12 +899,12 @@ def render_repo_card(
     meta_tag: str,
     accent: str,
     card_id: str,
-    shimmer_delay: str = "0.6s",
-    entrance_delay: str = "0.80s",
+    entrance_delay: Any = 0.30,
+    shimmer_period: float = 8.5,
 ) -> str:
-    """Render 286x210 editorial project card with smoked glass appearance and diagonal light shimmer."""
+    """Render 286x210 editorial project card with smoked glass appearance and cinematic staggered reveal."""
     w, h = 286, 210
-    extra_css = get_glass_card_css(card_id, accent, shimmer_delay, entrance_delay)
+    extra_css = get_glass_card_css(card_id, accent, entrance_delay=entrance_delay, shimmer_period=shimmer_period)
     defs_content = get_glass_card_defs(card_id, accent, w, h)
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -796,31 +933,42 @@ def render_repo_card(
     <!-- Outer Illuminated Glass Edge -->
     <rect class="glass-edge" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="none" stroke="url(#glass-rim-{card_id})" stroke-width="1" />
 
-    <!-- Top Metadata Bar -->
-    <g transform="translate(20, 20)">
-      <!-- Language Pill -->
-      <circle cx="5" cy="8" r="3.5" fill="{accent}"/>
-      <text x="14" y="12" fill="{TEXT_MUTED}" class="mono" font-size="10">{language}</text>
+    <!-- 1. Top Metadata Bar -->
+    <g class="content-stagger-1">
+      <g transform="translate(20, 20)">
+        <!-- Language Pill -->
+        <circle cx="5" cy="8" r="3.5" fill="{accent}"/>
+        <text x="14" y="12" fill="{TEXT_MUTED}" class="mono" font-size="10">{language}</text>
 
-      <!-- Stars and Forks -->
-      <text x="244" y="12" fill="{TEXT_MUTED}" class="mono" font-size="10" text-anchor="end">
-        ★ {stars} &#160;·&#160; ⑂ {forks}
-      </text>
+        <!-- Stars and Forks -->
+        <text x="244" y="12" fill="{TEXT_MUTED}" class="mono" font-size="10" text-anchor="end">
+          ★ {stars} &#160;·&#160; ⑂ {forks}
+        </text>
+      </g>
     </g>
 
-    <!-- Repository Title -->
-    <text x="20" y="66" fill="{TEXT_PRIMARY}" class="serif" font-size="21">{repo_name}</text>
-    <text x="20" y="84" fill="{accent}" class="sans" font-size="10.5" font-weight="600" letter-spacing="0.5">{tagline}</text>
+    <!-- 2. Repository Title -->
+    <g class="content-stagger-2">
+      <text x="20" y="66" fill="{TEXT_PRIMARY}" class="serif" font-size="21">{repo_name}</text>
+    </g>
 
-    <!-- Description (Comfortable line spacing, no overflow) -->
-    <text x="20" y="112" fill="{TEXT_SECONDARY}" class="sans" font-size="12">{description_l1}</text>
-    <text x="20" y="128" fill="{TEXT_SECONDARY}" class="sans" font-size="12">{description_l2}</text>
+    <!-- 3. Subtitle / Tagline -->
+    <g class="content-stagger-3">
+      <text x="20" y="84" fill="{accent}" class="sans" font-size="10.5" font-weight="600" letter-spacing="0.5">{tagline}</text>
+    </g>
 
-    <!-- Divider & Quick Start -->
-    <line x1="20" y1="152" x2="264" y2="152" stroke="#262834" stroke-width="1"/>
-    
-    <text x="20" y="180" fill="{TEXT_MUTED}" class="mono" font-size="10">{meta_tag}</text>
-    <text x="264" y="180" fill="{TEXT_PRIMARY}" class="sans" font-size="11" font-weight="600" text-anchor="end">View Code →</text>
+    <!-- 4. Description -->
+    <g class="content-stagger-4">
+      <text x="20" y="112" fill="{TEXT_SECONDARY}" class="sans" font-size="12">{description_l1}</text>
+      <text x="20" y="128" fill="{TEXT_SECONDARY}" class="sans" font-size="12">{description_l2}</text>
+    </g>
+
+    <!-- 5. Divider & Quick Start / Action Link -->
+    <g class="content-stagger-5">
+      <line x1="20" y1="152" x2="264" y2="152" stroke="#262834" stroke-width="1"/>
+      <text x="20" y="180" fill="{TEXT_MUTED}" class="mono" font-size="10">{meta_tag}</text>
+      <text x="264" y="180" fill="{TEXT_PRIMARY}" class="sans" font-size="11" font-weight="600" text-anchor="end">View Code →</text>
+    </g>
   </g>
 </svg>"""
     return svg
@@ -838,8 +986,8 @@ def render_repo_tribunal_kit() -> str:
         meta_tag="npm i -g tribunal-kit",
         accent=ACCENT_BLUE,
         card_id="repo-tribunal",
-        shimmer_delay="0.6s",
-        entrance_delay="0.80s" if not IS_STATIC else "0s",
+        entrance_delay=0.30 if not IS_STATIC else 0.0,
+        shimmer_period=8.2,
     )
 
 
@@ -855,8 +1003,8 @@ def render_repo_clashvision() -> str:
         meta_tag="Kaggle Season 18 Dataset",
         accent=ACCENT_YELLOW,
         card_id="repo-clashvision",
-        shimmer_delay="3.4s",
-        entrance_delay="0.88s" if not IS_STATIC else "0s",
+        entrance_delay=0.46 if not IS_STATIC else 0.0,
+        shimmer_period=8.7,
     )
 
 
@@ -872,8 +1020,8 @@ def render_repo_f1_telemetry() -> str:
         meta_tag="DuckDB · FastEngine",
         accent=ACCENT_RED,
         card_id="repo-f1",
-        shimmer_delay="6.2s",
-        entrance_delay="0.96s" if not IS_STATIC else "0s",
+        entrance_delay=0.62 if not IS_STATIC else 0.0,
+        shimmer_period=9.2,
     )
 
 

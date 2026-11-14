@@ -38,44 +38,111 @@
       }
     }
     
-    .anim-card { animation: fadeIn 0.6s ease 0.70s both; }
+    .anim-card {
+      animation: cardEntrance_tile-explore 0.80s cubic-bezier(0.16, 1, 0.3, 1) 0.60s both;
+    }
+    @keyframes cardEntrance_tile-explore {
+      0% {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .ambient-glow {
+      animation: ambientBloom_tile-explore 1.20s ease 0.60s both;
+    }
+    @keyframes ambientBloom_tile-explore {
+      0% {
+        opacity: 0;
+      }
+      40% {
+        opacity: 0.10;
+      }
+      75% {
+        opacity: 0.45;
+      }
+      100% {
+        opacity: 0.20;
+      }
+    }
+
+    .glass-edge {
+      animation: rimReveal_tile-explore 0.90s ease 0.60s both;
+    }
+    @keyframes rimReveal_tile-explore {
+      0% {
+        opacity: 0;
+      }
+      70% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.85;
+      }
+    }
+
+    @keyframes contentRise_tile-explore {
+      0% {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .content-stagger-1 { animation: contentRise_tile-explore 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.72s both; }
+    .content-stagger-2 { animation: contentRise_tile-explore 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.82s both; }
+    .content-stagger-3 { animation: contentRise_tile-explore 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.92s both; }
+    .content-stagger-4 { animation: contentRise_tile-explore 0.55s cubic-bezier(0.16, 1, 0.3, 1) 1.02s both; }
+    .content-stagger-5 { animation: contentRise_tile-explore 0.55s cubic-bezier(0.16, 1, 0.3, 1) 1.12s both; }
+
     @keyframes shimmerSweep_tile-explore {
-      0%, 15% {
+      0% {
         transform: rotate(26deg) translate(-280px, -140px);
         opacity: 0;
       }
-      20% {
+      2% {
         opacity: 0.9;
       }
-      42% {
+      10% {
         transform: rotate(26deg) translate(360px, -140px);
         opacity: 0.9;
       }
-      48%, 100% {
+      12%, 100% {
         transform: rotate(26deg) translate(420px, -140px);
         opacity: 0;
       }
     }
     .shimmer-rect {
-      animation: shimmerSweep_tile-explore 8.5s cubic-bezier(0.16, 1, 0.3, 1) 6.1s infinite;
+      animation: shimmerSweep_tile-explore 9.2s cubic-bezier(0.16, 1, 0.3, 1) 0.96s infinite;
       pointer-events: none;
     }
+
     @media (hover: hover) {
       .card-root:hover .glass-edge {
         stroke: #EF4444;
-        stroke-opacity: 0.70;
-        filter: drop-shadow(0 0 6px #EF444440);
+        stroke-opacity: 0.80;
+        filter: drop-shadow(0 0 8px #EF444440);
       }
       .card-root:hover .ambient-glow {
-        opacity: 0.30;
+        opacity: 0.38;
       }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      .shimmer-rect { display: none !important; }
-      *, ::before, ::after {
+      .anim-card, .ambient-glow, .glass-edge, .shimmer-rect,
+      .content-stagger-1, .content-stagger-2, .content-stagger-3, .content-stagger-4, .content-stagger-5 {
         animation: none !important;
         transform: none !important;
+        opacity: 1 !important;
       }
+      .shimmer-rect { display: none !important; }
     }
     
 </style>
@@ -138,30 +205,43 @@
     <!-- Outer Illuminated Glass Edge -->
     <rect class="glass-edge" x="1" y="1" width="284" height="248" rx="12" fill="none" stroke="url(#glass-rim-tile-explore)" stroke-width="1" />
     
-    <!-- Top Category & Accent Pill -->
-    <text x="22" y="32" fill="#EF4444" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">03 // EXPLORE</text>
-    <circle cx="260" cy="28" r="4" fill="#EF4444"/>
+    <!-- 1. Top Category & Accent Pill + Vector Motif -->
+    <g class="content-stagger-1">
+      <text x="22" y="32" fill="#EF4444" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">03 // EXPLORE</text>
+      <circle cx="260" cy="28" r="4" fill="#EF4444"/>
 
-    <!-- Minimalist Vector Motif: Telemetry Lap Trace Wave -->
-    <g transform="translate(22, 46)">
-      <rect x="0" y="0" width="44" height="44" rx="8" fill="#14151D" stroke="#262835" stroke-width="1"/>
-      <path d="M 8 26 L 16 14 L 24 30 L 32 10 L 38 20" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Minimalist Vector Motif: Telemetry Lap Trace Wave -->
+      <g transform="translate(22, 46)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#14151D" stroke="#262835" stroke-width="1"/>
+        <path d="M 8 26 L 16 14 L 24 30 L 32 10 L 38 20" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
     </g>
 
-    <!-- Content -->
-    <text x="22" y="122" fill="#F5F3EF" class="serif" font-size="24">ClashVision &amp; F1</text>
-    <text x="22" y="142" fill="#EF4444" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">RL POLICY &amp; TELEMETRY</text>
-    
-    <text x="22" y="168" fill="#C4C0B6" class="sans" font-size="12">
-      Real-time tactical battle prediction
-    </text>
-    <text x="22" y="184" fill="#C4C0B6" class="sans" font-size="12">
-      and high-frequency lap simulation.
-    </text>
+    <!-- 2. Project Title -->
+    <g class="content-stagger-2">
+      <text x="22" y="122" fill="#F5F3EF" class="serif" font-size="24">ClashVision &amp; F1</text>
+    </g>
 
-    <!-- Bottom Metadata Row -->
-    <line x1="22" y1="208" x2="264" y2="208" stroke="#262834" stroke-width="1"/>
-    <text x="22" y="228" fill="#7D7A73" class="mono" font-size="10">Python · PyTorch · DuckDB</text>
-    <text x="264" y="228" fill="#EF4444" class="sans" font-size="11" font-weight="600" text-anchor="end">Inspect →</text>
+    <!-- 3. Subtitle -->
+    <g class="content-stagger-3">
+      <text x="22" y="142" fill="#EF4444" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">RL POLICY &amp; TELEMETRY</text>
+    </g>
+    
+    <!-- 4. Description -->
+    <g class="content-stagger-4">
+      <text x="22" y="168" fill="#C4C0B6" class="sans" font-size="12">
+        Real-time tactical battle prediction
+      </text>
+      <text x="22" y="184" fill="#C4C0B6" class="sans" font-size="12">
+        and high-frequency lap simulation.
+      </text>
+    </g>
+
+    <!-- 5. Bottom Metadata Row -->
+    <g class="content-stagger-5">
+      <line x1="22" y1="208" x2="264" y2="208" stroke="#262834" stroke-width="1"/>
+      <text x="22" y="228" fill="#7D7A73" class="mono" font-size="10">Python · PyTorch · DuckDB</text>
+      <text x="264" y="228" fill="#EF4444" class="sans" font-size="11" font-weight="600" text-anchor="end">Inspect →</text>
+    </g>
   </g>
 </svg>
