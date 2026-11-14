@@ -22,9 +22,6 @@ def run_validation() -> bool:
 
     directories_to_scan = [
         os.path.join(REPO_ROOT, "cards"),
-        os.path.join(REPO_ROOT, "assets"),
-        os.path.join(REPO_ROOT, "assets", "generated"),
-        os.path.join(REPO_ROOT, "generated"),
     ]
 
     total_inspected = 0

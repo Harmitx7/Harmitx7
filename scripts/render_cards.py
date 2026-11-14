@@ -761,9 +761,6 @@ def compile_cards(out_dir: str = OUT_DIR) -> Dict[str, str]:
         "build.svg": tile_build,
         "create.svg": tile_create,
         "explore.svg": tile_explore,
-        # Backward-compatible drop-in aliases for tests
-        "secure.svg": tile_create,
-        "simulate.svg": tile_explore,
         # Section E: Featured Repositories
         "repo-tribunal-kit.svg": render_repo_tribunal_kit(),
         "repo-clashvision.svg": render_repo_clashvision(),

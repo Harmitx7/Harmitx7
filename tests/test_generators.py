@@ -109,44 +109,27 @@ class TestGenerators(unittest.TestCase):
         run2 = generate_footer_svg(animated=False)
         self.assertEqual(run1, run2)
 
-    def test_readme_cards_compiler(self):
-        """Test compilation of all 13 reference-inspired animated SVG cards."""
-        from scripts.render_readme_cards import compile_all_cards
-        import tempfile
-        with tempfile.TemporaryDirectory() as tmp_dir:
-            cards = compile_all_cards(out_dir=tmp_dir)
-            self.assertIn("hero.svg", cards)
-            self.assertIn("heatmap.svg", cards)
-            self.assertIn("activity.svg", cards)
-            self.assertIn("build.svg", cards)
-            self.assertIn("secure.svg", cards)
-            self.assertIn("simulate.svg", cards)
-            self.assertIn("developer-panel.svg", cards)
-
-            # Validate XML of each compiled card
-            for name, path in cards.items():
-                with open(path, "r", encoding="utf-8") as f:
-                    content = f.read()
-                ok, errs = validate_svg_content(content)
-                self.assertTrue(ok, f"Card {name} failed validation: {errs}")
-
-
     def test_single_render_cards_script(self):
-        """Test execution of scripts/render_cards.py (the single master card renderer)."""
+        """Test execution of scripts/render_cards.py (the active master editorial card renderer)."""
         from scripts.render_cards import compile_cards
         import tempfile
         with tempfile.TemporaryDirectory() as tmp_dir:
             cards = compile_cards(out_dir=tmp_dir)
-            self.assertIn("hero.svg", cards)
-            self.assertIn("heatmap.svg", cards)
-            self.assertIn("activity.svg", cards)
-            self.assertIn("build.svg", cards)
-            self.assertIn("secure.svg", cards)
-            self.assertIn("simulate.svg", cards)
-            self.assertIn("repo-tribunal-kit.svg", cards)
-            self.assertIn("repo-clashvision.svg", cards)
-            self.assertIn("repo-f1-telemetry.svg", cards)
-            self.assertIn("footer.svg", cards)
+            expected_cards = [
+                "hero.svg",
+                "heatmap.svg",
+                "activity.svg",
+                "build.svg",
+                "create.svg",
+                "explore.svg",
+                "repo-tribunal-kit.svg",
+                "repo-clashvision.svg",
+                "repo-f1-telemetry.svg",
+                "footer.svg",
+            ]
+            self.assertEqual(len(cards), 10, f"Expected exactly 10 editorial cards, got {len(cards)}")
+            for name in expected_cards:
+                self.assertIn(name, cards)
 
             # Validate each card
             for name, path in cards.items():

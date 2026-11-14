@@ -14,7 +14,6 @@ REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
-from src.main import build_all
 from src.utils.validation import validate_svg_file
 
 
@@ -59,54 +58,24 @@ def run_build(
         print(f"⚠ Warning: Data synchronization encountered an issue: {e}", file=sys.stderr)
         print("  Preserving last known good datasets in data/ and continuing with build.", file=sys.stderr)
 
-    # 2. SVG Generation (Both master engine and standalone cards)
-    out_dir = os.path.join(REPO_ROOT, "generated")
+    # 2. Compile Active Editorial Profile Cards
     cards_dir = os.path.join(REPO_ROOT, "cards")
-    print(f"\n[2/4] Generating SVG components and cards (animated={animated})...")
-    ok = build_all(out_dir=out_dir, animated=animated)
-    if not ok:
-        print("✖ Standard SVG generation failed.", file=sys.stderr)
-        return False
-
+    print(f"\n[2/3] Rendering 10 active editorial SVG cards (animated={animated})...")
     try:
-        from scripts.render_readme_cards import compile_all_cards
-        compile_all_cards(out_dir=cards_dir)
-        print("✔ Standalone animated SVG cards compiled.")
+        from scripts.render_cards import compile_cards
+        compiled = compile_cards(out_dir=cards_dir)
+        print(f"✔ Successfully rendered {len(compiled)} editorial SVG cards into cards/.")
     except Exception as e:
-        print(f"✖ Error compiling animated cards: {e}", file=sys.stderr)
+        print(f"✖ Error compiling editorial cards: {e}", file=sys.stderr)
         return False
 
-    # 3. Asset Synchronization
-    if sync_assets:
-        print("\n[3/4] Synchronizing generated SVGs to production asset trees...")
-        assets_root = os.path.join(REPO_ROOT, "assets")
-        assets_gen = os.path.join(REPO_ROOT, "assets", "generated")
-        assets_cards = os.path.join(REPO_ROOT, "assets", "cards")
-        os.makedirs(assets_root, exist_ok=True)
-        os.makedirs(assets_gen, exist_ok=True)
-        os.makedirs(assets_cards, exist_ok=True)
-
-        for fname in os.listdir(out_dir):
-            if fname.endswith(".svg"):
-                src_file = os.path.join(out_dir, fname)
-                shutil.copy2(src_file, os.path.join(assets_root, fname))
-                shutil.copy2(src_file, os.path.join(assets_gen, fname))
-
-        for fname in os.listdir(cards_dir):
-            if fname.endswith(".svg"):
-                src_file = os.path.join(cards_dir, fname)
-                shutil.copy2(src_file, os.path.join(assets_cards, fname))
-        print(f"✔ Assets synchronized to {assets_root}, {assets_gen}, and {assets_cards}.")
-
-    # 4. Final Validation Audit
-    print("\n[4/4] Validating all production SVG assets...")
+    # 3. Final Validation Audit
+    print("\n[3/3] Validating all production SVG cards...")
     total_audited = 0
     validation_failures = 0
 
     scan_targets = [
-        os.path.join(REPO_ROOT, "cards"),
-        os.path.join(REPO_ROOT, "assets"),
-        os.path.join(REPO_ROOT, "assets", "generated"),
+        cards_dir,
     ]
 
     for target_dir in scan_targets:
