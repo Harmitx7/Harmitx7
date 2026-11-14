@@ -43,8 +43,9 @@ FONTS_DIR = os.path.join(REPO_ROOT, "fonts")
 # Check static mode
 IS_STATIC = os.environ.get("STATIC") == "1"
 
-# Import Editorial Typographic Hero Generator
+# Import Editorial Typographic Hero & Monthly Activity Generators
 from scripts.generate_hero import render_hero_svg
+from scripts.generate_monthly_activity import render_monthly_activity_svg, extract_monthly_data
 
 # ══════════════════════════════════════════════════════════════════════════
 # WARM PAPER-AND-INK EDITORIAL PALETTE (Blue · Red · Yellow Triad)
@@ -362,94 +363,12 @@ def render_heatmap_card(contrib_data: Dict[str, Any]) -> str:
 
 
 # ══════════════════════════════════════════════════════════════════════════
-# 3. MONTHLY ACTIVITY SPECTRUM (cards/activity.svg)
+# 3. MONTHLY ACTIVITY SPECTRUM (cards/activity.svg & assets/monthly-activity.svg)
 # ══════════════════════════════════════════════════════════════════════════
 def render_activity_card(contrib_data: Dict[str, Any]) -> str:
-    """Render 880x250 monthly activity chart with streak, active days & busiest day."""
-    monthly_totals = contrib_data.get("monthly_totals", [])
-    total_contribs = contrib_data.get("total_contributions", 250)
-    longest_streak = contrib_data.get("longest_streak", {}).get("days", 5)
-    busiest_wd = contrib_data.get("busiest_weekday", {})
-    active_days = contrib_data.get("active_days", 100)
-
-    counts = [m.get("count", 0) for m in monthly_totals] or [1]
-    max_count = max(counts) if max(counts) > 0 else 1
-    chart_h = 72.0
-    base_y = 120.0
-
-    svg_bars = []
-    num_bars = len(monthly_totals)
-    bar_width = 38.0
-    slot_width = (800.0 - bar_width) / max(num_bars - 1, 1)
-
-    for i, m in enumerate(monthly_totals):
-        cnt = m.get("count", 0)
-        lbl = m.get("label", "")
-        x = 40.0 + i * slot_width
-        b_h = max((cnt / max_count) * chart_h, 3.0) if cnt > 0 else 2.0
-        y = base_y - b_h
-
-        is_peak = cnt == max_count
-        # Peak highlighted in warm yellow/amber; other active bars in editorial cobalt; low in quiet border
-        fill = ACCENT_YELLOW if is_peak else (ACCENT_BLUE if cnt > 15 else BORDER_FOCUS)
-        delay = f"{0.40 + i * 0.02:.3f}s" if not IS_STATIC else "0s"
-        anim_style = f'style="animation: fadeIn 0.4s ease {delay} both;"' if not IS_STATIC else ""
-
-        txt_y = y - 5.0
-        txt_color = ACCENT_YELLOW if is_peak else (TEXT_PRIMARY if cnt > 15 else TEXT_MUTED)
-        svg_bars.append(
-            f'<g>'
-            f'<text x="{x + bar_width/2:.1f}" y="{txt_y:.1f}" fill="{txt_color}" class="mono" font-size="9.5" font-weight="{600 if is_peak else 400}" text-anchor="middle">{cnt}</text>'
-            f'<rect x="{x:.1f}" y="{y:.1f}" width="{bar_width}" height="{b_h:.1f}" rx="3" fill="{fill}" {anim_style}/>'
-            f'<text x="{x + bar_width/2:.1f}" y="{base_y + 16:.1f}" fill="{TEXT_PRIMARY if is_peak else TEXT_MUTED}" class="mono" font-size="9.5" text-anchor="middle">{lbl}</text>'
-            f'</g>'
-        )
-
-    bars_markup = "\n    ".join(svg_bars)
-
-    # Telemetry Pods: Rendered at FIXED explicit coordinates (x, y) - NO relative transform groups!
-    # This prevents the collapse-to-top bug permanently.
-    svg = f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 250" width="100%" height="250">
-  <defs>
-    <style>{get_base_css("", ["serif", "mono"])}</style>
-  </defs>
-
-  <rect x="1" y="1" width="878" height="248" rx="12" fill="{BG_CARD}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
-
-  <!-- Clean Header -->
-  <text x="36" y="32" fill="{TEXT_PRIMARY}" class="serif" font-size="18" letter-spacing="-0.3">Monthly Contribution Cadence</text>
-  <text x="844" y="32" fill="{TEXT_MUTED}" class="mono" font-size="11" text-anchor="end">
-    PEAK: <tspan fill="{ACCENT_YELLOW}" font-weight="600">MAR 2026 (42 COMMITS)</tspan>
-  </text>
-  <line x1="36" y1="42" x2="844" y2="42" stroke="{BORDER_HAIRLINE}" stroke-width="0.75"/>
-
-  <!-- Baseline & Bars -->
-  <line x1="36" y1="{base_y:.1f}" x2="844" y2="{base_y:.1f}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
-  {bars_markup}
-
-  <!-- Telemetry Row at Fixed Coordinates (y=164) -->
-  <!-- Col 1: Total Contributions -->
-  <rect x="36" y="164" width="188" height="64" rx="8" fill="{BG_SUBTLE}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
-  <text x="52" y="186" fill="{TEXT_MUTED}" class="mono" font-size="9.5" letter-spacing="1">TOTAL CONTRIBUTIONS</text>
-  <text x="52" y="212" fill="{TEXT_PRIMARY}" class="serif" font-size="22">{total_contribs} <tspan fill="{ACCENT_BLUE}" class="sans" font-size="12" font-weight="600">COMMITS</tspan></text>
-
-  <!-- Col 2: Longest Streak -->
-  <rect x="238" y="164" width="188" height="64" rx="8" fill="{BG_SUBTLE}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
-  <text x="254" y="186" fill="{TEXT_MUTED}" class="mono" font-size="9.5" letter-spacing="1">LONGEST STREAK</text>
-  <text x="254" y="212" fill="{TEXT_PRIMARY}" class="serif" font-size="22">{longest_streak} <tspan fill="{ACCENT_YELLOW}" class="sans" font-size="12" font-weight="600">DAYS IN A ROW</tspan></text>
-
-  <!-- Col 3: Busiest Weekday -->
-  <rect x="440" y="164" width="188" height="64" rx="8" fill="{BG_SUBTLE}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
-  <text x="456" y="186" fill="{TEXT_MUTED}" class="mono" font-size="9.5" letter-spacing="1">BUSIEST WEEKDAY</text>
-  <text x="456" y="212" fill="{TEXT_PRIMARY}" class="serif" font-size="22">{busiest_wd.get('name', 'Monday')} <tspan fill="{ACCENT_RED}" class="sans" font-size="11">({busiest_wd.get('count', 51)})</tspan></text>
-
-  <!-- Col 4: Active Days Velocity -->
-  <rect x="642" y="164" width="202" height="64" rx="8" fill="{BG_SUBTLE}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
-  <text x="658" y="186" fill="{TEXT_MUTED}" class="mono" font-size="9.5" letter-spacing="1">ACTIVE CADENCE</text>
-  <text x="658" y="212" fill="{TEXT_PRIMARY}" class="serif" font-size="22">{active_days} <tspan fill="{TEXT_MUTED}" class="sans" font-size="12">/ 371 DAYS (27%)</tspan></text>
-</svg>"""
-    return svg
+    """Render 880x340 editorial monthly activity visualization SVG."""
+    stats = extract_monthly_data(contrib_data)
+    return render_monthly_activity_svg(stats, is_static=IS_STATIC)
 
 
 # ══════════════════════════════════════════════════════════════════════════
@@ -1103,6 +1022,12 @@ def compile_cards(out_dir: str = OUT_DIR) -> Dict[str, str]:
         size_kb = len(content.encode("utf-8")) / 1024
         print(f"✔ Rendered {name:<26} ({size_kb:4.1f} KB) -> {path}")
         results[name] = path
+
+    # Also mirror monthly activity to assets/monthly-activity.svg
+    assets_path = os.path.join(REPO_ROOT, "assets", "monthly-activity.svg")
+    os.makedirs(os.path.dirname(assets_path), exist_ok=True)
+    with open(assets_path, "w", encoding="utf-8") as f:
+        f.write(renderers["activity.svg"])
 
     return results
 

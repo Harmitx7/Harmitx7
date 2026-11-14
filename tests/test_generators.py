@@ -138,6 +138,28 @@ class TestGenerators(unittest.TestCase):
                 ok, errs = validate_svg_content(content)
                 self.assertTrue(ok, f"Card {name} from render_cards failed validation: {errs}")
 
+    def test_generate_monthly_activity_script(self):
+        """Test execution and validation of scripts/generate_monthly_activity.py."""
+        from scripts.generate_monthly_activity import (
+            extract_monthly_data,
+            render_monthly_activity_svg,
+        )
+        stats = extract_monthly_data()
+        self.assertGreaterEqual(stats["total_contributions"], 0)
+        self.assertEqual(len(stats["months"]), 12)
+
+        # Validate animated output
+        svg_anim = render_monthly_activity_svg(stats, is_static=False)
+        ok, errs = validate_svg_content(svg_anim)
+        self.assertTrue(ok, f"Monthly activity animated SVG failed validation: {errs}")
+        self.assertIn("contributions", svg_anim)
+        self.assertIn("#315BFF", svg_anim)
+
+        # Validate static output
+        svg_static = render_monthly_activity_svg(stats, is_static=True)
+        ok, errs = validate_svg_content(svg_static)
+        self.assertTrue(ok, f"Monthly activity static SVG failed validation: {errs}")
+
 
 if __name__ == "__main__":
     unittest.main()

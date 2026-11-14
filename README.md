@@ -14,8 +14,8 @@
 <!-- SECTION B: ANNUAL CONTRIBUTION GRAPH (COBALT EDITORIAL PALETTE) -->
 <img src="./cards/heatmap.svg" width="100%" alt="Annual Contribution History — 250 verified contributions across 100 active days" /><br>
 
-<!-- SECTION C: MONTHLY CONTRIBUTION CADENCE -->
-<img src="./cards/activity.svg" width="100%" alt="Monthly Contribution Cadence with streak, active days, and peak velocity" /><br>
+<!-- SECTION C: MONTHLY GITHUB ACTIVITY (EDITORIAL DATA VISUALIZATION) -->
+<img src="./cards/activity.svg" width="100%" alt="The Last 12 Months on GitHub — Editorial monthly contribution chart and key cadence statistics" /><br>
 
 <!-- SECTION D: FEATURED EDITORIAL REPOSITORIES -->
 <a href="https://github.com/Harmitx7/tribunal-kit"><img src="./cards/repo-tribunal-kit.svg" width="32.5%" alt="tribunal-kit: Anti-hallucination AI governance" /></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><img src="./cards/repo-clashvision.svg" width="32.5%" alt="ClashVision v3.0: AI battle predictor &amp; policy engine" /></a> <a href="https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD"><img src="./cards/repo-f1-telemetry.svg" width="32.5%" alt="F1-TELEMETRY: High-frequency telemetry simulation" /></a><br>
