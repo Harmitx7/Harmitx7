@@ -39,7 +39,7 @@
   <!-- Clean Editorial Header -->
   <text x="36" y="32" fill="#F5F3EF" class="serif" font-size="18" letter-spacing="-0.3">Annual Contribution History</text>
   <text x="844" y="32" fill="#7D7A73" class="mono" font-size="11" text-anchor="end">
-    <tspan fill="#3B82F6" font-weight="600">253</tspan> VERIFIED CONTRIBUTIONS IN 2025–2026
+    <tspan fill="#3B82F6" font-weight="600">254</tspan> VERIFIED CONTRIBUTIONS IN 2025–2026
   </text>
   <line x1="36" y1="42" x2="844" y2="42" stroke="#262832" stroke-width="0.75"/>
 
@@ -536,7 +536,7 @@
       <rect x="796.8" y="111.2" width="11.2" height="11.2" rx="2" fill="#1A1B22"/>
       <rect x="796.8" y="125.6" width="11.2" height="11.2" rx="2" fill="#1A1B22"/>
       <rect x="796.8" y="140.0" width="11.2" height="11.2" rx="2" fill="#1A1B22"/>
-      <rect x="796.8" y="154.4" width="11.2" height="11.2" rx="2" fill="#1E2D44"/>
+      <rect x="796.8" y="154.4" width="11.2" height="11.2" rx="2" fill="#244572"/>
     </g>
   </g>
 
