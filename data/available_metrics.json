@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "public_repos": 15,
+    "total_stars": 11,
+    "total_forks": 1,
+    "total_followers": 7,
+    "total_following": 4,
+    "total_code_bytes": 12052249,
+    "distinct_languages": 15,
+    "recent_public_push_events": 8,
+    "recent_public_commits_sampled": 8,
+    "data_integrity_invariants": {
+      "scope": "PUBLIC_REPOSITORIES_ONLY",
+      "private_contributions_included": false,
+      "hours_coded_claimed": false,
+      "zero_fabrication_enforced": true
+    },
+    "last_calculated_utc": "2026-11-14T08:37:26Z"
+  },
+  "language_distribution": {
+    "total_code_bytes": 12052249,
+    "distinct_languages_count": 15,
+    "distribution": {
+      "JavaScript": {
+        "bytes": 6625968,
+        "percentage": 54.98
+      },
+      "Python": {
+        "bytes": 2792707,
+        "percentage": 23.17
+      },
+      "TypeScript": {
+        "bytes": 992141,
+        "percentage": 8.23
+      },
+      "Java": {
+        "bytes": 689191,
+        "percentage": 5.72
+      },
+      "Rust": {
+        "bytes": 321836,
+        "percentage": 2.67
+      },
+      "CSS": {
+        "bytes": 261461,
+        "percentage": 2.17
+      },
+      "HTML": {
+        "bytes": 217620,
+        "percentage": 1.81
+      },
+      "Kotlin": {
+        "bytes": 83591,
+        "percentage": 0.69
+      },
+      "Shell": {
+        "bytes": 34234,
+        "percentage": 0.28
+      },
+      "PHP": {
+        "bytes": 17948,
+        "percentage": 0.15
+      },
+      "PowerShell": {
+        "bytes": 8156,
+        "percentage": 0.07
+      },
+      "PLpgSQL": {
+        "bytes": 4865,
+        "percentage": 0.04
+      },
+      "Batchfile": {
+        "bytes": 1252,
+        "percentage": 0.01
+      },
+      "Mako": {
+        "bytes": 1020,
+        "percentage": 0.01
+      },
+      "Procfile": {
+        "bytes": 259,
+        "percentage": 0.0
+      }
+    }
+  },
+  "top_languages": [
+    "JavaScript",
+    "Python",
+    "TypeScript",
+    "Java",
+    "Rust",
+    "CSS"
+  ]
+}

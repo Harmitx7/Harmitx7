@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json.schemastore.org/design-tokens",
+  "name": "Harmitx7 Editorial OS Typography Tokens",
+  "version": "1.0.0",
+  "fontFamilies": {
+    "monospace": {
+      "name": "Technical Telemetry Monospace",
+      "stack": "ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, 'Courier New', monospace",
+      "usage": "Code manifests, numbers, status pills, coordinates, tickers, and technical badges"
+    },
+    "sans": {
+      "name": "Editorial Sans",
+      "stack": "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'",
+      "usage": "Project titles, explanatory paragraphs, table text, and descriptive prose"
+    }
+  },
+  "scales": {
+    "micro": {
+      "fontSize": "10px",
+      "lineHeight": "14px",
+      "letterSpacing": "1.5px",
+      "fontWeight": "600",
+      "textTransform": "uppercase",
+      "usage": "Hardware telemetry labels, GPS coordinates, category headers"
+    },
+    "caption": {
+      "fontSize": "11.5px",
+      "lineHeight": "16px",
+      "letterSpacing": "0.8px",
+      "fontWeight": "500",
+      "usage": "Table secondary metadata, license tags, timestamp badges"
+    },
+    "body-sm": {
+      "fontSize": "13px",
+      "lineHeight": "18px",
+      "letterSpacing": "0px",
+      "fontWeight": "400",
+      "usage": "Code block lines, terminal manifest rows, item descriptions"
+    },
+    "body": {
+      "fontSize": "14.5px",
+      "lineHeight": "22px",
+      "letterSpacing": "-0.2px",
+      "fontWeight": "400",
+      "usage": "Primary project descriptions, markdown prose, blockquotes"
+    },
+    "subheading": {
+      "fontSize": "17px",
+      "lineHeight": "24px",
+      "letterSpacing": "-0.3px",
+      "fontWeight": "700",
+      "usage": "Project card titles, section callouts"
+    },
+    "heading": {
+      "fontSize": "22px",
+      "lineHeight": "28px",
+      "letterSpacing": "-0.5px",
+      "fontWeight": "800",
+      "usage": "Major section separators (e.g. // engineering_manifest)"
+    },
+    "display": {
+      "fontSize": "38px",
+      "lineHeight": "44px",
+      "letterSpacing": "-1px",
+      "fontWeight": "800",
+      "usage": "Hero title, Harmit Kalal identity anchor"
+    }
+  },
+  "rules": {
+    "tabularNumbers": "All metrics and numeric telemetry must render with monospace font or font-variant-numeric: tabular-nums to prevent optical layout shift during state changes.",
+    "minimumLegibleMobileSize": "10px absolute minimum inside SVGs at standard 1000px coordinate space to guarantee readability when scaled to 360px mobile viewports.",
+    "letterSpacingDiscipline": "Uppercase micro text must always maintain 1.0px to 2.0px letter-spacing for scannability; display text must use tight letter-spacing (-0.5px to -1.0px) for architectural cohesion."
+  }
+}

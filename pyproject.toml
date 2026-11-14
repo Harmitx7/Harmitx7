@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "harmitx7-profile-engine"
+version = "1.0.0"
+description = "Deterministic Python SVG generation engine & GitHub intelligence pipeline for Harmit Kalal's profile."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Harmit Kalal", email = "harmitkalal7@gmail.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Graphics",
+]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]

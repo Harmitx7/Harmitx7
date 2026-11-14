@@ -1,0 +1,90 @@
+<svg width="100%" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Harmit Kalal — AI Systems Architect &amp; Creative Engineer</title>
+  <desc>Cinematic Editorial HUD banner with celestial orbital physics, geographic coordinates, and engineering mandate.</desc>
+  <defs>
+    <linearGradient id="heroVoid" x1="0%" y1="0%" x2="100%" y2="100%">
+  <stop offset="0%" stop-color="#030509"/>
+  <stop offset="50%" stop-color="#090E1A"/>
+  <stop offset="100%" stop-color="#030509"/>
+</linearGradient>
+    <linearGradient id="heroRim" x1="0%" y1="0%" x2="100%" y2="100%">
+  <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.600"/>
+  <stop offset="35%" stop-color="#0F172A" stop-opacity="0.150"/>
+  <stop offset="70%" stop-color="#1E293B" stop-opacity="0.150"/>
+  <stop offset="100%" stop-color="#FF6B00" stop-opacity="0.600"/>
+</linearGradient>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+  <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.400"/>
+  <stop offset="40%" stop-color="#00F0FF" stop-opacity="0.100"/>
+  <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.000"/>
+</radialGradient>
+    <linearGradient id="nameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+  <stop offset="0%" stop-color="#FFFFFF"/>
+  <stop offset="40%" stop-color="#F1F5F9"/>
+  <stop offset="75%" stop-color="#CBD5E1"/>
+  <stop offset="100%" stop-color="#64748B"/>
+</linearGradient>
+    <filter id="optGlow" x="-30%" y="-30%" width="160%" height="160%">
+  <feGaussianBlur stdDeviation="2.5" result="blur"/>
+  <feMerge>
+    <feMergeNode in="blur"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+  </defs>
+  <style>
+    
+    /* ═══════════════════════════════════════════════════════════
+       STATIC ACCESSIBILITY MODE: Animations disabled
+       ═══════════════════════════════════════════════════════════ */
+    * { animation: none !important; opacity: 1 !important; }
+    text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Consolas, monospace; }
+
+  </style>
+  <rect x="0" y="0" width="1000" height="400" rx="14" fill="url(#heroVoid)" stroke="url(#heroRim)" stroke-width="1.2"/>
+  <g opacity="0.600">
+  <circle cx="80" cy="60" r="1.5" fill="#38BDF8" opacity="0.400"/>
+  <circle cx="220" cy="85" r="1.5" fill="#38BDF8" opacity="0.400"/>
+  <circle cx="450" cy="45" r="1.5" fill="#38BDF8" opacity="0.400"/>
+  <circle cx="150" cy="330" r="1.5" fill="#38BDF8" opacity="0.400"/>
+  <circle cx="380" cy="340" r="1.5" fill="#38BDF8" opacity="0.400"/>
+  <circle cx="560" cy="310" r="1.5" fill="#38BDF8" opacity="0.400"/>
+  <circle cx="650" cy="80" r="1.5" fill="#38BDF8" opacity="0.400"/>
+  <circle cx="890" cy="65" r="1.5" fill="#38BDF8" opacity="0.400"/>
+  <circle cx="920" cy="320" r="1.5" fill="#38BDF8" opacity="0.400"/>
+  <circle cx="620" cy="220" r="1.5" fill="#38BDF8" opacity="0.400"/>
+</g>
+  <g>
+  <text x="60" y="68" fill="#64748B" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="600" letter-spacing="2.0">23.02°N, 72.57°E // AHMEDABAD, IN</text>
+  <text x="60" y="132" fill="url(#nameGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="46.0" font-weight="800" letter-spacing="-1.2">Harmit Kalal</text>
+  <text x="62" y="175" fill="#00F0FF" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="12.5" font-weight="700" letter-spacing="1.5">AI SYSTEMS ARCHITECT // DISTRIBUTED INFRASTRUCTURE</text>
+  <text x="62" y="208" fill="#CBD5E1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13.5">Engineering deterministic agents, zero-trust governance, and sub-millisecond telemetry.</text>
+  <rect x="62" y="244" width="3" height="14" rx="1.5" fill="#00F0FF"/>
+  <text x="74" y="254" fill="#00F0FF" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="11.0" font-weight="700" letter-spacing="0.8">◈ AGENTIC GOVERNANCE</text>
+  <text x="270" y="254" fill="#64748B" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="11.0">— tribunal-kit // 52 agents // SDD</text>
+  <rect x="62" y="276" width="3" height="14" rx="1.5" fill="#FF6B00"/>
+  <text x="74" y="286" fill="#FF6B00" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="11.0" font-weight="700" letter-spacing="0.8">◈ MALWARE DECEPTION</text>
+  <text x="270" y="286" fill="#64748B" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="11.0">— ARGUS-X // BoI × IIT-H Winner</text>
+  <rect x="62" y="308" width="3" height="14" rx="1.5" fill="#00E676"/>
+  <text x="74" y="318" fill="#00E676" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="11.0" font-weight="700" letter-spacing="0.8">◈ TELEMETRY SIMULATION</text>
+  <text x="270" y="318" fill="#64748B" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="11.0">— F1 Engine // Sub-ms physics</text>
+</g>
+  <g>
+  <circle cx="770.0" cy="195.0" r="140" fill="url(#coreGlow)" opacity="0.800"/>
+  <path d="M 640.0 195.0 a 130 52 0 1 0 260 0 a 130 52 0 1 0 -260 0" fill="none" stroke="#00F0FF" stroke-width="1.0" opacity="0.350" style="transform: rotate(-28deg); transform-origin: 770px 195px;"/>
+  <path d="M 665.0 195.0 a 105 44 0 1 0 210 0 a 105 44 0 1 0 -210 0" fill="none" stroke="#FF6B00" stroke-width="1.0" opacity="0.350" style="transform: rotate(38deg); transform-origin: 770px 195px;"/>
+  <path d="M 615.0 195.0 a 155 64 0 1 0 310 0 a 155 64 0 1 0 -310 0" fill="none" stroke="#00E676" stroke-width="0.8" opacity="0.300" style="transform: rotate(-72deg); transform-origin: 770px 195px;"/>
+  <g style="transform-box: view-box; transform: rotate(-28deg);">
+  <circle cx="900.0" cy="195.0" r="4.5" fill="#00F0FF" filter="url(#optGlow)"/>
+</g>
+  <g style="transform-box: view-box; transform: rotate(38deg);">
+  <circle cx="665.0" cy="195.0" r="4.5" fill="#FF6B00" filter="url(#optGlow)"/>
+</g>
+  <g style="transform-box: view-box; transform: rotate(-72deg);">
+  <circle cx="925.0" cy="195.0" r="4.0" fill="#00E676" filter="url(#optGlow)"/>
+</g>
+  <circle cx="770.0" cy="195.0" r="7.0" fill="#00F0FF" filter="url(#optGlow)"/>
+  <circle cx="770.0" cy="195.0" r="2.5" fill="#FFFFFF"/>
+</g>
+  <text x="62" y="372" fill="#334155" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', 'Fira Code', Menlo, Monaco, Consolas, monospace" font-size="10.0" font-weight="600" letter-spacing="1.5">STATUS: 99.99% UPTIME // SUBAGENT-DRIVEN DEVELOPMENT ACTIVE // 0 HALLUCINATIONS DETECTED</text>
+</svg>

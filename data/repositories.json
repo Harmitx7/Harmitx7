@@ -1,0 +1,466 @@
+{
+  "repositories_count": 15,
+  "total_stars": 11,
+  "total_forks": 1,
+  "total_code_bytes": 12052249,
+  "languages_distribution": {
+    "JavaScript": {
+      "bytes": 6625968,
+      "percentage": 54.98
+    },
+    "Python": {
+      "bytes": 2792707,
+      "percentage": 23.17
+    },
+    "TypeScript": {
+      "bytes": 992141,
+      "percentage": 8.23
+    },
+    "Java": {
+      "bytes": 689191,
+      "percentage": 5.72
+    },
+    "Rust": {
+      "bytes": 321836,
+      "percentage": 2.67
+    },
+    "CSS": {
+      "bytes": 261461,
+      "percentage": 2.17
+    },
+    "HTML": {
+      "bytes": 217620,
+      "percentage": 1.81
+    },
+    "Kotlin": {
+      "bytes": 83591,
+      "percentage": 0.69
+    },
+    "Shell": {
+      "bytes": 34234,
+      "percentage": 0.28
+    },
+    "PHP": {
+      "bytes": 17948,
+      "percentage": 0.15
+    },
+    "PowerShell": {
+      "bytes": 8156,
+      "percentage": 0.07
+    },
+    "PLpgSQL": {
+      "bytes": 4865,
+      "percentage": 0.04
+    },
+    "Batchfile": {
+      "bytes": 1252,
+      "percentage": 0.01
+    },
+    "Mako": {
+      "bytes": 1020,
+      "percentage": 0.01
+    },
+    "Procfile": {
+      "bytes": 259,
+      "percentage": 0.0
+    }
+  },
+  "repositories": [
+    {
+      "name": "tribunal-kit",
+      "full_name": "Harmitx7/tribunal-kit",
+      "html_url": "https://github.com/Harmitx7/tribunal-kit",
+      "description": "A universal, native-Rust governance layer for AI coding agents. Enforces Subagent-Driven Development (SDD) to stop hallucinations before they hit disk.",
+      "is_fork": false,
+      "primary_language": "JavaScript",
+      "languages_bytes": {
+        "JavaScript": 6286841,
+        "Python": 631638,
+        "Rust": 321836,
+        "Shell": 20057,
+        "TypeScript": 5571
+      },
+      "total_code_bytes": 7265943,
+      "stargazers_count": 6,
+      "forks_count": 1,
+      "watchers_count": 6,
+      "open_issues_count": 13,
+      "topics": [
+        "ai-agents",
+        "ai-coding-assistant",
+        "aider",
+        "anti-hallucination",
+        "antigravity",
+        "claude-code",
+        "claude-code-marketplace",
+        "claude-code-plugin",
+        "cursor-rules",
+        "devtools",
+        "llm-governance",
+        "llm-orchestration-agentic-ai",
+        "mcp-server",
+        "multi-agent-systems",
+        "prompt-engineering",
+        "subagent-driven-development"
+      ],
+      "created_at": "2026-02-20T18:45:08Z",
+      "updated_at": "2026-11-05T10:37:13Z",
+      "pushed_at": "2026-11-05T10:40:02Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": "MIT License"
+    },
+    {
+      "name": "odoo",
+      "full_name": "Harmitx7/odoo",
+      "html_url": "https://github.com/Harmitx7/odoo",
+      "description": null,
+      "is_fork": false,
+      "primary_language": "TypeScript",
+      "languages_bytes": {
+        "TypeScript": 320677,
+        "Python": 303628,
+        "CSS": 4409,
+        "JavaScript": 559
+      },
+      "total_code_bytes": 629273,
+      "stargazers_count": 2,
+      "forks_count": 0,
+      "watchers_count": 2,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2026-03-14T07:11:26Z",
+      "updated_at": "2026-03-18T18:38:20Z",
+      "pushed_at": "2026-03-15T10:24:50Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset",
+      "full_name": "Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset",
+      "html_url": "https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset",
+      "description": "ClashVision v3.0: AI cheat sheet for Clash Royale! \ud83c\udfaf\ud83c\udccf Predicts battles, scores PCI consistency, suggests card swaps, and serves battle tactics. Still lose to kids? Hey, at least you're data-driven! \u26a1\u2728",
+      "is_fork": false,
+      "primary_language": "Python",
+      "languages_bytes": {
+        "Python": 477153,
+        "JavaScript": 119210,
+        "HTML": 38321,
+        "CSS": 14699,
+        "Batchfile": 1252,
+        "Mako": 510,
+        "Procfile": 117
+      },
+      "total_code_bytes": 651262,
+      "stargazers_count": 2,
+      "forks_count": 0,
+      "watchers_count": 2,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2025-10-24T11:39:13Z",
+      "updated_at": "2026-08-08T03:32:12Z",
+      "pushed_at": "2025-10-24T11:56:17Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "SmartSplitApp",
+      "full_name": "Harmitx7/SmartSplitApp",
+      "html_url": "https://github.com/Harmitx7/SmartSplitApp",
+      "description": "Smart Split \ud83c\udf43: The ultimate privacy-first expense tracker. Sync instantly via P2P local Wi-Fi, join groups via QR, and export pro PDF reports. Decentralized, secure, and styled with a premium \"Bottle Green\" UI. No cloud, no trackers\u2014just seamless, real-time splitting. \u2728",
+      "is_fork": false,
+      "primary_language": "Java",
+      "languages_bytes": {
+        "Java": 296312
+      },
+      "total_code_bytes": 296312,
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "watchers_count": 1,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2026-01-20T04:33:37Z",
+      "updated_at": "2026-01-21T17:48:55Z",
+      "pushed_at": "2026-01-21T17:48:48Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "Harmitx7",
+      "full_name": "Harmitx7/Harmitx7",
+      "html_url": "https://github.com/Harmitx7/Harmitx7",
+      "description": null,
+      "is_fork": false,
+      "primary_language": null,
+      "languages_bytes": {},
+      "total_code_bytes": 0,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "watchers_count": 0,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2024-02-28T17:39:03Z",
+      "updated_at": "2026-08-15T17:29:46Z",
+      "pushed_at": "2026-08-15T17:29:26Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "TransitOps",
+      "full_name": "Harmitx7/TransitOps",
+      "html_url": "https://github.com/Harmitx7/TransitOps",
+      "description": null,
+      "is_fork": false,
+      "primary_language": "TypeScript",
+      "languages_bytes": {
+        "TypeScript": 295044,
+        "CSS": 149370,
+        "Shell": 5771,
+        "HTML": 863
+      },
+      "total_code_bytes": 451048,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "watchers_count": 0,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2026-07-12T04:55:30Z",
+      "updated_at": "2026-07-12T11:08:59Z",
+      "pushed_at": "2026-07-12T11:08:52Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "F1-TELEMETRY-DASHBOARD",
+      "full_name": "Harmitx7/F1-TELEMETRY-DASHBOARD",
+      "html_url": "https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD",
+      "description": "A web dashboard to upload, analyze, and compare Formula 1 telemetry. Visualize lap times, speed, throttle, brake, and RPM traces, compare laps, inspect sectors, and uncover performance insights with an F1-themed dark UI built using Python, Dash, Plotly, and Pandas.",
+      "is_fork": false,
+      "primary_language": "Python",
+      "languages_bytes": {
+        "Python": 203190,
+        "CSS": 9428,
+        "Procfile": 25
+      },
+      "total_code_bytes": 212643,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "watchers_count": 0,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2025-12-09T15:09:54Z",
+      "updated_at": "2026-04-22T03:00:29Z",
+      "pushed_at": "2026-04-22T03:00:21Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "SmartSplit_2.0",
+      "full_name": "Harmitx7/SmartSplit_2.0",
+      "html_url": "https://github.com/Harmitx7/SmartSplit_2.0",
+      "description": null,
+      "is_fork": false,
+      "primary_language": "Python",
+      "languages_bytes": {
+        "Python": 331479,
+        "Java": 177124,
+        "HTML": 124748,
+        "Shell": 8406,
+        "PowerShell": 8156
+      },
+      "total_code_bytes": 649913,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "watchers_count": 0,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2026-04-08T05:41:47Z",
+      "updated_at": "2026-04-08T17:15:02Z",
+      "pushed_at": "2026-04-08T17:14:57Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "ChronoDots",
+      "full_name": "Harmitx7/ChronoDots",
+      "html_url": "https://github.com/Harmitx7/ChronoDots",
+      "description": null,
+      "is_fork": false,
+      "primary_language": "Python",
+      "languages_bytes": {
+        "Python": 280348,
+        "Java": 215755,
+        "Kotlin": 83591
+      },
+      "total_code_bytes": 579694,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "watchers_count": 0,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2026-01-22T16:51:28Z",
+      "updated_at": "2026-03-04T08:23:29Z",
+      "pushed_at": "2026-03-04T08:23:24Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "harmit",
+      "full_name": "Harmitx7/harmit",
+      "html_url": "https://github.com/Harmitx7/harmit",
+      "description": null,
+      "is_fork": false,
+      "primary_language": null,
+      "languages_bytes": {},
+      "total_code_bytes": 0,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "watchers_count": 0,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2026-02-12T19:25:51Z",
+      "updated_at": "2026-02-12T19:25:52Z",
+      "pushed_at": "2026-02-12T19:25:52Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "Gym-Forge",
+      "full_name": "Harmitx7/Gym-Forge",
+      "html_url": "https://github.com/Harmitx7/Gym-Forge",
+      "description": null,
+      "is_fork": false,
+      "primary_language": "TypeScript",
+      "languages_bytes": {
+        "TypeScript": 370849,
+        "Python": 267224,
+        "CSS": 9934,
+        "PLpgSQL": 4865,
+        "JavaScript": 484
+      },
+      "total_code_bytes": 653356,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "watchers_count": 0,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2026-02-10T01:35:25Z",
+      "updated_at": "2026-02-10T01:52:31Z",
+      "pushed_at": "2026-02-10T01:52:28Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "DeckReactor",
+      "full_name": "Harmitx7/DeckReactor",
+      "html_url": "https://github.com/Harmitx7/DeckReactor",
+      "description": "Build, analyze, and compare Clash Royale decks instantly with DeckReactor\u2019s live metrics",
+      "is_fork": false,
+      "primary_language": "JavaScript",
+      "languages_bytes": {
+        "JavaScript": 77686,
+        "CSS": 37871,
+        "HTML": 4955
+      },
+      "total_code_bytes": 120512,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "watchers_count": 0,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2025-11-15T14:14:55Z",
+      "updated_at": "2025-11-17T16:53:42Z",
+      "pushed_at": "2025-11-16T11:46:24Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "ClashVision--The-Live-Battle-Dashboard-For-Clash-Royal",
+      "full_name": "Harmitx7/ClashVision--The-Live-Battle-Dashboard-For-Clash-Royal",
+      "html_url": "https://github.com/Harmitx7/ClashVision--The-Live-Battle-Dashboard-For-Clash-Royal",
+      "description": "ClashVision: the app that judges your battle skills harder than your mom. Track trophies, elixir, epic wins, and even predict if your next match will be glorious or tragic. Fun, addictive, and slightly life-ruining (in a good way). \u2694\ufe0f\ud83d\udc51\ud83d\udca3",
+      "is_fork": false,
+      "primary_language": "Python",
+      "languages_bytes": {
+        "Python": 169037,
+        "JavaScript": 84035,
+        "HTML": 29486,
+        "CSS": 14699,
+        "Mako": 510,
+        "Procfile": 117
+      },
+      "total_code_bytes": 297884,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "watchers_count": 0,
+      "open_issues_count": 1,
+      "topics": [],
+      "created_at": "2025-10-21T13:12:25Z",
+      "updated_at": "2025-10-21T13:40:53Z",
+      "pushed_at": "2025-10-23T16:22:01Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "AI-Life-Simulator",
+      "full_name": "Harmitx7/AI-Life-Simulator",
+      "html_url": "https://github.com/Harmitx7/AI-Life-Simulator",
+      "description": "**AI Life Simulator** - Virtual humans with unique personalities autonomously make decisions (eat, work, sleep, socialize) while AI learns from their behaviors to discover patterns and evolve habits. Features real-time visualization, social dynamics, and emergent behaviors in a rich environment.",
+      "is_fork": false,
+      "primary_language": "Python",
+      "languages_bytes": {
+        "Python": 129010
+      },
+      "total_code_bytes": 129010,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "watchers_count": 0,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2025-10-15T19:43:41Z",
+      "updated_at": "2025-10-15T19:49:08Z",
+      "pushed_at": "2025-10-15T19:49:04Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    },
+    {
+      "name": "SmartSplit",
+      "full_name": "Harmitx7/SmartSplit",
+      "html_url": "https://github.com/Harmitx7/SmartSplit",
+      "description": "samrtslpit \u2013 The expense tracker that saves friendships and family bonds from the deadly \u201cWho owes who?\u201d argument. Split bills, track payments, and end money drama before it ends you. Because love is priceless\u2026 but that pizza, coffee, and Uber ride sure weren\u2019t.",
+      "is_fork": false,
+      "primary_language": "JavaScript",
+      "languages_bytes": {
+        "JavaScript": 57153,
+        "CSS": 21051,
+        "HTML": 19247,
+        "PHP": 17948
+      },
+      "total_code_bytes": 115399,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "watchers_count": 0,
+      "open_issues_count": 0,
+      "topics": [],
+      "created_at": "2025-08-08T16:11:56Z",
+      "updated_at": "2025-09-29T09:04:58Z",
+      "pushed_at": "2025-09-29T09:04:54Z",
+      "archived": false,
+      "disabled": false,
+      "license_name": null
+    }
+  ]
+}
