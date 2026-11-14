@@ -134,7 +134,7 @@
 
     <!-- Oversized Editorial Headline -->
     <text x="44" y="94" fill="#151515">
-      <tspan class="serif" font-size="44" font-weight="400">263 </tspan>
+      <tspan class="serif" font-size="44" font-weight="400">264 </tspan>
       <tspan class="serif" font-size="44" font-style="italic">contributions</tspan>
     </text>
   </g>
@@ -176,8 +176,8 @@
     <!-- Month 11: Oct (17 commits) -->
     <rect class="bar bar-10" x="484" y="203" width="28" height="53" rx="4" ry="4" fill="#151515" />
     <text class="sans label-month" x="498" y="276" fill="#77777D" font-size="11" text-anchor="middle">Oct</text>
-    <!-- Month 12: Nov (15 commits) -->
-    <rect class="bar bar-11" x="528" y="208" width="28" height="48" rx="4" ry="4" fill="#C8C8C4" />
+    <!-- Month 12: Nov (16 commits) -->
+    <rect class="bar bar-11" x="528" y="206" width="28" height="50" rx="4" ry="4" fill="#C8C8C4" />
     <text class="sans label-month" x="542" y="276" fill="#77777D" font-size="11" text-anchor="middle">Nov</text>
   </g>
 
@@ -217,7 +217,7 @@
   <!-- STATISTIC 03: Peak Velocity on Busiest Day -->
   <g class="anim-stat-3">
     <text x="640" y="268" fill="#151515" class="serif" font-size="38" font-weight="400">
-      13
+      14
     </text>
     <text x="640" y="290" fill="#77777D" class="sans" font-size="12">
       on the busiest day
