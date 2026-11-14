@@ -119,15 +119,12 @@ class TestGenerators(unittest.TestCase):
                 "hero.svg",
                 "heatmap.svg",
                 "activity.svg",
-                "build.svg",
-                "create.svg",
-                "explore.svg",
                 "repo-tribunal-kit.svg",
                 "repo-clashvision.svg",
                 "repo-f1-telemetry.svg",
                 "footer.svg",
             ]
-            self.assertEqual(len(cards), 10, f"Expected exactly 10 editorial cards, got {len(cards)}")
+            self.assertEqual(len(cards), 7, f"Expected exactly 7 editorial cards, got {len(cards)}")
             for name in expected_cards:
                 self.assertIn(name, cards)
 

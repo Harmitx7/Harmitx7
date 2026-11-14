@@ -17,13 +17,10 @@
 <!-- SECTION C: MONTHLY CONTRIBUTION CADENCE -->
 <img src="./cards/activity.svg" width="100%" alt="Monthly Contribution Cadence with streak, active days, and peak velocity" /><br>
 
-<!-- SECTION D: THREE SIGNATURE WORLDS (BUILD / CREATE / EXPLORE) -->
-<a href="https://github.com/Harmitx7/tribunal-kit"><img src="./cards/build.svg" width="32.5%" alt="BUILD: tribunal-kit multi-agent governance" /></a> <a href="https://harmit.vercel.app"><img src="./cards/create.svg" width="32.5%" alt="CREATE: DeckReactor &amp; creative systems" /></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><img src="./cards/explore.svg" width="32.5%" alt="EXPLORE: ClashVision &amp; F1 telemetry" /></a><br>
-
-<!-- SECTION E: FEATURED EDITORIAL REPOSITORIES -->
+<!-- SECTION D: FEATURED EDITORIAL REPOSITORIES -->
 <a href="https://github.com/Harmitx7/tribunal-kit"><img src="./cards/repo-tribunal-kit.svg" width="32.5%" alt="tribunal-kit: Anti-hallucination AI governance" /></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><img src="./cards/repo-clashvision.svg" width="32.5%" alt="ClashVision v3.0: AI battle predictor &amp; policy engine" /></a> <a href="https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD"><img src="./cards/repo-f1-telemetry.svg" width="32.5%" alt="F1-TELEMETRY: High-frequency telemetry simulation" /></a><br>
 
-<!-- SECTION F: EDITORIAL COLOPHON & FOOTER -->
+<!-- SECTION E: EDITORIAL COLOPHON & FOOTER -->
 <a href="https://harmit.vercel.app"><img src="./cards/footer.svg" width="100%" alt="Harmit Kalal — Colophon &amp; verification status" /></a>
 
 </div>

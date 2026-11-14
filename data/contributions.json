@@ -1,13 +1,13 @@
 {
   "username": "Harmitx7",
-  "fetched_at": "2026-11-14T09:46:21.487293Z",
-  "total_contributions": 255,
-  "active_days": 101,
+  "fetched_at": "2026-11-14T09:50:54.971332Z",
+  "total_contributions": 250,
+  "active_days": 100,
   "total_calendar_days": 371,
   "current_streak": {
-    "days": 1,
-    "start": "2026-11-14",
-    "end": "2026-11-14"
+    "days": 0,
+    "start": null,
+    "end": null
   },
   "longest_streak": {
     "days": 5,
@@ -26,9 +26,9 @@
     "weekday": "Sun"
   },
   "busiest_weekday": {
-    "name": "Saturday",
-    "short": "Sat",
-    "count": 53
+    "name": "Monday",
+    "short": "Mon",
+    "count": 51
   },
   "monthly_totals": [
     {
@@ -107,7 +107,7 @@
       "key": "2026-11",
       "label": "Nov",
       "year": 2026,
-      "count": 7
+      "count": 2
     }
   ],
   "weeks_count": 53,
@@ -2069,8 +2069,8 @@
       },
       {
         "date": "2026-11-14",
-        "level": 2,
-        "count": 5
+        "level": 0,
+        "count": 0
       }
     ]
   ],
@@ -3927,8 +3927,8 @@
     },
     {
       "date": "2026-11-14",
-      "level": 2,
-      "count": 5
+      "level": 0,
+      "count": 0
     }
   ]
 }

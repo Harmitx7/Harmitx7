@@ -749,23 +749,15 @@ def compile_cards(out_dir: str = OUT_DIR) -> Dict[str, str]:
         with open(DATA_CONTRIB, "r", encoding="utf-8") as f:
             contrib_data = json.load(f)
 
-    # Section D cards: BUILD, CREATE, EXPLORE + legacy backward compatibility aliases
-    tile_build = render_tile_build()
-    tile_create = render_tile_create()
-    tile_explore = render_tile_explore()
-
     renderers = {
         "hero.svg": render_hero_svg(),
         "heatmap.svg": render_heatmap_card(contrib_data),
         "activity.svg": render_activity_card(contrib_data),
-        "build.svg": tile_build,
-        "create.svg": tile_create,
-        "explore.svg": tile_explore,
-        # Section E: Featured Repositories
+        # Featured Repositories
         "repo-tribunal-kit.svg": render_repo_tribunal_kit(),
         "repo-clashvision.svg": render_repo_clashvision(),
         "repo-f1-telemetry.svg": render_repo_f1_telemetry(),
-        # Section F: Editorial Colophon
+        # Editorial Colophon
         "footer.svg": render_footer_card(),
     }
 
