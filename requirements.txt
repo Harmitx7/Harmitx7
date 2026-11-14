@@ -1,5 +1,7 @@
 # Production dependencies: Zero external runtime dependencies required (pure Python 3.11 stdlib)
 # Development, testing, and CI/CD validation dependencies (pinned versions)
+Pillow>=10.0.0
+numpy>=1.24.0
 pytest==8.3.3
 black==24.10.0
 ruff==0.7.3

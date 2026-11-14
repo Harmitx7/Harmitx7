@@ -1,37 +1,36 @@
 <!--
      ══════════════════════════════════════════════════════════════════════════
-     HARMIT KALAL (@Harmitx7) // ARCHITECTURAL DEVELOPER PORTFOLIO
-     Rendered as a stack of animated SVG cards by scripts/render_cards.py.
+     HARMIT KALAL (@Harmitx7) — EDITORIAL DEVELOPER PORTFOLIO
+     Rendered as a suite of animated SVG cards by scripts/render_cards.py.
      Refreshed automatically via scheduled GitHub Action (.github/workflows/update-profile.yml).
-     Embedded typography (Geist Mono, Geist) & hardware-accelerated CSS keyframes.
+     Embedded typography (Instrument Serif, Geist, Geist Mono) & hardware-accelerated CSS keyframes.
      ══════════════════════════════════════════════════════════════════════════
 -->
 <div align="center">
 
-<!-- 01 // SIGNATURE HERO -->
+<!-- SECTION A: EDITORIAL HERO -->
 <a href="https://harmit.vercel.app"><img src="./cards/hero.svg" width="100%" alt="Harmit Kalal — AI Systems Engineer &amp; System Architect" /></a><br>
 
-<!-- 02 // 53-WEEK CONTRIBUTION GRAPH (BRAND CYAN/MINT PALETTE) -->
-<img src="./cards/heatmap.svg" width="100%" alt="Harmit's 53-week contribution calendar — 250 verified contributions across 100 active days" /><br>
+<!-- SECTION B: ANNUAL CONTRIBUTION GRAPH (COBALT EDITORIAL PALETTE) -->
+<img src="./cards/heatmap.svg" width="100%" alt="Annual Contribution History — 250 verified contributions across 100 active days" /><br>
 
-<!-- 03 // MONTHLY ACTIVITY SPECTRUM (STREAK, ACTIVE DAYS & BUSIEST DAY) -->
-<img src="./cards/activity.svg" width="100%" alt="Monthly contribution activity with streak, active days, and busiest day" /><br>
+<!-- SECTION C: MONTHLY CONTRIBUTION CADENCE -->
+<img src="./cards/activity.svg" width="100%" alt="Monthly Contribution Cadence with streak, active days, and peak velocity" /><br>
 
-<!-- 04 // THREE LINKED TILES IN A ROW (EACH AT WIDTH 32.5%) -->
-<a href="https://github.com/Harmitx7/tribunal-kit"><img src="./cards/build.svg" width="32.5%" alt="BUILD: tribunal-kit multi-agent framework" /></a> <a href="mailto:harmitkalal7@gmail.com"><img src="./cards/secure.svg" width="32.5%" alt="SECURE: ARGUS-X mobile malware analysis" /></a> <a href="https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD"><img src="./cards/simulate.svg" width="32.5%" alt="SIMULATE: F1 telemetry &amp; ClashVision RL policy" /></a><br>
+<!-- SECTION D: THREE SIGNATURE WORLDS (BUILD / CREATE / EXPLORE) -->
+<a href="https://github.com/Harmitx7/tribunal-kit"><img src="./cards/build.svg" width="32.5%" alt="BUILD: tribunal-kit multi-agent governance" /></a> <a href="https://harmit.vercel.app"><img src="./cards/create.svg" width="32.5%" alt="CREATE: DeckReactor &amp; creative systems" /></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><img src="./cards/explore.svg" width="32.5%" alt="EXPLORE: ClashVision &amp; F1 telemetry" /></a><br>
 
-<!-- 05 // ONE CARD PER FEATURED REPO (EACH AT WIDTH 32.5%) -->
-<a href="https://github.com/Harmitx7/tribunal-kit"><img src="./cards/repo-tribunal-kit.svg" width="32.5%" alt="tribunal-kit: Anti-hallucination AI governance" /></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><img src="./cards/repo-clashvision.svg" width="32.5%" alt="ClashVision v3.0: AI battle predictor" /></a> <a href="https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD"><img src="./cards/repo-f1-telemetry.svg" width="32.5%" alt="F1-TELEMETRY: High-frequency physics simulation" /></a><br>
+<!-- SECTION E: FEATURED EDITORIAL REPOSITORIES -->
+<a href="https://github.com/Harmitx7/tribunal-kit"><img src="./cards/repo-tribunal-kit.svg" width="32.5%" alt="tribunal-kit: Anti-hallucination AI governance" /></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><img src="./cards/repo-clashvision.svg" width="32.5%" alt="ClashVision v3.0: AI battle predictor &amp; policy engine" /></a> <a href="https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD"><img src="./cards/repo-f1-telemetry.svg" width="32.5%" alt="F1-TELEMETRY: High-frequency telemetry simulation" /></a><br>
 
-<!-- 06 // CLOSING SIGNATURE HUD -->
-<img src="./cards/footer.svg" width="100%" alt="Cryptographic verification signature and telemetry status" />
+<!-- SECTION F: EDITORIAL COLOPHON & FOOTER -->
+<a href="https://harmit.vercel.app"><img src="./cards/footer.svg" width="100%" alt="Harmit Kalal — Colophon &amp; verification status" /></a>
 
 </div>
 
 <p align="center">
-  <a href="https://harmit.vercel.app">harmit.vercel.app</a> &nbsp;/&nbsp;
-  <a href="https://github.com/Harmitx7">github</a> &nbsp;/&nbsp;
-  <a href="https://linkedin.com/in/harmitkalal">linkedin</a> &nbsp;/&nbsp;
-  <a href="https://www.npmjs.com/package/tribunal-kit">npm</a> &nbsp;/&nbsp;
+  <a href="https://harmit.vercel.app">harmit.vercel.app</a> &nbsp;·&nbsp;
+  <a href="https://github.com/Harmitx7">github</a> &nbsp;·&nbsp;
+  <a href="https://linkedin.com/in/harmitkalal">linkedin</a> &nbsp;·&nbsp;
   <a href="mailto:harmitkalal7@gmail.com">email</a>
 </p>
