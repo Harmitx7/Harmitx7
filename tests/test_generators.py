@@ -160,6 +160,31 @@ class TestGenerators(unittest.TestCase):
         ok, errs = validate_svg_content(svg_static)
         self.assertTrue(ok, f"Monthly activity static SVG failed validation: {errs}")
 
+    def test_generate_contribution_calendar_script(self):
+        """Test execution and validation of scripts/generate_contribution_calendar.py."""
+        from scripts.generate_contribution_calendar import (
+            extract_calendar_data,
+            render_contribution_calendar_svg,
+        )
+        cal_data = extract_calendar_data()
+        self.assertGreaterEqual(cal_data["total_contributions"], 0)
+        self.assertLessEqual(len(cal_data["weeks"]), 53)
+
+        # Validate animated output
+        svg_anim = render_contribution_calendar_svg(cal_data, is_static=False)
+        ok, errs = validate_svg_content(svg_anim)
+        self.assertTrue(ok, f"Contribution calendar animated SVG failed validation: {errs}")
+        self.assertIn("Every day, ", svg_anim)
+        self.assertIn("in blue", svg_anim)
+        self.assertIn("REFRESHED DAILY", svg_anim)
+        self.assertLessEqual(len(svg_anim.encode("utf-8")), 51200, "Camo proxy limit 50KB exceeded")
+
+        # Validate static output
+        svg_static = render_contribution_calendar_svg(cal_data, is_static=True)
+        ok, errs = validate_svg_content(svg_static)
+        self.assertTrue(ok, f"Contribution calendar static SVG failed validation: {errs}")
+
+
 
 if __name__ == "__main__":
     unittest.main()

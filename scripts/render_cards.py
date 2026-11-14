@@ -43,9 +43,10 @@ FONTS_DIR = os.path.join(REPO_ROOT, "fonts")
 # Check static mode
 IS_STATIC = os.environ.get("STATIC") == "1"
 
-# Import Editorial Typographic Hero & Monthly Activity Generators
+# Import Editorial Typographic Hero, Monthly Activity & Contribution Calendar Generators
 from scripts.generate_hero import render_hero_svg
 from scripts.generate_monthly_activity import render_monthly_activity_svg, extract_monthly_data
+from scripts.generate_contribution_calendar import render_contribution_calendar_svg, extract_calendar_data
 
 # ══════════════════════════════════════════════════════════════════════════
 # WARM PAPER-AND-INK EDITORIAL PALETTE (Blue · Red · Yellow Triad)
@@ -257,109 +258,10 @@ def render_hero_card() -> str:
 # 2. EDITORIAL CONTRIBUTION GRAPH (cards/heatmap.svg)
 # ══════════════════════════════════════════════════════════════════════════
 def render_heatmap_card(contrib_data: Dict[str, Any]) -> str:
-    """Render 880x205 53-week contribution graph with warm cobalt editorial palette."""
-    weeks = contrib_data.get("weeks", [])
-    total_contribs = contrib_data.get("total_contributions", 250)
-    active_days = contrib_data.get("active_days", 100)
-    longest_streak = contrib_data.get("longest_streak", {}).get("days", 5)
+    """Render 880x258 53-week 'Every day, in blue' contribution calendar SVG."""
+    cal_data = extract_calendar_data(contrib_data)
+    return render_contribution_calendar_svg(cal_data, is_static=IS_STATIC)
 
-    # Restrained paper-and-ink cobalt gradation
-    level_colors = {
-        0: "#1A1B22",
-        1: "#1E2D44",
-        2: "#244572",
-        3: "#2D62A8",
-        4: "#3B82F6",
-    }
-
-    cell_size = 11.2
-    cell_gap = 3.2
-    start_x = 48.0
-    start_y = 68.0
-
-    month_labels = []
-    last_month = None
-    for w_idx, week in enumerate(weeks):
-        for day in week:
-            if day and day.get("date"):
-                m_str = day["date"][5:7]
-                if m_str != last_month:
-                    last_month = m_str
-                    try:
-                        from datetime import datetime
-                        dt = datetime.strptime(day["date"], "%Y-%m-%d")
-                        month_name = dt.strftime("%b")
-                        x_pos = start_x + w_idx * (cell_size + cell_gap)
-                        month_labels.append(f'<text x="{x_pos:.1f}" y="54" fill="{TEXT_MUTED}" class="mono" font-size="9.5">{month_name}</text>')
-                    except Exception:
-                        pass
-                break
-
-    weekday_labels = [
-        f'<text x="28" y="{start_y + 1 * (cell_size + cell_gap) + 8:.1f}" fill="{TEXT_MUTED}" class="mono" font-size="9" text-anchor="middle">M</text>',
-        f'<text x="28" y="{start_y + 3 * (cell_size + cell_gap) + 8:.1f}" fill="{TEXT_MUTED}" class="mono" font-size="9" text-anchor="middle">W</text>',
-        f'<text x="28" y="{start_y + 5 * (cell_size + cell_gap) + 8:.1f}" fill="{TEXT_MUTED}" class="mono" font-size="9" text-anchor="middle">F</text>',
-    ]
-
-    week_groups = []
-    for col_idx, week in enumerate(weeks):
-        x = start_x + col_idx * (cell_size + cell_gap)
-        delay = f"{0.25 + col_idx * 0.006:.3f}s" if not IS_STATIC else "0s"
-        anim_attr = f'style="animation: fadeIn 0.4s ease {delay} both;"' if not IS_STATIC else ""
-        cell_rects = []
-        for row_idx, day in enumerate(week):
-            y = start_y + row_idx * (cell_size + cell_gap)
-            if day is None:
-                continue
-            lvl = day.get("level", 0)
-            fill = level_colors.get(lvl, level_colors[0])
-            cell_rects.append(
-                f'<rect x="{x:.1f}" y="{y:.1f}" width="{cell_size:.1f}" height="{cell_size:.1f}" rx="2" fill="{fill}"/>'
-            )
-        week_groups.append(f'<g {anim_attr}>\n      ' + "\n      ".join(cell_rects) + "\n    </g>")
-
-    cells_markup = "\n    ".join(week_groups)
-    months_markup = "\n    ".join(month_labels)
-    weekdays_markup = "\n    ".join(weekday_labels)
-
-    svg = f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 205" width="100%" height="205">
-  <defs>
-    <style>{get_base_css("", ["mono"])}</style>
-  </defs>
-
-  <rect x="1" y="1" width="878" height="203" rx="12" fill="{BG_CARD}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
-
-  <!-- Clean Editorial Header -->
-  <text x="36" y="32" fill="{TEXT_PRIMARY}" class="serif" font-size="18" letter-spacing="-0.3">Annual Contribution History</text>
-  <text x="844" y="32" fill="{TEXT_MUTED}" class="mono" font-size="11" text-anchor="end">
-    <tspan fill="{ACCENT_BLUE}" font-weight="600">{total_contribs}</tspan> VERIFIED CONTRIBUTIONS IN 2025–2026
-  </text>
-  <line x1="36" y1="42" x2="844" y2="42" stroke="{BORDER_HAIRLINE}" stroke-width="0.75"/>
-
-  <!-- Grid Labels & Cells -->
-  {months_markup}
-  {weekdays_markup}
-  <g>
-    {cells_markup}
-  </g>
-
-  <!-- Restrained Legend & Metrics -->
-  <text x="48" y="186" fill="{TEXT_MUTED}" class="mono" font-size="10.5">
-    CADENCE: <tspan fill="{TEXT_PRIMARY}">{active_days} ACTIVE DAYS</tspan> &#160;·&#160; LONGEST STREAK: <tspan fill="{ACCENT_YELLOW}">{longest_streak} DAYS</tspan> &#160;·&#160; PEAK DAY: <tspan fill="{TEXT_PRIMARY}">MONDAY</tspan>
-  </text>
-
-  <g transform="translate(740, 175)">
-    <text x="-8" y="9" fill="{TEXT_MUTED}" class="mono" font-size="9.5" text-anchor="end">Less</text>
-    <rect x="0" y="0" width="10" height="10" rx="2" fill="{level_colors[0]}"/>
-    <rect x="14" y="0" width="10" height="10" rx="2" fill="{level_colors[1]}"/>
-    <rect x="28" y="0" width="10" height="10" rx="2" fill="{level_colors[2]}"/>
-    <rect x="42" y="0" width="10" height="10" rx="2" fill="{level_colors[3]}"/>
-    <rect x="56" y="0" width="10" height="10" rx="2" fill="{level_colors[4]}"/>
-    <text x="76" y="9" fill="{TEXT_MUTED}" class="mono" font-size="9.5">More</text>
-  </g>
-</svg>"""
-    return svg
 
 
 # ══════════════════════════════════════════════════════════════════════════
@@ -1028,6 +930,11 @@ def compile_cards(out_dir: str = OUT_DIR) -> Dict[str, str]:
     os.makedirs(os.path.dirname(assets_path), exist_ok=True)
     with open(assets_path, "w", encoding="utf-8") as f:
         f.write(renderers["activity.svg"])
+
+    # Also mirror contribution calendar to assets/contribution-calendar.svg
+    calendar_asset_path = os.path.join(REPO_ROOT, "assets", "contribution-calendar.svg")
+    with open(calendar_asset_path, "w", encoding="utf-8") as f:
+        f.write(renderers["heatmap.svg"])
 
     return results
 

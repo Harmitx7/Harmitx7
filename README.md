@@ -11,8 +11,8 @@
 <!-- SECTION A: EDITORIAL HERO -->
 <a href="https://harmit.vercel.app"><img src="./cards/hero.svg" width="100%" alt="Harmit Kalal — AI Systems Engineer &amp; System Architect" /></a><br>
 
-<!-- SECTION B: ANNUAL CONTRIBUTION GRAPH (COBALT EDITORIAL PALETTE) -->
-<img src="./cards/heatmap.svg" width="100%" alt="Annual Contribution History — 250 verified contributions across 100 active days" /><br>
+<!-- SECTION B: ANNUAL CONTRIBUTION CALENDAR (EVERY DAY, IN BLUE) -->
+<img src="./cards/heatmap.svg" width="100%" alt="Every day, in blue — 53-week GitHub contribution calendar" /><br>
 
 <!-- SECTION C: MONTHLY GITHUB ACTIVITY (EDITORIAL DATA VISUALIZATION) -->
 <img src="./cards/activity.svg" width="100%" alt="The Last 12 Months on GitHub — Editorial monthly contribution chart and key cadence statistics" /><br>
