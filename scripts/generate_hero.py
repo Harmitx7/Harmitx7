@@ -114,22 +114,22 @@ def generate_halftone_matrix_paths(
 
 
 def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
-    """Render the master editorial typographic hero SVG."""
+    """Render the master editorial typographic hero SVG (880x408, 2.16:1 ratio)."""
     portrait_path = source_portrait_path or AVATAR_PATH
     if not os.path.exists(portrait_path):
         raise FileNotFoundError(f"Personal portrait image required: {portrait_path}")
 
     serif_b64 = get_embedded_serif_b64()
 
-    # Generate Swiss Exhibition Vector Halftone Matrix
+    # Generate Swiss Exhibition Vector Halftone Matrix (calibrated to 880x408 container)
     halftone_matrix = generate_halftone_matrix_paths(
         portrait_path,
         cols=56,
         rows=46,
-        start_x=492,
-        start_y=50,
-        step_x=6.4,
-        step_y=7.6,
+        start_x=488,
+        start_y=42,
+        step_x=6.2,
+        step_y=7.1,
     )
 
     anim_css = "" if IS_STATIC else """
@@ -144,7 +144,7 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
     """
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="100%" height="430">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 408" width="100%" height="408">
   <defs>
     <style>
       @font-face {{
@@ -166,16 +166,16 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
       }}
 
       .name-first {{
-        font-size: 80px;
+        font-size: 78px;
         font-weight: 400;
-        fill: #141412;
+        fill: #151515;
         letter-spacing: -1px;
       }}
       .name-last {{
-        font-size: 80px;
+        font-size: 78px;
         font-style: italic;
         font-weight: 400;
-        fill: #141412;
+        fill: #151515;
         letter-spacing: -1px;
       }}
 
@@ -192,40 +192,40 @@ def render_hero_svg(source_portrait_path: Optional[str] = None) -> str:
   </defs>
 
   <!-- Editorial Warm Off-White Canvas -->
-  <rect x="1" y="1" width="898" height="428" rx="16" fill="#F4F4F1" stroke="#E3E3DC" stroke-width="1"/>
+  <rect x="1" y="1" width="878" height="406" rx="16" fill="#F3F3F0" stroke="#DEDEDA" stroke-width="1"/>
 
   <!-- Left Side: Identity & Editorial Typography -->
   <!-- 1. Small Blue Square + Uppercase Professional Role -->
   <g class="anim-role">
-    <rect x="54" y="52" width="8.5" height="8.5" fill="#2563EB" rx="1.5"/>
-    <text x="71" y="60.5" fill="#52524C" class="mono" font-size="11" font-weight="600" letter-spacing="1.5">FULLSTACK ENGINEER / ARCHITECT</text>
+    <rect x="46" y="46" width="7.5" height="7.5" fill="#244DFF" rx="1.5"/>
+    <text x="62" y="53.5" fill="#77777D" class="mono" font-size="10.5" font-weight="600" letter-spacing="1.5">FULLSTACK ENGINEER / ARCHITECT</text>
   </g>
 
   <!-- 2. Two-Line Editorial Serif Name -->
   <g class="anim-name1">
-    <text x="54" y="148" class="serif name-first">Harmit</text>
+    <text x="46" y="136" class="serif name-first">Harmit</text>
   </g>
   <g class="anim-name2">
-    <text x="54" y="224" class="serif name-last">Kalal</text>
+    <text x="46" y="208" class="serif name-last">Kalal</text>
   </g>
 
   <!-- 3. Short Personal Introduction in Clean Sans-Serif -->
   <g class="anim-bio">
-    <text x="54" y="274" font-size="14.5" fill="#52524C" font-weight="400">
+    <text x="46" y="254" font-size="14.5" fill="#52524C" font-weight="400">
       AI Systems Engineer &amp; Architect building anti-hallucination
     </text>
-    <text x="54" y="298" font-size="14.5" fill="#52524C" font-weight="400">
+    <text x="46" y="278" font-size="14.5" fill="#52524C" font-weight="400">
       multi-agent governance and deterministic software systems.
     </text>
-    <text x="54" y="326" font-size="13" fill="#888880" font-weight="400">
+    <text x="46" y="304" font-size="13" fill="#77777D" font-weight="400">
       Specializing in autonomous runtimes, subagents &amp; telemetry.
     </text>
   </g>
 
   <!-- 4. Website Link with Small Blue Directional Arrow -->
   <g class="anim-link">
-    <text x="54" y="380" font-size="13.5" font-weight="600" fill="#141412" letter-spacing="0.2">harmit.vercel.app</text>
-    <text x="180" y="380" font-size="14" font-weight="700" fill="#2563EB">↗</text>
+    <text x="46" y="358" font-size="13.5" font-weight="600" fill="#151515" letter-spacing="0.2">harmit.vercel.app</text>
+    <text x="172" y="358" font-size="14" font-weight="700" fill="#244DFF">↗</text>
   </g>
 
   <!-- Right Side: Swiss Exhibition Vector Halftone Matrix -->

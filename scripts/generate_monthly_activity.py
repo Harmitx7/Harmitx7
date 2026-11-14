@@ -158,14 +158,14 @@ def render_monthly_activity_svg(
     stats: Optional[Dict[str, Any]] = None,
     is_static: Optional[bool] = None,
 ) -> str:
-    """Render 880x340 editorial monthly activity visualization SVG."""
+    """Render 880x332 editorial monthly activity visualization SVG (2.65:1 ratio)."""
     if is_static is None:
         is_static = IS_STATIC
 
     if stats is None:
         stats = extract_monthly_data()
 
-    w, h = 880, 340
+    w, h = 880, 332
     fonts_css = get_embedded_fonts_css()
 
     total_contributions = stats["total_contributions"]
@@ -177,9 +177,9 @@ def render_monthly_activity_svg(
     peak_count = stats["peak_count"]
 
     # Geometry constants
-    left_x = 42
-    y_baseline = 262
-    max_bar_h = 120
+    left_x = 44
+    y_baseline = 256
+    max_bar_h = 114
     min_bar_h = 12
     bar_w = 28
     bar_gap = 16
@@ -318,14 +318,14 @@ def render_monthly_activity_svg(
        ══════════════════════════════════════════════════════════════════════════ -->
   <g class="anim-header">
     <!-- Small Uppercase Section Label -->
-    <text x="{left_x}" y="52" fill="{TEXT_SECONDARY}" class="mono" font-size="10.5" font-weight="500" letter-spacing="2">
+    <text x="{left_x}" y="50" fill="{TEXT_SECONDARY}" class="mono" font-size="10.5" font-weight="500" letter-spacing="2">
       THE LAST 12 MONTHS ON GITHUB
     </text>
 
     <!-- Oversized Editorial Headline -->
-    <text x="{left_x}" y="98" fill="{TEXT_PRIMARY}">
-      <tspan class="serif" font-size="46" font-weight="400">{total_contributions:,} </tspan>
-      <tspan class="serif" font-size="46" font-style="italic">contributions</tspan>
+    <text x="{left_x}" y="94" fill="{TEXT_PRIMARY}">
+      <tspan class="serif" font-size="44" font-weight="400">{total_contributions:,} </tspan>
+      <tspan class="serif" font-size="44" font-style="italic">contributions</tspan>
     </text>
   </g>
 
@@ -340,39 +340,39 @@ def render_monthly_activity_svg(
   
   <!-- STATISTIC 01: Streak -->
   <g class="anim-stat-1">
-    <text x="640" y="88" fill="{TEXT_PRIMARY}">
-      <tspan class="serif" font-size="40" font-weight="400">{longest_streak} </tspan>
-      <tspan class="serif" font-size="36" font-style="italic">days</tspan>
+    <text x="640" y="84" fill="{TEXT_PRIMARY}">
+      <tspan class="serif" font-size="38" font-weight="400">{longest_streak} </tspan>
+      <tspan class="serif" font-size="34" font-style="italic">days</tspan>
     </text>
-    <text x="640" y="112" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+    <text x="640" y="106" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
       current streak, and the longest
     </text>
   </g>
 
   <!-- Thin Horizontal Divider 01 -->
-  <line class="anim-div-1" x1="640" y1="138" x2="840" y2="138" stroke="{DIVIDER_LINE}" stroke-width="1" />
+  <line class="anim-div-1" x1="640" y1="130" x2="836" y2="130" stroke="{DIVIDER_LINE}" stroke-width="1" />
 
   <!-- STATISTIC 02: Active Days Ratio -->
   <g class="anim-stat-2">
-    <text x="640" y="184">
-      <tspan class="serif" font-size="40" fill="{TEXT_PRIMARY}" font-weight="400">{active_days} </tspan>
-      <tspan class="serif" font-size="34" fill="{TEXT_FAINT}">/ </tspan>
-      <tspan class="serif" font-size="36" fill="{TEXT_SECONDARY}" font-style="italic">{total_calendar_days}</tspan>
+    <text x="640" y="176">
+      <tspan class="serif" font-size="38" fill="{TEXT_PRIMARY}" font-weight="400">{active_days} </tspan>
+      <tspan class="serif" font-size="32" fill="{TEXT_FAINT}">/ </tspan>
+      <tspan class="serif" font-size="34" fill="{TEXT_SECONDARY}" font-style="italic">{total_calendar_days}</tspan>
     </text>
-    <text x="640" y="208" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+    <text x="640" y="198" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
       days with a commit
     </text>
   </g>
 
   <!-- Thin Horizontal Divider 02 -->
-  <line class="anim-div-2" x1="640" y1="234" x2="840" y2="234" stroke="{DIVIDER_LINE}" stroke-width="1" />
+  <line class="anim-div-2" x1="640" y1="222" x2="836" y2="222" stroke="{DIVIDER_LINE}" stroke-width="1" />
 
   <!-- STATISTIC 03: Peak Velocity on Busiest Day -->
   <g class="anim-stat-3">
-    <text x="640" y="280" fill="{TEXT_PRIMARY}" class="serif" font-size="40" font-weight="400">
+    <text x="640" y="268" fill="{TEXT_PRIMARY}" class="serif" font-size="38" font-weight="400">
       {busiest_day_commits}
     </text>
-    <text x="640" y="304" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
+    <text x="640" y="290" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
       on the busiest day
     </text>
   </g>

@@ -8,20 +8,35 @@
 -->
 <div align="center">
 
-<!-- SECTION A: EDITORIAL HERO -->
-<a href="https://harmit.vercel.app"><img src="./cards/hero.svg" width="100%" alt="Harmit Kalal — AI Systems Engineer &amp; System Architect" /></a><br>
+<!-- 01. HERO / PERSONAL IDENTITY -->
+<p align="center">
+  <a href="https://harmit.vercel.app"><img src="./cards/hero.svg" width="100%" alt="Harmit Kalal — Fullstack Engineer &amp; Systems Architect" /></a>
+</p>
 
-<!-- SECTION B: ANNUAL CONTRIBUTION CALENDAR (EVERY DAY, IN BLUE) -->
-<img src="./cards/heatmap.svg" width="100%" alt="Every day, in blue — 53-week GitHub contribution calendar" /><br>
+<!-- 02. BLUE CONTRIBUTION CALENDAR -->
+<p align="center">
+  <img src="./cards/heatmap.svg" width="100%" alt="Every day, in blue — 53-week GitHub contribution calendar" />
+</p>
 
-<!-- SECTION C: MONTHLY GITHUB ACTIVITY (EDITORIAL DATA VISUALIZATION) -->
-<img src="./cards/activity.svg" width="100%" alt="The Last 12 Months on GitHub — Editorial monthly contribution chart and key cadence statistics" /><br>
+<!-- 03. MONTHLY CONTRIBUTION STATISTICS -->
+<p align="center">
+  <img src="./cards/activity.svg" width="100%" alt="The Last 12 Months on GitHub — Editorial monthly contribution chart and key cadence statistics" />
+</p>
 
-<!-- SECTION D: FEATURED EDITORIAL REPOSITORIES -->
-<a href="https://github.com/Harmitx7/tribunal-kit"><img src="./cards/repo-tribunal-kit.svg" width="32.5%" alt="tribunal-kit: Anti-hallucination AI governance" /></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><img src="./cards/repo-clashvision.svg" width="32.5%" alt="ClashVision v3.0: AI battle predictor &amp; policy engine" /></a> <a href="https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD"><img src="./cards/repo-f1-telemetry.svg" width="32.5%" alt="F1-TELEMETRY: High-frequency telemetry simulation" /></a><br>
+<!-- 04. THREE SIGNATURE FEATURE CARDS -->
+<p align="center">
+  <a href="https://github.com/Harmitx7/tribunal-kit"><img src="./cards/build.svg" width="32.5%" alt="01 // BUILD — tribunal-kit" /></a> <a href="https://github.com/Harmitx7/DeckReactor"><img src="./cards/create.svg" width="32.5%" alt="02 // CREATE — DeckReactor" /></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><img src="./cards/explore.svg" width="32.5%" alt="03 // EXPLORE — ClashVision &amp; F1" /></a>
+</p>
 
-<!-- SECTION E: EDITORIAL COLOPHON & FOOTER -->
-<a href="https://harmit.vercel.app"><img src="./cards/footer.svg" width="100%" alt="Harmit Kalal — Colophon &amp; verification status" /></a>
+<!-- 05. FEATURED PROJECTS -->
+<p align="center">
+  <a href="https://github.com/Harmitx7/tribunal-kit"><img src="./cards/repo-tribunal-kit.svg" width="32.5%" alt="tribunal-kit: Multi-agent AI governance" /></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><img src="./cards/repo-clashvision.svg" width="32.5%" alt="ClashVision v3.0: RL battle policy engine" /></a> <a href="https://github.com/Harmitx7/F1-TELEMETRY-DASHBOARD"><img src="./cards/repo-f1-telemetry.svg" width="32.5%" alt="F1-TELEMETRY: High-frequency telemetry simulation" /></a>
+</p>
+
+<!-- 06. FOOTER / SOCIAL LINKS -->
+<p align="center">
+  <a href="https://harmit.vercel.app"><img src="./cards/footer.svg" width="100%" alt="Harmit Kalal — Colophon &amp; verification status" /></a>
+</p>
 
 </div>
 

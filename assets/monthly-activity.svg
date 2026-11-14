@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" width="100%" height="340">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 332" width="100%" height="332">
   <defs>
     <style>
       @font-face {
@@ -120,7 +120,7 @@
 
   <!-- Container Surface with Subtle Rounded Border -->
   <g class="anim-root">
-    <rect x="1" y="1" width="878" height="338" rx="16" fill="#F3F3F0" stroke="#DEDEDA" stroke-width="1"/>
+    <rect x="1" y="1" width="878" height="330" rx="16" fill="#F3F3F0" stroke="#DEDEDA" stroke-width="1"/>
   </g>
 
   <!-- ══════════════════════════════════════════════════════════════════════════
@@ -128,56 +128,56 @@
        ══════════════════════════════════════════════════════════════════════════ -->
   <g class="anim-header">
     <!-- Small Uppercase Section Label -->
-    <text x="42" y="52" fill="#77777D" class="mono" font-size="10.5" font-weight="500" letter-spacing="2">
+    <text x="44" y="50" fill="#77777D" class="mono" font-size="10.5" font-weight="500" letter-spacing="2">
       THE LAST 12 MONTHS ON GITHUB
     </text>
 
     <!-- Oversized Editorial Headline -->
-    <text x="42" y="98" fill="#151515">
-      <tspan class="serif" font-size="46" font-weight="400">259 </tspan>
-      <tspan class="serif" font-size="46" font-style="italic">contributions</tspan>
+    <text x="44" y="94" fill="#151515">
+      <tspan class="serif" font-size="44" font-weight="400">260 </tspan>
+      <tspan class="serif" font-size="44" font-style="italic">contributions</tspan>
     </text>
   </g>
 
   <!-- Monthly Bar Chart -->
   <g>
     <!-- Month 1: Dec (6 commits) -->
-    <rect class="bar bar-0" x="42" y="235" width="28" height="27" rx="4" ry="4" fill="#151515" />
-    <text class="sans label-month" x="56" y="282" fill="#77777D" font-size="11" text-anchor="middle">Dec</text>
+    <rect class="bar bar-0" x="44" y="230" width="28" height="26" rx="4" ry="4" fill="#151515" />
+    <text class="sans label-month" x="58" y="276" fill="#77777D" font-size="11" text-anchor="middle">Dec</text>
     <!-- Month 2: Jan (19 commits) -->
-    <rect class="bar bar-1" x="86" y="202" width="28" height="60" rx="4" ry="4" fill="#151515" />
-    <text class="sans label-month" x="100" y="282" fill="#77777D" font-size="11" text-anchor="middle">Jan</text>
+    <rect class="bar bar-1" x="88" y="198" width="28" height="58" rx="4" ry="4" fill="#151515" />
+    <text class="sans label-month" x="102" y="276" fill="#77777D" font-size="11" text-anchor="middle">Jan</text>
     <!-- Month 3: Feb (29 commits) -->
-    <rect class="bar bar-2" x="130" y="176" width="28" height="86" rx="4" ry="4" fill="#151515" />
-    <text class="sans label-month" x="144" y="282" fill="#77777D" font-size="11" text-anchor="middle">Feb</text>
+    <rect class="bar bar-2" x="132" y="174" width="28" height="82" rx="4" ry="4" fill="#151515" />
+    <text class="sans label-month" x="146" y="276" fill="#77777D" font-size="11" text-anchor="middle">Feb</text>
     <!-- Month 4: Mar (42 commits) -->
-    <rect class="bar bar-3" x="174" y="142" width="28" height="120" rx="4" ry="4" fill="#315BFF" />
-    <text class="mono anim-peak-count" x="188" y="134" fill="#315BFF" font-size="11" font-weight="600" text-anchor="middle">42</text>
-    <text class="sans label-month" x="188" y="282" fill="#77777D" font-size="11" text-anchor="middle">Mar</text>
+    <rect class="bar bar-3" x="176" y="142" width="28" height="114" rx="4" ry="4" fill="#315BFF" />
+    <text class="mono anim-peak-count" x="190" y="134" fill="#315BFF" font-size="11" font-weight="600" text-anchor="middle">42</text>
+    <text class="sans label-month" x="190" y="276" fill="#77777D" font-size="11" text-anchor="middle">Mar</text>
     <!-- Month 5: Apr (30 commits) -->
-    <rect class="bar bar-4" x="218" y="173" width="28" height="89" rx="4" ry="4" fill="#151515" />
-    <text class="sans label-month" x="232" y="282" fill="#77777D" font-size="11" text-anchor="middle">Apr</text>
+    <rect class="bar bar-4" x="220" y="172" width="28" height="84" rx="4" ry="4" fill="#151515" />
+    <text class="sans label-month" x="234" y="276" fill="#77777D" font-size="11" text-anchor="middle">Apr</text>
     <!-- Month 6: May (6 commits) -->
-    <rect class="bar bar-5" x="262" y="235" width="28" height="27" rx="4" ry="4" fill="#151515" />
-    <text class="sans label-month" x="276" y="282" fill="#77777D" font-size="11" text-anchor="middle">May</text>
+    <rect class="bar bar-5" x="264" y="230" width="28" height="26" rx="4" ry="4" fill="#151515" />
+    <text class="sans label-month" x="278" y="276" fill="#77777D" font-size="11" text-anchor="middle">May</text>
     <!-- Month 7: Jun (12 commits) -->
-    <rect class="bar bar-6" x="306" y="220" width="28" height="42" rx="4" ry="4" fill="#151515" />
-    <text class="sans label-month" x="320" y="282" fill="#77777D" font-size="11" text-anchor="middle">Jun</text>
+    <rect class="bar bar-6" x="308" y="215" width="28" height="41" rx="4" ry="4" fill="#151515" />
+    <text class="sans label-month" x="322" y="276" fill="#77777D" font-size="11" text-anchor="middle">Jun</text>
     <!-- Month 8: Jul (27 commits) -->
-    <rect class="bar bar-7" x="350" y="181" width="28" height="81" rx="4" ry="4" fill="#151515" />
-    <text class="sans label-month" x="364" y="282" fill="#77777D" font-size="11" text-anchor="middle">Jul</text>
+    <rect class="bar bar-7" x="352" y="179" width="28" height="77" rx="4" ry="4" fill="#151515" />
+    <text class="sans label-month" x="366" y="276" fill="#77777D" font-size="11" text-anchor="middle">Jul</text>
     <!-- Month 9: Aug (18 commits) -->
-    <rect class="bar bar-8" x="394" y="204" width="28" height="58" rx="4" ry="4" fill="#151515" />
-    <text class="sans label-month" x="408" y="282" fill="#77777D" font-size="11" text-anchor="middle">Aug</text>
+    <rect class="bar bar-8" x="396" y="201" width="28" height="55" rx="4" ry="4" fill="#151515" />
+    <text class="sans label-month" x="410" y="276" fill="#77777D" font-size="11" text-anchor="middle">Aug</text>
     <!-- Month 10: Sep (38 commits) -->
-    <rect class="bar bar-9" x="438" y="153" width="28" height="109" rx="4" ry="4" fill="#151515" />
-    <text class="sans label-month" x="452" y="282" fill="#77777D" font-size="11" text-anchor="middle">Sep</text>
+    <rect class="bar bar-9" x="440" y="152" width="28" height="104" rx="4" ry="4" fill="#151515" />
+    <text class="sans label-month" x="454" y="276" fill="#77777D" font-size="11" text-anchor="middle">Sep</text>
     <!-- Month 11: Oct (17 commits) -->
-    <rect class="bar bar-10" x="482" y="207" width="28" height="55" rx="4" ry="4" fill="#151515" />
-    <text class="sans label-month" x="496" y="282" fill="#77777D" font-size="11" text-anchor="middle">Oct</text>
-    <!-- Month 12: Nov (11 commits) -->
-    <rect class="bar bar-11" x="526" y="222" width="28" height="40" rx="4" ry="4" fill="#C8C8C4" />
-    <text class="sans label-month" x="540" y="282" fill="#77777D" font-size="11" text-anchor="middle">Nov</text>
+    <rect class="bar bar-10" x="484" y="203" width="28" height="53" rx="4" ry="4" fill="#151515" />
+    <text class="sans label-month" x="498" y="276" fill="#77777D" font-size="11" text-anchor="middle">Oct</text>
+    <!-- Month 12: Nov (12 commits) -->
+    <rect class="bar bar-11" x="528" y="215" width="28" height="41" rx="4" ry="4" fill="#C8C8C4" />
+    <text class="sans label-month" x="542" y="276" fill="#77777D" font-size="11" text-anchor="middle">Nov</text>
   </g>
 
   <!-- ══════════════════════════════════════════════════════════════════════════
@@ -186,39 +186,39 @@
   
   <!-- STATISTIC 01: Streak -->
   <g class="anim-stat-1">
-    <text x="640" y="88" fill="#151515">
-      <tspan class="serif" font-size="40" font-weight="400">5 </tspan>
-      <tspan class="serif" font-size="36" font-style="italic">days</tspan>
+    <text x="640" y="84" fill="#151515">
+      <tspan class="serif" font-size="38" font-weight="400">5 </tspan>
+      <tspan class="serif" font-size="34" font-style="italic">days</tspan>
     </text>
-    <text x="640" y="112" fill="#77777D" class="sans" font-size="12">
+    <text x="640" y="106" fill="#77777D" class="sans" font-size="12">
       current streak, and the longest
     </text>
   </g>
 
   <!-- Thin Horizontal Divider 01 -->
-  <line class="anim-div-1" x1="640" y1="138" x2="840" y2="138" stroke="#DEDEDA" stroke-width="1" />
+  <line class="anim-div-1" x1="640" y1="130" x2="836" y2="130" stroke="#DEDEDA" stroke-width="1" />
 
   <!-- STATISTIC 02: Active Days Ratio -->
   <g class="anim-stat-2">
-    <text x="640" y="184">
-      <tspan class="serif" font-size="40" fill="#151515" font-weight="400">101 </tspan>
-      <tspan class="serif" font-size="34" fill="#A0A0A5">/ </tspan>
-      <tspan class="serif" font-size="36" fill="#77777D" font-style="italic">371</tspan>
+    <text x="640" y="176">
+      <tspan class="serif" font-size="38" fill="#151515" font-weight="400">101 </tspan>
+      <tspan class="serif" font-size="32" fill="#A0A0A5">/ </tspan>
+      <tspan class="serif" font-size="34" fill="#77777D" font-style="italic">371</tspan>
     </text>
-    <text x="640" y="208" fill="#77777D" class="sans" font-size="12">
+    <text x="640" y="198" fill="#77777D" class="sans" font-size="12">
       days with a commit
     </text>
   </g>
 
   <!-- Thin Horizontal Divider 02 -->
-  <line class="anim-div-2" x1="640" y1="234" x2="840" y2="234" stroke="#DEDEDA" stroke-width="1" />
+  <line class="anim-div-2" x1="640" y1="222" x2="836" y2="222" stroke="#DEDEDA" stroke-width="1" />
 
   <!-- STATISTIC 03: Peak Velocity on Busiest Day -->
   <g class="anim-stat-3">
-    <text x="640" y="280" fill="#151515" class="serif" font-size="40" font-weight="400">
+    <text x="640" y="268" fill="#151515" class="serif" font-size="38" font-weight="400">
       12
     </text>
-    <text x="640" y="304" fill="#77777D" class="sans" font-size="12">
+    <text x="640" y="290" fill="#77777D" class="sans" font-size="12">
       on the busiest day
     </text>
   </g>

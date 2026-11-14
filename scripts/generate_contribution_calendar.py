@@ -132,23 +132,23 @@ def render_contribution_calendar_svg(
     calendar_data: Optional[Dict[str, Any]] = None,
     is_static: Optional[bool] = None,
 ) -> str:
-    """Render 880x258 editorial contribution calendar SVG with 3.4:1 aspect ratio."""
+    """Render 880x238 editorial contribution calendar SVG with 3.7:1 aspect ratio."""
     if is_static is None:
         is_static = IS_STATIC
 
     if calendar_data is None:
         calendar_data = extract_calendar_data()
 
-    w, h = 880, 258
+    w, h = 880, 238
     fonts_css = get_embedded_fonts_css()
 
     weeks = calendar_data["weeks"]
     month_positions = calendar_data["month_positions"]
 
     # Geometry constants
-    left_x = 42.0
-    grid_y = 86.0
-    step = 15.1
+    left_x = 44.0
+    grid_y = 74.0
+    step = 14.8
 
     # Build columns and cells SVG
     col_svg_list = []
@@ -178,9 +178,9 @@ def render_contribution_calendar_svg(
     # Build month labels
     month_labels_svg = []
     for col_idx, lbl in month_positions:
-        mx = round(left_x + col_idx * step + 5.8, 1)
+        mx = round(left_x + col_idx * step + 5.7, 1)
         month_labels_svg.append(
-            f'<text x="{mx}" y="222" fill="{TEXT_SECONDARY}" class="mono" font-size="10.5" text-anchor="middle">{lbl}</text>'
+            f'<text x="{mx}" y="206" fill="{TEXT_SECONDARY}" class="mono" font-size="10" text-anchor="middle">{lbl}</text>'
         )
     rendered_months_svg = "\n    ".join(month_labels_svg)
 
@@ -234,7 +234,7 @@ def render_contribution_calendar_svg(
       .serif {{ font-family: {FONT_SERIF}; }}
       .sans {{ font-family: {FONT_SANS}; }}
       .mono {{ font-family: {FONT_MONO}; }}
-      rect.c {{ width: 11.6px; height: 11.6px; rx: 2.5px; }}
+      rect.c {{ width: 11.4px; height: 11.4px; rx: 2.5px; }}
       .l0 {{ fill: {LEVEL_COLORS[0]}; }}
       .l1 {{ fill: {LEVEL_COLORS[1]}; }}
       .l2 {{ fill: {LEVEL_COLORS[2]}; }}
@@ -254,13 +254,13 @@ def render_contribution_calendar_svg(
        ══════════════════════════════════════════════════════════════════════════ -->
   <g class="anim-header">
     <!-- Upper-Left Headline -->
-    <text x="{left_x}" y="56">
-      <tspan class="serif" font-size="38" font-weight="400" fill="{TEXT_PRIMARY}">Every day, </tspan>
-      <tspan class="serif" font-size="38" font-style="italic" fill="{ACCENT_BLUE}">in blue</tspan>
+    <text x="{left_x}" y="48">
+      <tspan class="serif" font-size="34" font-weight="400" fill="{TEXT_PRIMARY}">Every day, </tspan>
+      <tspan class="serif" font-size="34" font-style="italic" fill="{ACCENT_BLUE}">in blue</tspan>
     </text>
 
     <!-- Upper-Right Daily Status -->
-    <text x="838" y="52" fill="{TEXT_SECONDARY}" class="mono" font-size="10.5" font-weight="500" letter-spacing="2.5" text-anchor="end">
+    <text x="836" y="44" fill="{TEXT_SECONDARY}" class="mono" font-size="10" font-weight="500" letter-spacing="2.5" text-anchor="end">
       REFRESHED DAILY
     </text>
   </g>
@@ -280,14 +280,14 @@ def render_contribution_calendar_svg(
     {rendered_months_svg}
 
     <!-- Bottom-Right Intensity Legend: less [][][][][] more -->
-    <g transform="translate(712, 214)">
-      <text x="0" y="8" fill="{TEXT_SECONDARY}" class="mono" font-size="10.5">less</text>
-      <rect x="30" y="0" width="9" height="9" rx="2" fill="{LEVEL_COLORS[0]}" />
-      <rect x="42" y="0" width="9" height="9" rx="2" fill="{LEVEL_COLORS[1]}" />
-      <rect x="54" y="0" width="9" height="9" rx="2" fill="{LEVEL_COLORS[2]}" />
-      <rect x="66" y="0" width="9" height="9" rx="2" fill="{LEVEL_COLORS[3]}" />
-      <rect x="78" y="0" width="9" height="9" rx="2" fill="{LEVEL_COLORS[4]}" />
-      <text x="94" y="8" fill="{TEXT_SECONDARY}" class="mono" font-size="10.5">more</text>
+    <g transform="translate(714, 198)">
+      <text x="0" y="8" fill="{TEXT_SECONDARY}" class="mono" font-size="10">less</text>
+      <rect x="28" y="0" width="8.5" height="8.5" rx="2" fill="{LEVEL_COLORS[0]}" />
+      <rect x="39" y="0" width="8.5" height="8.5" rx="2" fill="{LEVEL_COLORS[1]}" />
+      <rect x="50" y="0" width="8.5" height="8.5" rx="2" fill="{LEVEL_COLORS[2]}" />
+      <rect x="61" y="0" width="8.5" height="8.5" rx="2" fill="{LEVEL_COLORS[3]}" />
+      <rect x="72" y="0" width="8.5" height="8.5" rx="2" fill="{LEVEL_COLORS[4]}" />
+      <text x="86" y="8" fill="{TEXT_SECONDARY}" class="mono" font-size="10">more</text>
     </g>
   </g>
 </svg>"""

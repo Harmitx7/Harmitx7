@@ -46,6 +46,8 @@ html = f"""<!DOCTYPE html>
       box-sizing: border-box;
     }}
     p {{
+      margin-top: 0;
+      margin-bottom: 16px;
       line-height: 1.5;
     }}
   </style>
