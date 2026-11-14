@@ -37,12 +37,106 @@
         transform: none !important;
       }
     }
-    .anim-repo { animation: fadeIn 0.6s ease 0.88s both; }
+    
+    .anim-card { animation: fadeIn 0.6s ease 0.88s both; }
+    @keyframes shimmerSweep_repo-clashvision {
+      0%, 15% {
+        transform: rotate(26deg) translate(-280px, -140px);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.9;
+      }
+      42% {
+        transform: rotate(26deg) translate(360px, -140px);
+        opacity: 0.9;
+      }
+      48%, 100% {
+        transform: rotate(26deg) translate(420px, -140px);
+        opacity: 0;
+      }
+    }
+    .shimmer-rect {
+      animation: shimmerSweep_repo-clashvision 8.5s cubic-bezier(0.16, 1, 0.3, 1) 3.4s infinite;
+      pointer-events: none;
+    }
+    @media (hover: hover) {
+      .card-root:hover .glass-edge {
+        stroke: #F59E0B;
+        stroke-opacity: 0.70;
+        filter: drop-shadow(0 0 6px #F59E0B40);
+      }
+      .card-root:hover .ambient-glow {
+        opacity: 0.30;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .shimmer-rect { display: none !important; }
+      *, ::before, ::after {
+        animation: none !important;
+        transform: none !important;
+      }
+    }
+    
 </style>
+    
+    <!-- Clip path to rounded card surface -->
+    <clipPath id="card-clip-repo-clashvision">
+      <rect x="1" y="1" width="284" height="208" rx="12" />
+    </clipPath>
+
+    <!-- Deep Smoked Glass Surface Gradient -->
+    <linearGradient id="glass-base-repo-clashvision" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B1C25" />
+      <stop offset="35%" stop-color="#15161E" />
+      <stop offset="100%" stop-color="#0F1016" />
+    </linearGradient>
+
+    <!-- Ambient Accent Glow -->
+    <radialGradient id="ambient-glow-repo-clashvision" cx="14%" cy="14%" r="48%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.18" />
+      <stop offset="55%" stop-color="#F59E0B" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.0" />
+    </radialGradient>
+
+    <!-- Illuminated Glass Edge & Rim Light -->
+    <linearGradient id="glass-rim-repo-clashvision" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.65" />
+      <stop offset="25%" stop-color="#FFFFFF" stop-opacity="0.22" />
+      <stop offset="65%" stop-color="#FFFFFF" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Diagonal Specular Shimmer Band -->
+    <linearGradient id="shimmer-band-repo-clashvision" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.0" />
+      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0.02" />
+      <stop offset="48%" stop-color="#FFFFFF" stop-opacity="0.08" />
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.22" />
+      <stop offset="52%" stop-color="#FFFFFF" stop-opacity="0.08" />
+      <stop offset="65%" stop-color="#FFFFFF" stop-opacity="0.02" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0" />
+    </linearGradient>
   </defs>
 
-  <g class="anim-repo">
-    <rect x="1" y="1" width="284" height="208" rx="12" fill="#16171D" stroke="#262832" stroke-width="1"/>
+  <g class="anim-card card-root">
+    <!-- Base Glass Surface with Depth Clipping -->
+    <g clip-path="url(#card-clip-repo-clashvision)">
+      <!-- Smoked Glass Body -->
+      <rect x="1" y="1" width="284" height="208" rx="12" fill="url(#glass-base-repo-clashvision)" />
+
+      <!-- Subtle Ambient Lighting -->
+      <rect class="ambient-glow" x="1" y="1" width="284" height="208" rx="12" fill="url(#ambient-glow-repo-clashvision)" />
+
+      <!-- Top Inner Glass Highlight Rule -->
+      <line x1="12" y1="2" x2="274" y2="2" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1" />
+
+      <!-- Moving Diagonal Shimmer Sweep -->
+      <rect class="shimmer-rect" x="-250" y="-150" width="180" height="550" fill="url(#shimmer-band-repo-clashvision)" />
+    </g>
+
+    <!-- Outer Illuminated Glass Edge -->
+    <rect class="glass-edge" x="1" y="1" width="284" height="208" rx="12" fill="none" stroke="url(#glass-rim-repo-clashvision)" stroke-width="1" />
 
     <!-- Top Metadata Bar -->
     <g transform="translate(20, 20)">
@@ -65,7 +159,7 @@
     <text x="20" y="128" fill="#C4C0B6" class="sans" font-size="12">deep Q-network reinforcement policy.</text>
 
     <!-- Divider & Quick Start -->
-    <line x1="20" y1="152" x2="264" y2="152" stroke="#262832" stroke-width="1"/>
+    <line x1="20" y1="152" x2="264" y2="152" stroke="#262834" stroke-width="1"/>
     
     <text x="20" y="180" fill="#7D7A73" class="mono" font-size="10">Kaggle Season 18 Dataset</text>
     <text x="264" y="180" fill="#F5F3EF" class="sans" font-size="11" font-weight="600" text-anchor="end">View Code →</text>

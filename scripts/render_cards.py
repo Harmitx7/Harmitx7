@@ -453,40 +453,155 @@ def render_activity_card(contrib_data: Dict[str, Any]) -> str:
 
 
 # ══════════════════════════════════════════════════════════════════════════
+# GLASS SHIMMER ARCHITECTURE HELPERS
+# ══════════════════════════════════════════════════════════════════════════
+def get_glass_card_defs(card_id: str, accent: str, w: int, h: int) -> str:
+    """Generate SVG definitions for smoked glass surface, ambient glow, illuminated rim, and shimmer band."""
+    return f"""
+    <!-- Clip path to rounded card surface -->
+    <clipPath id="card-clip-{card_id}">
+      <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="12" />
+    </clipPath>
+
+    <!-- Deep Smoked Glass Surface Gradient -->
+    <linearGradient id="glass-base-{card_id}" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B1C25" />
+      <stop offset="35%" stop-color="#15161E" />
+      <stop offset="100%" stop-color="#0F1016" />
+    </linearGradient>
+
+    <!-- Ambient Accent Glow -->
+    <radialGradient id="ambient-glow-{card_id}" cx="14%" cy="14%" r="48%">
+      <stop offset="0%" stop-color="{accent}" stop-opacity="0.18" />
+      <stop offset="55%" stop-color="{accent}" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="{accent}" stop-opacity="0.0" />
+    </radialGradient>
+
+    <!-- Illuminated Glass Edge & Rim Light -->
+    <linearGradient id="glass-rim-{card_id}" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="{accent}" stop-opacity="0.65" />
+      <stop offset="25%" stop-color="#FFFFFF" stop-opacity="0.22" />
+      <stop offset="65%" stop-color="#FFFFFF" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Diagonal Specular Shimmer Band -->
+    <linearGradient id="shimmer-band-{card_id}" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.0" />
+      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0.02" />
+      <stop offset="48%" stop-color="#FFFFFF" stop-opacity="0.08" />
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.22" />
+      <stop offset="52%" stop-color="#FFFFFF" stop-opacity="0.08" />
+      <stop offset="65%" stop-color="#FFFFFF" stop-opacity="0.02" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0" />
+    </linearGradient>"""
+
+
+def get_glass_card_css(card_id: str, accent: str, shimmer_delay: str, entrance_delay: str) -> str:
+    """Generate scoped CSS for glass shimmer diagonal sweep and hover physics."""
+    if IS_STATIC:
+        return f"""
+    .anim-card {{ opacity: 1; }}
+    .shimmer-rect {{ display: none !important; }}
+    """
+    return f"""
+    .anim-card {{ animation: fadeIn 0.6s ease {entrance_delay} both; }}
+    @keyframes shimmerSweep_{card_id} {{
+      0%, 15% {{
+        transform: rotate(26deg) translate(-280px, -140px);
+        opacity: 0;
+      }}
+      20% {{
+        opacity: 0.9;
+      }}
+      42% {{
+        transform: rotate(26deg) translate(360px, -140px);
+        opacity: 0.9;
+      }}
+      48%, 100% {{
+        transform: rotate(26deg) translate(420px, -140px);
+        opacity: 0;
+      }}
+    }}
+    .shimmer-rect {{
+      animation: shimmerSweep_{card_id} 8.5s cubic-bezier(0.16, 1, 0.3, 1) {shimmer_delay} infinite;
+      pointer-events: none;
+    }}
+    @media (hover: hover) {{
+      .card-root:hover .glass-edge {{
+        stroke: {accent};
+        stroke-opacity: 0.70;
+        filter: drop-shadow(0 0 6px {accent}40);
+      }}
+      .card-root:hover .ambient-glow {{
+        opacity: 0.30;
+      }}
+    }}
+    @media (prefers-reduced-motion: reduce) {{
+      .shimmer-rect {{ display: none !important; }}
+      *, ::before, ::after {{
+        animation: none !important;
+        transform: none !important;
+      }}
+    }}
+    """
+
+
+# ══════════════════════════════════════════════════════════════════════════
 # 4. THREE SIGNATURE WORLDS (cards/build.svg, cards/create.svg, cards/explore.svg)
 # ══════════════════════════════════════════════════════════════════════════
 def render_tile_build() -> str:
-    """Render 286x250 editorial tile for BUILD (tribunal-kit & AI Governance)."""
-    delay = "0.55s" if not IS_STATIC else "0s"
-    extra_css = f".anim-tile {{ animation: fadeIn 0.6s ease {delay} both; }}"
+    """Render 286x250 editorial glass tile for BUILD (tribunal-kit & AI Governance)."""
+    w, h = 286, 250
+    card_id = "tile-build"
+    accent = ACCENT_BLUE
+    extra_css = get_glass_card_css(card_id, accent, shimmer_delay="0.5s", entrance_delay="0.55s")
+    defs_content = get_glass_card_defs(card_id, accent, w, h)
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 250" width="100%" height="250">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
   <defs>
     <style>{get_base_css(extra_css, ["serif", "sans"])}</style>
+    {defs_content}
   </defs>
 
-  <g class="anim-tile">
-    <rect x="1" y="1" width="284" height="248" rx="12" fill="{BG_CARD}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
+  <g class="anim-card card-root">
+    <!-- Base Glass Surface with Depth Clipping -->
+    <g clip-path="url(#card-clip-{card_id})">
+      <!-- Smoked Glass Body -->
+      <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="url(#glass-base-{card_id})" />
+
+      <!-- Subtle Ambient Lighting -->
+      <rect class="ambient-glow" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="url(#ambient-glow-{card_id})" />
+
+      <!-- Top Inner Glass Highlight Rule -->
+      <line x1="12" y1="2" x2="{w-12}" y2="2" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1" />
+
+      <!-- Moving Diagonal Shimmer Sweep -->
+      <rect class="shimmer-rect" x="-250" y="-150" width="180" height="550" fill="url(#shimmer-band-{card_id})" />
+    </g>
+
+    <!-- Outer Illuminated Glass Edge -->
+    <rect class="glass-edge" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="none" stroke="url(#glass-rim-{card_id})" stroke-width="1" />
     
     <!-- Top Category & Accent Pill -->
-    <text x="22" y="32" fill="{ACCENT_BLUE}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">01 // BUILD</text>
-    <circle cx="260" cy="28" r="4" fill="{ACCENT_BLUE}"/>
+    <text x="22" y="32" fill="{accent}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">01 // BUILD</text>
+    <circle cx="260" cy="28" r="4" fill="{accent}"/>
 
     <!-- Minimalist Vector Motif: Directed Neural Agent Graph -->
     <g transform="translate(22, 46)">
-      <rect x="0" y="0" width="44" height="44" rx="8" fill="{BG_SUBTLE}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
-      <circle cx="14" cy="14" r="3.5" fill="{ACCENT_BLUE}"/>
+      <rect x="0" y="0" width="44" height="44" rx="8" fill="#14151D" stroke="#262835" stroke-width="1"/>
+      <circle cx="14" cy="14" r="3.5" fill="{accent}"/>
       <circle cx="30" cy="14" r="3" fill="{TEXT_MUTED}"/>
       <circle cx="22" cy="30" r="4" fill="{TEXT_PRIMARY}"/>
-      <line x1="14" y1="14" x2="30" y2="14" stroke="{ACCENT_BLUE}" stroke-width="1.2" stroke-opacity="0.7"/>
-      <line x1="14" y1="14" x2="22" y2="30" stroke="{ACCENT_BLUE}" stroke-width="1.2" stroke-opacity="0.7"/>
+      <line x1="14" y1="14" x2="30" y2="14" stroke="{accent}" stroke-width="1.2" stroke-opacity="0.7"/>
+      <line x1="14" y1="14" x2="22" y2="30" stroke="{accent}" stroke-width="1.2" stroke-opacity="0.7"/>
       <line x1="30" y1="14" x2="22" y2="30" stroke="{BORDER_FOCUS}" stroke-width="1.2"/>
     </g>
 
     <!-- Content -->
     <text x="22" y="122" fill="{TEXT_PRIMARY}" class="serif" font-size="24">tribunal-kit</text>
-    <text x="22" y="142" fill="{ACCENT_BLUE}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">MULTI-AGENT GOVERNANCE</text>
+    <text x="22" y="142" fill="{accent}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">MULTI-AGENT GOVERNANCE</text>
     
     <text x="22" y="168" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
       Anti-hallucination governance layer
@@ -496,42 +611,62 @@ def render_tile_build() -> str:
     </text>
 
     <!-- Bottom Metadata Row (Explicitly spaced) -->
-    <line x1="22" y1="208" x2="264" y2="208" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
+    <line x1="22" y1="208" x2="264" y2="208" stroke="#262834" stroke-width="1"/>
     <text x="22" y="228" fill="{TEXT_MUTED}" class="mono" font-size="10">TypeScript · Rust</text>
-    <text x="264" y="228" fill="{ACCENT_BLUE}" class="sans" font-size="11" font-weight="600" text-anchor="end">Explore →</text>
+    <text x="264" y="228" fill="{accent}" class="sans" font-size="11" font-weight="600" text-anchor="end">Explore →</text>
   </g>
 </svg>"""
     return svg
 
 
 def render_tile_create() -> str:
-    """Render 286x250 editorial tile for CREATE (Design & Visual Systems)."""
-    delay = "0.62s" if not IS_STATIC else "0s"
-    extra_css = f".anim-tile {{ animation: fadeIn 0.6s ease {delay} both; }}"
+    """Render 286x250 editorial glass tile for CREATE (Design & Visual Systems)."""
+    w, h = 286, 250
+    card_id = "tile-create"
+    accent = ACCENT_YELLOW
+    extra_css = get_glass_card_css(card_id, accent, shimmer_delay="3.3s", entrance_delay="0.62s")
+    defs_content = get_glass_card_defs(card_id, accent, w, h)
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 250" width="100%" height="250">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
   <defs>
     <style>{get_base_css(extra_css, ["serif", "sans"])}</style>
+    {defs_content}
   </defs>
 
-  <g class="anim-tile">
-    <rect x="1" y="1" width="284" height="248" rx="12" fill="{BG_CARD}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
+  <g class="anim-card card-root">
+    <!-- Base Glass Surface with Depth Clipping -->
+    <g clip-path="url(#card-clip-{card_id})">
+      <!-- Smoked Glass Body -->
+      <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="url(#glass-base-{card_id})" />
+
+      <!-- Subtle Ambient Lighting -->
+      <rect class="ambient-glow" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="url(#ambient-glow-{card_id})" />
+
+      <!-- Top Inner Glass Highlight Rule -->
+      <line x1="12" y1="2" x2="{w-12}" y2="2" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1" />
+
+      <!-- Moving Diagonal Shimmer Sweep -->
+      <rect class="shimmer-rect" x="-250" y="-150" width="180" height="550" fill="url(#shimmer-band-{card_id})" />
+    </g>
+
+    <!-- Outer Illuminated Glass Edge -->
+    <rect class="glass-edge" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="none" stroke="url(#glass-rim-{card_id})" stroke-width="1" />
     
     <!-- Top Category & Accent Pill -->
-    <text x="22" y="32" fill="{ACCENT_YELLOW}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">02 // CREATE</text>
-    <circle cx="260" cy="28" r="4" fill="{ACCENT_YELLOW}"/>
+    <text x="22" y="32" fill="{accent}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">02 // CREATE</text>
+    <circle cx="260" cy="28" r="4" fill="{accent}"/>
 
     <!-- Minimalist Vector Motif: Generative Harmonic Curve -->
     <g transform="translate(22, 46)">
-      <rect x="0" y="0" width="44" height="44" rx="8" fill="{BG_SUBTLE}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
-      <path d="M 10 32 Q 22 8 34 32" fill="none" stroke="{ACCENT_YELLOW}" stroke-width="1.8" stroke-linecap="round"/>
+      <rect x="0" y="0" width="44" height="44" rx="8" fill="#14151D" stroke="#262835" stroke-width="1"/>
+      <path d="M 10 32 Q 22 8 34 32" fill="none" stroke="{accent}" stroke-width="1.8" stroke-linecap="round"/>
       <circle cx="22" cy="18" r="3" fill="{TEXT_PRIMARY}"/>
     </g>
 
     <!-- Content -->
     <text x="22" y="122" fill="{TEXT_PRIMARY}" class="serif" font-size="24">DeckReactor</text>
-    <text x="22" y="142" fill="{ACCENT_YELLOW}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">CREATIVE LABS &amp; SYSTEMS</text>
+    <text x="22" y="142" fill="{accent}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">CREATIVE LABS &amp; SYSTEMS</text>
     
     <text x="22" y="168" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
       Dynamic canvas environments and
@@ -541,41 +676,61 @@ def render_tile_create() -> str:
     </text>
 
     <!-- Bottom Metadata Row -->
-    <line x1="22" y1="208" x2="264" y2="208" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
+    <line x1="22" y1="208" x2="264" y2="208" stroke="#262834" stroke-width="1"/>
     <text x="22" y="228" fill="{TEXT_MUTED}" class="mono" font-size="10">React · SVG · Canvas</text>
-    <text x="264" y="228" fill="{ACCENT_YELLOW}" class="sans" font-size="11" font-weight="600" text-anchor="end">Visit Lab →</text>
+    <text x="264" y="228" fill="{accent}" class="sans" font-size="11" font-weight="600" text-anchor="end">Visit Lab →</text>
   </g>
 </svg>"""
     return svg
 
 
 def render_tile_explore() -> str:
-    """Render 286x250 editorial tile for EXPLORE (RL Policy & Telemetry)."""
-    delay = "0.70s" if not IS_STATIC else "0s"
-    extra_css = f".anim-tile {{ animation: fadeIn 0.6s ease {delay} both; }}"
+    """Render 286x250 editorial glass tile for EXPLORE (RL Policy & Telemetry)."""
+    w, h = 286, 250
+    card_id = "tile-explore"
+    accent = ACCENT_RED
+    extra_css = get_glass_card_css(card_id, accent, shimmer_delay="6.1s", entrance_delay="0.70s")
+    defs_content = get_glass_card_defs(card_id, accent, w, h)
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 250" width="100%" height="250">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
   <defs>
     <style>{get_base_css(extra_css, ["serif", "sans"])}</style>
+    {defs_content}
   </defs>
 
-  <g class="anim-tile">
-    <rect x="1" y="1" width="284" height="248" rx="12" fill="{BG_CARD}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
+  <g class="anim-card card-root">
+    <!-- Base Glass Surface with Depth Clipping -->
+    <g clip-path="url(#card-clip-{card_id})">
+      <!-- Smoked Glass Body -->
+      <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="url(#glass-base-{card_id})" />
+
+      <!-- Subtle Ambient Lighting -->
+      <rect class="ambient-glow" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="url(#ambient-glow-{card_id})" />
+
+      <!-- Top Inner Glass Highlight Rule -->
+      <line x1="12" y1="2" x2="{w-12}" y2="2" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1" />
+
+      <!-- Moving Diagonal Shimmer Sweep -->
+      <rect class="shimmer-rect" x="-250" y="-150" width="180" height="550" fill="url(#shimmer-band-{card_id})" />
+    </g>
+
+    <!-- Outer Illuminated Glass Edge -->
+    <rect class="glass-edge" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="none" stroke="url(#glass-rim-{card_id})" stroke-width="1" />
     
     <!-- Top Category & Accent Pill -->
-    <text x="22" y="32" fill="{ACCENT_RED}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">03 // EXPLORE</text>
-    <circle cx="260" cy="28" r="4" fill="{ACCENT_RED}"/>
+    <text x="22" y="32" fill="{accent}" class="mono" font-size="10.5" font-weight="600" letter-spacing="2">03 // EXPLORE</text>
+    <circle cx="260" cy="28" r="4" fill="{accent}"/>
 
     <!-- Minimalist Vector Motif: Telemetry Lap Trace Wave -->
     <g transform="translate(22, 46)">
-      <rect x="0" y="0" width="44" height="44" rx="8" fill="{BG_SUBTLE}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
-      <path d="M 8 26 L 16 14 L 24 30 L 32 10 L 38 20" fill="none" stroke="{ACCENT_RED}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="0" y="0" width="44" height="44" rx="8" fill="#14151D" stroke="#262835" stroke-width="1"/>
+      <path d="M 8 26 L 16 14 L 24 30 L 32 10 L 38 20" fill="none" stroke="{accent}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
 
     <!-- Content -->
     <text x="22" y="122" fill="{TEXT_PRIMARY}" class="serif" font-size="24">ClashVision &amp; F1</text>
-    <text x="22" y="142" fill="{ACCENT_RED}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">RL POLICY &amp; TELEMETRY</text>
+    <text x="22" y="142" fill="{accent}" class="sans" font-size="11" font-weight="600" letter-spacing="0.5">RL POLICY &amp; TELEMETRY</text>
     
     <text x="22" y="168" fill="{TEXT_SECONDARY}" class="sans" font-size="12">
       Real-time tactical battle prediction
@@ -585,9 +740,9 @@ def render_tile_explore() -> str:
     </text>
 
     <!-- Bottom Metadata Row -->
-    <line x1="22" y1="208" x2="264" y2="208" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
+    <line x1="22" y1="208" x2="264" y2="208" stroke="#262834" stroke-width="1"/>
     <text x="22" y="228" fill="{TEXT_MUTED}" class="mono" font-size="10">Python · PyTorch · DuckDB</text>
-    <text x="264" y="228" fill="{ACCENT_RED}" class="sans" font-size="11" font-weight="600" text-anchor="end">Inspect →</text>
+    <text x="264" y="228" fill="{accent}" class="sans" font-size="11" font-weight="600" text-anchor="end">Inspect →</text>
   </g>
 </svg>"""
     return svg
@@ -606,19 +761,40 @@ def render_repo_card(
     forks: int,
     meta_tag: str,
     accent: str,
-    delay: str = "0.85s",
+    card_id: str,
+    shimmer_delay: str = "0.6s",
+    entrance_delay: str = "0.80s",
 ) -> str:
-    """Render 286x210 editorial project card with genuine metadata and balanced typography."""
-    extra_css = f".anim-repo {{ animation: fadeIn 0.6s ease {delay} both; }}"
+    """Render 286x210 editorial project card with smoked glass appearance and diagonal light shimmer."""
+    w, h = 286, 210
+    extra_css = get_glass_card_css(card_id, accent, shimmer_delay, entrance_delay)
+    defs_content = get_glass_card_defs(card_id, accent, w, h)
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 210" width="100%" height="210">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
   <defs>
     <style>{get_base_css(extra_css, ["serif", "sans"])}</style>
+    {defs_content}
   </defs>
 
-  <g class="anim-repo">
-    <rect x="1" y="1" width="284" height="208" rx="12" fill="{BG_CARD}" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
+  <g class="anim-card card-root">
+    <!-- Base Glass Surface with Depth Clipping -->
+    <g clip-path="url(#card-clip-{card_id})">
+      <!-- Smoked Glass Body -->
+      <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="url(#glass-base-{card_id})" />
+
+      <!-- Subtle Ambient Lighting -->
+      <rect class="ambient-glow" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="url(#ambient-glow-{card_id})" />
+
+      <!-- Top Inner Glass Highlight Rule -->
+      <line x1="12" y1="2" x2="{w-12}" y2="2" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1" />
+
+      <!-- Moving Diagonal Shimmer Sweep -->
+      <rect class="shimmer-rect" x="-250" y="-150" width="180" height="550" fill="url(#shimmer-band-{card_id})" />
+    </g>
+
+    <!-- Outer Illuminated Glass Edge -->
+    <rect class="glass-edge" x="1" y="1" width="{w-2}" height="{h-2}" rx="12" fill="none" stroke="url(#glass-rim-{card_id})" stroke-width="1" />
 
     <!-- Top Metadata Bar -->
     <g transform="translate(20, 20)">
@@ -641,7 +817,7 @@ def render_repo_card(
     <text x="20" y="128" fill="{TEXT_SECONDARY}" class="sans" font-size="12">{description_l2}</text>
 
     <!-- Divider & Quick Start -->
-    <line x1="20" y1="152" x2="264" y2="152" stroke="{BORDER_HAIRLINE}" stroke-width="1"/>
+    <line x1="20" y1="152" x2="264" y2="152" stroke="#262834" stroke-width="1"/>
     
     <text x="20" y="180" fill="{TEXT_MUTED}" class="mono" font-size="10">{meta_tag}</text>
     <text x="264" y="180" fill="{TEXT_PRIMARY}" class="sans" font-size="11" font-weight="600" text-anchor="end">View Code →</text>
@@ -661,7 +837,9 @@ def render_repo_tribunal_kit() -> str:
         forks=1,
         meta_tag="npm i -g tribunal-kit",
         accent=ACCENT_BLUE,
-        delay="0.80s" if not IS_STATIC else "0s",
+        card_id="repo-tribunal",
+        shimmer_delay="0.6s",
+        entrance_delay="0.80s" if not IS_STATIC else "0s",
     )
 
 
@@ -676,7 +854,9 @@ def render_repo_clashvision() -> str:
         forks=0,
         meta_tag="Kaggle Season 18 Dataset",
         accent=ACCENT_YELLOW,
-        delay="0.88s" if not IS_STATIC else "0s",
+        card_id="repo-clashvision",
+        shimmer_delay="3.4s",
+        entrance_delay="0.88s" if not IS_STATIC else "0s",
     )
 
 
@@ -691,7 +871,9 @@ def render_repo_f1_telemetry() -> str:
         forks=0,
         meta_tag="DuckDB · FastEngine",
         accent=ACCENT_RED,
-        delay="0.96s" if not IS_STATIC else "0s",
+        card_id="repo-f1",
+        shimmer_delay="6.2s",
+        entrance_delay="0.96s" if not IS_STATIC else "0s",
     )
 
 
@@ -753,6 +935,10 @@ def compile_cards(out_dir: str = OUT_DIR) -> Dict[str, str]:
         "hero.svg": render_hero_svg(),
         "heatmap.svg": render_heatmap_card(contrib_data),
         "activity.svg": render_activity_card(contrib_data),
+        # Three Signature Worlds
+        "build.svg": render_tile_build(),
+        "create.svg": render_tile_create(),
+        "explore.svg": render_tile_explore(),
         # Featured Repositories
         "repo-tribunal-kit.svg": render_repo_tribunal_kit(),
         "repo-clashvision.svg": render_repo_clashvision(),
