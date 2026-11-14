@@ -34,18 +34,9 @@
   </picture>
 </p>
 
-<!-- 04. FLAGSHIP SYSTEMS ARCHITECTURE DECK -->
+<!-- 04. THREE SIGNATURE FEATURE CARDS -->
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./cards/projects-dark.svg?v=3">
-    <img src="./cards/projects-light.svg?v=3" width="100%" alt="04 // Flagship Systems Architecture Deck — tribunal-kit, DeckReactor, ClashVision &amp; F1" />
-  </picture>
-</p>
-
-<p align="center">
-  <a href="https://github.com/Harmitx7/tribunal-kit"><code>01 // tribunal-kit ↗</code></a> &nbsp;&nbsp;·&nbsp;&nbsp;
-  <a href="https://github.com/Harmitx7/DeckReactor"><code>02 // DeckReactor ↗</code></a> &nbsp;&nbsp;·&nbsp;&nbsp;
-  <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><code>03 // ClashVision &amp; F1 ↗</code></a>
+  <a href="https://github.com/Harmitx7/tribunal-kit"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/build-dark.svg?v=3"><img src="./cards/build-light.svg?v=3" width="32.5%" alt="01 // BUILD — tribunal-kit" /></picture></a> <a href="https://github.com/Harmitx7/DeckReactor"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/create-dark.svg?v=3"><img src="./cards/create-light.svg?v=3" width="32.5%" alt="02 // CREATE — DeckReactor" /></picture></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/explore-dark.svg?v=3"><img src="./cards/explore-light.svg?v=3" width="32.5%" alt="03 // EXPLORE — ClashVision &amp; F1" /></picture></a>
 </p>
 
 <!-- 05. COLOPHON & VERIFICATION SEAL -->
