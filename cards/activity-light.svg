@@ -134,7 +134,7 @@
 
     <!-- Oversized Editorial Headline -->
     <text x="44" y="94" fill="#151515">
-      <tspan class="serif" font-size="44" font-weight="400">266 </tspan>
+      <tspan class="serif" font-size="44" font-weight="400">263 </tspan>
       <tspan class="serif" font-size="44" font-style="italic">contributions</tspan>
     </text>
   </g>
@@ -202,7 +202,7 @@
   <!-- STATISTIC 02: Active Days Ratio -->
   <g class="anim-stat-2">
     <text x="640" y="176">
-      <tspan class="serif" font-size="38" fill="#151515" font-weight="400">101 </tspan>
+      <tspan class="serif" font-size="38" fill="#151515" font-weight="400">100 </tspan>
       <tspan class="serif" font-size="32" fill="#A0A0A5">/ </tspan>
       <tspan class="serif" font-size="34" fill="#77777D" font-style="italic">371</tspan>
     </text>
