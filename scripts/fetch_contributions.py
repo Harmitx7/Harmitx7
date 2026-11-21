@@ -18,7 +18,8 @@ from src.data.contribution_fetcher import ContributionFetcher
 def main():
     parser = argparse.ArgumentParser(description="Fetch and parse live GitHub contributions.")
     parser.add_argument("--username", default="Harmitx7", help="Target GitHub username.")
-    parser.add_argument("--force", action="store_true", help="Force live fetch, bypassing cache.")
+    parser.add_argument("--force", action="store_true", default=True, help="Force live fetch, bypassing cache (default: True).")
+    parser.add_argument("--cache", dest="force", action="store_false", help="Allow reading from local disk cache if fresh.")
     parser.add_argument("--out", default=None, help="Custom output JSON path.")
     args = parser.parse_args()
 

@@ -2,28 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GitHub Profile Preview - Harmit Kalal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profile Preview — Harmit Kalal (@Harmitx7)</title>
   <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #0d1117;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+    }
+    body.theme-light {
+      --bg: #f6f8fa;
+      --card-bg: #ffffff;
+      --border: #d0d7de;
+      --text: #24292f;
+      --accent: #0969da;
+    }
     body {
-      background-color: #0d1117;
-      color: #c9d1d9;
+      background-color: var(--bg);
+      color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       margin: 0;
-      padding: 40px 20px;
+      padding: 32px 16px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      transition: background-color 240ms ease, color 240ms ease;
+    }
+    .toolbar {
+      width: 100%;
+      max-width: 896px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 12px 18px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    .toolbar-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #2ea043;
+      box-shadow: 0 0 6px rgba(46, 160, 67, 0.6);
+    }
+    .theme-toggle-btn {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .theme-toggle-btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .theme-toggle-btn:active {
+      transform: translateY(0) scale(0.98);
     }
     .container {
       width: 100%;
       max-width: 896px;
-      background-color: #0d1117;
-      border: 1px solid #30363d;
-      border-radius: 6px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
       padding: 32px;
       box-sizing: border-box;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
     }
     a {
-      color: #58a6ff;
+      color: var(--accent);
       text-decoration: none;
     }
     a:hover {
@@ -32,60 +99,129 @@
     img {
       max-width: 100%;
       box-sizing: border-box;
+      display: block;
     }
     p {
       margin-top: 0;
       margin-bottom: 16px;
       line-height: 1.5;
     }
+    .signature-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .signature-row a {
+      flex: 1;
+      display: block;
+    }
+    .signature-row img {
+      width: 100%;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!--
-     ══════════════════════════════════════════════════════════════════════════
-     HARMIT KALAL (@Harmitx7) — EDITORIAL DEVELOPER PORTFOLIO
-     Rendered as a suite of animated SVG cards by scripts/render_cards.py.
-     Refreshed automatically via scheduled GitHub Action (.github/workflows/update-profile.yml).
-     Embedded typography (Instrument Serif, Geist, Geist Mono) & hardware-accelerated CSS keyframes.
-     ══════════════════════════════════════════════════════════════════════════
--->
-<div align="center">
-
-<!-- 01. HERO / PERSONAL IDENTITY -->
-<p align="center">
-  <a href="https://harmit.vercel.app"><img src="file:///C:/Users/sunrise/Desktop/pfojects/New folder (2)/Harmitx7/cards/hero.svg" width="100%" alt="Harmit Kalal — Fullstack Engineer &amp; Systems Architect" /></a>
-</p>
-
-<!-- 02. BLUE CONTRIBUTION CALENDAR -->
-<p align="center">
-  <img src="file:///C:/Users/sunrise/Desktop/pfojects/New folder (2)/Harmitx7/cards/heatmap.svg" width="100%" alt="Every day, in blue — 53-week GitHub contribution calendar" />
-</p>
-
-<!-- 03. MONTHLY CONTRIBUTION STATISTICS -->
-<p align="center">
-  <img src="file:///C:/Users/sunrise/Desktop/pfojects/New folder (2)/Harmitx7/cards/activity.svg" width="100%" alt="The Last 12 Months on GitHub — Editorial monthly contribution chart and key cadence statistics" />
-</p>
-
-<!-- 04. THREE SIGNATURE FEATURE CARDS -->
-<p align="center">
-  <a href="https://github.com/Harmitx7/tribunal-kit"><img src="file:///C:/Users/sunrise/Desktop/pfojects/New folder (2)/Harmitx7/cards/build.svg" width="32.5%" alt="01 // BUILD — tribunal-kit" /></a> <a href="https://github.com/Harmitx7/DeckReactor"><img src="file:///C:/Users/sunrise/Desktop/pfojects/New folder (2)/Harmitx7/cards/create.svg" width="32.5%" alt="02 // CREATE — DeckReactor" /></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><img src="file:///C:/Users/sunrise/Desktop/pfojects/New folder (2)/Harmitx7/cards/explore.svg" width="32.5%" alt="03 // EXPLORE — ClashVision &amp; F1" /></a>
-</p>
-
-<!-- 05. FOOTER / COLOPHON -->
-<p align="center">
-  <a href="https://harmit.vercel.app"><img src="file:///C:/Users/sunrise/Desktop/pfojects/New folder (2)/Harmitx7/cards/footer.svg" width="100%" alt="Harmit Kalal — Colophon &amp; verification status" /></a>
-</p>
-
-</div>
-
-<p align="center">
-  <a href="https://harmit.vercel.app">harmit.vercel.app</a> &nbsp;·&nbsp;
-  <a href="https://github.com/Harmitx7">github</a> &nbsp;·&nbsp;
-  <a href="https://linkedin.com/in/harmitkalal">linkedin</a> &nbsp;·&nbsp;
-  <a href="mailto:harmitkalal7@gmail.com">email</a>
-</p>
-
+  <div class="toolbar">
+    <div class="toolbar-title">
+      <span class="status-dot"></span>
+      HARMITX7 EDITORIAL UI PREVIEW · 60FPS COMPOSITOR ENGINE
+    </div>
+    <button class="theme-toggle-btn" id="toggleTheme" onclick="toggleTheme()">
+      <span id="themeIcon">☀️</span> Switch to Light Mode
+    </button>
   </div>
+
+  <div class="container">
+    <div align="center">
+
+      <!-- 01. HERO / PERSONAL IDENTITY -->
+      <p align="center">
+        <a href="https://harmit.vercel.app">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="../cards/hero-dark.svg">
+            <img id="imgHero" src="../cards/hero-dark.svg" width="100%" alt="Harmit Kalal — Fullstack Engineer &amp; Systems Architect" />
+          </picture>
+        </a>
+      </p>
+
+      <!-- 02. BLUE CONTRIBUTION CALENDAR -->
+      <p align="center">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../cards/heatmap-dark.svg">
+          <img id="imgHeatmap" src="../cards/heatmap-dark.svg" width="100%" alt="Every day, in blue — 53-week GitHub contribution calendar" />
+        </picture>
+      </p>
+
+      <!-- 03. MONTHLY CONTRIBUTION STATISTICS -->
+      <p align="center">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../cards/activity-dark.svg">
+          <img id="imgActivity" src="../cards/activity-dark.svg" width="100%" alt="The Last 12 Months on GitHub — Editorial monthly contribution chart and key cadence statistics" />
+        </picture>
+      </p>
+
+      <!-- 04. THREE SIGNATURE FEATURE CARDS -->
+      <div class="signature-row">
+        <a href="https://github.com/Harmitx7/tribunal-kit">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="../cards/build-dark.svg">
+            <img id="imgBuild" src="../cards/build-dark.svg" alt="01 // BUILD — tribunal-kit" />
+          </picture>
+        </a>
+        <a href="https://github.com/Harmitx7/DeckReactor">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="../cards/create-dark.svg">
+            <img id="imgCreate" src="../cards/create-dark.svg" alt="02 // CREATE — DeckReactor" />
+          </picture>
+        </a>
+        <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="../cards/explore-dark.svg">
+            <img id="imgExplore" src="../cards/explore-dark.svg" alt="03 // EXPLORE — ClashVision &amp; F1" />
+          </picture>
+        </a>
+      </div>
+
+      <!-- 05. FOOTER / COLOPHON -->
+      <p align="center">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../cards/footer-dark.svg">
+          <img id="imgFooter" src="../cards/footer-dark.svg" width="100%" alt="Harmit Kalal — Colophon &amp; verification status" />
+        </picture>
+      </p>
+
+    </div>
+
+    <p align="center" style="margin-top: 24px; font-size: 13px;">
+      <a href="https://harmit.vercel.app">harmit.vercel.app</a> &nbsp;·&nbsp;
+      <a href="https://github.com/Harmitx7">github</a> &nbsp;·&nbsp;
+      <a href="https://linkedin.com/in/harmitkalal">linkedin</a> &nbsp;·&nbsp;
+      <a href="mailto:harmitkalal7@gmail.com">email</a>
+    </p>
+  </div>
+
+  <script>
+    let currentTheme = 'dark';
+    function toggleTheme() {
+      currentTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+      document.body.className = (currentTheme === 'light') ? 'theme-light' : '';
+      
+      const icon = (currentTheme === 'light') ? '🌙' : '☀️';
+      const label = (currentTheme === 'light') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+      document.getElementById('themeIcon').textContent = icon;
+      document.getElementById('toggleTheme').innerHTML = `<span id="themeIcon">${icon}</span> ${label}`;
+
+      // Update explicit image elements for theme testing
+      const suffix = (currentTheme === 'light') ? '-light.svg' : '-dark.svg';
+      document.getElementById('imgHero').src = `../cards/hero${suffix}`;
+      document.getElementById('imgHeatmap').src = `../cards/heatmap${suffix}`;
+      document.getElementById('imgActivity').src = `../cards/activity${suffix}`;
+      document.getElementById('imgBuild').src = `../cards/build${suffix}`;
+      document.getElementById('imgCreate').src = `../cards/create${suffix}`;
+      document.getElementById('imgExplore').src = `../cards/explore${suffix}`;
+      document.getElementById('imgFooter').src = `../cards/footer${suffix}`;
+    }
+  </script>
 </body>
 </html>

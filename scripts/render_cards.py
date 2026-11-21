@@ -586,7 +586,7 @@ def render_projects_deck(theme: str = "light") -> str:
 
 
 def render_tile_build(theme: str = "light") -> str:
-    """Render 286x196 signature card for BUILD (tribunal-kit)."""
+    """Render 286x196 signature card for BUILD (tribunal-kit) with 60fps GPU compositor motion."""
     w, h = 286, 196
     is_dark = (theme == "dark")
     bg = "#161B22" if is_dark else COLOR_BUILD
@@ -597,10 +597,44 @@ def render_tile_build(theme: str = "light") -> str:
 
     anim_css = "" if IS_STATIC else """
     @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .card-root { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+    @keyframes shimmerSweep {
+      0% { transform: rotate(26deg) translate(-220px, -120px); opacity: 0; }
+      2% { opacity: 0.8; }
+      12% { transform: rotate(26deg) translate(300px, -120px); opacity: 0.8; }
+      14%, 100% { transform: rotate(26deg) translate(360px, -120px); opacity: 0; }
+    }
+    .card-root {
+      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), filter 220ms ease;
+    }
+    .arrow {
+      transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .shimmer-rect {
+      animation: shimmerSweep 7.5s cubic-bezier(0.16, 1, 0.3, 1) 0.6s infinite;
+      pointer-events: none;
+    }
+    @media (hover: hover) {
+      .card-root:hover {
+        transform: translateY(-2.5px);
+        filter: drop-shadow(0 8px 20px rgba(36, 77, 255, 0.35));
+        cursor: pointer;
+      }
+      .card-root:hover .arrow {
+        transform: translateX(4px);
+      }
+    }
+    .card-root:active {
+      transform: translateY(0px) scale(0.985);
+      transition-duration: 80ms;
+    }
     """
 
-    bevel_bar = f'<rect x="1" y="1" width="{w-2}" height="3" rx="1.5" fill="{accent_bar}" />' if is_dark else ""
+    bevel_bar = f'<rect x="1" y="1" width="{w-2}" height="3" rx="1.5" fill="{accent_bar}" />'
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
@@ -613,16 +647,33 @@ def render_tile_build(theme: str = "light") -> str:
       {anim_css}
       @media (prefers-reduced-motion: reduce) {{
         *, ::before, ::after {{ animation: none !important; opacity: 1 !important; transform: none !important; }}
+        .shimmer-rect {{ display: none !important; }}
       }}
     </style>
+    <clipPath id="clip-build">
+      <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" />
+    </clipPath>
+    <linearGradient id="shimmer-build" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.0" />
+      <stop offset="48%" stop-color="#FFFFFF" stop-opacity="0.06" />
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.25" />
+      <stop offset="52%" stop-color="#FFFFFF" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0" />
+    </linearGradient>
   </defs>
 
   <g class="card-root">
     <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{bg}" stroke="{border}" stroke-width="1" />
+    
+    <!-- Shimmer Highlight Sweep -->
+    <g clip-path="url(#clip-build)">
+      <rect class="shimmer-rect" x="0" y="0" width="70" height="280" fill="url(#shimmer-build)" />
+    </g>
+
     {bevel_bar}
 
     <text x="22" y="32" fill="{accent_bar}" class="mono" font-size="11" font-weight="600" letter-spacing="2">01 // BUILD</text>
-    <text x="264" y="32" fill="{accent_bar}" class="sans" font-size="14" font-weight="600" text-anchor="end">→</text>
+    <text x="264" y="32" fill="{accent_bar}" class="sans arrow" font-size="14" font-weight="600" text-anchor="end">→</text>
 
     <text x="22" y="86" fill="{text_color}">
       <tspan class="serif" font-size="30" font-weight="400">tribunal</tspan>
@@ -643,7 +694,7 @@ def render_tile_build(theme: str = "light") -> str:
 
 
 def render_tile_create(theme: str = "light") -> str:
-    """Render 286x196 signature card for CREATE (DeckReactor)."""
+    """Render 286x196 signature card for CREATE (DeckReactor) with 60fps GPU compositor motion."""
     w, h = 286, 196
     is_dark = (theme == "dark")
     bg = "#161B22" if is_dark else COLOR_CREATE
@@ -654,10 +705,44 @@ def render_tile_create(theme: str = "light") -> str:
 
     anim_css = "" if IS_STATIC else """
     @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .card-root { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }
+    @keyframes shimmerSweep {
+      0% { transform: rotate(26deg) translate(-220px, -120px); opacity: 0; }
+      2% { opacity: 0.8; }
+      12% { transform: rotate(26deg) translate(300px, -120px); opacity: 0.8; }
+      14%, 100% { transform: rotate(26deg) translate(360px, -120px); opacity: 0; }
+    }
+    .card-root {
+      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), filter 220ms ease;
+    }
+    .arrow {
+      transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .shimmer-rect {
+      animation: shimmerSweep 7.5s cubic-bezier(0.16, 1, 0.3, 1) 1.2s infinite;
+      pointer-events: none;
+    }
+    @media (hover: hover) {
+      .card-root:hover {
+        transform: translateY(-2.5px);
+        filter: drop-shadow(0 8px 20px rgba(248, 81, 73, 0.35));
+        cursor: pointer;
+      }
+      .card-root:hover .arrow {
+        transform: translateX(4px);
+      }
+    }
+    .card-root:active {
+      transform: translateY(0px) scale(0.985);
+      transition-duration: 80ms;
+    }
     """
 
-    bevel_bar = f'<rect x="1" y="1" width="{w-2}" height="3" rx="1.5" fill="{accent_bar}" />' if is_dark else ""
+    bevel_bar = f'<rect x="1" y="1" width="{w-2}" height="3" rx="1.5" fill="{accent_bar}" />'
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
@@ -670,16 +755,33 @@ def render_tile_create(theme: str = "light") -> str:
       {anim_css}
       @media (prefers-reduced-motion: reduce) {{
         *, ::before, ::after {{ animation: none !important; opacity: 1 !important; transform: none !important; }}
+        .shimmer-rect {{ display: none !important; }}
       }}
     </style>
+    <clipPath id="clip-create">
+      <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" />
+    </clipPath>
+    <linearGradient id="shimmer-create" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.0" />
+      <stop offset="48%" stop-color="#FFFFFF" stop-opacity="0.06" />
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.25" />
+      <stop offset="52%" stop-color="#FFFFFF" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0" />
+    </linearGradient>
   </defs>
 
   <g class="card-root">
     <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{bg}" stroke="{border}" stroke-width="1" />
+
+    <!-- Shimmer Highlight Sweep -->
+    <g clip-path="url(#clip-create)">
+      <rect class="shimmer-rect" x="0" y="0" width="70" height="280" fill="url(#shimmer-create)" />
+    </g>
+
     {bevel_bar}
 
     <text x="22" y="32" fill="{accent_bar}" class="mono" font-size="11" font-weight="600" letter-spacing="2">02 // CREATE</text>
-    <text x="264" y="32" fill="{accent_bar}" class="sans" font-size="14" font-weight="600" text-anchor="end">→</text>
+    <text x="264" y="32" fill="{accent_bar}" class="sans arrow" font-size="14" font-weight="600" text-anchor="end">→</text>
 
     <text x="22" y="86" fill="{text_color}">
       <tspan class="serif" font-size="30" font-weight="400">Deck</tspan>
@@ -700,7 +802,7 @@ def render_tile_create(theme: str = "light") -> str:
 
 
 def render_tile_explore(theme: str = "light") -> str:
-    """Render 286x196 signature card for EXPLORE (ClashVision & F1)."""
+    """Render 286x196 signature card for EXPLORE (ClashVision & F1) with 60fps GPU compositor motion."""
     w, h = 286, 196
     is_dark = (theme == "dark")
     bg = "#161B22" if is_dark else COLOR_EXPLORE
@@ -711,10 +813,44 @@ def render_tile_explore(theme: str = "light") -> str:
 
     anim_css = "" if IS_STATIC else """
     @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .card-root { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.40s both; }
+    @keyframes shimmerSweep {
+      0% { transform: rotate(26deg) translate(-220px, -120px); opacity: 0; }
+      2% { opacity: 0.8; }
+      12% { transform: rotate(26deg) translate(300px, -120px); opacity: 0.8; }
+      14%, 100% { transform: rotate(26deg) translate(360px, -120px); opacity: 0; }
+    }
+    .card-root {
+      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.40s both;
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), filter 220ms ease;
+    }
+    .arrow {
+      transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .shimmer-rect {
+      animation: shimmerSweep 7.5s cubic-bezier(0.16, 1, 0.3, 1) 1.8s infinite;
+      pointer-events: none;
+    }
+    @media (hover: hover) {
+      .card-root:hover {
+        transform: translateY(-2.5px);
+        filter: drop-shadow(0 8px 20px rgba(227, 179, 65, 0.35));
+        cursor: pointer;
+      }
+      .card-root:hover .arrow {
+        transform: translateX(4px);
+      }
+    }
+    .card-root:active {
+      transform: translateY(0px) scale(0.985);
+      transition-duration: 80ms;
+    }
     """
 
-    bevel_bar = f'<rect x="1" y="1" width="{w-2}" height="3" rx="1.5" fill="{accent_bar}" />' if is_dark else ""
+    bevel_bar = f'<rect x="1" y="1" width="{w-2}" height="3" rx="1.5" fill="{accent_bar}" />'
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="{h}">
@@ -727,16 +863,33 @@ def render_tile_explore(theme: str = "light") -> str:
       {anim_css}
       @media (prefers-reduced-motion: reduce) {{
         *, ::before, ::after {{ animation: none !important; opacity: 1 !important; transform: none !important; }}
+        .shimmer-rect {{ display: none !important; }}
       }}
     </style>
+    <clipPath id="clip-explore">
+      <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" />
+    </clipPath>
+    <linearGradient id="shimmer-explore" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.0" />
+      <stop offset="48%" stop-color="#FFFFFF" stop-opacity="0.06" />
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.25" />
+      <stop offset="52%" stop-color="#FFFFFF" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0" />
+    </linearGradient>
   </defs>
 
   <g class="card-root">
     <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{bg}" stroke="{border}" stroke-width="1" />
+
+    <!-- Shimmer Highlight Sweep -->
+    <g clip-path="url(#clip-explore)">
+      <rect class="shimmer-rect" x="0" y="0" width="70" height="280" fill="url(#shimmer-explore)" />
+    </g>
+
     {bevel_bar}
 
     <text x="22" y="32" fill="{accent_bar}" class="mono" font-size="11" font-weight="600" letter-spacing="2">03 // EXPLORE</text>
-    <text x="264" y="32" fill="{accent_bar}" class="sans" font-size="14" font-weight="600" text-anchor="end">→</text>
+    <text x="264" y="32" fill="{accent_bar}" class="sans arrow" font-size="14" font-weight="600" text-anchor="end">→</text>
 
     <text x="22" y="86" fill="{text_color}">
       <tspan class="serif" font-size="28" font-weight="400">ClashVision </tspan>
@@ -778,8 +931,9 @@ def render_footer_card(theme: str = "light") -> str:
     }}
     .card-root {{ animation: fadeIn 0.6s ease 0.40s both; }}
     .anim-pulse {{
-      transform-origin: 594px 36px;
-      animation: pulseGlow 3s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: pulseGlow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }}
     """
 

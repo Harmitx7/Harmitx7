@@ -111,11 +111,13 @@ class VisualAuditor:
                     fix=f"Replace '{domain}' widget with self-hosted, Python-generated SVG from assets/generated/."
                 )
 
-        # Audit local image references (e.g. src="./assets/hero.svg")
-        img_srcs = re.findall(r'<img\s+[^>]*src="([^"]+)"', content)
+        # Audit local image and picture source references (e.g. src="./cards/hero-light.svg?v=...", srcset="./cards/hero-dark.svg?v=...")
+        img_srcs = re.findall(r'<(?:img|source)\s+[^>]*(?:src|srcset)="([^"]+)"', content)
         for src in img_srcs:
             if src.startswith("./") or not src.startswith("http"):
-                clean_src = src.lstrip("./").replace("/", os.sep)
+                # Strip URL query parameters (?v=...) and hash fragments before path resolution
+                path_only = src.split("?")[0].split("#")[0]
+                clean_src = path_only.lstrip("./").replace("/", os.sep)
                 target_path = os.path.join(self.root, clean_src)
                 if not os.path.exists(target_path):
                     self.record_issue(

@@ -28,10 +28,11 @@ class ContributionFetcher:
 
     def fetch_raw_html(self, force: bool = False) -> str:
         """Fetch raw HTML fragment with caching and user-agent headers."""
-        if not force and os.path.exists(self.cache_file):
-            # Check cache age (7 days)
+        is_ci = bool(os.environ.get("CI") or os.environ.get("GITHUB_ACTIONS"))
+        if not force and not is_ci and os.path.exists(self.cache_file):
+            # Check cache age (1 hour max for local development, never in CI)
             age = (datetime.utcnow() - datetime.utcfromtimestamp(os.path.getmtime(self.cache_file))).total_seconds()
-            if age < 7 * 86400:
+            if age < 3600:
                 with open(self.cache_file, "r", encoding="utf-8") as f:
                     return f.read()
 

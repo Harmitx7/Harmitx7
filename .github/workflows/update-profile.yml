@@ -2,7 +2,7 @@ name: Update Profile Telemetry & SVGs
 
 on:
   schedule:
-    - cron: "0 */12 * * *"  # Every 12 hours
+    - cron: "0 */3 * * *"  # Every 3 hours
   workflow_dispatch:
   push:
     branches:
@@ -50,7 +50,7 @@ jobs:
 
       - name: Fetch daily contribution data
         run: |
-          python scripts/fetch_contributions.py
+          python scripts/fetch_contributions.py --force
 
       - name: Render animated SVG cards
         run: |
@@ -60,7 +60,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python scripts/build.py --sync-assets
+          python scripts/build.py --force-fetch --sync-assets
 
       - name: Validate SVG security & XML integrity
         run: |
@@ -70,7 +70,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cards/ data/
+          git add cards/ data/ assets/ README.md
           if git diff --staged --quiet; then
             echo "✔ No asset changes detected. Repository is up-to-date."
           else

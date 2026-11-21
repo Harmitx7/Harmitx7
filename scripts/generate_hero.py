@@ -164,6 +164,21 @@ def render_hero_svg(source_portrait_path: Optional[str] = None, theme: str = "li
     .anim-name2 {{ animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.20s both; }}
     .anim-bio {{ animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }}
     .anim-link {{ animation: fadeIn 0.6s ease 0.36s both; }}
+    .hero-link {{ cursor: pointer; }}
+    .hero-arrow {{
+      transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+      transform-box: fill-box;
+      transform-origin: center;
+    }}
+    .link-label {{ transition: fill 200ms ease; }}
+    @media (hover: hover) {{
+      .hero-link:hover .hero-arrow {{
+        transform: translate(2.5px, -2.5px);
+      }}
+      .hero-link:hover .link-label {{
+        fill: {accent_blue};
+      }}
+    }}
 
     .dot-t0 {{ animation: fadeIn 0.5s ease 0.10s both; }}
     .dot-t1 {{ animation: fadeIn 0.5s ease 0.15s both; }}
@@ -255,9 +270,9 @@ def render_hero_svg(source_portrait_path: Optional[str] = None, theme: str = "li
   </g>
 
   <!-- 4. Website Link with Small Directional Arrow -->
-  <g class="anim-link">
-    <text x="46" y="358" font-size="13.5" font-weight="600" fill="{text_primary}" letter-spacing="0.2">harmit.vercel.app</text>
-    <text x="172" y="358" font-size="14" font-weight="700" fill="{accent_blue}">↗</text>
+  <g class="anim-link hero-link">
+    <text class="link-label" x="46" y="358" font-size="13.5" font-weight="600" fill="{text_primary}" letter-spacing="0.2">harmit.vercel.app</text>
+    <text class="hero-arrow" x="172" y="358" font-size="14" font-weight="700" fill="{accent_blue}">↗</text>
   </g>
 
   <!-- Right Side: Swiss Exhibition Vector Halftone Matrix -->

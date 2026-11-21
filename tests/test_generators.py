@@ -190,6 +190,50 @@ class TestGenerators(unittest.TestCase):
         ok, errs = validate_svg_content(svg_static)
         self.assertTrue(ok, f"Contribution calendar static SVG failed validation: {errs}")
 
+    def test_calendar_with_incomplete_weeks_none_padding(self):
+        """Regression test: verify extract_calendar_data and render_contribution_calendar_svg handle None day padding safely."""
+        from scripts.generate_contribution_calendar import (
+            extract_calendar_data,
+            render_contribution_calendar_svg,
+        )
+        # Test leading and trailing incomplete weeks with None padding (reproducing Sun-Fri CI conditions)
+        mock_contrib = {
+            "weeks": [
+                # Leading incomplete week with None padding
+                [None, None, None, {"date": "2025-11-20", "level": 1, "count": 2}, {"date": "2025-11-21", "level": 2, "count": 3}, None, None],
+                # Mid-year week with all valid days
+                [{"date": f"2026-05-{10+i:02d}", "level": (i % 5), "count": i} for i in range(7)],
+                # Trailing incomplete week with None padding
+                [{"date": "2026-11-22", "level": 3, "count": 5}, None, None, None, None, None, None],
+                # Completely empty padded week
+                [None] * 7,
+            ],
+            "total_contributions": 42,
+        }
+        cal_data = extract_calendar_data(mock_contrib)
+        self.assertEqual(cal_data["total_contributions"], 42)
+        self.assertEqual(len(cal_data["weeks"]), 4)
+
+        # Validate animated output
+        svg_anim = render_contribution_calendar_svg(cal_data, is_static=False)
+        ok, errs = validate_svg_content(svg_anim)
+        self.assertTrue(ok, f"Animated SVG with None padding failed validation: {errs}")
+        self.assertIn("Every day, ", svg_anim)
+        self.assertIn("in blue", svg_anim)
+
+        # Validate static output
+        svg_static = render_contribution_calendar_svg(cal_data, is_static=True)
+        ok, errs = validate_svg_content(svg_static)
+        self.assertTrue(ok, f"Static SVG with None padding failed validation: {errs}")
+
+    def test_visual_audit_readme_query_params(self):
+        """Regression test: verify VisualAuditor strips query parameters like ?v=... and passes README audit."""
+        from scripts.visual_audit import VisualAuditor
+        auditor = VisualAuditor()
+        auditor.audit_readme_references()
+        broken = [i for i in auditor.issues if i["category"] == "Broken Asset"]
+        self.assertEqual(len(broken), 0, f"Found broken assets in README: {broken}")
+
 
 
 if __name__ == "__main__":

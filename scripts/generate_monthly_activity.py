@@ -343,6 +343,18 @@ def render_monthly_activity_svg(
       .serif {{ font-family: {FONT_SERIF}; }}
       .sans {{ font-family: {FONT_SANS}; }}
       .mono {{ font-family: {FONT_MONO}; font-variant-numeric: tabular-nums; }}
+      .bar {{
+        transform-box: fill-box;
+        transform-origin: bottom;
+        transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), filter 200ms ease;
+      }}
+      @media (hover: hover) {{
+        .bar:hover {{
+          transform: scaleY(1.05) scaleX(1.05);
+          filter: drop-shadow(0 0 6px #388BFD);
+          cursor: pointer;
+        }}
+      }}
       {extra_css}
     </style>{peak_glow_def}
   </defs>

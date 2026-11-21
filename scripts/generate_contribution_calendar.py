@@ -118,6 +118,8 @@ def extract_calendar_data(contrib_data: Optional[Dict[str, Any]] = None) -> Dict
 
     for col_idx, week in enumerate(weeks):
         for day in week:
+            if not day:
+                continue
             d_str = day.get("date")
             if not d_str:
                 continue
@@ -259,7 +261,21 @@ def render_contribution_calendar_svg(
       .serif {{ font-family: {FONT_SERIF}; }}
       .sans {{ font-family: {FONT_SANS}; }}
       .mono {{ font-family: {FONT_MONO}; }}
-      rect.c {{ width: 11.4px; height: 11.4px; rx: 2.5px; }}
+      rect.c {{
+        width: 11.4px;
+        height: 11.4px;
+        rx: 2.5px;
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), filter 180ms ease;
+      }}
+      @media (hover: hover) {{
+        rect.c:hover {{
+          transform: scale(1.42);
+          filter: drop-shadow(0 0 4px #388BFD);
+          cursor: pointer;
+        }}
+      }}
       .l0 {{ fill: {level_colors[0]}; }}
       .l1 {{ fill: {level_colors[1]}; }}
       .l2 {{ fill: {level_colors[2]}; }}
