@@ -1,9 +1,9 @@
 {
   "username": "Harmitx7",
-  "fetched_at": "2026-11-21T20:50:21.672160Z",
-  "total_contributions": 268,
-  "active_days": 101,
-  "total_calendar_days": 371,
+  "fetched_at": "2026-11-22T01:03:05.618022Z",
+  "total_contributions": 267,
+  "active_days": 100,
+  "total_calendar_days": 365,
   "current_streak": {
     "days": 1,
     "start": "2026-11-21",
@@ -35,7 +35,7 @@
       "key": "2025-11",
       "label": "Nov",
       "year": 2025,
-      "count": 1
+      "count": 0
     },
     {
       "key": "2025-12",
@@ -112,43 +112,6 @@
   ],
   "weeks_count": 53,
   "weeks": [
-    [
-      {
-        "date": "2025-11-16",
-        "level": 1,
-        "count": 1
-      },
-      {
-        "date": "2025-11-17",
-        "level": 0,
-        "count": 0
-      },
-      {
-        "date": "2025-11-18",
-        "level": 0,
-        "count": 0
-      },
-      {
-        "date": "2025-11-19",
-        "level": 0,
-        "count": 0
-      },
-      {
-        "date": "2025-11-20",
-        "level": 0,
-        "count": 0
-      },
-      {
-        "date": "2025-11-21",
-        "level": 0,
-        "count": 0
-      },
-      {
-        "date": "2025-11-22",
-        "level": 0,
-        "count": 0
-      }
-    ],
     [
       {
         "date": "2025-11-23",
@@ -2072,44 +2035,22 @@
         "level": 2,
         "count": 5
       }
+    ],
+    [
+      {
+        "date": "2026-11-22",
+        "level": 0,
+        "count": 0
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
     ]
   ],
   "days": [
-    {
-      "date": "2025-11-16",
-      "level": 1,
-      "count": 1
-    },
-    {
-      "date": "2025-11-17",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-11-18",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-11-19",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-11-20",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-11-21",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-11-22",
-      "level": 0,
-      "count": 0
-    },
     {
       "date": "2025-11-23",
       "level": 0,
@@ -3929,6 +3870,11 @@
       "date": "2026-11-21",
       "level": 2,
       "count": 5
+    },
+    {
+      "date": "2026-11-22",
+      "level": 0,
+      "count": 0
     }
   ]
 }
