@@ -216,7 +216,7 @@
     <text x="640" y="176">
       <tspan class="serif" font-size="38" fill="#151515" font-weight="400">102 </tspan>
       <tspan class="serif" font-size="32" fill="#A0A0A5">/ </tspan>
-      <tspan class="serif" font-size="34" fill="#77777D" font-style="italic">368</tspan>
+      <tspan class="serif" font-size="34" fill="#77777D" font-style="italic">369</tspan>
     </text>
     <text x="640" y="198" fill="#77777D" class="sans" font-size="12">
       days with a commit
