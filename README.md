@@ -12,8 +12,8 @@
 <p align="center">
   <a href="https://harmit.vercel.app">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./cards/hero-dark.svg?v=1795711074">
-      <img src="./cards/hero-light.svg?v=1795711074" width="100%" alt="Harmit Kalal — Fullstack Engineer &amp; Systems Architect" />
+      <source media="(prefers-color-scheme: dark)" srcset="./cards/hero-dark.svg?v=1795743293">
+      <img src="./cards/hero-light.svg?v=1795743293" width="100%" alt="Harmit Kalal — Fullstack Engineer &amp; Systems Architect" />
     </picture>
   </a>
 </p>
@@ -21,29 +21,29 @@
 <!-- 02. BLUE CONTRIBUTION CALENDAR -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./cards/heatmap-dark.svg?v=1795711074">
-    <img src="./cards/heatmap-light.svg?v=1795711074" width="100%" alt="Every day, in blue — 53-week GitHub contribution calendar" />
+    <source media="(prefers-color-scheme: dark)" srcset="./cards/heatmap-dark.svg?v=1795743293">
+    <img src="./cards/heatmap-light.svg?v=1795743293" width="100%" alt="Every day, in blue — 53-week GitHub contribution calendar" />
   </picture>
 </p>
 
 <!-- 03. MONTHLY CONTRIBUTION STATISTICS -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./cards/activity-dark.svg?v=1795711074">
-    <img src="./cards/activity-light.svg?v=1795711074" width="100%" alt="The Last 12 Months on GitHub — Editorial monthly contribution chart and key cadence statistics" />
+    <source media="(prefers-color-scheme: dark)" srcset="./cards/activity-dark.svg?v=1795743293">
+    <img src="./cards/activity-light.svg?v=1795743293" width="100%" alt="The Last 12 Months on GitHub — Editorial monthly contribution chart and key cadence statistics" />
   </picture>
 </p>
 
 <!-- 04. THREE SIGNATURE FEATURE CARDS -->
 <p align="center">
-  <a href="https://github.com/Harmitx7/tribunal-kit"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/build-dark.svg?v=1795711074"><img src="./cards/build-light.svg?v=1795711074" width="32.5%" alt="01 // BUILD — tribunal-kit" /></picture></a> <a href="https://github.com/Harmitx7/DeckReactor"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/create-dark.svg?v=1795711074"><img src="./cards/create-light.svg?v=1795711074" width="32.5%" alt="02 // CREATE — DeckReactor" /></picture></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/explore-dark.svg?v=1795711074"><img src="./cards/explore-light.svg?v=1795711074" width="32.5%" alt="03 // EXPLORE — ClashVision &amp; F1" /></picture></a>
+  <a href="https://github.com/Harmitx7/tribunal-kit"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/build-dark.svg?v=1795743293"><img src="./cards/build-light.svg?v=1795743293" width="32.5%" alt="01 // BUILD — tribunal-kit" /></picture></a> <a href="https://github.com/Harmitx7/DeckReactor"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/create-dark.svg?v=1795743293"><img src="./cards/create-light.svg?v=1795743293" width="32.5%" alt="02 // CREATE — DeckReactor" /></picture></a> <a href="https://github.com/Harmitx7/ClashVision-v3.0-PCI-RL-Kaggle-Season18-Dataset"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/explore-dark.svg?v=1795743293"><img src="./cards/explore-light.svg?v=1795743293" width="32.5%" alt="03 // EXPLORE — ClashVision &amp; F1" /></picture></a>
 </p>
 
 <!-- 05. COLOPHON & VERIFICATION SEAL -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./cards/footer-dark.svg?v=1795711074">
-    <img src="./cards/footer-light.svg?v=1795711074" width="100%" alt="Harmit Kalal — Colophon &amp; verification status" />
+    <source media="(prefers-color-scheme: dark)" srcset="./cards/footer-dark.svg?v=1795743293">
+    <img src="./cards/footer-light.svg?v=1795743293" width="100%" alt="Harmit Kalal — Colophon &amp; verification status" />
   </picture>
 </p>
 
