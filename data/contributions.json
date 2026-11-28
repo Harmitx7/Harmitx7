@@ -1,13 +1,13 @@
 {
   "username": "Harmitx7",
-  "fetched_at": "2026-11-27T20:54:00.269963Z",
+  "fetched_at": "2026-11-28T03:10:13.813628Z",
   "total_contributions": 280,
   "active_days": 103,
-  "total_calendar_days": 370,
+  "total_calendar_days": 371,
   "current_streak": {
-    "days": 3,
-    "start": "2026-11-24",
-    "end": "2026-11-26"
+    "days": 0,
+    "start": null,
+    "end": null
   },
   "longest_streak": {
     "days": 5,
@@ -2067,7 +2067,11 @@
         "level": 0,
         "count": 0
       },
-      null
+      {
+        "date": "2026-11-28",
+        "level": 0,
+        "count": 0
+      }
     ]
   ],
   "days": [
@@ -3918,6 +3922,11 @@
     },
     {
       "date": "2026-11-27",
+      "level": 0,
+      "count": 0
+    },
+    {
+      "date": "2026-11-28",
       "level": 0,
       "count": 0
     }
